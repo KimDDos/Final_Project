@@ -5,7 +5,12 @@
 
 	<div>
 		<h1>Test</h1>
+<<<<<<< HEAD
 		<h3>asdfasdfasdfasdfadfs</h3>
+=======
+		<h2>df;lkjsda;lkfjsda;lkfjasd;lfjsdalfjl;skadfj</h2>
+		<h3>다은은 이태빈</h#>
+>>>>>>> origin/DY
 	</div>
 
 
