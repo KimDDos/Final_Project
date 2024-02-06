@@ -17,7 +17,7 @@ public class MemberController {
 	
 	private final MemberService msv;
 	
-	@GetMapping("/register")
+	@GetMapping("/memberRegister")
 	public void memberRegister() {}
 	
 }
