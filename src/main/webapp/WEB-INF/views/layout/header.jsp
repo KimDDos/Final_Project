@@ -40,9 +40,10 @@
                                     <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/user/member/memberRegister">Sign up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
                             <li class="nav-item"><a class="nav-link" href="pricing.html">Log in</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+         </main>
