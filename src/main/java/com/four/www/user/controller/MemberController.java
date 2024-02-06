@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@Component
 @RequestMapping("/member/**")
 public class MemberController {
 	
