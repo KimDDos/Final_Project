@@ -3,6 +3,12 @@
     
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
+	<div>
+		<h1>Test</h1>
+	</div>
+
+
+
 <jsp:include page="../layout/footer.jsp"></jsp:include>
 
         <!-- Bootstrap core JS-->
