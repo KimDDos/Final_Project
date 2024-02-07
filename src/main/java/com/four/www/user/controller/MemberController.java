@@ -20,4 +20,7 @@ public class MemberController {
 	@GetMapping("/memberRegister")
 	public void memberRegister() {}
 	
+	@GetMapping("/mypage")
+	public void mypage() {}
+	
 }
