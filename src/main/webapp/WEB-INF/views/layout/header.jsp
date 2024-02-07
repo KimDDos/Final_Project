@@ -1,3 +1,6 @@
+    <!DOCTYPE html>
+<html>
+    
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,9 +24,8 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html"></a></li>
+                            <li class="nav-item"><a class="nav-link" href="/reservation/reservation">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                             <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                             <li class="nav-item dropdown">
@@ -40,9 +42,10 @@
                                     <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/user/member/memberRegister">Sign up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
                             <li class="nav-item"><a class="nav-link" href="pricing.html">Log in</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+         </main>

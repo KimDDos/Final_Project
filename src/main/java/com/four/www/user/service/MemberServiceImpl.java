@@ -10,9 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
 
-	@Autowired
-	private MemberDAO mdao;
+	private final MemberDAO mdao;
 	
 }

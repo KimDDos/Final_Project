@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-@ComponentScan(basePackages = {"com.four.www.controller", "com.four.www.user.controller"})
+@ComponentScan(basePackages = {"com.four.www.controller", "com.four.www.user.controller", "com.four.www.user.service"})
 @EnableWebMvc
 public class ServletConfiguration implements WebMvcConfigurer{
 
