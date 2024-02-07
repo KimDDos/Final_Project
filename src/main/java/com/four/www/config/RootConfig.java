@@ -19,8 +19,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages= {"com.four.www.repository"})
-@ComponentScan(basePackages= {"com.four.www.service"})
+@MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository"})
+@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service"})
 public class RootConfig {
 	
 	@Autowired
@@ -31,9 +31,15 @@ public class RootConfig {
 		HikariConfig hikariConfig = new HikariConfig();
 		
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
-		hikariConfig.setUsername("four");
-		hikariConfig.setPassword("1234");
+		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/four");      
+		hikariConfig.setUsername("root");
+		hikariConfig.setPassword("ezen");
+		
+		/*  24.02.07 컴 끄고와서 안 돌아감 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+			hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
+			hikariConfig.setUsername("four");
+			hikariConfig.setPassword("1234");
+		 *  */
 		
 		hikariConfig.setMaximumPoolSize(5);
 		hikariConfig.setMinimumIdle(5);

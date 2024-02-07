@@ -121,3 +121,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
 
+#gae jotgateun manifest ignore ha ja
+MANIFEST.MF
