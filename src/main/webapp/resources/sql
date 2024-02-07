@@ -33,7 +33,7 @@ CREATE TABLE mbr_profile(
 	user_address varchar(100) NOT NULL,
 	user_itrs varchar(100) NOT NULL,
 	user_reg_at datetime NOT NULL,
-	user_last_login_date datetime	NOT NULL,
+	user_last_login_date datetime NOT NULL,
 	is_trainer varchar(1) NOT NULL,
 	primary key(User_serial_no));
 	
@@ -41,10 +41,10 @@ CREATE TABLE mbr_profile(
 	
 [mbr_user] 테이블 
 CREATE TABLE mbr_user (
-	User_serial_no varchar NOT NULL,
+	User_serial_no varchar(10) NOT NULL,
 	User_name varchar(20) NOT NULL,
 	User_nick_name varchar(20) NOT NULL,
-	User_login_type varchar(2) NOT NULL
+	User_login_type varchar(2) NOT NULL,
 	primary key(User_serial_no));
 
 << User_login_type : COMMENT '플랫폼:H / 구글:G / 네이버:N / 카카오:K' >> 	

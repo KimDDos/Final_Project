@@ -5,4 +5,19 @@
 
 <mapper namespace="com.four.www.user.domain.MemberDAO">
 
+	<select id="selectUserCount" resultType="String">
+		select count(user_serial_no) from mbr_profile where user_serial_no like 'U%'
+	</select>
+
+	<insert id="register">
+		insert into mbr_profile
+		values(
+			user_serial_no,
+			user_email,
+			user_pwd,
+			user_name,
+			user_nick_name
+		)
+	</insert>
+
 </mapper>

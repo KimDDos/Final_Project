@@ -1,9 +1,14 @@
 package com.four.www.user.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.four.www.user.domain.MemberVO;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,4 +25,23 @@ public class MemberController {
 	@GetMapping("/memberRegister")
 	public void memberRegister() {}
 	
+	@PostMapping("/memberRegister")
+	public String memberRegister(MemberVO mvo) {
+		log.info(">>>> mvo >>>> {}", mvo);
+		
+		
+		return "/";
+	}
+	
+	@GetMapping("/memberLogin")
+	public void memberLogin() {}
+	
+	
+	@PostMapping("/memberLogin")
+	public String memberLogin(HttpServletRequest request, RedirectAttributes re) {
+		
+		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
+		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
+		return "redirect:/member/login";
+	}
 }

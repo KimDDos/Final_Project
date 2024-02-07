@@ -35,7 +35,7 @@ public class RootConfig {
 		hikariConfig.setUsername("root");
 		hikariConfig.setPassword("ezen");
 		
-		/*  24.02.07 컴 끄고와서 안 돌아감 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+		/*  24.02.07 컴 끄고와서 서버 안 돌아감 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 일단 로컬 호스트로 진행
 			hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
 			hikariConfig.setUsername("four");
 			hikariConfig.setPassword("1234");

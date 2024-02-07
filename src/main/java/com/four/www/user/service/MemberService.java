@@ -1,8 +1,9 @@
 package com.four.www.user.service;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import com.four.www.user.domain.MemberVO;
 
 public interface MemberService {
+
+	int memberRegister(MemberVO mvo);
 
 }
