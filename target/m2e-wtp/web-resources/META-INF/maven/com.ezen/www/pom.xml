@@ -276,7 +276,22 @@
    </dependencies>
     <build>
         <plugins>
+              <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+                <archive>
+                    <manifestEntries>
+                        <Built-By>four</Built-By>
+                    </manifestEntries>
+                </archive>
+            </configuration>
+        </plugin>
+        
+        
             <plugin>
+            
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
                 <configuration>
