@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
 	<div>
 		<h1>Test</h1>
 		<h2>df;lkjsda;lkfjsda;lkfjasd;lfjsdalfjl;skadfj</h2>
-		<h3>앙기모딱딱ㅁㄴㅇㄹㄹㅇㄴ</h#>
+		<h3>앙기모딱딱ㅁㄴㅇㄹㄹㅇㄴ</h3>
+		<h4>sql 파일 반영 확인용</h4>
 	</div>
 
 

@@ -19,6 +19,11 @@ public class BoardController {
 	
 	private final BoardService bsv;
 	
+	@GetMapping("/abc")
+	public String abc() {
+		return "/footerdetail/privateinformation";
+		
+	}
 
 
 }
