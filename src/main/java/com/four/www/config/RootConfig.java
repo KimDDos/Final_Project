@@ -19,8 +19,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages= {"com.four.www.repository"})
-@ComponentScan(basePackages= {"com.four.www.service"})
+@MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository"})
+@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service"})
 public class RootConfig {
 	
 	@Autowired
