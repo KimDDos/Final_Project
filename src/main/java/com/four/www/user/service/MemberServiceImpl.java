@@ -15,15 +15,20 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberServiceImpl implements MemberService{
 
 	private final MemberDAO mdao;
-	/*
-	private final BCryptPasswordEncoder passwordEncoder;
-	*/
+	
+	// private final BCryptPasswordEncoder passwordEncoder;
+
 	@Override
 	public int memberRegister(MemberVO mvo) {
-		String tmpStr = "U" + mdao.selectUserCount();
-		mvo.setUserSerialNo(tmpStr);
+		mvo.setUserSerialNo("U"+mdao.selectUserCount());
 		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
+	}
+
+	@Override
+	public boolean updateLastLogin(String authEmail) {
+		String isOk = mdao.selectUserInfo(authEmail);
+		return (isOk != null || isOk != "") ? true : false;
 	}
 
 	

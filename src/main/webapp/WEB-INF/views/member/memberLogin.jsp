@@ -4,9 +4,18 @@
     
 <jsp:include page="../layout/header.jsp"></jsp:include>
 <link href="/resources/css/memberlogin.css" rel="stylesheet" />
+<style>
+	div {
+		border: 1px solid black;
+	}
+	
+	.login-container {
+		border: 3px solid blue;
+	}
+</style>
 
 <div class="container-md" style="height: 100%">
-	<div id="container" class="container text-center">
+	<div id="container" class="container text-center login-container" style="border: 1px solid black;">
 		<!-- FORM SECTION -->
 		<div class="row">
 			<!-- SIGN UP -->
@@ -21,7 +30,7 @@
 							<i class='bx bxs-lock-alt'></i> <input type="password"
 								placeholder="Password">
 						</div>
-						<button id="tLoginBtn">Trainer Sign in</button>
+						<button id="tLoginBtn" style="margin-top: 10px">Trainer Sign in</button>
 						<p>
 							<b> Forgot password? </b>
 						</p>
@@ -47,7 +56,8 @@
 								<i class='bx bxs-lock-alt'></i> <input type="password"
 									placeholder="Password">
 							</div>
-							<button type="submit">User Sign in</button>
+							<input type="hidden" name="isTrainer">
+							<button type="submit"  style="margin-top: 10px">User Sign in</button>
 						</form>
 						<p>
 							<b> Forgot password? </b>

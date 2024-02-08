@@ -1,8 +1,10 @@
 package com.four.www.config;
 
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
+import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -11,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -20,9 +23,17 @@ import com.zaxxer.hikari.HikariDataSource;
 @EnableTransactionManagement
 @Configuration
 @MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository"})
-@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service"})
+@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service", "com.four.www.user.oauth"})
+@PropertySource("classpath:jdbcAndApi.properties")
 public class RootConfig {
 	
+	@Inject
+	Environment env;
+	/*
+	 * jdbc.rul=jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project
+		jdbc.username=four
+		jdbc.password=1234
+	 * */
 	@Autowired
 	ApplicationContext applicationContext;
 	
