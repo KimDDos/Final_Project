@@ -27,13 +27,13 @@ public class RootConfig {
 	ApplicationContext applicationContext;
 	
 	@Bean
-	public DataSource dataSource() {
+		public DataSource dataSource() {
 		HikariConfig hikariConfig = new HikariConfig();
 		
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
-		hikariConfig.setUsername("four");
-		hikariConfig.setPassword("1234");
+		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/four");
+		hikariConfig.setUsername("root");
+		hikariConfig.setPassword("root");
 		
 		hikariConfig.setMaximumPoolSize(5);
 		hikariConfig.setMinimumIdle(5);

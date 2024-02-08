@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
 
 <jsp:include page="./layout/header.jsp"></jsp:include>
 
             <!-- Header-->
             <header class="bg-dark py-5">
                 <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="row gx-5 align-items-centerss justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-5 fw-bolder text-white mb-2">A Bootstrap 5 template for modern businesses</h1>
