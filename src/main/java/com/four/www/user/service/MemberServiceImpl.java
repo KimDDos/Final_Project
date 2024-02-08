@@ -16,13 +16,19 @@ public class MemberServiceImpl implements MemberService{
 
 	private final MemberDAO mdao;
 	
-	private final BCryptPasswordEncoder passwordEncoder;
+	// private final BCryptPasswordEncoder passwordEncoder;
 
 	@Override
 	public int memberRegister(MemberVO mvo) {
 		mvo.setUserSerialNo("U"+mdao.selectUserCount());
-		mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
+		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
+	}
+
+	@Override
+	public boolean updateLastLogin(String authEmail) {
+		String isOk = mdao.selectUserInfo(authEmail);
+		return (isOk != null || isOk != "") ? true : false;
 	}
 
 	

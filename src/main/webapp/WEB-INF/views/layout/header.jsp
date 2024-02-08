@@ -44,7 +44,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Log in</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/member/memberLogin">Log in</a></li>
                         </ul>
                     </div>
                 </div>
