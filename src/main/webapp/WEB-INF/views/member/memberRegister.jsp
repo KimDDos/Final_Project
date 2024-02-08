@@ -13,6 +13,13 @@
 			<div class="memberRegisterForm" style="border: 1px solid black; padding: 20px">
 				<form action="/member/memberRegister" method="post">
 					<div class="mb-3 row">
+						<label for="isTrainer" class="col-sm-3 col-form-label text-center">계정 선택</label>
+						<div class="col-sm-9">
+							<input type="email" class="form-control"
+								name="userEmail" id="userEmail" placeholder="E-Mail을 입력해주세요.">
+						</div>
+					</div>
+					<div class="mb-3 row">
 						<label for="userEmail" class="col-sm-3 col-form-label text-center">로그인 Email</label>
 						<div class="col-sm-9">
 							<input type="email" class="form-control"

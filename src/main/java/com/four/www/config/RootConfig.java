@@ -1,14 +1,13 @@
 package com.four.www.config;
 
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,11 +23,18 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository"})
 @ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service", "com.four.www.user.oauth"})
-@PropertySource("classpath:jdbcAndApi.properties")
+@PropertySource("classpath:application-mysql.properties")
 public class RootConfig {
 	
-	@Inject
-	Environment env;
+	@Value("${jdbc.rul}")
+	private String jdbc;
+	
+	@Value("${jdbc.username}")
+	private String username;
+	
+	@Value("${jdbc.password}")
+	private String password;
+	
 	/*
 	 * jdbc.rul=jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project
 		jdbc.username=four
@@ -39,12 +45,12 @@ public class RootConfig {
 	
 	@Bean
 	public DataSource dataSource() {
-		HikariConfig hikariConfig = new HikariConfig();
+		HikariConfig hikariConfig = new HikariConfig(); 
 		
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
-		hikariConfig.setUsername("four");
-		hikariConfig.setPassword("1234");
+		hikariConfig.setJdbcUrl(jdbc);
+		hikariConfig.setUsername(username);
+		hikariConfig.setPassword(password);
 		
 		hikariConfig.setMaximumPoolSize(5);
 		hikariConfig.setMinimumIdle(5);
