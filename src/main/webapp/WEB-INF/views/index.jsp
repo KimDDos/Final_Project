@@ -167,7 +167,6 @@
                     </aside>
                 </div>
             </section>
-        </main>
         <!-- Footer-->
 
 <jsp:include page="./layout/footer.jsp"></jsp:include>
