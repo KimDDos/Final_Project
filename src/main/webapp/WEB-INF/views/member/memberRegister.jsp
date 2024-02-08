@@ -12,9 +12,6 @@
 			<br>
 			<div class="memberRegisterForm" style="border: 1px solid black; padding: 20px">
 				<form action="/member/memberRegister" method="post">
-					<div class="">
-						<h5>로그인 정보</h5>
-					</div>
 					<div class="mb-3 row">
 						<label for="userEmail" class="col-sm-3 col-form-label text-center">로그인 Email</label>
 						<div class="col-sm-9">
@@ -37,10 +34,6 @@
 						<div class="col-sm-6">
 							<input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="Password를 입력해주세요.">
 						</div>
-					</div>
-					<hr>
-					<div class="">
-						<h5>개인정보 입력</h5>
 					</div>
 					<div class="mb-3 row">
 						<label for="userName" class="col-sm-3 col-form-label text-center"> 이 름 </label>

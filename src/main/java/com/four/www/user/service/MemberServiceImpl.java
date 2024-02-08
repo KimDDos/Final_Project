@@ -15,13 +15,14 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberServiceImpl implements MemberService{
 
 	private final MemberDAO mdao;
-	
+	/*
 	private final BCryptPasswordEncoder passwordEncoder;
-
+	*/
 	@Override
 	public int memberRegister(MemberVO mvo) {
-		mvo.setUserSerialNo("U"+mdao.selectUserCount());
-		mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
+		String tmpStr = "U" + mdao.selectUserCount();
+		mvo.setUserSerialNo(tmpStr);
+		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
 	}
 
