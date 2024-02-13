@@ -1,8 +1,6 @@
 package com.four.www.user.oauth;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -15,14 +13,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.four.www.user.domain.MemberDTO;
-import com.four.www.user.domain.MemberVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -56,11 +51,12 @@ public class loginController {
 		case "google":
 			try {
 				Map<String, String> userInfo = googleOAuth.getGoogleAccessTokenUrl(code);
+				log.info(">>>>>> UserInfo >>>>>>> {}", userInfo);
 				mdto = parser.googleUser(userInfo);
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.info(">>>>>> Google Login Error >>>>>>> {}", e.toString());
-				return "redirect:/member/memberLogin";
+				return "redirect:/";
 			}
 			break;
 		default:

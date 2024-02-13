@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserAuthVO;
+import com.four.www.user.domain.UserVO;
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.service.MemberService;
 
@@ -30,6 +31,10 @@ public class OauthParser {
 		String userNickName = userInfo.get("name"); 
 		
 		MemberDTO mdto = new MemberDTO();
+		MemberVO mvo = new MemberVO();
+		UserVO uvo = new UserVO();
+		mdto.setMvo(mvo);
+		mdto.setUvo(uvo);
 		mdto.getMvo().setUserEmail(userEmail);
 		UUID uuid = UUID.randomUUID();
 		mdto.getMvo().setUserPwd(uuid.toString());
@@ -42,6 +47,8 @@ public class OauthParser {
 		mdto.getMvo().setIsTrainer("N");
 		mdto.getUvo().setUserLoginType("G");
 		
+		
+		log.info(">>>>>>>>> mdto >>>>>>>>> {}", mdto);
 		return regAndAuth(mdto);
 	}
 	

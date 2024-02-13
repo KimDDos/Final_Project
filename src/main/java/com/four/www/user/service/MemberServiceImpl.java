@@ -50,7 +50,6 @@ public class MemberServiceImpl implements MemberService{
 	@Transactional
 	@Override
 	public int regSocialMbr(MemberDTO mdto) {
-		
 		int isOK = 1;
 		isOK *= mdao.register(mdto.getMvo());
 		mdto.getUvo().setUserName(mdto.getMvo().getUserName());

@@ -59,4 +59,8 @@ CREATE TABLE mbr_auth(
     user_role varchar(10) NOT NULL);
     
     
-    
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column user_reg_at datetime not null default now();
+alter table mbr_profile modify column user_last_login_date datetime not null default now();
+
+
