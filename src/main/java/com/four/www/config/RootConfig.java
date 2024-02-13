@@ -21,8 +21,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository"})
-@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service", "com.four.www.user.oauth"})
+@MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository","com.four.www.admin.repository"})
+@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service", "com.four.www.user.oauth","com.four.www.admin.service"})
 @PropertySource("classpath:application-mysql.properties")
 public class RootConfig {
 	

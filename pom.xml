@@ -174,7 +174,7 @@
 		</dependency>
 
 		<!--댓글 관련 -->
-		<!-- jackson-databind / jackson -dataformat-xml -->
+		<!-- jackson-databind / jackson -dataformat-xml / jackson-dataformat-cbor -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -186,6 +186,14 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<version>2.13.0</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-cbor</artifactId>
+		    <version>2.13.0</version>
+		</dependency>
+				
+		
 		<!-- file upload 관련 -->
 		<!-- commons-fileupload / commons-io / thumbnailater/ tika-core / tika-parsers -->
 		<dependency>
