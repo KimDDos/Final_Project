@@ -1,8 +1,8 @@
-package com.four.www.service;
+package com.four.www.main.service;
 
 import org.springframework.stereotype.Service;
 
-import com.four.www.repository.BoardDAO;
+import com.four.www.main.repository.MainDAO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,9 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class BoardServiceImpl implements BoardService{
+public class MainServiceImpl implements MainService {
 	
-	private final BoardDAO bdao;
-	
+	private final MainDAO maindao;
 
 }
