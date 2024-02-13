@@ -25,5 +25,9 @@ public class BoardController {
 		
 	}
 
+	@GetMapping("/abcd")
+	public String abcd() {
+		return "/footerdetail/privateinformation";
+	}
 
 }
