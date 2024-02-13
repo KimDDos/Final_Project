@@ -9,7 +9,7 @@
         
         <title>Modern Business - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -28,6 +28,7 @@
                             <li class="nav-item"><a class="nav-link" href="/reservation/reservation">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
                             <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/member/mypage">MYPAGE</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -43,7 +44,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Log in</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/member/memberLogin">Log in</a></li>
                         </ul>
                     </div>
                 </div>
