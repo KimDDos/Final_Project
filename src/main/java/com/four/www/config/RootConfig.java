@@ -35,11 +35,6 @@ public class RootConfig {
 	@Value("${jdbc.password}")
 	private String password;
 	
-	/*
-	 * jdbc.rul=jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project
-		jdbc.username=four
-		jdbc.password=1234
-	 * */
 	@Autowired
 	ApplicationContext applicationContext;
 	
@@ -48,9 +43,9 @@ public class RootConfig {
 		HikariConfig hikariConfig = new HikariConfig(); 
 		
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/four");
-		hikariConfig.setUsername("root");
-		hikariConfig.setPassword("1234");
+		hikariConfig.setJdbcUrl(jdbc);
+		hikariConfig.setUsername(username);
+		hikariConfig.setPassword(password);
 		
 		hikariConfig.setMaximumPoolSize(5);
 		hikariConfig.setMinimumIdle(5);
