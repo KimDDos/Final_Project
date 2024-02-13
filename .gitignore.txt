@@ -116,6 +116,10 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+# jdbc and API properties file
+application-mysql.properties
+application-api.properties
+
 # Windows shortcuts
 *.lnk
 

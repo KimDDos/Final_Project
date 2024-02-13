@@ -24,16 +24,6 @@ public class BoardController {
 		return "/footerdetail/privateinformation";
 		
 	}
-	
-	@GetMapping("/abcd")
-	public String abcd() {
-		return "/company/company";
-	}
-	
-	@GetMapping("/index")
-	public String index() {
-		return "index";
-	}
 
 
 }
