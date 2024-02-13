@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html 에서 가져와야한다. -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.four.www.repository.NoticeDAO">
+
+	<insert id="register">
+		insert into notice_board(notice_title, notice_content)
+		values(#{noticeTitle},#{noticeContent})
+	</insert>
+	
+	<select id="getList" resultType="com.four.www.domain.NoticeVO">
+		select * from notice_board
+	</select>
+	
+	<select id="getdetail" parameterType="int" resultType="com.four.www.domain.NoticeVO">
+		select * from notice_board where notice_no = #{noticeNo}
+	</select>
+	
+	<update id="modify">
+		update notice_board set
+		notice_title = #{noticeTitle},
+		notice_content = #{noticeContent}
+		where notice_no = #{noticeNo}
+	</update>
+	
+	<delete id="remove">
+		delete from notice_board where notice_no = #{noticeNo}
+	</delete>
+	
+	
+</mapper>

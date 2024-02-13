@@ -25,6 +25,12 @@ public class MemberController {
 	@GetMapping("/memberRegister")
 	public void memberRegister() {}
 	
+	@GetMapping("/mypage")
+	public void mypage() {}
+	
+	@GetMapping("/calendar")
+	public void calendar() {}
+	
 	@PostMapping("/memberRegister")
 	public String memberRegister(MemberVO mvo) {
 		log.info(">>>> mvo >>>> {}", mvo);

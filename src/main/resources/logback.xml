@@ -14,7 +14,7 @@
   </appender>
 
   <!-- 좀 더 자세한 로그를 찍기 위해서 패키지 별로 log 설정 -->
-  <logger name="com.ezen.www" level="info" appender-ref="STDOUT"></logger>
+  <logger name="com.four.www" level="info" appender-ref="STDOUT"></logger>
   <logger name="org.springframework" level="info" appender-ref="STDOUT"></logger>
   <logger name="org.springframework.jdbc" level="info" appender-ref="STDOUT"></logger>
   <logger name="jdbc.sqlonly" level="info" appender-ref="STDOUT"></logger>
