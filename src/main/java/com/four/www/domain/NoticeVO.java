@@ -16,7 +16,7 @@ public class NoticeVO {
 
 	private int noticeNo;
 	private String noticeTitle;
-	private String noticecontent;
+	private String noticeContent;
 	private String noticeReadCount;
 	private String noticeRegDate;
 }

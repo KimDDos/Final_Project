@@ -10,17 +10,17 @@
     <tr>
       <th scope="col">번호</th>
       <th scope="col">제목</th>
-      <th scope="col">작성자</th>
       <th scope="col">내 용</th>
+      <th scope="col">작성일</th>
     </tr>
   </thead>
 <tbody>
-  <c:forEach var="item" items="${notice }">
+  <c:forEach var="nvo" items="${list }">
     <tr>
-      <th scope="row">${notice.noticeNo }</th>
-      <td>${notice.noticeTitle }</td>
-      <td>${notice.noticeWriter }</td>
-      <td>${notice.noticeContent }</td>
+      <th scope="row">${nvo.noticeNo }</th>
+      <td><a href="/notice/detail?notice_no=${nvo.noticeNo }"> ${nvo.noticeTitle }</a></td>
+      <td>${nvo.noticeContent }</td>
+      <td>${nvo.noticeRegDate }</td>
     </tr>
     
     </c:forEach>
