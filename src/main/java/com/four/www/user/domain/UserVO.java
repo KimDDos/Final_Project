@@ -14,5 +14,6 @@ import lombok.ToString;
 public class UserVO {
 	private String userSerialNo;
 	private String userName;
+	private String userNickName;
 	private String userLoginType;
 }

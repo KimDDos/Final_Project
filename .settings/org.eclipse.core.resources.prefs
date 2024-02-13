@@ -3,9 +3,13 @@
 >>>>>>>=origin/KJH
 eclipse.preferences.version=1
 encoding//src/main/java/com/four/www/config/RootConfig.java=UTF-8
-encoding//src/main/resources/jdbcAndApi.properties=UTF-8
 encoding//src/main/webapp/WEB-INF=UTF-8
 encoding//src/main/webapp/WEB-INF/views/index.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/layout/footer.jsp=UTF-8
+<<<<<<< HEAD
+encoding//src/main/webapp/WEB-INF/views/layout/header.jsp=UTF-8
+=======
+>>>>>>> f1fdcba2e20666f74eb668b133104370d23d1bb8
 encoding//src/main/webapp/WEB-INF/views/member/mypage.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/member/mypageLayout.jsp=UTF-8
 encoding//src/main/webapp/resources=UTF-8

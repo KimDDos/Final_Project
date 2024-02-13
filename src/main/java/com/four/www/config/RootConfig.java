@@ -21,12 +21,12 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages= {"com.four.www.repository", "com.four.www.user.repository"})
-@ComponentScan(basePackages= {"com.four.www.service", "com.four.www.user.service", "com.four.www.user.oauth"})
+@MapperScan(basePackages= {"com.four.www.repository","com.four.www.user.repository","com.four.www.main.repository","com.four.www.reservation.repository"})
+@ComponentScan(basePackages= {"com.four.www.service","com.four.www.user.service", "com.four.www.user.oauth","com.four.www.main.service","com.four.www.reservation.service"})
 @PropertySource("classpath:application-mysql.properties")
 public class RootConfig {
 	
-	@Value("${jdbc.rul}")
+	@Value("${jdbc.url}")
 	private String jdbc;
 	
 	@Value("${jdbc.username}")
@@ -35,11 +35,6 @@ public class RootConfig {
 	@Value("${jdbc.password}")
 	private String password;
 	
-	/*
-	 * jdbc.rul=jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project
-		jdbc.username=four
-		jdbc.password=1234
-	 * */
 	@Autowired
 	ApplicationContext applicationContext;
 	

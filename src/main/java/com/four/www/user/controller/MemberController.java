@@ -2,6 +2,7 @@ package com.four.www.user.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +25,29 @@ public class MemberController {
 	
 	@GetMapping("/memberRegister")
 	public void memberRegister() {}
+	
+	@GetMapping("/mypage")
+	public void mypage() {}
+	
+	@GetMapping("/calendar")
+	public void calendar() {}
+	
+	@GetMapping("/coupon")
+	public void coupon() {}
+	
+	//mypage에서 사용하는 modify.
+	@GetMapping("/mypageModify")
+	public void mypageModify() {
+	}
+	
+	
+	//mypage에서 사용하는 modify.
+	@PostMapping("/memberModify")
+	public String memberModify(MemberVO mvo) {
+		log.info(">>>> mvo >>>> {}", mvo);
+		
+		return "redirect:/member/mypage";
+	}
 	
 	@PostMapping("/memberRegister")
 	public String memberRegister(MemberVO mvo) {
