@@ -81,9 +81,9 @@
 
 *,
 *::before,
-*::after {
+ *::after {
   box-sizing: border-box;
-}
+} 
 
 @media (prefers-reduced-motion: no-preference) {
   :root {
@@ -13659,9 +13659,7 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 	.boardWrap .SubNav_Small2 ul li a:hover{background:#db803b;}
 	.boardWrap .SubNav_Small2 li.Action a, .SubNav_Small2 li:hover a{background-color:#dd9660; font-weight:600; color:#fff;}
 	.boardWrap .SubNav_Area ul{background-color:transparent;}
-		/* 리얼후기 */
 		.reviewWrap .SubNav .SubNav_Area.SubNav_Small2{display:none;}
-		/* 시술전후사진 */
 		.BnfWrap .SubNav .SubNav_Area.SubNav_Small2{display:none;}
 		.boardWrap .SubNav.Fixed .SubNav_Small2{display:none;}
 
@@ -13677,3 +13675,25 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 .NC00182 .MultiBarSlider ul.SliderThum_BtnPage li button{height:55px;}
 
 /* footer 영역 끝 */
+
+    font-family: Pretendard,sans-serif!important;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    outline: none;
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                    font-size: 100%;
+                    background: transparent;
+                    letter-spacing: -0.4px;
+                    color: #3D4149;
+                    -ms-overflow-style: none;
+                    -webkit-tap-highlight-color: transparent;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
