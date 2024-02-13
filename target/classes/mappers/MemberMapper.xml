@@ -19,5 +19,17 @@
 			user_nick_name
 		)
 	</insert>
+	
+	<select id="selectUserInfo">
+		select user_email from mbr_profile where user_email = #{authEmail}
+	</select>
+
+	<select id="selectMemberInfo" resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile where user_email = #{username}
+	</select>
+	
+	<select id="selectAuths" resultType="com.four.www.user.oauth.authVO"> 
+		select * from mbr_auth where user_serial_no = #{userSerialNo}
+	</select>
 
 </mapper>

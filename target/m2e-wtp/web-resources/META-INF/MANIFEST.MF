@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: ogma
-Build-Jdk: 11
+Built-By: DoYeon Kim
+Build-Jdk: 11.0.20
 Created-By: Maven Integration for Eclipse
 

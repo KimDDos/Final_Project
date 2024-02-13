@@ -1,5 +1,9 @@
 package com.four.www.user.domain;
 
+import java.util.List;
+
+import com.four.www.user.oauth.authVO;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +30,6 @@ public class MemberVO {
 	private String userRegAt;
 	private String userLastLoginDate;
 	private String isTrainer;
+	private List<authVO> authList;
 	
 }
