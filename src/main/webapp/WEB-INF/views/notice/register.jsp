@@ -4,20 +4,16 @@
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
 
-<form class="row g-3" method="get">
+<form action="/notice/register" class="row g-3" method="post">
   <div class="col-md">
     <label for="title" class="form-label">제목</label>
-    <input type="text" class="form-control" id="title" name="title">
-  </div>
-  <div class="col-md">
-    <label for="writer" class="form-label">작성자</label>
-    <input type="text" class="form-control" id="writer" name="writer">
+    <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
   </div>
   <div class="col-12">
     <label for="content" class="form-label">내 용</label>
-    <textarea class="form-control" id="content" name="content" cols="30" rows="10"></textarea>
+    <textarea class="form-control" id="noticeContent" name="noticeContent" cols="30" rows="10"></textarea>
   </div>
-<button type="submit">등록</button>
+<button type="submit">등록</button>s
 </form>
 
 <!-- Bootstrap core JS-->
