@@ -1,4 +1,4 @@
-package com.four.www.controller;
+package com.four.www.main.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,28 +6,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.four.www.service.BoardService;
+import com.four.www.main.service.MainService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/board/**")
+@RequestMapping("/main/**")
 @RequiredArgsConstructor
-public class BoardController {
+public class MainController {
 	
-	private final BoardService bsv;
+	private final MainService mainsv;
 	
-	@GetMapping("/abc")
-	public String abc() {
+	@GetMapping("/footerPi")
+	public String footerpi() {
 		return "/footerdetail/privateinformation";
-		
+	}
+	
+	@GetMapping("/footerSt")
+	public String footerst() {
+		return "/footerdetail/serviceterms";
 	}
 
-	@GetMapping("/abcd")
-	public String abcd() {
-		return "/footerdetail/privateinformation";
+	@GetMapping("/footerright")
+	public String footerright() {
+		return "/footerdetail/right";
 	}
 
 }

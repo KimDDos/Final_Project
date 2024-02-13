@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><a href="/board/abcd"><img class="img-fluid rounded-3 my-5" src="/resources/img/main.jpg" alt="..." /></a></div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><a href="/reservation/register"><img class="img-fluid rounded-3 my-5" src="/resources/img/main.jpg" alt="..." /></a></div>
                     </div>
                 </div>
             </header>
