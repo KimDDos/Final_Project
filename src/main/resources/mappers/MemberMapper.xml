@@ -35,7 +35,7 @@
 		select * from mbr_profile where user_email = #{username}
 	</select>
 	
-	<select id="selectAuths" resultType="com.four.www.user.oauth.authVO"> 
+	<select id="selectAuths" resultType="com.four.www.user.domain.UserAuthVO"> 
 		select * from mbr_auth where user_serial_no = #{userSerialNo}
 	</select>
 	
@@ -43,6 +43,8 @@
 		select * from mbr_profile where user_email = #{userEmail}
 	</select>
 	
-	
+	<select id="getSocoalUser" resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile where user_email = #{userEmail}
+	</select>
 
 </mapper>

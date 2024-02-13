@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.repository.MemberDAO;
 
@@ -19,13 +20,14 @@ public class CustomAuthMemberService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+		MemberDTO mdto = new MemberDTO();
 		MemberVO mvo = mdao.selectMemberInfo(username);
 		if(mvo == null) {
 			throw new UsernameNotFoundException(username);
 		}
 		mvo.setAuthList(mdao.selectAuths(username));
-		return new AuthMember(mvo);
+		mdto.setMvo(mvo);
+		return new AuthMember(mdto);
 	}
 
 }
