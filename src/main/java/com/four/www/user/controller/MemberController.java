@@ -32,6 +32,23 @@ public class MemberController {
 	@GetMapping("/calendar")
 	public void calendar() {}
 	
+	@GetMapping("/coupon")
+	public void coupon() {}
+	
+	//mypage에서 사용하는 modify.
+	@GetMapping("/mypageModify")
+	public void mypageModify() {
+	}
+	
+	
+	//mypage에서 사용하는 modify.
+	@PostMapping("/memberModify")
+	public String memberModify(MemberVO mvo) {
+		log.info(">>>> mvo >>>> {}", mvo);
+		
+		return "redirect:/member/mypage";
+	}
+	
 	@PostMapping("/memberRegister")
 	public String memberRegister(MemberVO mvo) {
 		log.info(">>>> mvo >>>> {}", mvo);
