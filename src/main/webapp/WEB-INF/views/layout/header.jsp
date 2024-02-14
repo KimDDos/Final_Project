@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <meta name="google-signin-client_id" content="49862145305-0geotprdm2qk77cu2ta4gu6014s7nc3v.apps.googleusercontent.com">
         
         <title>Modern Business - Start Bootstrap Template</title>
         <!-- Favicon-->

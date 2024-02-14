@@ -9,9 +9,9 @@ public interface MemberService {
 
 	boolean updateLastLogin(String authEmail);
 
-	String selectUserCount();
+	int selectUserCount();
 
-	MemberDTO getSocialMbr(MemberDTO mdto);
+	MemberVO getSocialMbr(MemberVO memberVO);
 
 	int regSocialMbr(MemberDTO mdto);
 

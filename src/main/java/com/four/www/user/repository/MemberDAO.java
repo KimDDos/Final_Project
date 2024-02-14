@@ -13,7 +13,7 @@ public interface MemberDAO {
 
 	int register(MemberVO mvo);
 
-	String selectUserCount();
+	int selectUserCount();
 
 	String selectUserInfo(String authEmail);
 

@@ -6,10 +6,12 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/login/**")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
@@ -32,6 +34,7 @@ public class loginController {
 	private final OauthParser parser;
 	
 	private final GoogleOAuth googleOAuth;
+	private final NaverOAuth naverOAuth;
 	
 	// Google 로그인 첫 화면
 	@GetMapping("/google")
@@ -40,23 +43,40 @@ public class loginController {
 		response.sendRedirect(googleOAuth.getGoogleAuthUrl());
 	}
 	
-	// Google callback
+	// Naver 로그인 첫 화면 
+	@GetMapping("/naver")
+	public void getNaverAuthUrl(HttpServletResponse response) throws Exception {
+		response.sendRedirect(naverOAuth.getNaverAuthUrl());
+	}
+	
+	// callback 함수 처리
 	@GetMapping(value = "/{socialLoginType}/callback")
 	public String getAccessToken(@PathVariable(name = "socialLoginType") String socialLoginType ,
 			@RequestParam(name="code") String code, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		log.info(">>>> 소셜 로그인 API 서버로부터 받은 code :: {}", code);
+		log.info(">>>> 소셜 로그인 API 서버로부터 받은 code : {}", code);
 		MemberDTO mdto = new MemberDTO();
 		
 		switch (socialLoginType) {
 		case "google":
 			try {
 				Map<String, String> userInfo = googleOAuth.getGoogleAccessTokenUrl(code);
-				log.info(">>>>>> UserInfo >>>>>>> {}", userInfo);
+				log.info(">>>>>> Google UserInfo >>>>>>> {}", userInfo);
 				mdto = parser.googleUser(userInfo);
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.info(">>>>>> Google Login Error >>>>>>> {}", e.toString());
-				return "redirect:/";
+				return "redirect:/member/memberLogin";
+			}
+			break;
+		case "naver":
+			try {
+				Map<String, String> userInfo = naverOAuth.getNaverAccessTokenUrl(code);
+				log.info(">>>>>> Naver UserInfo >>>>>>> {}", userInfo);
+				mdto = parser.naverUser(userInfo);
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info(">>>>>> Naver Login Error >>>>>>> {}", e.toString());
+				return "redirect:/member/memberLogin";
 			}
 			break;
 		default:

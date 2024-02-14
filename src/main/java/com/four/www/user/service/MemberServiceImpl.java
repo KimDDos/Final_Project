@@ -22,7 +22,7 @@ public class MemberServiceImpl implements MemberService{
 	// private final BCryptPasswordEncoder passwordEncoder;
 	@Override
 	public int memberRegister(MemberVO mvo) {
-		mvo.setUserSerialNo("U"+mdao.selectUserCount());
+		mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
 		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
 	}
@@ -34,24 +34,20 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public String selectUserCount() {
+	public int selectUserCount() {
 		return mdao.selectUserCount();
 	}
 
 	@Override
-	public MemberDTO getSocialMbr(MemberDTO mdto) {
-		MemberVO mvo = mdao.getSocialMbr(mdto.getMvo());
-		
-		mdto.setMvo(mvo);
-		mdto.setUvo(null);
-		return mdto;
+	public MemberVO getSocialMbr(MemberVO mvo) {
+		return mdao.getSocialMbr(mvo);
 	}
 
 	@Transactional
 	@Override
 	public int regSocialMbr(MemberDTO mdto) {
 		int isOK = 1;
-		isOK *= mdao.register(mdto.getMvo());
+		isOK *= memberRegister(mdto.getMvo());
 		mdto.getUvo().setUserName(mdto.getMvo().getUserName());
 		mdto.getUvo().setUserNickName(mdto.getMvo().getUserNickName());
 		mdto.getUvo().setUserSerialNo(mdto.getMvo().getUserSerialNo());

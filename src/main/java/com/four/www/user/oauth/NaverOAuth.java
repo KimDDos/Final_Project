@@ -3,8 +3,6 @@ package com.four.www.user.oauth;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpEntity;
@@ -23,35 +21,38 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 @PropertySource("classpath:application-api.properties")
-public class GoogleOAuth {
+public class NaverOAuth {
 
-	private final String GOOGLE_CODE_REQUEST_URL = "https://accounts.google.com/o/oauth2/v2/auth?";
-	private final String GOOGLE_TOKEN_REQUEST_URL = "https://oauth2.googleapis.com/token";
+	// Naver 로그인 인증을 요청하는 URL
+	private final String NAVER_CODE_REQUEST_URL = "https://nid.naver.com/oauth2.0/authorize";
+	// 접급 토큰의 발급, 갱신, 삭제 요청
+	private final String NAVER_TOKEN_REQUEST_URL = "https://nid.naver.com/oauth2.0/token";
+	// 네이버 회원의 프로필 조회
+	private final String NAVER_PROFILE_REQUEST_URL = "https://openapi.naver.com/v1/nid/me";
 	
-	@Value("${google.client.id}")
-	private String googleClientId;
-	@Value("${google.client.pwd}")
-	private String googleClientPwd;
-	@Value("${redirect.url}")
+	@Value("${naver.client.id}")
+	private String naverClientId;
+	@Value("${naver.client.pwd}")
+	private String naverClientPwd;
+	@Value("${naver.redirect.url}")
 	private String redirect_uri;
 	
-	public String getGoogleAuthUrl(){
-		String login_url = GOOGLE_CODE_REQUEST_URL
-				+ "scope=email profile&"
-				+ "response_type=code&"
-				+ "redirect_uri="+redirect_uri
-				+ "&client_id="+googleClientId;
+	public String getNaverAuthUrl() {
+		String login_url = NAVER_CODE_REQUEST_URL 
+				+"?response_type=code"
+				+"&client_id="+naverClientId
+				+"&state=STATE_STRING"
+				+"&redirect_uri="+redirect_uri;
 		return login_url;
 	}
 	
-	public Map<String, String> getGoogleAccessTokenUrl(String code) {
-		// Token 요청 리다이렉트 URL 설정
+	
+	public Map<String, String> getNaverAccessTokenUrl(String code) {
 		MultiValueMap<String, String> parameter = new LinkedMultiValueMap<String, String>();
-		parameter.add("code", code);
-		parameter.add("client_id", googleClientId);
-		parameter.add("client_secret", googleClientPwd);
-		parameter.add("redirect_uri", redirect_uri);
 		parameter.add("grant_type", "authorization_code");
+		parameter.add("client_id", naverClientId);
+		parameter.add("client_secret", naverClientPwd);
+		parameter.add("code", code);
 		
 		// request header 설정
 		HttpHeaders headers = new HttpHeaders();
@@ -67,7 +68,7 @@ public class GoogleOAuth {
 			
 			// post 방식으로 Http 요청
 			// 응답 데이터 형식은 Hashmap 으로 지정
-			ResponseEntity<HashMap> result = restTemplate.postForEntity(GOOGLE_TOKEN_REQUEST_URL, entity, HashMap.class);			
+			ResponseEntity<HashMap> result = restTemplate.postForEntity(NAVER_TOKEN_REQUEST_URL, entity, HashMap.class);			
 			log.info(">>>>> Post 호출 관련 데이터 >>>>> {}",result);
 			Map<String, String> resMap = result.getBody();
 			
@@ -75,7 +76,6 @@ public class GoogleOAuth {
 			log.info(">>>>> AccessToken 데이터 >>>>> {}",resMap);
 			
 			String access_token = resMap.get("access_token");
-			String userInfoURL = "https://www.googleapis.com/userinfo/v2/me";
 			
 			// Header에 access token 삽입
 			headers.set("Authorization", "Bearer "+access_token);
@@ -83,7 +83,7 @@ public class GoogleOAuth {
 			// Request entity 생성
 			HttpEntity<?> userInfoEntity = new HttpEntity<>(headers);
 			
-			ResponseEntity<HashMap> userResult = restTemplate.exchange(userInfoURL, HttpMethod.GET, userInfoEntity, HashMap.class);
+			ResponseEntity<HashMap> userResult = restTemplate.exchange(NAVER_PROFILE_REQUEST_URL, HttpMethod.GET, userInfoEntity, HashMap.class);
 			Map<String, String> userResultMap = userResult.getBody();
 			// return resultMap을 반환해야함!;
 			log.info(">>>>> userResultMap 데이터 >>>>> {}",userResultMap);
@@ -94,5 +94,6 @@ public class GoogleOAuth {
 		}
 		return null;
 	}
+	
 	
 }
