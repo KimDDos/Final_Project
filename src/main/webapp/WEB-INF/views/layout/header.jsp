@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
-    <!DOCTYPE html>
-<html>
-    
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -43,7 +40,6 @@
                             <li class="nav-item dropdowns">
                                 <a class="nav-link " id="navbarDropdownBlog" href="#" role="button"  aria-expanded="false">고객지원</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="/notice/register">공지사항 등록</a></li>
                                     <li><a class="dropdown-item" href="/notice/list">공지사항</a></li>
                                     <li><a class="dropdown-item" href="#">일반 문의</a></li>
                                     <li><a class="dropdown-item" href="#">트레이너 문의</a></li>
