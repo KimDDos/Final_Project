@@ -67,6 +67,6 @@ public class MemberController {
 		
 		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
-		return "redirect:/member/login";
+		return "redirect:/member/memberLogin";
 	}
 }

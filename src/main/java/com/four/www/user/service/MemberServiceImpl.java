@@ -39,19 +39,29 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Object getSocialMbr(MemberDTO mdto) {
-		// TODO Auto-generated method stub
-		return mdao.getSocialMbr(mdto.getMvo());
+	public MemberDTO getSocialMbr(MemberDTO mdto) {
+		MemberVO mvo = mdao.getSocialMbr(mdto.getMvo());
+		
+		mdto.setMvo(mvo);
+		mdto.setUvo(null);
+		return mdto;
 	}
 
 	@Transactional
 	@Override
 	public int regSocialMbr(MemberDTO mdto) {
-		
 		int isOK = 1;
-		isOK *= mdao.register(mdto.getMvo()); 
+		isOK *= mdao.register(mdto.getMvo());
+		mdto.getUvo().setUserName(mdto.getMvo().getUserName());
+		mdto.getUvo().setUserNickName(mdto.getMvo().getUserNickName());
+		mdto.getUvo().setUserSerialNo(mdto.getMvo().getUserSerialNo());
 		isOK *= mdao.regUser(mdto.getUvo());
 		return isOK;
+	}
+
+	@Override
+	public MemberVO getSocialUser(MemberVO mvo) {
+		return mdao.getSocialMbr(mvo);
 	}
 	
 }

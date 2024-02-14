@@ -11,9 +11,10 @@ public interface MemberService {
 
 	String selectUserCount();
 
-	Object getSocialMbr(MemberDTO mdto);
+	MemberDTO getSocialMbr(MemberDTO mdto);
 
 	int regSocialMbr(MemberDTO mdto);
 
+	MemberVO getSocialUser(MemberVO mvo);
 
 }

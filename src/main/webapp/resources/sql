@@ -52,3 +52,15 @@ CREATE TABLE mbr_user (
 
 << User_login_type : COMMENT '플랫폼:H / 구글:G / 네이버:N / 카카오:K' >> 	
 	
+[mbr_user] 테이블 
+CREATE TABLE mbr_auth(
+    User_access_token varchar(100) NOT NULL,
+    User_serial_no varchar(10) NOT NULL,
+    user_role varchar(10) NOT NULL);
+    
+    
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column user_reg_at datetime not null default now();
+alter table mbr_profile modify column user_last_login_date datetime not null default now();
+
+
