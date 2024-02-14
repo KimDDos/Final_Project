@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/login/**")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
@@ -58,6 +59,6 @@ public class loginController {
 			break;
 		}
 		
-		return "redirect:/";
+		return "redirect:/index";
 	}
 }
