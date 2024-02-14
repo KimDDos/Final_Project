@@ -48,8 +48,8 @@ public class RootConfig {
 		HikariConfig hikariConfig = new HikariConfig(); 
 		
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/four");
-		hikariConfig.setUsername("root");
+		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
+		hikariConfig.setUsername("four");
 		hikariConfig.setPassword("1234");
 		
 		hikariConfig.setMaximumPoolSize(5);

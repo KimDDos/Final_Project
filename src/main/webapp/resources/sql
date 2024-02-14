@@ -51,4 +51,26 @@ CREATE TABLE mbr_user (
 	primary key(User_serial_no));
 
 << User_login_type : COMMENT '플랫폼:H / 구글:G / 네이버:N / 카카오:K' >> 	
+
+
+[schedule] 테이블 
+CREATE TABLE calendar (
+	Cal_schedule_number int auto_increment NOT NULL,
+	Cal_schedule_start_time datetime NOT NULL,
+	Cal_schedule_end_time datetime NOT NULL,
+	Cal_schedule_title varchar(80) NOT NULL,
+	Cal_schedule_detail text NOT NULL,
+	User_serial_no varchar(256) NOT NULL,
+	Trainer_serial_no varchar(256) NOT NULL,
+	primary key(Cal_schedule_number));
 	
+[coupon] 테이블
+CREATE TABLE coupon (
+	User_serial_no varchar(256) NOT NULL,
+	Cp_num int auto_increment NOT NULL,
+	Cp_title varchar(80) NOT NULL,
+	Cp_value  int NOT NULL,
+	Cp_schedule_detail text NOT NULL,
+	Cp_receivedate datetime NOT NULL,
+	Cp_limitdate datetime NOT NULL,
+	primary key(Cp_num));
