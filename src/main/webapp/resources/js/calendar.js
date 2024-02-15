@@ -47,7 +47,7 @@ const checkmonth = function () {
             if (n % 7 == 1) str += "<tr>";
             console.log(i + " " + weekendDay + " " + startDay.getDay());
             if (i <= weekendDay + adjust && i >= startDay.getDay()) {
-                str += "<td border='1' width='100px' height='100px' style='text-align: center'>" + idx + "</td>";
+                str += `<td border='1' style='text-align: center'><a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${idx < 10 ? '0' : ''}${idx}'><button class='calendar_btn'>` + idx + "</button></a></td>";
                 idx++;
             }
             else str += "<td border='1' width='100px' height='100px' style='text-align: center'></td>";
@@ -68,22 +68,20 @@ const checkmonth = function () {
             }
             console.log(i + " " + weekendDay + " " + startDay.getDay());
             if (i <= weekendDay + adjust && i >= startDay.getDay()) {
-                str += "<td border='1' width='100px' height='100px' style='text-align: center'>" + idx + "</td>";
+                str += `<td border='1' style='text-align: center'><a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${idx < 10 ? '0' : ''}${idx}'><button class='calendar_btn'>` + idx + "</button></a></td>";
                 idx++;
             }
             else str += "<td border='1' width='100px' height='100px' style='text-align: center'></td>";
             if (i > 7) {
-                if ((n+1) % 7 == 0)
-                {
-                str += "</tr>"
-                console.log("개행");
+                if ((n + 1) % 7 == 0) {
+                    str += "</tr>"
+                    console.log("개행");
                 }
             }
             else {
-                if (i == 6) 
-                {
-                console.log("개행");
-                str += "</tr>";
+                if (i == 6) {
+                    console.log("개행");
+                    str += "</tr>";
                 }
             }
         }

@@ -4,6 +4,8 @@
     
 <jsp:include page="../layout/header.jsp"></jsp:include>
 <link href="/resources/css/memberlogin.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+<script src="https://apis.google.com/js/api:client.js"></script>
 <style>
 	div {
 		border: 1px solid black;
@@ -38,8 +40,8 @@
 							<span> 아직 계정이 없으신가요? </span> <br>
 							<b onclick="toggle()" class="pointer"> 회원가입하기 </b>
 							<br>
-							<a href="/login/google"><button id="googleLoginBtn" type="button">Google로 로그인하기</button></a>
-							<a href="#"><button id="googleLoginBtn" type="button">Naver로 로그인하기</button></a>
+							<a href="/login/google"><button id="googleLoginBtn" type="button">Google로 로그인하기</button></a> <br>
+							<a href="/login/naver"><button id="naverLoginBtn" type="button">Naver로 로그인하기</button></a> <br>
 							<a href="#"><button id="googleLoginBtn" type="button">Kakao로 로그인하기</button></a>
 						</p>
 					</div>

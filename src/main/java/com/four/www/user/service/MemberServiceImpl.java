@@ -1,6 +1,7 @@
 package com.four.www.user.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,10 +20,9 @@ public class MemberServiceImpl implements MemberService{
 	private final MemberDAO mdao;
 	
 	// private final BCryptPasswordEncoder passwordEncoder;
-
 	@Override
 	public int memberRegister(MemberVO mvo) {
-		mvo.setUserSerialNo("U"+mdao.selectUserCount());
+		mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
 		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
 	}
@@ -34,24 +34,30 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public String selectUserCount() {
+	public int selectUserCount() {
 		return mdao.selectUserCount();
 	}
 
 	@Override
-	public Object getSocialMbr(MemberDTO mdto) {
-		// TODO Auto-generated method stub
-		return mdao.getSocialMbr(mdto.getMvo());
+	public MemberVO getSocialMbr(MemberVO mvo) {
+		return mdao.getSocialMbr(mvo);
 	}
 
 	@Transactional
 	@Override
 	public int regSocialMbr(MemberDTO mdto) {
-		
 		int isOK = 1;
-		isOK *= mdao.register(mdto.getMvo()); 
+		isOK *= memberRegister(mdto.getMvo());
+		mdto.getUvo().setUserName(mdto.getMvo().getUserName());
+		mdto.getUvo().setUserNickName(mdto.getMvo().getUserNickName());
+		mdto.getUvo().setUserSerialNo(mdto.getMvo().getUserSerialNo());
 		isOK *= mdao.regUser(mdto.getUvo());
 		return isOK;
+	}
+
+	@Override
+	public MemberVO getSocialUser(MemberVO mvo) {
+		return mdao.getSocialMbr(mvo);
 	}
 	
 }

@@ -1,4 +1,7 @@
 sql 구문
+<DB접속 구문> 비번:1234
+mysql -h 175.196.223.181 -P 3306 -u four -p
+
 -- 2024.02.06 --
 
 [Notice_Board] 테이블
@@ -49,3 +52,40 @@ CREATE TABLE mbr_user (
 
 << User_login_type : COMMENT '플랫폼:H / 구글:G / 네이버:N / 카카오:K' >> 	
 	
+[mbr_user] 테이블 
+CREATE TABLE mbr_auth(
+    User_access_token varchar(100) NOT NULL,
+    User_serial_no varchar(10) NOT NULL,
+    user_role varchar(10) NOT NULL);
+    
+    
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column user_reg_at datetime not null default now();
+alter table mbr_profile modify column user_last_login_date datetime not null default now();
+
+
+=======
+
+
+[schedule] 테이블 
+CREATE TABLE calendar (
+	Cal_schedule_number int auto_increment NOT NULL,
+	Cal_schedule_start_time datetime NOT NULL,
+	Cal_schedule_end_time datetime NOT NULL,
+	Cal_schedule_title varchar(80) NOT NULL,
+	Cal_schedule_detail text NOT NULL,
+	User_serial_no varchar(256) NOT NULL,
+	Trainer_serial_no varchar(256) NOT NULL,
+	primary key(Cal_schedule_number));
+	
+[coupon] 테이블
+CREATE TABLE coupon (
+	User_serial_no varchar(256) NOT NULL,
+	Cp_num int auto_increment NOT NULL,
+	Cp_title varchar(80) NOT NULL,
+	Cp_value  int NOT NULL,
+	Cp_schedule_detail text NOT NULL,
+	Cp_receivedate datetime NOT NULL,
+	Cp_limitdate datetime NOT NULL,
+	primary key(Cp_num));
+>>>>>>> .merge_file_JuQ8da
