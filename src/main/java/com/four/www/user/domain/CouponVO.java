@@ -14,7 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CouponVO {
-	
+	private String a;
 	
 
 }
