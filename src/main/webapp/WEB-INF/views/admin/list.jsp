@@ -7,7 +7,7 @@
 
 <jsp:include page="../layout/admin-topbar.jsp"></jsp:include>
 <body>
-<table class="table">
+<table class="table table-hover table-sm">
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -20,7 +20,7 @@
   <c:forEach var="nvo" items="${list }">
     <tr>
       <th scope="row">${nvo.noticeNo }</th>
-      <td><a href="/admin/detail?notice_no=${nvo.noticeNo }"> ${nvo.noticeTitle }</a></td>
+      <td onclick="location.href='/admin/detail?notice_no=${nvo.noticeNo }'" style=""> ${nvo.noticeTitle }</td>
       <td>${nvo.noticeContent }</td>
       <td>${nvo.noticeRegDate }</td>
     </tr>
