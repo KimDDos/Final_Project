@@ -11,8 +11,15 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CouponVO {
 	private String a;
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> origin/KJH
 	private String UserSerialNo;
 	private int CpNum;
 	private String CpTitle;

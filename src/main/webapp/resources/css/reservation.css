@@ -1,178 +1,138 @@
 .rvContainer {
-  font-family: Arial, sans-serif;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: auto;
-  margin-top: 20px;
+	font-family: Arial, sans-serif;
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	margin-top: 20px;
 }
 
 .rvTitle {
-  text-align: center;
-  color: #333;
+	text-align: center;
+	color: #333;
 }
 
 .rvForm {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .rvLabel {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
-.rvInput,
-.rvSelect {
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
+.rvInput, .rvSelect {
+	padding: 10px;
+	margin-top: 5px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 .rvButton {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 100px;
+	margin-top: 20px;
+	margin: 20px auto;
 }
 
 .rvButton:hover {
-  background-color: #45a049;
+	background-color: #45a049;
 }
+
 .rvCheckboxGroup {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 600px; /* 적절한 최대 너비 설정 */
-  margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 600px; /* 적절한 최대 너비 설정 */
+	margin: auto;
 }
 
 .rvCheckboxGroup label {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  padding: 5px 10px;
-  background-color: #f2f2f2;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+	display: flex;
+	align-items: center;
+	margin: 10px;
+	padding: 5px 10px;
+	background-color: #f2f2f2;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .rvCheckboxGroup label:hover {
-  background-color: #e6e6e6;
+	background-color: #e6e6e6;
 }
 
-.rvCheckboxGroup input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-/* 체크박스 숨기기 (스타일링된 라벨을 클릭하여 체크박스를 제어) */
-.rvCheckboxGroup input[type="checkbox"] {
-  display: none;
-}
-
-/* 체크된 라벨 스타일 */
-.rvCheckboxGroup input[type="checkbox"]:checked + label {
-  background-color: #4CAF50;
-  color: white;
-}
 
 /* 개행 추가 */
 .rvCheckboxGroup br {
-  flex-basis: 100%;
-  height: 0;
+	flex-basis: 100%;
+	height: 0;
 }
 
-
-
-
-
-
 .rvSelectedItemsContainer {
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
+	margin-top: 30px;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	max-width: 600px;
+	margin: 20px auto;
 }
 
 .rvSelectedItemsContainer h2 {
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-#rvSelectedItemsList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#rvSelectedItemsList li {
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.2s ease-in-out;
-}
-
-#rvSelectedItemsList li:hover {
-    background-color: #eaeaea;
+	color: #333;
+	font-size: 20px;
+	margin-bottom: 15px;
+	text-align: center;
 }
 
 .removeItem {
-    color: #ff4d4d;
-    margin-left: 15px;
-    cursor: pointer;
-    font-size: 18px;
+	color: #ff4d4d;
+	margin-left: 15px;
+	cursor: pointer;
+	font-size: 18px;
 }
 
 .removeItem:hover {
-    color: #cc0000;
+	color: #cc0000;
 }
 
 /* 체크박스와 라벨의 커스텀 스타일링 */
-.rvCheckboxGroup label {
-    background-color: #e9ecef;
-    border-radius: 20px;
-    padding: 5px 15px;
-    margin: 5px;
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.2s;
+/* .rvCheckboxGroup label {
+	background-color: #e9ecef;
+	border-radius: 20px;
+	padding: 5px 15px;
+	margin: 5px;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.2s;
 }
 
 .rvCheckboxGroup label:hover {
-    background-color: #dee2e6;
+	background-color: #dee2e6;
 }
 
 .rvCheckboxGroup input[type="checkbox"] {
-    display: none;
+	display: none;
 }
 
 .rvCheckboxGroup label::before {
-    content: '';
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    border: 2px solid #007bff;
-    margin-right: 10px;
-    transition: background-color 0.2s;
+	content: '';
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	border: 2px solid #007bff;
+	margin-right: 10px;
+	transition: background-color 0.2s;
 }
 
-.rvCheckboxGroup input[type="checkbox"]:checked + label::before {
-    background-color: #007bff;
-}
+.rvCheckboxGroup input[type="checkbox"]:checked+label::before {
+	background-color: #007bff;
+} */
