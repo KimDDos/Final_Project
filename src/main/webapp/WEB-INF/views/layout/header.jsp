@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     <!DOCTYPE html>
 <html>
+=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+>>>>>>> cf1f763cd94d7a086fa1dc902c74c2f141cfb8e9
     
     <head>
         <meta charset="utf-8" />
@@ -34,7 +38,6 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">고객지원</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="/notice/register">공지사항 등록</a></li>
                                     <li><a class="dropdown-item" href="/notice/list">공지사항</a></li>
                                     <li><a class="dropdown-item" href="#">일반 문의</a></li>
                                     <li><a class="dropdown-item" href="#">트레이너 문의</a></li>

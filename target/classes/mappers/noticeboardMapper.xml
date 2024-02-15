@@ -12,7 +12,7 @@
 	</insert>
 	
 	<select id="getList" resultType="com.four.www.admin.domain.NoticeVO">
-		select * from notice_board
+		select * from notice_board order by notice_no desc
 	</select>
 	
 	<select id="getdetail" parameterType="int" resultType="com.four.www.admin.domain.NoticeVO">

@@ -55,7 +55,7 @@ public class NoticeController {
 		return "redirect:/notice/detail?notice_no="+nvo.getNoticeNo();
 	}
 	
-	@DeleteMapping("/remove")
+	@GetMapping("/remove")
 	public String remove(@RequestParam("notice_no")int nvo, RedirectAttributes re) {
 		nsv.remove(nvo);
 		return "redirect:/notice/list";

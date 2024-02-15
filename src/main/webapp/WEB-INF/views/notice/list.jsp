@@ -5,10 +5,10 @@
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
 <body>
-<table class="table">
-  <thead>
+<table class="table table-hover table-sm">
+  <thead class="table-primary">
     <tr>
-      <th scope="col">번호</th>
+    <!-- <th scope="col">번호</th>-->	
       <th scope="col">제목</th>
       <th scope="col">내 용</th>
       <th scope="col">작성일</th>
@@ -17,7 +17,7 @@
 <tbody>
   <c:forEach var="nvo" items="${list }">
     <tr>
-      <th scope="row">${nvo.noticeNo }</th>
+      <!-- <th scope="row">${nvo.noticeNo }</th> -->
       <td><a href="/notice/detail?notice_no=${nvo.noticeNo }"> ${nvo.noticeTitle }</a></td>
       <td>${nvo.noticeContent }</td>
       <td>${nvo.noticeRegDate }</td>
