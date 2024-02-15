@@ -87,3 +87,5 @@ CREATE TABLE coupon (
 
 [mbr_profile] 테이블 column 수정
 alter table mbr_profile modify column user_phone_num varchar(15) not null;
+alter table mbr_profile drop column user_address;
+alter table mbr_profile modify column user_itrs text null;

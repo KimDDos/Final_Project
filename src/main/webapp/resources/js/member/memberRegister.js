@@ -31,13 +31,47 @@ function strongPasswordExp(userPwd){
 
 // [END] User 회원가입 Validation
 
+// 입력내용 체크후 실패시 Input 박스가 빨간색으로 변경되게 하는 부트스트랩 샘플
+// class에 is-invalid 만 추가하면 됨 ㅋ
+// <form class="form-floating">
+//  <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" value="test@example.com">
+//  <label for="floatingInputInvalid">Invalid input</label>
+// </form>
+//
+
+// [START] password 중복 확인 
+document.getElementById('userPwd').addEventListener('keyup', ()=>{
+    let userPwdCheck = document.getElementById('userPwdCheck').value;
+    let userPwd = document.getElementById('userPwd').value;
+    let checkResult = document.getElementById('userPwdCheckeResultPrint');
+
+    if(userPwd === userPwdCheck) {
+        checkResult.innerText = "Password가 일치합니다.";
+        checkResult.className = "badge text-bg-success";
+    } else if(false){
+        // 정규식 적용
+    } else {
+        checkResult.innerText = "Password가 일치하지 않습니다.";
+        checkResult.className = "badge text-bg-danger";
+    }
+})
+// [END] password 중복 확인 
 
 
 // [start] Check box 하나만 설정되게
-function checkOnlyOne(){
+// element 는 this, 자기 자신을 뜻하는 요소임
+function checkOnlyOne(element){
+    const checkboxes = document.getElementsByName('isTrainer');
 
-    
+    checkboxes.forEach((cb) => {
+        cb.checked = false;
+    })
+    element.checked = true;
 }
-
-
 // [END] Check box 하나만 설정되게
+
+// [START] Email 중복체크 비동기
+
+
+
+// [END] Email 중복체크 비동기

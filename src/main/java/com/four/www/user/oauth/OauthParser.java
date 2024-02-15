@@ -43,7 +43,6 @@ public class OauthParser {
 		mdto.getMvo().setUserNickName(userNickName);
 		mdto.getMvo().setUserBirthDate("None");
 		mdto.getMvo().setUserPhoneNum("None");
-		mdto.getMvo().setUserAddress("None");
 		mdto.getMvo().setUserItrs("None");
 		mdto.getMvo().setIsTrainer("N");
 		mdto.getUvo().setUserLoginType("G");
@@ -56,8 +55,6 @@ public class OauthParser {
 		MemberDTO mdto = new MemberDTO();
 		MemberVO mvo = new MemberVO();
 		UserVO uvo = new UserVO();
-		log.info("user info >>>>>>>>>>>>>>>>>>>>>>>>>>> {}",userInfo);
-		log.info("user info getClass.getName >>>>>>>>>>>>>>>>>>>>>>>>>>> {}",userInfo.getClass().getName());
 		
 		try {
 			// 데이터 파싱
@@ -80,13 +77,9 @@ public class OauthParser {
 			mdto.getMvo().setUserNickName(userNickName);
 			mdto.getMvo().setUserBirthDate(userBirthDate);
 			mdto.getMvo().setUserPhoneNum(userPhoneNum);
-			mdto.getMvo().setUserAddress("None");
 			mdto.getMvo().setUserItrs("None");
 			mdto.getMvo().setIsTrainer("N");
 			mdto.getUvo().setUserLoginType("N");
-			log.info(">>>>>>>>>>>>>>>>>>>>>>>> mdto >>>>>>>>>>>>>>>>>>>>>> {}", mdto);
-			log.info(">>>>>>>>>>>>>>>>>>>>>>>> mdto.getMvo >>>>>>>>>>>>>>>>>>>>>> {}", mdto.getMvo());
-			log.info(">>>>>>>>>>>>>>>>>>>>>>>> mdto.getUvo >>>>>>>>>>>>>>>>>>>>>> {}", mdto.getUvo());
 			return regAndAuth(mdto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,12 +101,10 @@ public class OauthParser {
 	
 	// OAuth 전용 등록 메서드
 	private MemberDTO regAndAuth(MemberDTO mdto) {
-		
 		// DB에 회원정보가 없으면 회원 등록(Oauth 전용)
 		if(msv.getSocialMbr(mdto.getMvo()) == null) {
 			int isOk = msv.regSocialMbr(mdto);
 		}
-		
 		MemberVO oauthMvo = msv.getSocialUser(mdto.getMvo());
 		
 		UserAuthVO authvo = new UserAuthVO();

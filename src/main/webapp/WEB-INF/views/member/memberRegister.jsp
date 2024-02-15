@@ -6,21 +6,21 @@
 		<div class="container-md">
 			<div>
 				<!-- 여기에 뭔가 들어가서 Sign up 페이지라고 표현해줘야함. 로고? 사이트명? 아니면 크게 회원가입? -->
-				<h1 style="text-align: center;">회원가입 페이지</h1>
+				<h1 style="text-align: center; margin-top: 30px">회원가입 페이지</h1>
 			</div>
 			<br>
 			<br>
 			<div class="memberRegisterForm" style="border: 1px solid black; padding: 20px">
 				<form action="/member/memberRegister" method="post">
 					<div class="mb-3 row">
-						<label for="userEmail" class="col-sm-3 col-form-label text-center">로그인 Email</label>
+						<label for="userEmail" class="col-sm-3 col-form-label text-center">계정 유형</label>
 						<div class="col-sm-9" style="margin-top: 8px;">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox1" value="option1">
+							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox1" value="N" checked="checked" onclick="checkOnlyOne(this)">
 							  <label class="form-check-label" for="inlineCheckbox1">일반사용자</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox2" value="option2">
+							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox2" value="Y" onclick="checkOnlyOne(this)">
 							  <label class="form-check-label" for="inlineCheckbox2">트레이너</label>
 							</div>
 						</div>
@@ -47,6 +47,9 @@
 						<div class="col-sm-6">
 							<input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="Password를 입력해주세요.">
 						</div>
+						<div>
+							<span id="userPwdCheckeResultPrint"></span>
+						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="userName" class="col-sm-3 col-form-label text-center"> 이 름 </label>
@@ -65,6 +68,9 @@
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="userBirthDate" name="userBirthDate" placeholder="1994.07.31">
 						</div>
+					</div>
+					<div class="mb-3 row">
+						<label for="userGender" class="col-sm-3 col-form-label text-center"> 성별 </label>
 						<div class="form-check form-check-inline col-sm-1 text-center" style="margin-left: 10px; padding-top: 8px">
 						  <input class="form-check-input" type="radio" name="userGender" id="inlineRadio1" value="M">
 						  <label class="form-check-label" for="inlineRadio1">남</label>
@@ -81,15 +87,10 @@
 						</div>
 					</div>
 					<div class="mb-3 row">
-						<label for="userPhoneNum" class="col-sm-3 col-form-label text-center"> 전화번호 </label>
+						<label for="userItrs" class="col-sm-3 col-form-label text-center"> 목 적 </label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum">
-						</div>
-					</div>
-					<div class="mb-3 row">
-						<label for="userItrs" class="col-sm-3 col-form-label text-center"> 관심사 </label>
-						<div class="col-sm-5">
-							<input type="text" class="form-control" id="userItrs" name="userItrs">
+							<textarea rows="6" cols="80" style="resize: none;" placeholder="내용을 입력하세요. &#13;&#10; (예시 1) 저는 다이어트에 관심이 많아요. &#13;&#10; (예시 2) 저는 마른체구가 고민이라 큰체구를 가지고 싶어요."></textarea>
+							<!-- 크기 변환 설정 필요. -->
 						</div>
 					</div>
 					<div>
