@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
 
 <jsp:include page="../layout/admin-sidebar.jsp"></jsp:include>
 
-
 <jsp:include page="../layout/admin-topbar.jsp"></jsp:include>
+
+
 
 <form action="/admin/register" class="row g-3" method="post">
 <h2> 공지사항 등록</h2>
@@ -14,7 +17,7 @@
    			 <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
   	<div >
    			 <label for="content" class="form-label">내 용</label>
-   			 <textarea class="form-control" id="noticeContent" name="noticeContent" cols="30" rows="10"></textarea>
+   			 <textarea class="form-control" id="noticeContent" name="noticeContent"></textarea>
   	</div>
 	<button type="submit">등록</button>
   </div>
@@ -25,7 +28,7 @@
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+<script src="/resources/js/scripts.js"></script>
 
 
     <!-- Bootstrap core JavaScript-->

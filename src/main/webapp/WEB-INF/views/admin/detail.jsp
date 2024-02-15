@@ -31,8 +31,8 @@
 	</div>	
 	
 	<a href="/admin/modify?notice_no=${nvo.noticeNo }"><button type="button">수정</button></a>
-	<a href="/notice/remove?notice_no=${nvo.noticeNo }"><button type="button">삭제</button></a>
-	<a href="/notice/list"><button type="button">목록</button></a>
+	<a href="/admin/remove?notice_no=${nvo.noticeNo }"><button type="button">삭제</button></a>
+	<a href="/admin/list"><button type="button">목록</button></a>
 	
 	
 	

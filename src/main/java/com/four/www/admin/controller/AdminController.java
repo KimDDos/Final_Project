@@ -37,7 +37,7 @@ public class AdminController {
 	public String register(NoticeVO nvo) {
 		log.info(">>>> nvo >>>{}" , nvo);
 		int isOk = nsv.register(nvo);
-		return "/notice/list";
+		return "redirect:/admin/list";
 	}
 	
 	@GetMapping("/list")

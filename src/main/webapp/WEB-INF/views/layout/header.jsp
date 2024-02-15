@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
+    <!DOCTYPE html>
+<html>
+    
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <meta name="google-signin-client_id" content="49862145305-0geotprdm2qk77cu2ta4gu6014s7nc3v.apps.googleusercontent.com">
         
         <title>Modern Business - Start Bootstrap Template</title>
         <!-- Favicon-->
@@ -15,6 +17,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/resources/css/styles.css" rel="stylesheet" />
+        <link href="/resources/css/reservation.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script defer src="/resources/js/script.js"></script>
     </head>
         <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -40,6 +47,7 @@
                             <li class="nav-item dropdowns">
                                 <a class="nav-link " id="navbarDropdownBlog" href="#" role="button"  aria-expanded="false">고객지원</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="/notice/register">공지사항 등록</a></li>
                                     <li><a class="dropdown-item" href="/notice/list">공지사항</a></li>
                                     <li><a class="dropdown-item" href="#">일반 문의</a></li>
                                     <li><a class="dropdown-item" href="#">트레이너 문의</a></li>
@@ -55,7 +63,6 @@
                             
                             <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
                             <li class="nav-item"><a class="nav-link" href="/member/memberLogin">Log in</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/index" target="_blank">관리자 페이지</a></li>
                         </ul>
                     </div>
                 </div>

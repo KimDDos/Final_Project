@@ -94,7 +94,6 @@ public class MemberController {
 
 	@PostMapping("/memberLogin")
 	public String memberLogin(HttpServletRequest request, RedirectAttributes re) {
-
 		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		return "redirect:/member/memberLogin";
