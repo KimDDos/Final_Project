@@ -15,11 +15,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class CouponVO {
 	private String a;
-<<<<<<< HEAD
-=======
-	
-	
->>>>>>> origin/KJH
 	private String UserSerialNo;
 	private int CpNum;
 	private String CpTitle;
