@@ -12,10 +12,8 @@ import lombok.ToString;
 @Getter
 @Setter
 public class CouponVO {
-<<<<<<< HEAD
 	private String a;
 	
-=======
 	
 	private String UserSerialNo;
 	private int CpNum;
@@ -24,6 +22,5 @@ public class CouponVO {
 	private String CpScheduleDetail;
 	private LocalDateTime CpReceivedate;
 	private LocalDateTime CpLimitdate;
->>>>>>> origin/KJH
 
 }

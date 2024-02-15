@@ -87,3 +87,21 @@ CREATE TABLE coupon (
 
 [mbr_profile] 테이블 column 수정
 alter table mbr_profile modify column user_phone_num varchar(15) not null;
+
+[Reservation]테이블
+create table Reservation(
+    -> rno int auto_increment primary key,
+    -> date date not null,
+    -> time time not null);
+[ReservationItem] 테이블    
+     create table ReservationItem(
+    -> Ino int auto_increment primary key,
+    -> itemName varchar(255) not null);
+    
+    [ReservationItemSelection]테이블
+    create table ReservationItemSelection(
+    -> sno int auto_increment primary key,
+    -> rno int,
+    -> ino int,
+    -> foreign key (rno) references Reservation(rno),
+    -> foreign key (ino) references ReservationItem(Ino));
