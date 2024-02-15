@@ -1,4 +1,4 @@
-package com.four.www.user.oauth;
+package com.four.www.user.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class authVO {
+public class UserAuthVO {
 	
 	private String userSerialNo;
 	private String userAccessToken;

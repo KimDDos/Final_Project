@@ -9,11 +9,12 @@ public interface MemberService {
 
 	boolean updateLastLogin(String authEmail);
 
-	String selectUserCount();
+	int selectUserCount();
 
-	Object getSocialMbr(MemberDTO mdto);
+	MemberVO getSocialMbr(MemberVO memberVO);
 
 	int regSocialMbr(MemberDTO mdto);
 
+	MemberVO getSocialUser(MemberVO mvo);
 
 }
