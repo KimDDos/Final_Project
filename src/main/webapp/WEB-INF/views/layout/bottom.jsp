@@ -17,16 +17,13 @@
 						<ul>
 							<!-- 퀵링크관리 -->
 															<li>
-									<a href="/board/footerpi" alt="개인정보 취급방침">개인정보 취급방침</a>
+									<a href="/main/footerPi" alt="개인정보 취급방침">개인정보 취급방침</a>
 								</li>
 															<li>
-									<a href="/board/footerst" alt="이용약관">이용약관</a>
+									<a href="/main/footerSt" alt="이용약관">이용약관</a>
 								</li>
 															<li>
-									<a href="/board/footerright" alt="소비자의 권리장전">소비자의 권리장전</a>
-								</li>
-															<li>
-									<a href="/about/uninsured.php" alt="비급여항목">비급여항목</a>
+									<a href="/main/footerRight" alt="소비자의 권리장전">소비자의 권리장전</a>
 								</li>
 														<!-- //퀵링크관리 -->
 							<!--
