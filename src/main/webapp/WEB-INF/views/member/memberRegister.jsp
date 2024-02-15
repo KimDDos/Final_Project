@@ -13,10 +13,16 @@
 			<div class="memberRegisterForm" style="border: 1px solid black; padding: 20px">
 				<form action="/member/memberRegister" method="post">
 					<div class="mb-3 row">
-						<label for="isTrainer" class="col-sm-3 col-form-label text-center">계정 선택</label>
-						<div class="col-sm-9">
-							<input type="email" class="form-control"
-								name="userEmail" id="userEmail" placeholder="E-Mail을 입력해주세요.">
+						<label for="userEmail" class="col-sm-3 col-form-label text-center">로그인 Email</label>
+						<div class="col-sm-9" style="margin-top: 8px;">
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox1" value="option1">
+							  <label class="form-check-label" for="inlineCheckbox1">일반사용자</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox2" value="option2">
+							  <label class="form-check-label" for="inlineCheckbox2">트레이너</label>
+							</div>
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -100,5 +106,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/resources/js/scripts.js"></script>
-        <script src="/resources/js/memberRegister.js"></script>
+        <script src="/resources/js/member/memberRegister.js"></script>
 		<jsp:include page="../layout/footer.jsp"></jsp:include>

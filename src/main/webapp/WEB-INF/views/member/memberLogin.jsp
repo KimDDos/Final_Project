@@ -32,17 +32,16 @@
 							<i class='bx bxs-lock-alt'></i> <input type="password"
 								placeholder="Password">
 						</div>
-						<button id="tLoginBtn" style="margin-top: 10px">Trainer Sign in</button>
-						<p>
+						<p style="margin-top: 20px;">
 							<b> Forgot password? </b>
 						</p>
-						<p>
+						<p style="margin-top: 20px;">
 							<span> 아직 계정이 없으신가요? </span> <br>
-							<b onclick="toggle()" class="pointer"> 회원가입하기 </b>
+							<a href="/member/memberRegister"><b onclick="toggle()" class="pointer"> 회원가입하기 </b></a>
 							<br>
-							<a href="/login/google"><button id="googleLoginBtn" type="button">Google로 로그인하기</button></a> <br>
-							<a href="/login/naver"><button id="naverLoginBtn" type="button">Naver로 로그인하기</button></a> <br>
-							<a href="#"><button id="googleLoginBtn" type="button">Kakao로 로그인하기</button></a>
+							<a href="/login/google"><button id="googleLoginBtn" type="button"  style="margin-top: 10px;">Google로 로그인하기</button></a> <br>
+							<a href="/login/naver"><button id="naverLoginBtn" type="button"  style="margin-top: 10px;">Naver로 로그인하기</button></a> <br>
+							<a href="#"><button id="googleLoginBtn" type="button"  style="margin-top: 10px; margin-bottom: 20px">Kakao로 로그인하기</button></a>
 						</p>
 					</div>
 				</div>
@@ -50,33 +49,6 @@
 			</div>
 			<!-- END SIGN UP -->
 			<!-- SIGN IN -->
-			<div class="col align-items-center flex-col sign-in">
-				<div class="form-wrapper align-items-center">
-					<div class="form sign-in">
-						<form action="/member/memberLogin" method="post">
-							<div class="input-group">
-								<i class='bx bxs-user'></i> <input type="text"
-									placeholder="Username">
-							</div>
-							<div class="input-group">
-								<i class='bx bxs-lock-alt'></i> <input type="password"
-									placeholder="Password">
-							</div>
-							<input type="hidden" name="isTrainer">
-							<button type="submit"  style="margin-top: 10px">User Sign in</button>
-						</form>
-						<p>
-							<b> Forgot password? </b>
-						</p>
-						<p>
-							<span> Don't have an account? </span> <br>
-							 <b> Sign up here </b>
-						</p>
-					</div>
-				</div>
-				<div class="form-wrapper"></div>
-			</div>
-			<!-- END SIGN IN -->
 		</div>
 		<!-- END FORM SECTION -->
 		<!-- CONTENT SECTION -->
@@ -90,15 +62,6 @@
 				<div class="img sign-in"></div>
 			</div>
 			<!-- END SIGN IN CONTENT -->
-			<!-- SIGN UP CONTENT -->
-			<div class="col align-items-center flex-col">
-				<div class="img sign-up"></div>
-				<div class="text sign-up">
-					<h2>Enjoy with us</h2>
-
-				</div>
-			</div>
-			<!-- END SIGN UP CONTENT -->
 		</div>
 		<!-- END CONTENT SECTION -->
 	</div>

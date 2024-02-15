@@ -9,7 +9,7 @@ document.getElementById('memberRegisterBtn').addEventListener('click', () => {
 })
 
 
-
+// [START] User 회원가입 Validation Start
 function MemberRegisterValidate(){
 
 }
@@ -28,3 +28,16 @@ function strongPasswordExp(userPwd){
 }
 // strongPasswordExp(userPwd) : 10 글자 이상, 특수문자 '@$!%*#?&' 포함
 // userPwd : user가 입력하는 Password
+
+// [END] User 회원가입 Validation
+
+
+
+// [start] Check box 하나만 설정되게
+function checkOnlyOne(){
+
+    
+}
+
+
+// [END] Check box 하나만 설정되게

@@ -38,7 +38,7 @@ const checkmonth = function () {
     //달력의 빈 공간을 생성.(선택한 월에 해당하는 일자가 아닌 칸을 비워두기 위한 구문.)
     for (let i = 1; i < weekstart; i++, adjust++) {
         console.log("WEEK ADJUST");
-        str += "<td></td>";
+        str += "<td><button class='calendar_btn_hidden'></button></td>";
     }
 
     //1주~6주까지 달력을 출력. 시작지점은 빈 공간 다음칸, 반복 횟수는 42-빈공간 갯수.
@@ -50,7 +50,7 @@ const checkmonth = function () {
                 str += `<td border='1' style='text-align: center'><a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${idx < 10 ? '0' : ''}${idx}'><button class='calendar_btn'>` + idx + "</button></a></td>";
                 idx++;
             }
-            else str += "<td border='1' width='100px' height='100px' style='text-align: center'></td>";
+            else str += "<td border='1' width='100px' height='100px' style='text-align: center'><button class='calendar_btn_hidden'></button></td>";
             if (n % 7 == 0) {
                 str += "</tr>";
             }
@@ -71,7 +71,7 @@ const checkmonth = function () {
                 str += `<td border='1' style='text-align: center'><a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${idx < 10 ? '0' : ''}${idx}'><button class='calendar_btn'>` + idx + "</button></a></td>";
                 idx++;
             }
-            else str += "<td border='1' width='100px' height='100px' style='text-align: center'></td>";
+            else str += "<td border='1' width='100px' height='100px' style='text-align: center'><button class='calendar_btn_hidden'></button></td>";
             if (i > 7) {
                 if ((n + 1) % 7 == 0) {
                     str += "</tr>"
