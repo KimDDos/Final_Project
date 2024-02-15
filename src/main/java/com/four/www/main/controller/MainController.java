@@ -33,5 +33,6 @@ public class MainController {
 	public String footerright() {
 		return "/footerdetail/right";
 	}
+	
 
 }

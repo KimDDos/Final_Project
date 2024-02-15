@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="./layout/header.jsp"></jsp:include>
 
@@ -8,14 +9,26 @@
                 <div class="container px-5">
                     <div class="row gx-5 align-items-centerss justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
-                            <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">A Bootstrap 5 template for modern businesses</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
-                                </div>
-                            </div>
+                            <div class="container-md" style="margin-top: 50px">
+								<table class="table" style="color: white" >
+								  <thead class="table-primary">
+								    <tr>
+								    <!-- <th scope="col">번호</th>-->	
+								      <th scope="col">제목</th>
+								      <th scope="col" style="width: 100px">작성일</th>
+								    </tr>
+								  </thead>
+								<tbody>
+								  <c:forEach var="nvo" items="${list }">
+								    <tr>
+								      <!-- <th scope="row">${nvo.noticeNo }</th> -->
+								      <td onclick="location.href='/notice/detail?notice_no=${nvo.noticeNo }'"> ${nvo.noticeTitle }</td>
+								      <td>${nvo.noticeRegDate }</td>
+								    </tr>
+								    </c:forEach>
+								  </tbody>
+								</table>
+</div>
                         </div>
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><a href="/reservation/register"><img class="img-fluid rounded-3 my-5" src="/resources/img/main.jpg" alt="..." /></a></div>
                     </div>
