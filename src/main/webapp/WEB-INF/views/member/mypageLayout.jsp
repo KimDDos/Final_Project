@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 
 <meta charset="utf-8" />
 <div class="col-lg-3">
@@ -21,7 +24,7 @@
 		</div>
 	</a>
 	<hr>
-	<a href="#" style="text-decoration: none; color: black;">
+	<a href="/member/coupon" style="text-decoration: none; color: black;">
 		<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
 			<img class="img-fluid rounded-circle"
 				src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />

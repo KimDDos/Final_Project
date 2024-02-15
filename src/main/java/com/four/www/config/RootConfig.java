@@ -21,8 +21,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages= {"com.four.www.repository","com.four.www.user.repository","com.four.www.main.repository","com.four.www.reservation.repository"})
-@ComponentScan(basePackages= {"com.four.www.service","com.four.www.user.service", "com.four.www.user.oauth","com.four.www.main.service","com.four.www.reservation.service"})
+@MapperScan(basePackages= {"com.four.www.user.repository","com.four.www.main.repository","com.four.www.reservation.repository", "com.four.www.admin.repository"})
+@ComponentScan(basePackages= {"com.four.www.user.service", "com.four.www.user.oauth","com.four.www.main.service","com.four.www.reservation.service", "com.four.www.admin.service"})
 @PropertySource("classpath:application-mysql.properties")
 public class RootConfig {
 	
@@ -48,8 +48,8 @@ public class RootConfig {
 		HikariConfig hikariConfig = new HikariConfig(); 
 		
 		hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/four");
-		hikariConfig.setUsername("root");
+		hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://175.196.223.181:3306/final_project");
+		hikariConfig.setUsername("four");
 		hikariConfig.setPassword("1234");
 		
 		hikariConfig.setMaximumPoolSize(5);

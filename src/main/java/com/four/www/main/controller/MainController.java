@@ -11,8 +11,8 @@ import com.four.www.main.service.MainService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@Controller
 @Slf4j
+@Controller
 @RequestMapping("/main/**")
 @RequiredArgsConstructor
 public class MainController {

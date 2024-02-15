@@ -18,6 +18,7 @@
 					<form name="frm" method="post">
 						<select name="year">
 							<option value="2024">2024</option>
+							<option value="2025">2025</option>
 						</select> <select name="month">
 							<option value="1">1</option>
 							<option value="2">2</option>

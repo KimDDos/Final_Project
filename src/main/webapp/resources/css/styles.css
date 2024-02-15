@@ -2109,6 +2109,12 @@ progress {
           margin-inline-end: 1rem;
 }
 
+.calendar_btn {
+	width : 100px;
+	height : 100px;
+	background-color: white;
+}
+
 textarea.form-control {
   min-height: calc(1.5em + 0.75rem + 2px);
 }
