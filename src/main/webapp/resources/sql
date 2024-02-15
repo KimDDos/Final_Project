@@ -63,10 +63,6 @@ CREATE TABLE mbr_auth(
 alter table mbr_profile modify column user_reg_at datetime not null default now();
 alter table mbr_profile modify column user_last_login_date datetime not null default now();
 
-
-=======
-
-
 [schedule] 테이블 
 CREATE TABLE calendar (
 	Cal_schedule_number int auto_increment NOT NULL,
@@ -88,4 +84,6 @@ CREATE TABLE coupon (
 	Cp_receivedate datetime NOT NULL,
 	Cp_limitdate datetime NOT NULL,
 	primary key(Cp_num));
->>>>>>> .merge_file_JuQ8da
+
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column user_phone_num varchar(15) not null;
