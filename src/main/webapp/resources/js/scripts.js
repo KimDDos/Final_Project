@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // script.js
 document.getElementById('reservationForm').addEventListener('submit', function(event) {
   event.preventDefault(); // 폼 기본 제출 동작 방지

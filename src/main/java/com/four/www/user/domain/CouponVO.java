@@ -11,8 +11,6 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class CouponVO {
 <<<<<<< HEAD
 	private String a;
