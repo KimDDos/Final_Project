@@ -10,8 +10,23 @@
 
 
 <form action="/admin/register" class="row g-3" method="post">
-<h2> 공지사항 등록</h2>
 <div class="container-md">
+<div class="col-12">
+<h2> 공지사항 등록</h2>
+</div>
+
+<div class="col-12">
+<input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off">
+<label class="btn" for="option1">공지사항</label>
+
+<input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
+<label class="btn" for="option2">일반공지</label>
+
+<input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
+<label class="btn" for="option3">이벤트</label>
+
+</div>
+
   <div class="col-12">
    			 <label for="title" class="form-label">제목</label>
    			 <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
