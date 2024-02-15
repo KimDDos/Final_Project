@@ -6,7 +6,7 @@
 
 
 <body>
-	<div class="container-md">
+	<div class="container-md" style="margin-top: 50px">
 				<div class="mb-3">
 					<label class="form-label">번호</label> 
 					<input type="text" class="form-control" name="notice_no" id="notice_no" readonly="readonly"
@@ -28,6 +28,7 @@
 						class="form-control" name="notice_reg_at" id="notice_reg_at" readonly="readonly"
 						value="${nvo.noticeRegDate}">
 				</div>
+			<a href="/notice/list"><button type="button">목록</button></a>
 	</div>	
 	
 	<!-- Bootstrap core JS-->
