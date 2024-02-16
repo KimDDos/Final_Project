@@ -41,18 +41,22 @@ function strongPasswordExp(userPwd){
 
 // [START] password 중복 확인 
 document.getElementById('userPwd').addEventListener('keyup', ()=>{
-    let userPwdCheck = document.getElementById('userPwdCheck').value;
-    let userPwd = document.getElementById('userPwd').value;
+    let userPwdCheck = document.getElementById('userPwdCheck');
+    let userPwd = document.getElementById('userPwd');
     let checkResult = document.getElementById('userPwdCheckeResultPrint');
 
-    if(userPwd === userPwdCheck) {
+    if(userPwd.value === userPwdCheck.value) {
         checkResult.innerText = "Password가 일치합니다.";
         checkResult.className = "badge text-bg-success";
+        if(userPwd.classList.contains("is-invalid")){
+            userPwd.classList.remove('is-invalid');
+        }
     } else if(false){
         // 정규식 적용
     } else {
         checkResult.innerText = "Password가 일치하지 않습니다.";
         checkResult.className = "badge text-bg-danger";
+        userPwd.classList.add("is-invalid");
     }
 })
 // [END] password 중복 확인 
