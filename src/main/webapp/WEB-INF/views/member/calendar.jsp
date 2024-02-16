@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<link href="/resources/css/calendar.css" rel="stylesheet" />
 <jsp:include page="../layout/header.jsp"></jsp:include>
-
 <!DOCTYPE html>
 <!-- Page Content-->
 <section class="py-5">
@@ -15,7 +14,7 @@
 					<header class="mb-4">
 						<h1 class="fw-bolder mb-1">CALENDAR</h1>
 					</header>
-					<form name="frm" method="post">
+					<form name="frm" method="post" onchange="checkmonth();">
 						<select name="year">
 							<option value="2024">2024</option>
 							<option value="2025">2025</option>
@@ -32,7 +31,7 @@
 							<option value="10">10</option>
 							<option value="11">11</option>
 							<option value="12">12</option>
-						</select> <input type="button" value="보기" onclick="checkmonth()"></input>
+						</select>
 					</form>
 					<div class="calendar"></div>
 				</article>
