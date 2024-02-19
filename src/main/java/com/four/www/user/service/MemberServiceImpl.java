@@ -20,15 +20,7 @@ public class MemberServiceImpl implements MemberService{
 	private final MemberDAO mdao;
 	
 	// private final BCryptPasswordEncoder passwordEncoder;
-<<<<<<< HEAD
 
-	@Override
-	public int memberRegister(MemberVO mvo) {
-		mvo.setUserSerialNo("U"+mdao.selectUserCount());
-		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
-		return mdao.register(mvo);
-	}
-=======
 	@Override
 	public int memberRegister(MemberVO mvo) {
 		mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
@@ -36,7 +28,6 @@ public class MemberServiceImpl implements MemberService{
 		return mdao.register(mvo);
 	}
 
->>>>>>> 3414582e43935288a9b40236ce7c5e8b430457f9
 	@Override
 	public boolean updateLastLogin(String authEmail) {
 		String isOk = mdao.selectUserInfo(authEmail);
@@ -64,13 +55,10 @@ public class MemberServiceImpl implements MemberService{
 		isOK *= mdao.regUser(mdto.getUvo());
 		return isOK;
 	}
-<<<<<<< HEAD
-=======
 
 	@Override
 	public MemberVO getSocialUser(MemberVO mvo) {
 		return mdao.getSocialMbr(mvo);
 	}
->>>>>>> 3414582e43935288a9b40236ce7c5e8b430457f9
 	
 }
