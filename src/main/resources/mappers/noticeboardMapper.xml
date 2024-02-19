@@ -7,12 +7,14 @@
 <mapper namespace="com.four.www.admin.repository.NoticeDAO">
 
 	<insert id="register">
-		insert into notice_board(notice_title, notice_content)
-		values(#{noticeTitle},#{noticeContent})
+		insert into notice_board(notice_category ,notice_title, notice_content)
+		values(#{noticeCategory}, #{noticeTitle},#{noticeContent})
 	</insert>
 	
 	<select id="getList" resultType="com.four.www.admin.domain.NoticeVO">
-		select * from notice_board order by notice_no desc limit 0 , 8
+		SELECT *
+		FROM notice_board
+		ORDER BY notice_category desc, notice_no desc limit 0,8;
 	</select>
 	
 	<select id="getdetail" parameterType="int" resultType="com.four.www.admin.domain.NoticeVO">

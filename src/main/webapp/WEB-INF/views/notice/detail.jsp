@@ -8,11 +8,6 @@
 <body>
 	<div class="container-md" style="margin-top: 50px">
 				<div class="mb-3">
-					<label class="form-label">번호</label> 
-					<input type="text" class="form-control" name="notice_no" id="notice_no" readonly="readonly"
-						value="${nvo.noticeNo}">
-				</div>
-				<div class="mb-3">
 					<label class="form-label">제목</label> <input type="text"
 						class="form-control" name="notice_title" id="notice_title" readonly="readonly"
 						value="${nvo.noticeTitle}">
