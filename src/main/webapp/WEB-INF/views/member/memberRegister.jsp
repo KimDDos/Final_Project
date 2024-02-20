@@ -27,9 +27,22 @@
 					</div>
 					<div class="mb-3 row">
 						<label for="userEmail" class="col-sm-3 col-form-label text-center">로그인 Email</label>
-						<div class="col-sm-9">
+						<div class="col-sm-4">
 							<input type="email" class="form-control"
-								name="userEmail" id="userEmail" placeholder="E-Mail을 입력해주세요.">
+								name="userEmail" id="userEmailPrev" placeholder="E-Mail을 입력해주세요." maxlength='30'>
+						</div>
+						<div class="col-sm-1" style="padding: 0 0; width: 25px;">
+							<span>@</span>
+						</div>
+						<div class="col-sm-4">
+							<select class="form-select" aria-label="Default select example">
+							  <option selected>이메일을 선택해주세요.</option>
+							  <option value="naver.com">naver.com</option>
+							  <option value="daum.net">daum.net</option>
+							  <option value="gmail.com">gmail.com</option>
+							  <option value="gitHub.com">gitHub.com</option>
+							  <option value="input">직접입력</option>
+							</select>
 						</div>
 						<!-- 셀렉트로 자동입력 과 셀프 입력 -->
 					</div>
@@ -39,13 +52,13 @@
 					<div class="mb-3 row">
 						<label for="userPwdCheck" class="col-sm-3 col-form-label text-center">Password</label>
 						<div class="col-sm-6">
-							<input type="password" class="form-control" id="userPwdCheck" name="userPwdCheck" placeholder="Password를 입력해주세요.">
+							<input type="password" class="form-control" id="userPwdCheck" name="userPwdCheck" placeholder="Password를 입력해주세요." maxlength='35'>
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="userPwd" class="col-sm-3 col-form-label text-center">Password 확인</label>
 						<div class="col-sm-6">
-							<input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="Password를 입력해주세요.">
+							<input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="Password를 입력해주세요." maxlength='35'>
 						</div>
 						<div>
 							<span id="userPwdCheckeResultPrint"></span>
@@ -54,19 +67,19 @@
 					<div class="mb-3 row">
 						<label for="userName" class="col-sm-3 col-form-label text-center"> 이 름 </label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="userName" name="userName">
+							<input type="text" class="form-control" id="userName" name="userName" maxlength='10'>
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="userNickName" class="col-sm-3 col-form-label text-center"> 닉 네 임 </label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="userNickName" name="userNickName">
+							<input type="text" class="form-control" id="userNickName" name="userNickName" maxlength='20'>
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="userBirthDate" class="col-sm-3 col-form-label text-center"> 생년월일 </label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="userBirthDate" name="userBirthDate" placeholder="1994.07.31">
+							<input type="text" class="form-control" id="userBirthDate" name="userBirthDate" placeholder="1994.07.31" maxlength='10'>
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -83,13 +96,13 @@
 					<div class="mb-3 row">
 						<label for="userPhoneNum" class="col-sm-3 col-form-label text-center"> 전화번호 </label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum">
+							<input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" maxlength='15'>
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="userItrs" class="col-sm-3 col-form-label text-center"> 목 적 </label>
-						<div class="col-sm-5">
-							<textarea rows="6" cols="80" style="resize: none;" placeholder="내용을 입력하세요. &#13;&#10; (예시 1) 저는 다이어트에 관심이 많아요. &#13;&#10; (예시 2) 저는 마른체구가 고민이라 큰체구를 가지고 싶어요."></textarea>
+						<div class="col-sm-6">
+							<textarea class="form-control" style="resize: none; height: 80px;" placeholder="내용을 입력하세요. &#13;&#10; (예시 1) 저는 다이어트에 관심이 많아요. &#13;&#10; (예시 2) 저는 마른체구가 고민이라 큰체구를 가지고 싶어요."></textarea>
 							<!-- 크기 변환 설정 필요. -->
 						</div>
 					</div>
