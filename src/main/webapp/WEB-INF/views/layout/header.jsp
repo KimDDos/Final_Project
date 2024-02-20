@@ -62,7 +62,7 @@
                             
                             <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
                             <li class="nav-item"><a class="nav-link" href="/member/memberLogin">Log in</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/index">어드민페이지</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/index" target="_blank">어드민페이지</a></li>
                             
                         </ul>
                     </div>

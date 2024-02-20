@@ -11,6 +11,13 @@
 		values(#{noticeCategory}, #{noticeTitle},#{noticeContent})
 	</insert>
 	
+	<select id="getadminList" resultType="com.four.www.admin.domain.NoticeVO">
+		select * from notice_board 
+		order by notice_category desc , notice_no desc
+		limit #{pageStart}, #{qty}
+	
+	</select>
+	
 	<select id="getList" resultType="com.four.www.admin.domain.NoticeVO">
 		SELECT *
 		FROM notice_board
@@ -32,5 +39,8 @@
 		delete from notice_board where notice_no = #{noticeNo}
 	</delete>
 	
+	<select id="getTotalCount" resultType="int">
+		select count(notice_no) from notice_board
+	</select>
 	
 </mapper>
