@@ -37,8 +37,10 @@
     </tr>
     </c:forEach>
     
+    
   </tbody>
 </table>
+<<<<<<< HEAD
 =======
 	<table class="table table-hover">
 		<thead>
@@ -58,6 +60,35 @@
 					<td>${nvo.noticeRegDate }</td>
 				</tr>
 >>>>>>> origin/KJH
+=======
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+  
+<!-- 이전 페이지 -->
+<c:if test="${ph.prev }">
+    <li class="page-item">
+      <a class="page-link" href="/admin/list/?pageNo=${ph.startPage-1 }&qty=${ph.pgvo.qty}&" aria-label="Prev">
+      <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+</c:if>
+<!-- 페이지번호 -->
+<c:forEach begin="${ph.startPage }" end="${ph.endPage }" var="i"> 
+    <li class="page-item"><a class="page-link" href="/admin/list/?pageNo=${i}&qty=${ph.pgvo.qty}">${i }</a></li>
+</c:forEach>
+   
+<!-- 다음 페이지 -->
+<c:if test="${ph.next }">
+    <li class="page-item">
+      <a class="page-link" href="/admin/list/?pageNo=${ph.endPage+1 }&qty=${ph.pgvo.qty}" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+</c:if>
+
+</ul>
+</nav>
+>>>>>>> origin/DH
 
 			</c:forEach>
 

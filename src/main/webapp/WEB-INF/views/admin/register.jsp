@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
 
+=======
+    pageEncoding="UTF-8"%>
+    
+<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+>>>>>>> origin/DH
 
 
 <jsp:include page="../layout/admin-sidebar.jsp"></jsp:include>
@@ -50,6 +56,18 @@
 	</div>
 >>>>>>> origin/KJH
 
+<<<<<<< HEAD
+=======
+  <div class="col-12" >
+   			 <label for="title" class="form-label">제목</label>
+   			 <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
+  	<div id="noticeContent" name="noticeContent">
+  	</div>
+	<button type="button">등록</button>
+  </div>
+  </div>
+  
+>>>>>>> origin/DH
 </form>
 
 <!-- Bootstrap core JS-->
@@ -72,8 +90,19 @@
 <!-- Page level plugins -->
 <script src="/resources/vendor/chart.js/Chart.min.js"></script>
 
+<<<<<<< HEAD
 <!-- Page level custom scripts -->
 <script src="/resources/js/demo/chart-area-demo.js"></script>
 <script src="/resources/js/demo/chart-pie-demo.js"></script>
+=======
+    <!-- Page level custom scripts -->
+    <script src="/resources/js/demo/chart-area-demo.js"></script>
+    <script src="/resources/js/demo/chart-pie-demo.js"></script>
+    
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+
+
+>>>>>>> origin/DH
 </body>
 
