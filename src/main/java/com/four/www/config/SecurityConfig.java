@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean
-	public PasswordEncoder bcPasswordEncoder() {
+	public BCryptPasswordEncoder bcPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	

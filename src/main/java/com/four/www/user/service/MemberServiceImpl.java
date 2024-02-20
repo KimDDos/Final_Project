@@ -19,11 +19,16 @@ public class MemberServiceImpl implements MemberService{
 
 	private final MemberDAO mdao;
 	
-	// private final BCryptPasswordEncoder passwordEncoder;
+	private final BCryptPasswordEncoder passwordEncoder;
+	 
 	@Override
 	public int memberRegister(MemberVO mvo) {
-		mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
-		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
+		if(mvo.getIsTrainer().equals("N")) {
+			mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
+		} else {
+			mvo.setUserSerialNo("T"+ Integer.toString(mdao.selectUserCount()+1));
+		}
+		mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
 	}
 

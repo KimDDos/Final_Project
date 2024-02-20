@@ -238,10 +238,35 @@
 <!-- Footer-->
 
 <jsp:include page="./layout/footer.jsp"></jsp:include>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript">
+	let msg_mbrreg = "<c:out value='${msg_mbrreg}'/>";
+	let msg_mbrIsTrainer = "<c:out value='${msg_mbrIsTrainer}'/>";
+	if(msg_mbrreg == '1'){
+		if(msg_mbrIsTrainer == "Y"){
+			Swal.fire({
+	            icon: 'success',
+	            title: '득근득근 회원가입 성공!',
+	            text: '(주) 득근득근의 신규 트레이너 회원이 되신것을 환영합니다.'
+	        });
+		} else {
+			Swal.fire({
+	            icon: 'success',
+	            title: '득근득근 회원가입 성공!',
+	            text: '(주) 득근득근의 신규회원이 되신것을 환영합니다.'
+	        });
+		}
+	} else if(msg_mbrreg == '2'){
+		Swal.fire({
+            icon: 'error',
+            title: '득근득근 회원가입 실패!',
+            text: '(주) 득근득근의 신규 트레이너 회원 가입에 실패했습니다.<br>다시 시도하시거나 관리자에게 문의해주세요.'
+        });
+	}
+	
+</script>
 <!-- Bootstrap core JS-->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="/resources/js/scripts.js"></script>
 </body>
