@@ -16,13 +16,13 @@
 </div>
 
 <div class="col-12">
-<input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off">
+<input type="radio" class="btn-check" name="noticeCategory" id="option1" autocomplete="off" value="2">
 <label class="btn" for="option1">공지사항</label>
 
-<input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
+<input type="radio" class="btn-check" name="noticeCategory" id="option2" autocomplete="off" value="0">
 <label class="btn" for="option2">일반공지</label>
 
-<input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
+<input type="radio" class="btn-check" name="noticeCategory" id="option3" autocomplete="off" value="1">
 <label class="btn" for="option3">이벤트</label>
 
 </div>

@@ -18,11 +18,22 @@
 <tbody>
   <c:forEach var="nvo" items="${list }">
     <tr>
-      <th scope="row">${nvo.noticeNo }</th>
+          	<c:choose>
+				<c:when test="${nvo.noticeCategory eq '2' }">
+					<th scope="row"> 공지 </th>
+				</c:when>
+				<c:when test="${nvo.noticeCategory eq '1' }">
+					 <th scope="row"> 이벤트 </th>
+				</c:when>
+				<c:otherwise>
+					<th scope="row"> ${nvo.noticeNo } </th>
+				</c:otherwise>
+			 </c:choose>
       <td onclick="location.href='/admin/detail?notice_no=${nvo.noticeNo }'"> ${nvo.noticeTitle }</td>
+      
       <td>${nvo.noticeRegDate }</td>
+      
     </tr>
-    
     </c:forEach>
     
   </tbody>

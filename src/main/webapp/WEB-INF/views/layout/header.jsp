@@ -47,7 +47,6 @@
                             <li class="nav-item dropdowns">
                                 <a class="nav-link " id="navbarDropdownBlog" href="#" role="button"  aria-expanded="false">고객지원</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="/notice/register">공지사항 등록</a></li>
                                     <li><a class="dropdown-item" href="/notice/list">공지사항</a></li>
                                     <li><a class="dropdown-item" href="#">일반 문의</a></li>
                                     <li><a class="dropdown-item" href="#">트레이너 문의</a></li>
@@ -63,6 +62,8 @@
                             
                             <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
                             <li class="nav-item"><a class="nav-link" href="/member/memberLogin">Log in</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/index">어드민페이지</a></li>
+                            
                         </ul>
                     </div>
                 </div>
