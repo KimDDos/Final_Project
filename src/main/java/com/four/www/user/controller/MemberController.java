@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.user.domain.CalendarVO;
 import com.four.www.user.domain.MemberVO;
+import com.four.www.user.domain.UserVO;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -80,17 +81,30 @@ public class MemberController {
 	}
 
 	@PostMapping("/memberRegister")
-	public String memberRegister(MemberVO mvo) {
-		log.info(">>>> mvo >>>> {}", mvo);
+	public String memberRegister(MemberVO mvo, Model m, 
+			@RequestParam(value="userEmailPrev", required = true)String mailPrev,
+			@RequestParam(value="emailSelect", required = true)String emailSelect) {
+		
+		mvo.setUserEmail(mailPrev + emailSelect);
+		log.info("MAIL >>>>>>>>>>>>>>>>>>>>>>>>>>" + mailPrev + emailSelect);
+		log.info(">>>>>>>>>>>>>>>>>>>>>> mvo >>>> {}", mvo);
+	
 
 		int isOk = msv.memberRegister(mvo);
-
-		return "/";
+		UserVO newUvo = new UserVO();
+		newUvo.setUserSerialNo(msv.getUserDetail(mvo.getUserEmail()));
+		m.addAttribute("msg_mbrreg", isOk);
+		m.addAttribute("msg_mbrIsTrainer", mvo.getIsTrainer());
+		if(mvo.getIsTrainer().equals("Y") && isOk > 0) {
+			return "/member/trainerreg";
+		} else if(isOk == 0) {
+			m.addAttribute("msg_mbrreg", "2");
+		} 
+		return "/index";
 	}
 
 	@GetMapping("/memberLogin")
-	public void memberLogin() {
-	}
+	public void memberLogin() {}
 
 	@PostMapping("/memberLogin")
 	public String memberLogin(HttpServletRequest request, RedirectAttributes re) {
@@ -98,4 +112,9 @@ public class MemberController {
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		return "redirect:/member/memberLogin";
 	}
+	
+	@GetMapping("/member/trainerreg")
+	public void trainerreg() {}
+	
+	
 }

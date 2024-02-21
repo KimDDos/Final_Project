@@ -6,12 +6,16 @@
 <mapper namespace="com.four.www.user.repository.MemberDAO">
 
 	<select id="selectUserCount" resultType="int">
+<<<<<<< HEAD
 		select count(user_serial_no) from mbr_profile
+=======
+		select count(user_serial_no) from mbr_profile where user_serial_no like '%U%'
+>>>>>>> origin/KJH
 	</select>
 
 	<insert id="register">
 		insert into mbr_profile(user_serial_no,	user_email, user_pwd, user_name, user_nick_name, user_birth_date, 
-		user_phone_num, user_address, user_itrs, is_trainer)
+		user_phone_num, user_itrs, is_trainer)
 		values(
 			#{userSerialNo},	
 			#{userEmail}, 
@@ -20,7 +24,6 @@
 			#{userNickName}, 
 			#{userBirthDate}, 
 		    #{userPhoneNum}, 
-		    #{userAddress}, 
 		    #{userItrs}, 
 		    #{isTrainer})
 	</insert>
@@ -46,8 +49,14 @@
 		select * from mbr_profile where user_email = #{userEmail}
 	</select>
 	
-	<select id="getSocoalUser" resultType="com.four.www.user.domain.MemberVO">
-		select * from mbr_profile where user_email = #{userEmail}
+	<select id="selectUser" resultType="com.four.www.user.domain.UserVO">
+		select * from mbr_user where user_serial_no = #{userSerialNo}
 	</select>
+	
+	<update id="updateLoginDate">
+		update mbr_profile
+		set user_last_login_date = now()
+		where user_serial_no = #{userSerialNo}
+	</update>
 
 </mapper>

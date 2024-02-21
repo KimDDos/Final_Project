@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.four.www.admin.domain.NoticeVO;
+import com.four.www.admin.domain.PagingVO;
 import com.four.www.admin.repository.NoticeDAO;
 
 import lombok.RequiredArgsConstructor;
@@ -25,9 +26,9 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 	}
 
 	@Override
-	public List<NoticeVO> getList() {
+	public List<NoticeVO> getList(PagingVO pgvo) {
 		// TODO Auto-generated method stub
-		return ndao.getList();
+		return ndao.getList(pgvo);
 	}
 
 	@Override
@@ -46,6 +47,16 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 	public void remove(int nvo) {
 		ndao.remove(nvo);
 		
+	}
+
+	@Override
+	public int getTotalCount(PagingVO pgvo) {
+		return ndao.getTotalCount(pgvo);
+	}
+
+	@Override
+	public List<NoticeVO> getadminList(PagingVO pgvo) {
+		return ndao.getadminList(pgvo);
 	}
 
 }

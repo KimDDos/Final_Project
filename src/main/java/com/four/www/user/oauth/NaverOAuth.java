@@ -85,6 +85,8 @@ public class NaverOAuth {
 			
 			ResponseEntity<HashMap> userResult = restTemplate.exchange(NAVER_PROFILE_REQUEST_URL, HttpMethod.GET, userInfoEntity, HashMap.class);
 			Map<String, String> userResultMap = userResult.getBody();
+			// 로그아웃 로직을 위한 access_token 저장
+			userResultMap.put("access_token", access_token);
 			// return resultMap을 반환해야함!;
 			log.info(">>>>> userResultMap 데이터 >>>>> {}",userResultMap);
 			return userResultMap;

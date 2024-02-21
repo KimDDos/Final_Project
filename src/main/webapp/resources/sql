@@ -87,10 +87,8 @@ CREATE TABLE coupon (
 
 [mbr_profile] 테이블 column 수정
 alter table mbr_profile modify column user_phone_num varchar(15) not null;
-<<<<<<< HEAD
 alter table mbr_profile drop column user_address;
 alter table mbr_profile modify column user_itrs text null;
-=======
 
 [Reservation]테이블
 create table Reservation(
@@ -102,11 +100,29 @@ create table Reservation(
     -> Ino int auto_increment primary key,
     -> itemName varchar(255) not null);
     
-    [ReservationItemSelection]테이블
-    create table ReservationItemSelection(
-    -> sno int auto_increment primary key,
-    -> rno int,
-    -> ino int,
-    -> foreign key (rno) references Reservation(rno),
-    -> foreign key (ino) references ReservationItem(Ino));
->>>>>>> origin/TB
+[ReservationItemSelection]테이블
+create table ReservationItemSelection(
+-> sno int auto_increment primary key,
+-> rno int,
+-> ino int,
+-> foreign key (rno) references Reservation(rno),
+-> foreign key (ino) references ReservationItem(Ino));
+
+-- 2024 02 20 --
+
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column User_serial_no varchar(15) not null;
+
+[T_profile] 테이블 생성
+CREATE TABLE T_profile (
+    T_profile_no int NOT NULL auto_increment,
+    T_experience text NOT NULL,
+    T_trophy text NOT NULL,
+    T_intro_text text NOT NULL,
+    User_serial_no varchar(15) NOT NULL,
+primary key(T_profile_no));
+
+-- 2024 02 21 --
+[mbr_user] 테이블 column 'Access_token' 추가
+alter table mbr_user add column Access_token varchar(200) not null;
+
