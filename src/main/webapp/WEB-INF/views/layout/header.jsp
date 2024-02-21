@@ -28,12 +28,16 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script defer src="/resources/js/script.js"></script>
+<<<<<<< HEAD
+=======
+</head>
+>>>>>>> origin/KJH
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand" href="/">득근득근</a> 회원정보수정
+				<a class="navbar-brand" href="/">득근득근</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -62,8 +66,6 @@
 							aria-expanded="false">고객지원</a>
 							<ul class="dropdown-menu dropdown-menu-end"
 								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="/notice/register">공지사항
-										등록</a></li>
 								<li><a class="dropdown-item" href="/notice/list">공지사항</a></li>
 								<li><a class="dropdown-item" href="#">일반 문의</a></li>
 								<li><a class="dropdown-item" href="#">트레이너 문의</a></li>
@@ -78,6 +80,7 @@
 								<li><a class="dropdown-item" href="portfolio-item.html">Portfolio
 										Item</a></li>
 							</ul></li>
+<<<<<<< HEAD
 						<sec:authorize access="isAuthenticated()">
 						<sec:authentication property="principal.mdto.mvo.userEmail" var="userEmail"/>
 							<form action="/member/memberLogout" method="post" id="logoutForm">
@@ -93,10 +96,21 @@
 							<li class="nav-item"><a class="nav-link"
 								href="/member/memberLogin">Log in</a></li>
 						</sec:authorize>
+=======
+
+						<li class="nav-item"><a class="nav-link"
+							href="/member/memberRegister">Sign up</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/member/memberLogin">Log in</a></li>
+						<li class="nav-item"><a class="nav-link" href="/admin/index"
+							target="_blank">어드민페이지</a></li>
+
+>>>>>>> origin/KJH
 					</ul>
 				</div>
 			</div>
 		</nav>
+<<<<<<< HEAD
 	</main>
 
 	<script type="text/javascript">
@@ -105,3 +119,6 @@
 			document.getElementById('logoutForm').submit();
 		})
 	</script>
+=======
+	</main>
+>>>>>>> origin/KJH

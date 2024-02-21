@@ -6,7 +6,11 @@
 <mapper namespace="com.four.www.user.repository.MemberDAO">
 
 	<select id="selectUserCount" resultType="int">
+<<<<<<< HEAD
 		select count(user_serial_no) from mbr_profile
+=======
+		select count(user_serial_no) from mbr_profile where user_serial_no like '%U%'
+>>>>>>> origin/KJH
 	</select>
 
 	<insert id="register">

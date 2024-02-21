@@ -40,27 +40,6 @@
     
   </tbody>
 </table>
-<<<<<<< HEAD
-=======
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">제목</th>
-				<th scope="col">작성일</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="nvo" items="${list }">
-				<tr>
-					<th scope="row">${nvo.noticeNo }</th>
-					<td
-						onclick="location.href='/admin/detail?notice_no=${nvo.noticeNo }'">
-						${nvo.noticeTitle }</td>
-					<td>${nvo.noticeRegDate }</td>
-				</tr>
->>>>>>> origin/KJH
-=======
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
   
@@ -88,9 +67,6 @@
 
 </ul>
 </nav>
->>>>>>> origin/DH
-
-			</c:forEach>
 
 		</tbody>
 	</table>

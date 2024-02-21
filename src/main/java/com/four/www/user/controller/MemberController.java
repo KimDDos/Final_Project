@@ -81,8 +81,14 @@ public class MemberController {
 	}
 
 	@PostMapping("/memberRegister")
-	public String memberRegister(MemberVO mvo, Model m) {
-		log.info(">>>> mvo >>>> {}", mvo);
+	public String memberRegister(MemberVO mvo, Model m, 
+			@RequestParam(value="userEmailPrev", required = true)String mailPrev,
+			@RequestParam(value="emailSelect", required = true)String emailSelect) {
+		
+		mvo.setUserEmail(mailPrev + emailSelect);
+		log.info("MAIL >>>>>>>>>>>>>>>>>>>>>>>>>>" + mailPrev + emailSelect);
+		log.info(">>>>>>>>>>>>>>>>>>>>>> mvo >>>> {}", mvo);
+	
 
 		int isOk = msv.memberRegister(mvo);
 		UserVO newUvo = new UserVO();

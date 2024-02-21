@@ -60,7 +60,7 @@ document.getElementById('userPwd').addEventListener('keyup', ()=>{
     let userPwd = document.getElementById('userPwd');
     let checkResult = document.getElementById('userPwdCheckeResultPrint');
 
-    if(strongPasswordExp(userPwd)){
+    if(strongPasswordExp(userPwd.value)){
         if(userPwd.value === userPwdCheck.value) {
            checkResult.innerText = "Password가 일치합니다.";
            checkResult.className = "badge text-bg-success";
@@ -73,6 +73,7 @@ document.getElementById('userPwd').addEventListener('keyup', ()=>{
            userPwd.classList.add("is-invalid");
        }
     } else {
+        console.log(strongPasswordExp(userPwd.value));
         checkResult.innerText = "10자 이상의 문자, 숫자, 특수문자로 조합해주세요.";
         checkResult.className = "badge text-bg-danger";
         userPwd.classList.add("is-invalid");
