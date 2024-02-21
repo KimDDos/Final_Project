@@ -42,6 +42,8 @@ public class AdminController {
 		return "redirect:/admin/list";
 	}
 	
+	
+	
 	@GetMapping("/list")
 	public void list(Model m, PagingVO pgvo) {
 		List<NoticeVO> list = nsv.getadminList(pgvo);

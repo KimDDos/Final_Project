@@ -18,7 +18,7 @@
 						value="${nvo.noticeTitle}">
 				</div>
 				<div >
-					<label class="form-label">content</label> 
+					<label class="form-label">내용</label> 
 					<input type="text"
 						class="form-control" name="notice_content" id="notice_content"
 						readonly="readonly" value="${nvo.noticeContent}">
