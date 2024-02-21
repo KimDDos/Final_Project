@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.four.www.admin.domain.NoticeVO;
+import com.four.www.admin.domain.PagingVO;
 import com.four.www.admin.service.NoticeBoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -34,7 +35,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, PagingVO pgvo) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -44,7 +45,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		List<NoticeVO> list = nsv.getList();
+		List<NoticeVO> list = nsv.getList(pgvo);
 		model.addAttribute("list" , list);
 		
 		return "index";

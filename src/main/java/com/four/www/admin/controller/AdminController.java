@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.admin.domain.NoticeVO;
+import com.four.www.admin.domain.PagingVO;
+import com.four.www.admin.handler.PagingHandler;
 import com.four.www.admin.service.AdminService;
 import com.four.www.admin.service.NoticeBoardService;
 
@@ -41,9 +43,12 @@ public class AdminController {
 	}
 	
 	@GetMapping("/list")
-	public void list(Model m) {
-		List<NoticeVO> list = nsv.getList();
+	public void list(Model m, PagingVO pgvo) {
+		List<NoticeVO> list = nsv.getadminList(pgvo);
+		int totalCount = nsv.getTotalCount(pgvo);
+		PagingHandler ph = new PagingHandler(pgvo, totalCount);
 		m.addAttribute("list" , list);
+		m.addAttribute("ph",ph);
 	}
 	
 	@GetMapping({"/detail","/modify"})

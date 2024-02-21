@@ -80,17 +80,22 @@ public class MemberController {
 	}
 
 	@PostMapping("/memberRegister")
-	public String memberRegister(MemberVO mvo) {
+	public String memberRegister(MemberVO mvo, Model m) {
 		log.info(">>>> mvo >>>> {}", mvo);
 
 		int isOk = msv.memberRegister(mvo);
-
-		return "/";
+		m.addAttribute("msg_mbrreg", isOk);
+		m.addAttribute("msg_mbrIsTrainer", mvo.getIsTrainer());
+		if(mvo.getIsTrainer().equals("Y") && isOk > 0) {
+			return "/member/trainerreg";
+		} else if(isOk == 0) {
+			m.addAttribute("msg_mbrreg", "2");
+		} 
+		return "/index";
 	}
 
 	@GetMapping("/memberLogin")
-	public void memberLogin() {
-	}
+	public void memberLogin() {}
 
 	@PostMapping("/memberLogin")
 	public String memberLogin(HttpServletRequest request, RedirectAttributes re) {
@@ -98,4 +103,9 @@ public class MemberController {
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		return "redirect:/member/memberLogin";
 	}
+	
+	@GetMapping("/member/trainerreg")
+	public void trainerreg() {}
+	
+	
 }

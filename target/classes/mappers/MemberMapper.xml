@@ -6,12 +6,13 @@
 <mapper namespace="com.four.www.user.repository.MemberDAO">
 
 	<select id="selectUserCount" resultType="int">
-		select count(user_serial_no) from mbr_profile
+		select count(user_serial_no) from mbr_profile where user_serial_no
 	</select>
+	
 
 	<insert id="register">
 		insert into mbr_profile(user_serial_no,	user_email, user_pwd, user_name, user_nick_name, user_birth_date, 
-		user_phone_num, user_address, user_itrs, is_trainer)
+		user_phone_num, user_itrs, is_trainer)
 		values(
 			#{userSerialNo},	
 			#{userEmail}, 
@@ -20,7 +21,6 @@
 			#{userNickName}, 
 			#{userBirthDate}, 
 		    #{userPhoneNum}, 
-		    #{userAddress}, 
 		    #{userItrs}, 
 		    #{isTrainer})
 	</insert>

@@ -28,21 +28,23 @@
 					<div class="mb-3 row">
 						<label for="userEmail" class="col-sm-3 col-form-label text-center">로그인 Email</label>
 						<div class="col-sm-4">
-							<input type="email" class="form-control"
-								name="userEmail" id="userEmailPrev" placeholder="E-Mail을 입력해주세요." maxlength='30'>
+							<input type="text" class="form-control"
+								name="userEmailPrev" id="userEmailPrev" placeholder="E-Mail을 입력해주세요." maxlength='30'>
 						</div>
 						<div class="col-sm-1" style="padding: 0 0; width: 25px;">
 							<span>@</span>
 						</div>
 						<div class="col-sm-4">
-							<select class="form-select" aria-label="Default select example">
+							<select class="form-select" aria-label="Default select example" id="emailSelect" style="margin-bottom: 7px">
 							  <option selected>이메일을 선택해주세요.</option>
 							  <option value="naver.com">naver.com</option>
 							  <option value="daum.net">daum.net</option>
 							  <option value="gmail.com">gmail.com</option>
 							  <option value="gitHub.com">gitHub.com</option>
-							  <option value="input">직접입력</option>
+							  <option value="input" onclick="emailDirectInputActive()">직접입력</option>
 							</select>
+							<input type="text" class="form-control" name="userEmailNext" id="userEmailNext" style="visibility: hidden;" placeholder="직접입력" maxlength='20'>
+							<input type="hidden" id="userEmail" name="userEmail" value="">
 						</div>
 						<!-- 셀렉트로 자동입력 과 셀프 입력 -->
 					</div>
@@ -53,6 +55,7 @@
 						<label for="userPwdCheck" class="col-sm-3 col-form-label text-center">Password</label>
 						<div class="col-sm-6">
 							<input type="password" class="form-control" id="userPwdCheck" name="userPwdCheck" placeholder="Password를 입력해주세요." maxlength='35'>
+							<span> * 10 글자 이상, 특수문자 '@$!%*#?&' 포함</span>
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -79,7 +82,7 @@
 					<div class="mb-3 row">
 						<label for="userBirthDate" class="col-sm-3 col-form-label text-center"> 생년월일 </label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="userBirthDate" name="userBirthDate" placeholder="1994.07.31" maxlength='10'>
+							<input type="text" class="form-control" id="datepicker" name="userBirthDate">
 						</div>
 					</div>
 					<div class="mb-3 row">
@@ -96,25 +99,38 @@
 					<div class="mb-3 row">
 						<label for="userPhoneNum" class="col-sm-3 col-form-label text-center"> 전화번호 </label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" maxlength='15'>
+							<input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" maxlength='15' placeholder="'-' 는 제외하고 입력해주세요. ">
 						</div>
 					</div>
 					<div class="mb-3 row">
 						<label for="userItrs" class="col-sm-3 col-form-label text-center"> 목 적 </label>
 						<div class="col-sm-6">
-							<textarea class="form-control" style="resize: none; height: 80px;" placeholder="내용을 입력하세요. &#13;&#10; (예시 1) 저는 다이어트에 관심이 많아요. &#13;&#10; (예시 2) 저는 마른체구가 고민이라 큰체구를 가지고 싶어요."></textarea>
+							<textarea class="form-control" id="userItrs" name="userItrs" style="resize: none; height: 80px;" placeholder="내용을 입력하세요. &#13;&#10; (예시 1) 저는 다이어트에 관심이 많아요. &#13;&#10; (예시 2) 저는 마른체구가 고민이라 큰체구를 가지고 싶어요."></textarea>
 							<!-- 크기 변환 설정 필요. -->
 						</div>
 					</div>
 					<div>
-						<button type="submit" style="display: none;"></button>
+						<button type="submit" id="regBtn" style="display: none;"></button>
 						<button type="button" class="" id="memberRegisterBtn"> Sign in </button>
 					</div>
 				</form>
 			</div>
 		</div>
 		
-		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			    $('#datepicker').datepicker({
+			        language: 'ko', // 한글 설정
+			        autoclose: true // 날짜 선택 후 자동으로 닫힘
+			    });
+			    
+			 	// 오늘 날짜를 기본값으로 설정
+			    $('#datepicker').datepicker('setDate', new Date());
+			});
+		</script>
 		
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

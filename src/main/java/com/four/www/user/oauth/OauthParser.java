@@ -109,11 +109,7 @@ public class OauthParser {
 		
 		UserAuthVO authvo = new UserAuthVO();
 		authvo.setUserSerialNo(oauthMvo.getUserSerialNo());
-		if(oauthMvo.getIsTrainer().equals("N")) {
-			authvo.setUserRole("ROLE_USER");
-		} else {
-			authvo.setUserRole("ROLE_TRAINER");
-		}
+		authvo.setUserRole("ROLE_USER");
 		
 		List<UserAuthVO> authList = new ArrayList<>();
 		authList.add(authvo);
