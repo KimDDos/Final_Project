@@ -17,4 +17,6 @@ public interface MemberService {
 
 	MemberVO getSocialUser(MemberVO mvo);
 
+	void updateLoginDate(String userSerialNo);
+	
 }

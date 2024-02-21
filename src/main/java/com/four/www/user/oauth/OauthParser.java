@@ -30,6 +30,7 @@ public class OauthParser {
 		String userEmail = userInfo.get("email");
 		String userName = userInfo.get("family_name") + userInfo.get("given_name");
 		String userNickName = userInfo.get("name"); 
+		String accessToken = userInfo.get("access_token");
 		
 		MemberDTO mdto = new MemberDTO();
 		MemberVO mvo = new MemberVO();
@@ -67,6 +68,7 @@ public class OauthParser {
 			String userGender = naver_resp.get("gender");
 			String userPhoneNum = naver_resp.get("mobile");
 			String userBirthDate = naver_resp.get("birthyear") + "-" + naver_resp.get("birthday");
+			String accessToken = naver_resp.get("access_token");
 
 			mdto.setMvo(mvo);
 			mdto.setUvo(uvo);
@@ -80,6 +82,7 @@ public class OauthParser {
 			mdto.getMvo().setUserItrs("None");
 			mdto.getMvo().setIsTrainer("N");
 			mdto.getUvo().setUserLoginType("N");
+			mdto.getUvo().setAccessToken(accessToken);
 			return regAndAuth(mdto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,6 +120,9 @@ public class OauthParser {
 		
 		MemberDTO authmdto = new MemberDTO();
 		authmdto.setMvo(oauthMvo);
+		
+		// 최근 로그인 갱신
+		msv.updateLoginDate(authmdto.getMvo().getUserSerialNo());
 		
 		return authmdto;
 	}

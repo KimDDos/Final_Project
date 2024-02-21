@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
+import com.four.www.user.domain.UserVO;
 import com.four.www.user.repository.MemberDAO;
 
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,7 @@ public class MemberServiceImpl implements MemberService{
 		return mdao.register(mvo);
 	}
 
+	
 	@Override
 	public boolean updateLastLogin(String authEmail) {
 		String isOk = mdao.selectUserInfo(authEmail);
@@ -64,5 +66,11 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO getSocialUser(MemberVO mvo) {
 		return mdao.getSocialMbr(mvo);
 	}
+
+	@Override
+	public void updateLoginDate(String userSerialNo) {
+		mdao.updateLoginDate(userSerialNo);
+	}
+
 	
 }

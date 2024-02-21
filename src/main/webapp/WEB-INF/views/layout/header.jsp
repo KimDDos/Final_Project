@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script defer src="/resources/js/script.js"></script>
-<<<<<<< HEAD
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- Navigation-->
@@ -78,64 +78,30 @@
 								<li><a class="dropdown-item" href="portfolio-item.html">Portfolio
 										Item</a></li>
 							</ul></li>
-
-						<li class="nav-item"><a class="nav-link"
-							href="/member/memberRegister">Sign up</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/member/memberLogin">Log in</a></li>
-						<li class="nav-item"><a class="nav-link" href="/admin/index">ADMIN
-								PAGE</a></li>
+						<sec:authorize access="isAuthenticated()">
+						<sec:authentication property="principal.mdto.mvo.userEmail" var="userEmail"/>
+							<form action="/member/memberLogout" method="post" id="logoutForm">
+								<input type="hidden" name="userSerialNo" value="">
+							</form>
+							<li class="nav-item"><a class="nav-link" id="logoutLick" href="#">Log out</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/index">ADMIN PAGE</a></li>
+						</sec:authorize>
+						
+						<sec:authorize access="isAnonymous()">
+							<li class="nav-item"><a class="nav-link"
+								href="/member/memberRegister">Sign up</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="/member/memberLogin">Log in</a></li>
+						</sec:authorize>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</main>
-=======
-    </head>
-        <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="/">득근득근</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="about.html"></a></li>
-                            <li class="nav-item dropdowns">
-                                <a class="nav-link " id="navbarDropdownBlog" href="#" role="button"  aria-expanded="false">예약(test)</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="/reservation/register">예약 하기</a></li>
-                                    <li><a class="dropdown-item" href="/notice/list">예약 문의</a></li>
-                                    <li><a class="dropdown-item" href="#">예약일정 확인</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/member/mypage">MYPAGE</a></li>
-                            <li class="nav-item dropdowns">
-                                <a class="nav-link " id="navbarDropdownBlog" href="#" role="button"  aria-expanded="false">고객지원</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="/notice/list">공지사항</a></li>
-                                    <li><a class="dropdown-item" href="#">일반 문의</a></li>
-                                    <li><a class="dropdown-item" href="#">트레이너 문의</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdowns">
-                                <a class="nav-link " id="navbarDropdownPortfolio" href="#" role="button"  aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li class="nav-item"><a class="nav-link" href="/member/memberRegister">Sign up</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/member/memberLogin">Log in</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/index" target="_blank">어드민페이지</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-         </main>
->>>>>>> origin/DH
+
+	<script type="text/javascript">
+		document.getElementById('logoutLick').addEventListener('click', (e) => {
+			e.preventDefault();
+			document.getElementById('logoutForm').submit();
+		})
+	</script>

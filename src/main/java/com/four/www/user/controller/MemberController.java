@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.user.domain.CalendarVO;
 import com.four.www.user.domain.MemberVO;
+import com.four.www.user.domain.UserVO;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -84,6 +85,8 @@ public class MemberController {
 		log.info(">>>> mvo >>>> {}", mvo);
 
 		int isOk = msv.memberRegister(mvo);
+		UserVO newUvo = new UserVO();
+		newUvo.setUserSerialNo(msv.getUserDetail(mvo.getUserEmail()));
 		m.addAttribute("msg_mbrreg", isOk);
 		m.addAttribute("msg_mbrIsTrainer", mvo.getIsTrainer());
 		if(mvo.getIsTrainer().equals("Y") && isOk > 0) {
