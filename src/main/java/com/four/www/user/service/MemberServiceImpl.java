@@ -28,6 +28,8 @@ public class MemberServiceImpl implements MemberService{
 		} else {
 			mvo.setUserSerialNo("T"+ Integer.toString(mdao.selectUserCount()+1));
 		}
+		log.info("USER COUNTS>>>>>>>>>>>>>>>>>>>>>>>>>>>"+mdao.selectUserCount());
+		
 		mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
 	}
