@@ -54,10 +54,10 @@ AM 10:00 – PM 04:00</pre> <pre class="last" readonly="readonly">
 				<!-- 지도 -->
 				<div id="aboutmap26" class="aboutmap26" tabindex="0"
 					style="overflow: hidden; background: rgb(248, 249, 250);">
-					<div class="search" style="position: absolute; z-index: 100;">
-						<input id="address" type="text" placeholder="검색할 주소" value="불정로 6">
-						<input id="submit" type="button" value="주소 검색">
-					</div>
+					<form action="/main/searchMap" style="position: absolute; z-index: 100">
+						<input id="address" type="text" name="address" placeholder="검색할 주소" value="불정로 6">
+						<button type="submit" value="주소 검색" style="position: absolute; z-index: 100"></button>
+					</form>
 				</div>
 
 				<script type="text/javascript"
