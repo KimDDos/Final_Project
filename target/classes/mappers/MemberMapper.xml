@@ -6,70 +6,51 @@
 <mapper namespace="com.four.www.user.repository.MemberDAO">
 
 	<select id="selectUserCount" resultType="int">
-		select
-		count(user_serial_no) from mbr_profile
+		select count(user_serial_no) from mbr_profile
 	</select>
 
 	<insert id="register">
-		insert into mbr_profile(user_serial_no, user_email,
-		user_pwd, user_name, user_nick_name, user_birth_date,
-		user_phone_num,
-		user_itrs, is_trainer)
+		insert into mbr_profile(user_serial_no,	user_email, user_pwd, user_name, user_nick_name, user_birth_date, 
+		user_phone_num, user_address, user_itrs, is_trainer)
 		values(
-		#{userSerialNo},
-		#{userEmail},
-		#{userPwd},
-		#{userName},
-		#{userNickName},
-		#{userBirthDate},
-		#{userPhoneNum},
-		#{userItrs},
-		#{isTrainer})
+			#{userSerialNo},	
+			#{userEmail}, 
+			#{userPwd}, 
+			#{userName}, 
+			#{userNickName}, 
+			#{userBirthDate}, 
+		    #{userPhoneNum}, 
+		    #{userAddress}, 
+		    #{userItrs}, 
+		    #{isTrainer})
 	</insert>
-
+	
 	<insert id="regUser">
-		insert into mbr_user(user_serial_no, user_name,
-		user_nick_name, user_login_type)
-		values(#{userSerialNo}, #{userName},
-		#{userNickName}, #{userLoginType})
+		insert into mbr_user(user_serial_no, user_name, user_nick_name, user_login_type)
+		values(#{userSerialNo}, #{userName}, #{userNickName}, #{userLoginType})
 	</insert>
-
+	
 	<select id="selectUserInfo">
-		select user_email from mbr_profile where user_email =
-		#{authEmail}
+		select user_email from mbr_profile where user_email = #{authEmail}
 	</select>
 
-	<select id="selectMemberInfo"
-		resultType="com.four.www.user.domain.MemberVO">
+	<select id="selectMemberInfo" resultType="com.four.www.user.domain.MemberVO">
 		select * from mbr_profile where user_email = #{username}
 	</select>
-
-	<select id="selectAuths"
-		resultType="com.four.www.user.domain.UserAuthVO">
-		select * from mbr_auth where user_serial_no =
-		#{userSerialNo}
+	
+	<select id="selectAuths" resultType="com.four.www.user.domain.UserAuthVO"> 
+		select * from mbr_auth where user_serial_no = #{userSerialNo}
 	</select>
-
-	<select id="getSocialMbr"
-		resultType="com.four.www.user.domain.MemberVO">
+	
+	<select id="getSocialMbr" resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile where user_email = #{userEmail}
+	</select>
+	
+	<select id="getSocoalUser" resultType="com.four.www.user.domain.MemberVO">
 		select * from mbr_profile where user_email = #{userEmail}
 	</select>
 
-	<select id="getUserDetail"
-		resultType="com.four.www.user.domain.MemberVO">
-		select * from mbr_profile where user_email = #{userEmail}
+	<select id="getList" resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile order by User_serial_no desc
 	</select>
-
-	<select id="selectUser"
-		resultType="com.four.www.user.domain.UserVO">
-		select * from mbr_user where user_serial_no =
-		#{userSerialNo}
-	</select>
-
-	<update id="updateLoginDate">
-		update mbr_profile
-		set user_last_login_date = now()
-		where user_serial_no = #{userSerialNo}
-	</update>
-
 </mapper>

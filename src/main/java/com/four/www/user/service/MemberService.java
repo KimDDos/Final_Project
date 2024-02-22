@@ -1,5 +1,7 @@
 package com.four.www.user.service;
 
+import java.util.List;
+
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 
@@ -14,11 +16,9 @@ public interface MemberService {
 	MemberVO getSocialMbr(MemberVO memberVO);
 
 	int regSocialMbr(MemberDTO mdto);
-	
-	String getUserDetail(String userEmail);
 
 	MemberVO getSocialUser(MemberVO mvo);
 
-	void updateLoginDate(String userSerialNo);
-	
+	List<MemberVO> getList(MemberVO mvo);
+
 }

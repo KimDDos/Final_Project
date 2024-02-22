@@ -1,5 +1,7 @@
 package com.four.www.user.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.stereotype.Service;
@@ -7,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
-import com.four.www.user.domain.UserVO;
 import com.four.www.user.repository.MemberDAO;
 
 import lombok.RequiredArgsConstructor;
@@ -20,22 +21,14 @@ public class MemberServiceImpl implements MemberService{
 
 	private final MemberDAO mdao;
 	
-	private final BCryptPasswordEncoder passwordEncoder;
-	 
+	// private final BCryptPasswordEncoder passwordEncoder;
 	@Override
 	public int memberRegister(MemberVO mvo) {
-		if(mvo.getIsTrainer().equals("N")) {
-			mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
-		} else {
-			mvo.setUserSerialNo("T"+ Integer.toString(mdao.selectUserCount()+1));
-		}
-		log.info("USER COUNTS>>>>>>>>>>>>>>>>>>>>>>>>>>>"+mdao.selectUserCount());
-		
-		mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
+		mvo.setUserSerialNo("U"+ Integer.toString(mdao.selectUserCount()+1));
+		// mvo.setUserPwd(passwordEncoder.encode(mvo.getUserPwd()));
 		return mdao.register(mvo);
 	}
 
-	
 	@Override
 	public boolean updateLastLogin(String authEmail) {
 		String isOk = mdao.selectUserInfo(authEmail);
@@ -70,15 +63,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void updateLoginDate(String userSerialNo) {
-		mdao.updateLoginDate(userSerialNo);
+	public List<MemberVO> getList(MemberVO mvo) {
+		return mdao.getList(mvo);
 	}
-
-
-	@Override
-	public String getUserDetail(String userEmail) {
-		return mdao.getUserDetail(userEmail).getUserSerialNo();
-	}
-
 	
 }

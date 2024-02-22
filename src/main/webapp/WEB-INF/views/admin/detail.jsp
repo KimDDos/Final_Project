@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../layout/admin-sidebar.jsp"></jsp:include>
 
-
 <jsp:include page="../layout/admin-topbar.jsp"></jsp:include>
 
 <body>

@@ -33,4 +33,6 @@ public interface MemberDAO {
 	
 	MemberVO getUserDetail (String userEmail);
 
+	List<MemberVO> getList(MemberVO mvo);
+
 }
