@@ -1,8 +1,20 @@
 package com.four.www.main.repository;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class SearchDTO{
-	public String list;
+	private String title;
+	private double mapx;
+	private double mapy;
 }

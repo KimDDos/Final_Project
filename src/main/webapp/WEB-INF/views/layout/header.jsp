@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,10 +29,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script defer src="/resources/js/script.js"></script>
-<<<<<<< HEAD
-=======
 </head>
->>>>>>> origin/KJH
 <body class="d-flex flex-column h-100">
 	<main class="flex-shrink-0">
 		<!-- Navigation-->
@@ -80,37 +78,34 @@
 								<li><a class="dropdown-item" href="portfolio-item.html">Portfolio
 										Item</a></li>
 							</ul></li>
-<<<<<<< HEAD
 						<sec:authorize access="isAuthenticated()">
-						<sec:authentication property="principal.mdto.mvo.userEmail" var="userEmail"/>
+							<sec:authentication property="principal.mdto.mvo.userEmail"
+								var="userEmail" />
 							<form action="/member/memberLogout" method="post" id="logoutForm">
 								<input type="hidden" name="userSerialNo" value="">
 							</form>
-							<li class="nav-item"><a class="nav-link" id="logoutLick" href="#">Log out</a></li>
-							<li class="nav-item"><a class="nav-link" href="/admin/index">ADMIN PAGE</a></li>
+							<li class="nav-item"><a class="nav-link" id="logoutLick"
+								href="#">Log out</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/index">ADMIN
+									PAGE</a></li>
 						</sec:authorize>
-						
+
 						<sec:authorize access="isAnonymous()">
 							<li class="nav-item"><a class="nav-link"
 								href="/member/memberRegister">Sign up</a></li>
 							<li class="nav-item"><a class="nav-link"
 								href="/member/memberLogin">Log in</a></li>
 						</sec:authorize>
-=======
-
 						<li class="nav-item"><a class="nav-link"
 							href="/member/memberRegister">Sign up</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/member/memberLogin">Log in</a></li>
 						<li class="nav-item"><a class="nav-link" href="/admin/index"
 							target="_blank">어드민페이지</a></li>
-
->>>>>>> origin/KJH
 					</ul>
 				</div>
 			</div>
 		</nav>
-<<<<<<< HEAD
 	</main>
 
 	<script type="text/javascript">
@@ -119,6 +114,4 @@
 			document.getElementById('logoutForm').submit();
 		})
 	</script>
-=======
 	</main>
->>>>>>> origin/KJH

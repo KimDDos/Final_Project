@@ -14,6 +14,8 @@ public interface MemberService {
 	MemberVO getSocialMbr(MemberVO memberVO);
 
 	int regSocialMbr(MemberDTO mdto);
+	
+	String getUserDetail(String userEmail);
 
 	MemberVO getSocialUser(MemberVO mvo);
 

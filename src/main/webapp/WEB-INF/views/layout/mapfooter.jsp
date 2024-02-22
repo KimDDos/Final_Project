@@ -38,39 +38,6 @@ AM 10:00 – PM 04:00</pre> <pre class="last" readonly="readonly">
 
 		<!-- //운영시간 -->
 
-
-
-		<!-- 링크(26번배너) -->
-		<div class="Link">
-			<div class="Title Sub">
-				<span>위치 안내</span>
-			</div>
-			<!-- 26번배너(없으면지도표기) -->
-			<div class="Banner26Other">
-				<p>
-					인천 남동구 구월동 1234-1 도연빌딩 7층<span>(인하로 123-4) </span>
-				</p>
-				<pre>본원 건물 지하주차장 운영 (만차일 경우 예술회관 공영주차장 이용 가능)</pre>
-				<!-- 지도 -->
-				<div id="aboutmap26" class="aboutmap26" tabindex="0"
-					style="overflow: hidden; background: rgb(248, 249, 250);">
-					<form action="/main/searchMap" style="position: absolute; z-index: 100">
-						<input id="address" type="text" name="address" placeholder="검색할 주소" value="불정로 6">
-						<button type="submit" value="주소 검색" style="position: absolute; z-index: 100"></button>
-					</form>
-				</div>
-
-				<script type="text/javascript"
-					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=rfx8temqs8"></script>
-				<script type="text/javascript" src="/resources/js/footerMap.js">
-					
-				</script>
-				<!-- /지도 -->
-
-
-			</div>
-			<!-- //26번배너  -->
-		</div>
 	</div>
 </div>
 

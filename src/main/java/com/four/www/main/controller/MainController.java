@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.four.www.main.repository.SearchDTO;
 import com.four.www.main.service.MainService;
 import com.four.www.main.service.PlaceSearchService;
 
@@ -38,11 +39,12 @@ public class MainController {
 		return "/footerdetail/right";
 	}
 	@GetMapping("/searchMap")
-	public void searchMap(@RequestParam(value="address", required = true)String keyword) {
+	public String searchMap(@RequestParam(value="address", required = true)String keyword, Model m) {
 		PlaceSearchService pss = new PlaceSearchService();
-		List<String>KeywordLists = pss.searchPlace(keyword);
-		
-		log.info("KEYWORDS >>>>>>>>>>>>>>>>>>>>>>>>>> " + KeywordLists);
+		List<SearchDTO>KeywordLists = pss.searchPlace(keyword);
+		log.info(KeywordLists.toString());
+		m.addAttribute("KList",KeywordLists);
+		return "/member/searchMap";
 	}
 	
 

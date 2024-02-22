@@ -30,5 +30,7 @@ public interface MemberDAO {
 	UserVO selectUser(String userSerialNo);
 
 	void updateLoginDate(String userSerialNo);
+	
+	MemberVO getUserDetail (String userEmail);
 
 }

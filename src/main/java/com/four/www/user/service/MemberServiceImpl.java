@@ -74,5 +74,11 @@ public class MemberServiceImpl implements MemberService{
 		mdao.updateLoginDate(userSerialNo);
 	}
 
+
+	@Override
+	public String getUserDetail(String userEmail) {
+		return mdao.getUserDetail(userEmail).getUserSerialNo();
+	}
+
 	
 }
