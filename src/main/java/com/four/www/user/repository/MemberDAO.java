@@ -15,9 +15,9 @@ public interface MemberDAO {
 
 	int selectUserCount();
 
-	String selectUserInfo(String authEmail);
+	String selectUserInfo(String userEmail);
 
-	MemberVO selectMemberInfo(String username);
+	MemberVO selectMemberInfo(String userEmail);
 
 	List<UserAuthVO> selectAuths(String username);
 
@@ -26,5 +26,9 @@ public interface MemberDAO {
 	MemberVO getSocialMbr(MemberVO mvo);
 
 	int regUser(UserVO uvo);
+	
+	UserVO selectUser(String userSerialNo);
+
+	void updateLoginDate(String userSerialNo);
 
 }

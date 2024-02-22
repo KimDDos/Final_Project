@@ -31,8 +31,10 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 	private String authEmail;
 	private String authUrl;
 	
+	// redirect 데이터를 가지고 리다이렉트
 	private RedirectStrategy rdstg = new DefaultRedirectStrategy();
 	
+	// 실제 로그인 정보, 경로 등을 저장
 	private RequestCache reqCache = new HttpSessionRequestCache();
 
 	@Inject
@@ -44,7 +46,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		
 		// authentication은 인증된 AuthMember의 객체
 		setAuthEmail(authentication.getName());
-		setAuthUrl("/");
+		setAuthUrl("/index");
 		
 		boolean isOk = msv.updateLastLogin(getAuthEmail());
 		

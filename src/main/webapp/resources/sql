@@ -122,5 +122,7 @@ CREATE TABLE T_profile (
     User_serial_no varchar(15) NOT NULL,
 primary key(T_profile_no));
 
-
+-- 2024 02 21 --
+[mbr_user] 테이블 column 'Access_token' 추가
+alter table mbr_user add column Access_token varchar(200) not null;
 
