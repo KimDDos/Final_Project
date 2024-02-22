@@ -1,5 +1,7 @@
 package com.four.www.user.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.stereotype.Service;
@@ -58,6 +60,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberVO getSocialUser(MemberVO mvo) {
 		return mdao.getSocialMbr(mvo);
+	}
+
+	@Override
+	public List<MemberVO> getList(MemberVO mvo) {
+		return mdao.getList(mvo);
 	}
 	
 }

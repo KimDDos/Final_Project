@@ -27,4 +27,6 @@ public interface MemberDAO {
 
 	int regUser(UserVO uvo);
 
+	List<MemberVO> getList(MemberVO mvo);
+
 }

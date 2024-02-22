@@ -50,4 +50,7 @@
 		select * from mbr_profile where user_email = #{userEmail}
 	</select>
 
+	<select id="getList" resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile order by User_serial_no desc
+	</select>
 </mapper>
