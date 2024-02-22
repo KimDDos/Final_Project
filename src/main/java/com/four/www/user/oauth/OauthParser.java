@@ -6,14 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Component;
 
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserAuthVO;
 import com.four.www.user.domain.UserVO;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.service.MemberService;
 
@@ -46,7 +43,6 @@ public class OauthParser {
 		mdto.getMvo().setUserNickName(userNickName);
 		mdto.getMvo().setUserBirthDate("None");
 		mdto.getMvo().setUserPhoneNum("None");
-		mdto.getMvo().setUserAddress("None");
 		mdto.getMvo().setUserItrs("None");
 		mdto.getMvo().setIsTrainer("N");
 		mdto.getUvo().setUserLoginType("G");
@@ -59,18 +55,18 @@ public class OauthParser {
 		MemberDTO mdto = new MemberDTO();
 		MemberVO mvo = new MemberVO();
 		UserVO uvo = new UserVO();
-		log.info("user info >>>>>>>>>>>>>>>>>>>>>>>>>>> {}",userInfo);
 		
 		try {
 			// 데이터 파싱
-			/*
-			Map<String, String> responseMap = userInfo.get("response");
-			String userEmail = userInfo.get("response").get("email");
-			String userName = (String)response_obj.get("name");
-			String userNickName = (String)response_obj.get("nickname");
-			String userGender = (String)response_obj.get("gender");
-			String userPhoneNum = (String)response_obj.get("mobile");
-			String userBirthDate = (String)response_obj.get("birthyear") + "-" + (String)response_obj.get("birthday");
+			Object resp = userInfo.get("response");
+			String stringObj = resp.toString();
+			Map<String, String> naver_resp = parseResponse(stringObj);
+			String userEmail = naver_resp.get("email");
+			String userName = naver_resp.get("name");
+			String userNickName = naver_resp.get("nickname");
+			String userGender = naver_resp.get("gender");
+			String userPhoneNum = naver_resp.get("mobile");
+			String userBirthDate = naver_resp.get("birthyear") + "-" + naver_resp.get("birthday");
 
 			mdto.setMvo(mvo);
 			mdto.setUvo(uvo);
@@ -81,14 +77,9 @@ public class OauthParser {
 			mdto.getMvo().setUserNickName(userNickName);
 			mdto.getMvo().setUserBirthDate(userBirthDate);
 			mdto.getMvo().setUserPhoneNum(userPhoneNum);
-			mdto.getMvo().setUserAddress("None");
 			mdto.getMvo().setUserItrs("None");
 			mdto.getMvo().setIsTrainer("N");
 			mdto.getUvo().setUserLoginType("N");
-			*/
-			log.info(">>>>>>>>>>>>>>>>>>>>>>>> mdto >>>>>>>>>>>>>>>>>>>>>> {}", mdto);
-			log.info(">>>>>>>>>>>>>>>>>>>>>>>> mdto.getMvo >>>>>>>>>>>>>>>>>>>>>> {}", mdto.getMvo());
-			log.info(">>>>>>>>>>>>>>>>>>>>>>>> mdto.getUvo >>>>>>>>>>>>>>>>>>>>>> {}", mdto.getUvo());
 			return regAndAuth(mdto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -96,14 +87,24 @@ public class OauthParser {
 		return null;
 	}
 	
+	// Naver Parsing 메서드
+	private static Map<String, String> parseResponse(String resp){
+		// response 문자열을 파싱하여 맵 형태로 변환
+		Map<String, String> naver_resp = new HashMap<String, String>();
+		String[] pairs = resp.substring(1, resp.length()-1).split(", ");
+		for(String pair : pairs) {
+			String[] entry = pair.split("=");
+			naver_resp.put(entry[0], entry[1]);
+		}
+		return naver_resp;
+	}
+	
 	// OAuth 전용 등록 메서드
 	private MemberDTO regAndAuth(MemberDTO mdto) {
-		
 		// DB에 회원정보가 없으면 회원 등록(Oauth 전용)
 		if(msv.getSocialMbr(mdto.getMvo()) == null) {
 			int isOk = msv.regSocialMbr(mdto);
 		}
-		
 		MemberVO oauthMvo = msv.getSocialUser(mdto.getMvo());
 		
 		UserAuthVO authvo = new UserAuthVO();

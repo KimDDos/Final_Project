@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 
 
 <jsp:include page="../layout/admin-sidebar.jsp"></jsp:include>
@@ -9,33 +10,31 @@
 
 
 
-<form action="/admin/register" class="row g-3" method="post">
+<form action="/admin/register" class="row g-3" method="post" onsubmit="return sendForm(this);">
 <div class="container-md">
 <div class="col-12">
 <h2> 공지사항 등록</h2>
 </div>
 
 <div class="col-12">
-<input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off">
+<input type="radio" class="btn-check" name="noticeCategory" id="option1" autocomplete="off" value="2">
 <label class="btn" for="option1">공지사항</label>
 
-<input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
+<input type="radio" class="btn-check" name="noticeCategory" id="option2" autocomplete="off" value="0">
 <label class="btn" for="option2">일반공지</label>
 
-<input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
+<input type="radio" class="btn-check" name="noticeCategory" id="option3" autocomplete="off" value="1">
 <label class="btn" for="option3">이벤트</label>
 
 </div>
 
-  <div class="col-12">
+  <div class="col-12" >
    			 <label for="title" class="form-label">제목</label>
    			 <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
-  	<div >
-   			 <label for="content" class="form-label">내 용</label>
-   			 <textarea class="form-control" id="noticeContent" name="noticeContent"></textarea>
   	</div>
+  	<div id="editor"></div>
+  	<textarea style="display:none;" id="noticeContent"name="noticeContent"></textarea>
 	<button type="submit">등록</button>
-  </div>
   </div>
   
 </form>
@@ -62,5 +61,17 @@
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/chart-area-demo.js"></script>
     <script src="/resources/js/demo/chart-pie-demo.js"></script>
+    
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+	<script src="/resources/js/toastui.js"></script>
+	<script>
+		function sendForm(form){
+			form.noticeContent.innerText = editor.getMarkdown();
+			form.submit();
+			return false;
+		}	
+	</script>
+	
 </body>
 

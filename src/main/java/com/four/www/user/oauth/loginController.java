@@ -72,6 +72,7 @@ public class loginController {
 			try {
 				Map<String, String> userInfo = naverOAuth.getNaverAccessTokenUrl(code);
 				log.info(">>>>>> Naver UserInfo >>>>>>> {}", userInfo);
+				log.info(">>>>>> Naver UserInfo >>>>>>> {}", userInfo.getClass().getName());
 				mdto = parser.naverUser(userInfo);
 			} catch (Exception e) {
 				e.printStackTrace();

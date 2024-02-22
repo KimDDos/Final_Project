@@ -25,12 +25,12 @@ public class MainController {
 	}
 	
 	@GetMapping("/footerSt")
-	public String footerst() {
+	public String footerSt() {
 		return "/footerdetail/serviceterms";
 	}
 
-	@GetMapping("/footerright")
-	public String footerright() {
+	@GetMapping("/footerRight")
+	public String footerRight() {
 		return "/footerdetail/right";
 	}
 	
