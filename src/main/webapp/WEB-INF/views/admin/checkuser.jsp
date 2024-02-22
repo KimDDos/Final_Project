@@ -20,7 +20,7 @@
     </tr>
   </thead>
 <tbody>
-  <c:forEach var="mvo" items="${list }">
+  <c:forEach var="mvo" items="${mlist }">
     <tr>
 		<th scope="row"> ${mvo.userEmail } </th>
 		<th scope="row"> ${mvo.userName } </th>
