@@ -31,9 +31,9 @@
   <div class="col-12" >
    			 <label for="title" class="form-label">제목</label>
    			 <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
-  	</div>
   	<div id="editor"></div>
   	<textarea style="display:none;" id="noticeContent"name="noticeContent"></textarea>
+  	</div>
 	<button type="submit">등록</button>
   </div>
   
