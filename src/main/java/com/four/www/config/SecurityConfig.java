@@ -82,14 +82,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.formLogin()
 		.usernameParameter("userEmail")
 		.passwordParameter("userPwd")
-		.loginPage("/member/memberLogin")
+		.loginPage("/member/Login")
 		.successHandler(authSuccessHandler())
 		.failureHandler(authFailurHandler());
 		
 		// 로그아웃 페이지 (Security에서는 반드시 get 매핑이 아닌 post 이여야만 함)
 		// method = "post"
 		http.logout()
-		.logoutUrl("/member/memberlogout")
+		.logoutUrl("/member/memberLogout")
 		.invalidateHttpSession(true)
 		.deleteCookies("JSESSIONID")
 		.logoutSuccessUrl("/");

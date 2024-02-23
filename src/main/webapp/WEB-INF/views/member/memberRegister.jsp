@@ -107,7 +107,7 @@
 				<label for="userGender" class="col-sm-3 col-form-label text-center">
 					성별 </label>
 				<div class="form-check form-check-inline col-sm-1 text-center"
-					style="margin-left: 10px; padding-top: 8px">
+					style="margin-left: 10px; ping-top: 8px">
 					<input class="form-check-input" type="radio" name="userGender"
 						id="inlineRadio1" value="M"> <label
 						class="form-check-label" for="inlineRadio1">남</label>

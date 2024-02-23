@@ -22,44 +22,46 @@ import com.four.www.user.service.MemberService;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
 @Component
+@Slf4j
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
 	private String authEmail;
 	private String authUrl;
-	
+
 	// redirect 데이터를 가지고 리다이렉트
 	private RedirectStrategy rdstg = new DefaultRedirectStrategy();
-	
+
 	// 실제 로그인 정보, 경로 등을 저장
 	private RequestCache reqCache = new HttpSessionRequestCache();
 
 	@Inject
 	private MemberService msv;
-	
+
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		
+		log.info("SUCCCCCCCCCCCCCCCCCCESSSSSSSSSSSSSS");
 		// authentication은 인증된 AuthMember의 객체
 		setAuthEmail(authentication.getName());
-		setAuthUrl("/index");
-		
+		setAuthUrl("mypage");
+
 		boolean isOk = msv.updateLastLogin(getAuthEmail());
-		
+
 		HttpSession ses = request.getSession();
-		
-		if(!isOk || ses == null) {
+
+		if (!isOk || ses == null) {
 			return;
 		} else {
 			ses.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 		}
 		SavedRequest saveReq = reqCache.getRequest(request, response);
 		rdstg.sendRedirect(request, response, (saveReq != null ? saveReq.getRedirectUrl() : getAuthUrl()));
-		
+
 	}
 
 }

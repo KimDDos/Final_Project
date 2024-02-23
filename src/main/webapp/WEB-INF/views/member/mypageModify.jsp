@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
@@ -15,20 +17,30 @@
 					<header class="mb-4">
 						<h1 class="fw-bolder mb-1">MY PAGE</h1>
 					</header>
+					<sec:authentication property="principal.mdto.mvo.userSerialNo"
+						var="userSerialNo" />
+					<sec:authentication property="principal.mdto.mvo.userNickName"
+						var="userNickName" />
+					<sec:authentication property="principal.mdto.mvo.userEmail"
+						var="userEmail" />
+					<sec:authentication property="principal.mdto.mvo.userPhoneNum"
+						var="userPhoneNum" />
 					<form action="/member/memberModify" method="post">
+						<input class="form-control" id="userSerialNo" name="userSerialNo"
+							type="hidden" value="${userSerialNo}" />
 						<div class="form-floating mb-3">
-							<input class="form-control" id="userName" name="userName"
-								type="text" value="NAME" placeholder="Enter your name..." /> <label
-								for="name">이름</label>
+							<input class="form-control" id="userNickName" name="userNickName"
+								type="text" value="${userNickName}"
+								placeholder="Enter your name..." /> <label for="name">닉네임</label>
 						</div>
 						<div class="form-floating mb-3">
 							<input class="form-control" id="userEmail" name="userEmail"
-								type="email" placeholder="name@example.com"
-								value="ABCD@naver.com" /> <label for="email">이메일</label>
+								type="email" placeholder="name@example.com" value="${userEmail}" />
+							<label for="email">이메일</label>
 						</div>
 						<div class="form-floating mb-3">
 							<input class="form-control" id="userPhoneNum" name="userPhoneNum"
-								type="tel" value="000-1111-2222" placeholder="(123) 456-7890" />
+								type="tel" value="${userPhoneNum}" placeholder="(123) 456-7890" />
 							<label for="phone">연락처</label>
 						</div>
 						<button type="submit" class="btn btn-success">수정 확인</button>

@@ -45,20 +45,8 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link" href="about.html"></a></li>
-						<li class="nav-item dropdowns"><a class="nav-link "
-							id="navbarDropdownBlog" href="#" role="button"
-							aria-expanded="false">예약(test)</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownBlog">
-								<li><a class="dropdown-item" href="/reservation/register">예약
-										하기</a></li>
-								<li><a class="dropdown-item" href="/notice/list">예약 문의</a></li>
-								<li><a class="dropdown-item" href="#">예약일정 확인</a></li>
-							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
 						<li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/member/mypage">MYPAGE</a></li>
 						<li class="nav-item dropdowns"><a class="nav-link "
 							id="navbarDropdownBlog" href="#" role="button"
 							aria-expanded="false">고객지원</a>
@@ -78,40 +66,50 @@
 								<li><a class="dropdown-item" href="portfolio-item.html">Portfolio
 										Item</a></li>
 							</ul></li>
+
+						<li class="nav-item"><a class="nav-link" href="/admin/index"
+							target="_blank">어드민페이지</a></li>
 						<sec:authorize access="isAuthenticated()">
+							<sec:authentication property="principal.mdto.mvo.userNickName"
+								var="userNickName" />
 							<sec:authentication property="principal.mdto.mvo.userEmail"
 								var="userEmail" />
+							<li class="nav-item dropdowns"><a class="nav-link "
+								id="navbarDropdownBlog" href="#" role="button"
+								aria-expanded="false">예약(test)</a>
+								<ul class="dropdown-menu dropdown-menu-end"
+									aria-labelledby="navbarDropdownBlog">
+									<li><a class="dropdown-item" href="/reservation/register">예약
+											하기</a></li>
+									<li><a class="dropdown-item" href="/notice/list">예약 문의</a></li>
+									<li><a class="dropdown-item" href="#">예약일정 확인</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								href="/member/mypage">MYPAGE</a></li>
+							<li class="nav-item"><a class="nav-link" id="logoutLink"
+								href="#">Logout</a></li>
 							<form action="/member/memberLogout" method="post" id="logoutForm">
-								<input type="hidden" name="userSerialNo" value="">
+								<input type="hidden" name="email" value="${userEmail}">
 							</form>
-							<li class="nav-item"><a class="nav-link" id="logoutLick"
-								href="#">Log out</a></li>
-							<li class="nav-item"><a class="nav-link" href="/admin/index">ADMIN
-									PAGE</a></li>
+							<li class="nav-item"><a class="nav-link"
+								style="color: white;" href="#">${userNickName}님
+									안녕하세요.</a></li>
 						</sec:authorize>
-
 						<sec:authorize access="isAnonymous()">
 							<li class="nav-item"><a class="nav-link"
 								href="/member/memberRegister">Sign up</a></li>
 							<li class="nav-item"><a class="nav-link"
 								href="/member/memberLogin">Log in</a></li>
 						</sec:authorize>
-						<li class="nav-item"><a class="nav-link"
-							href="/member/memberRegister">Sign up</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="/member/memberLogin">Log in</a></li>
-						<li class="nav-item"><a class="nav-link" href="/admin/index"
-							target="_blank">어드민페이지</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	</main>
-
-	<script type="text/javascript">
-		document.getElementById('logoutLick').addEventListener('click', (e) => {
-			e.preventDefault();
-			document.getElementById('logoutForm').submit();
-		})
-	</script>
+		<script type="text/javascript">
+	console.log("JS WORKS WELL!!!!!!!!!!");
+	document.getElementById("logoutLink").addEventListener('click',(e)=>{
+    e.preventDefault();
+    document.getElementById("logoutForm").submit();
+    })
+    </script>
 	</main>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
@@ -15,24 +17,30 @@
 					<header class="mb-4">
 						<h1 class="fw-bolder mb-1">MY PAGE</h1>
 					</header>
+					<sec:authentication property="principal.mdto.mvo.userNickName"
+						var="userNickName" />
+					<sec:authentication property="principal.mdto.mvo.userEmail"
+						var="userEmail" />
+					<sec:authentication property="principal.mdto.mvo.userPhoneNum"
+						var="userPhoneNum" />
 					<div class="form-floating mb-3">
-						<input class="form-control" id="name" type="text"
-							readonly="readonly" value="NAME" placeholder="Enter your name..." />
-						<label for="name">이름</label>
+						<input class="form-control" id="userNickName" type="text"
+							readonly="readonly" value="${userNickName}"
+							placeholder="Enter your name..." /> <label for="name">닉네임</label>
 					</div>
 					<div class="form-floating mb-3">
-						<input class="form-control" id="email" type="email"
+						<input class="form-control" id="userEmail" type="email"
 							readonly="readonly" placeholder="name@example.com"
-							value="ABCD@naver.com" /> <label for="email">이메일</label>
+							value="${userEmail}" /> <label for="email">이메일</label>
 					</div>
 					<div class="form-floating mb-3">
-						<input class="form-control" id="phone" type="tel"
-							readonly="readonly" value="000-1111-2222"
+						<input class="form-control" id="userPhoneNum" type="tel"
+							readonly="readonly" value="${userPhoneNum }"
 							placeholder="(123) 456-7890" /> <label for="phone">연락처</label>
 					</div>
 					<a href="/member/mypageModify"><button type="button"
 							class="btn btn-warning">회원정보 수정</button></a>
-							
+
 					<section class="mb-5">
 						<p class="fs-5 mb-4">Science is an enterprise that should be
 							cherished as an activity of the free human mind. Because it

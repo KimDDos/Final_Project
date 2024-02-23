@@ -35,4 +35,12 @@ public interface MemberDAO {
 
 	List<MemberVO> getList(MemberVO mvo);
 
+	void authRegister(String userSerialNo);
+
+	void userRegister(UserVO newUvo);
+
+	int memberModify(MemberVO mvo);
+	
+	int memberUserVOModify(String userSerialNo);
+
 }
