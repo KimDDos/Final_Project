@@ -1,19 +1,71 @@
+let select = 0;
 
-var map = new naver.maps.Map("aboutmap26", {
-    center: new naver.maps.LatLng(37.3595316, 127.1052133),
-    zoom: 13,
-    mapTypeControl: true
-});
+if (markers.length == 0) {
+    var map = new naver.maps.Map("aboutmap52", {
+        center: new naver.maps.LatLng(37.3595316, 127.1052133),
+        zoom: 13,
+        mapTypeControl: true
+    });
+}
+else {
+    var map = new naver.maps.Map("aboutmap52", {
+        center: new naver.maps.LatLng(markers[0].x, markers[0].y),
+        zoom: 19,
+        mapTypeControl: true
+    });
+}
 
-var infoWindow = new naver.maps.InfoWindow({
-    anchorSkew: true
-});
+var marker = [];
+
+for (let i = 0; i < markers.length; i++) {
+    var temp = new naver.maps.Marker({
+        position: new naver.maps.LatLng(markers[i].x, markers[i].y),
+        map: map
+    });
+
+    marker.push(temp);
+
+    var contentString = [
+        '<div class="iw_inner">',
+        `   <h3>${markers[i].title}</h3>`,
+        `   <p>${markers[i].address}<br />`,
+        `       <a href="${markers[i].link}" target="_blank">${markers[i].link}</a>`,
+        '   </p>',
+        '</div>'
+    ].join('');
+
+    var infoWindow2 = new naver.maps.InfoWindow({
+        anchorSkew: true,
+        content: contentString
+    });
+
+    naver.maps.Event.addListener(marker[i], "click", function (e) {
+        console.log(marker[i].position.x);
+        console.log(marker[i].position.y);
+        if (infoWindow2.getMap()) {
+            if (i != select) {
+                console.log("DIFFERENT SELECT");
+                select = i;
+                infoWindow2.close();
+                infoWindow2.open(map, marker[i]);
+            }
+            else {
+                console.log("SAME SELECT");
+                infoWindow2.close();
+            }
+        } else {
+            select = i;
+            infoWindow2.open(map, marker[i]);
+        }
+    });
+}
+
 
 map.setCursor('pointer');
 
 function searchCoordinateToAddress(latlng) {
 
-    infoWindow.close();
+    infoWindow2.close();
 
     naver.maps.Service.reverseGeocode({
         coords: latlng,
@@ -21,7 +73,7 @@ function searchCoordinateToAddress(latlng) {
             naver.maps.Service.OrderType.ADDR,
             naver.maps.Service.OrderType.ROAD_ADDR
         ].join(',')
-    }, function(status, response) {
+    }, function (status, response) {
         if (status === naver.maps.Service.Status.ERROR) {
             return alert('Something Wrong!');
         }
@@ -30,29 +82,29 @@ function searchCoordinateToAddress(latlng) {
             address = '',
             htmlAddresses = [];
 
-        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
+        for (var i = 0, ii = items.length, item, addrType; i < ii; i++) {
             item = items[i];
             address = makeAddress(item) || '';
             addrType = item.name === 'roadaddr' ? '[도로명 주소]' : '[지번 주소]';
 
-            htmlAddresses.push((i+1) +'. '+ addrType +' '+ address);
+            htmlAddresses.push((i + 1) + '. ' + addrType + ' ' + address);
         }
 
-        infoWindow.setContent([
+        infoWindow2.setContent([
             '<div style="padding:10px;min-width:200px;line-height:150%;">',
             '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
             htmlAddresses.join('<br />'),
             '</div>'
         ].join('\n'));
 
-        infoWindow.open(map, latlng);
+        infoWindow2.open(map, latlng);
     });
 }
 
 function searchAddressToCoordinate(address) {
     naver.maps.Service.geocode({
         query: address
-    }, function(status, response) {
+    }, function (status, response) {
         if (status === naver.maps.Service.Status.ERROR) {
             return alert('Something Wrong!');
         }
@@ -77,24 +129,24 @@ function searchAddressToCoordinate(address) {
             htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
         }
 
-        infoWindow.setContent([
+        infoWindow2.setContent([
             '<div style="padding:10px;min-width:200px;line-height:150%;">',
-            '<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
+            '<h4 style="margin-top:5px;">검색 주소 : ' + address + '</h4><br />',
             htmlAddresses.join('<br />'),
             '</div>'
         ].join('\n'));
 
         map.setCenter(point);
-        infoWindow.open(map, point);
+        infoWindow2.open(map, point);
     });
 }
 
 function initGeocoder() {
-    map.addListener('click', function(e) {
+    map.addListener('click', function (e) {
         searchCoordinateToAddress(e.coord);
     });
 
-    $('#address').on('keydown', function(e) {
+    $('#address').on('keydown', function (e) {
         var keyCode = e.which;
 
         if (keyCode === 13) { // Enter Key
@@ -102,7 +154,7 @@ function initGeocoder() {
         }
     });
 
-    $('#submit').on('click', function(e) {
+    $('#submit').on('click', function (e) {
         e.preventDefault();
 
         searchAddressToCoordinate($('#address').val());
@@ -177,11 +229,11 @@ function hasData(data) {
     return !!(data && data !== '');
 }
 
-function checkLastString (word, lastString) {
+function checkLastString(word, lastString) {
     return new RegExp(lastString + '$').test(word);
 }
 
-function hasAddition (addition) {
+function hasAddition(addition) {
     return !!(addition && addition.value);
 }
 

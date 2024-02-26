@@ -17,16 +17,13 @@
 		<div class="col-12">
 			<h2>공지사항 등록</h2>
 		</div>
-<<<<<<< HEAD
-=======
+
 <form action="/admin/register" class="row g-3" method="post" onsubmit="return sendForm(this);">
 <div class="container-md">
 <div class="col-12">
 <h2> 공지사항 등록</h2>
 </div>
->>>>>>> origin/DH
 
-<<<<<<< HEAD
 <div class="col-12">
 <input type="radio" class="btn-check" name="noticeCategory" id="option1" autocomplete="off" value="2">
 <label class="btn" for="option1">공지사항</label>
@@ -36,9 +33,6 @@
 
 <input type="radio" class="btn-check" name="noticeCategory" id="option3" autocomplete="off" value="1">
 <label class="btn" for="option3">이벤트</label>
-=======
-=======
->>>>>>> origin/KJH
 		<div class="col-12">
 			<input type="radio" class="btn-check" name="noticeCategory"
 				id="option1" autocomplete="off" value="2"> <label
@@ -60,9 +54,6 @@
 
 			</div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   <div class="col-12" >
    			 <label for="title" class="form-label">제목</label>
    			 <input type="text" class="form-control" id="noticeTitle" name="noticeTitle">
@@ -72,8 +63,6 @@
 	<button type="submit">등록</button>
   </div>
   
->>>>>>> origin/DH
-=======
 			<div class="col-12">
 				<label for="title" class="form-label">제목</label> <input type="text"
 					class="form-control" id="noticeTitle" name="noticeTitle">
@@ -112,12 +101,6 @@
 <script src="/resources/js/demo/chart-area-demo.js"></script>
 <script src="/resources/js/demo/chart-pie-demo.js"></script>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
->>>>>>> origin/DH
-=======
 	<script src="/resources/js/toastui.js"></script>
 	<script>
 		function sendForm(form){
@@ -127,11 +110,8 @@
 		}	
 	</script>
 	
->>>>>>> origin/DH
-=======
 <script
 	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 
->>>>>>> origin/KJH
 </body>
 

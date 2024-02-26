@@ -74,12 +74,16 @@
 								var="userNickName" />
 							<sec:authentication property="principal.mdto.mvo.userEmail"
 								var="userEmail" />
+							<sec:authentication property="principal.mdto.mvo.userPhoneNum"
+								var="userPhoneNum" />
+							<sec:authentication property="principal.mdto.mvo.isTrainer"
+								var="isTrainer" />
 							<li class="nav-item dropdowns"><a class="nav-link "
 								id="navbarDropdownBlog" href="#" role="button"
 								aria-expanded="false">예약(test)</a>
 								<ul class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarDropdownBlog">
-									<li><a class="dropdown-item" href="/reservation/register">예약
+									<li><a class="dropdown-item" href="/reservation/gymSelect">예약
 											하기</a></li>
 									<li><a class="dropdown-item" href="/notice/list">예약 문의</a></li>
 									<li><a class="dropdown-item" href="#">예약일정 확인</a></li>
@@ -92,8 +96,8 @@
 								<input type="hidden" name="email" value="${userEmail}">
 							</form>
 							<li class="nav-item"><a class="nav-link"
-								style="color: white;" href="#">${userNickName}님
-									안녕하세요.</a></li>
+								style="color: white;" href="#">${userNickName}
+								<c:if test="${isTrainer eq 'Y'}">트레이너</c:if>님 안녕하세요.</a></li>
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()">
 							<li class="nav-item"><a class="nav-link"

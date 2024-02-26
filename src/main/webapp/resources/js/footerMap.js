@@ -1,5 +1,5 @@
 
-var map = new naver.maps.Map("aboutmap26", {
+var footerMap = new naver.maps.Map("aboutmap26", {
     center: new naver.maps.LatLng(37.3595316, 127.1052133),
     zoom: 13,
     mapTypeControl: true
@@ -9,7 +9,7 @@ var infoWindow = new naver.maps.InfoWindow({
     anchorSkew: true
 });
 
-map.setCursor('pointer');
+footerMap.setCursor('pointer');
 
 function searchCoordinateToAddress(latlng) {
 
@@ -45,7 +45,7 @@ function searchCoordinateToAddress(latlng) {
             '</div>'
         ].join('\n'));
 
-        infoWindow.open(map, latlng);
+        infoWindow.open(footerMap, latlng);
     });
 }
 
@@ -84,13 +84,13 @@ function searchAddressToCoordinate(address) {
             '</div>'
         ].join('\n'));
 
-        map.setCenter(point);
-        infoWindow.open(map, point);
+        footerMap.setCenter(point);
+        infoWindow.open(footerMap, point);
     });
 }
 
 function initGeocoder() {
-    map.addListener('click', function(e) {
+    footerMap.addListener('click', function(e) {
         searchCoordinateToAddress(e.coord);
     });
 

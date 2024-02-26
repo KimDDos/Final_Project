@@ -79,10 +79,12 @@ public class PlaceSearchService {
 			{
 				JSONObject item = (JSONObject) items.get(i);
 				String title = item.get("title").toString();
-				double mapx = (double)(Integer.parseInt(item.get("mapx").toString())/10000000.0);
+				String address = item.get("address").toString();
+				String link = item.get("link").toString();
+				double mapx = (double)(Integer.parseInt(item.get("mapy").toString())/10000000.0);
 				double mapy = (double)(Integer.parseInt(item.get("mapx").toString())/10000000.0);
 				
-				sList.add(new SearchDTO(title,mapx,mapy));
+				sList.add(new SearchDTO(title,address,link,mapx,mapy));
 			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

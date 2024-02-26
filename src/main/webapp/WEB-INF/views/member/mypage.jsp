@@ -23,6 +23,8 @@
 						var="userEmail" />
 					<sec:authentication property="principal.mdto.mvo.userPhoneNum"
 						var="userPhoneNum" />
+					<sec:authentication property="principal.mdto.mvo.isTrainer"
+						var="isTrainer" />
 					<div class="form-floating mb-3">
 						<input class="form-control" id="userNickName" type="text"
 							readonly="readonly" value="${userNickName}"

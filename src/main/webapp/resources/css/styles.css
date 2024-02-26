@@ -13493,7 +13493,7 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 			.Banner26Other>p{font-size:13pt; font-weight:600; margin-bottom:8px;}
 			.Banner26Other>pre{font-size:11pt; font-weight:normal; margin-bottom:1em;}
 			.Banner26Other .aboutmap26{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:15em;}
-			.Banner26Other .aboutmap52{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:45em;}
+			.Banner26Other .aboutmap52{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:17.5em; margin-left: 5px}
 
 	/*일본어*/
 	.Company_Area .bottomSNS{padding-top:20px;}

@@ -15,6 +15,8 @@ import lombok.ToString;
 @NoArgsConstructor
 public class SearchDTO{
 	private String title;
+	private String address;
+	private String link;
 	private double mapx;
 	private double mapy;
 }
