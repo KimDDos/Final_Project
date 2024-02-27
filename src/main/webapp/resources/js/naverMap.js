@@ -1,19 +1,13 @@
 let select = 0;
-
-if (markers.length == 0) {
-    var map = new naver.maps.Map("aboutmap52", {
-        center: new naver.maps.LatLng(37.3595316, 127.1052133),
-        zoom: 13,
-        mapTypeControl: true
-    });
-}
-else {
-    var map = new naver.maps.Map("aboutmap52", {
-        center: new naver.maps.LatLng(markers[0].x, markers[0].y),
-        zoom: 19,
-        mapTypeControl: true
-    });
-}
+var map;
+var STitle = document.getElementById("selTitle");
+var SAddress = document.getElementById("selAddress");
+var submitBtn = document.getElementById("selSub");
+map = new naver.maps.Map("aboutmap52", {
+    center: markers.length ? new naver.maps.LatLng(markers[0].x, markers[0].y) : new naver.maps.LatLng(37.3595316, 127.1052133),
+    zoom: markers.length ? 19 : 13,
+    mapTypeControl: true
+});
 
 var marker = [];
 
@@ -42,6 +36,7 @@ for (let i = 0; i < markers.length; i++) {
     naver.maps.Event.addListener(marker[i], "click", function (e) {
         console.log(marker[i].position.x);
         console.log(marker[i].position.y);
+        var templat = new naver.maps.LatLng(markers[i].x, markers[i].y);
         if (infoWindow2.getMap()) {
             if (i != select) {
                 console.log("DIFFERENT SELECT");
@@ -57,7 +52,35 @@ for (let i = 0; i < markers.length; i++) {
             select = i;
             infoWindow2.open(map, marker[i]);
         }
+        SAddress.value = markers[i].address;
+        STitle.value = markers[i].title;
+        
+        map.morph(templat);
     });
+
+    document.getElementById(`MList${i}`).addEventListener("click", function () {
+        var templat = new naver.maps.LatLng(markers[i].x, markers[i].y);
+        if (infoWindow2.getMap()) {
+            if (i != select) {
+                console.log("DIFFERENT SELECT");
+                select = i;
+                infoWindow2.close();
+                infoWindow2.open(map, marker[i]);
+            }
+            else {
+                console.log("SAME SELECT");
+                infoWindow2.close();
+            }
+        }
+        else {
+            select = i;
+            infoWindow2.open(map, marker[i]);
+        }
+        SAddress.value = markers[i].address;
+        STitle.value = markers[i].title;
+        submitBtn.style.visibility="visible";
+        map.morph(templat);
+    })
 }
 
 
