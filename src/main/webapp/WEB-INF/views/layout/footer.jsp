@@ -112,8 +112,18 @@ AM 10:00 – PM 04:00</pre> <pre class="last" readonly="readonly">
 				<!--
 						<a href="https://www.brainmedi.co.kr/" class="create" target="_blank">헬스장홈페이지제작 <img src="https://www.brainmedi.co.kr/img/logo_C00032_footer.png" alt="브레인메디로고"></a>
 						-->
+<<<<<<< HEAD
+					</p> 
+				</div>
+			</div>
+			<!-- //필수정보 -->
+		</div>
+		
+		</html>
+=======
 			</p>
 		</div>
 	</div>
 	<!-- //필수정보 -->
 </div>
+>>>>>>> main
