@@ -11,7 +11,7 @@
 	</div>
 	<br> <br>
 	<div class="memberRegisterForm"
-		style="border: 1px solid black; padding: 20px">
+		style="padding: 25px">
 		<form action="/member/memberRegister" method="post">
 			<div class="mb-3 row">
 				<label for="userEmail" class="col-sm-3 col-form-label text-center">계정
@@ -65,7 +65,7 @@
 				<div class="col-sm-6">
 					<input type="password" class="form-control" id="userPwdCheck"
 						name="userPwdCheck" placeholder="Password를 입력해주세요." maxlength='35'>
-					<span> * 10 글자 이상, 특수문자 '@$!%*#?&' 포함</span>
+					<p style="margin-top: 8px;"> * 10 글자 이상, 특수문자 '@$!%*#?&' 포함</p>
 				</div>
 			</div>
 			<div class="mb-3 row">
@@ -75,7 +75,10 @@
 					<input type="password" class="form-control" id="userPwd"
 						name="userPwd" placeholder="Password를 입력해주세요." maxlength='35'>
 				</div>
-				<div>
+			</div>
+			<div class="mb-3 row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6">
 					<span id="userPwdCheckeResultPrint"></span>
 				</div>
 			</div>
@@ -107,7 +110,7 @@
 				<label for="userGender" class="col-sm-3 col-form-label text-center">
 					성별 </label>
 				<div class="form-check form-check-inline col-sm-1 text-center"
-					style="margin-left: 10px; ping-top: 8px">
+					style="margin-left: 10px; padding-top: 8px">
 					<input class="form-check-input" type="radio" name="userGender"
 						id="inlineRadio1" value="M"> <label
 						class="form-check-label" for="inlineRadio1">남</label>

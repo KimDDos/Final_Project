@@ -10858,7 +10858,6 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
-@charset "utf-8";
 /* -------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 기본통합세팅 */
 html{}
@@ -10951,120 +10950,6 @@ body.OpenFixed{}
 	
 	/* footer영역 */
 
-
-/* ------------------------------------------ */
-/* 라디오박스 */
-input[type=radio]{}
-/* 기본선택형 */
-.InputArea .Radiobox{ }
-.Radiobox{display:inline-table; position:relative; line-height:1em; table-layout:fixed; cursor:pointer;} 
-.Radiobox input{display:none;} /* 일단숨김 */
-.Radiobox mark{background:none; margin:0px; padding:0px;}
-.Radiobox small{display:table-cell; width:20px; vertical-align:top;}
-.Radiobox small em{display:table-cell; position:relative; width:20px; font-style:normal; font-weight:normal; overflow:hidden;}
-.Radiobox small em b{display:block; position:relative; top:0; width:20px; height:20px; border:1px solid #dddddd; border-radius:50%; background-color:#fff;}
-.Radiobox small em span.Checked{position:absolute; top:25%; left:25%; width:10px; height:10px; background-color:#382f5d; border-radius:50%; display:none;} /* 일단숨김 */
-.Radiobox big{display:table-cell; vertical-align:middle; padding-left:5px;}
-.Radiobox big p{color:#a9a9a9; font-size:11pt; line-height:1.5em;}
-.Radiobox input:checked ~ * small em{}
-.Radiobox input:checked ~ * small em b{border:1px solid #382f5d;}
-.Radiobox input:checked ~ * small em span.Checked{display:block; color:#382f5d;}
-.Radiobox input:checked ~ * big p{color:#272727;}
-	/* 기본선택형>>크게 */
-	.Radiobox.Big{}
-	.Radiobox.Big small{width:1.8em;}
-	.Radiobox.Big small em{width:1.8em;}
-	.Radiobox.Big small em b{width:1.8em; height:1.8em;}
-	.Radiobox.Big small em span.Checked{left:50%; margin-left:-0.5em; top:50%; margin-top:-0.5em; width:1em; height:1em;} /* 일단숨김 */
-	/* 기본선택형>>작게 */
-	.Radiobox.Small{}
-	.Radiobox.Small small{width:1em;}
-	.Radiobox.Small small em{width:1em;}
-	.Radiobox.Small small em b{width:1em; height:1em;}
-	.Radiobox.Small small em span.Checked{left:50%; margin-left:-0.25em; top:50%; margin-top:-0.25em; width:0.5em; height:0.5em;} /* 일단숨김 */
-	/* 항목세트형(성별선택) */
-	.RadioSet{display:table; position:relative; table-layout:fixed; border:1px solid #dddddd; border-radius:5px; overflow:hidden; }
-	.RadioSet label{display:table-cell; vertical-align:middle; border-right:1px solid #dddddd; cursor:pointer;}
-	.RadioSet label input{display:none;} /* 일단숨김 */
-	.RadioSet label:last-child{border-right:none;}
-	.RadioSet label span{display:inline-block; color:#a9a9a9; padding:5px 10px; transition:all ease 0.5s;}
-	.RadioSet label input:checked + span{color:#fff; background-color:#382f5d;}
-	/* 선택버튼형(상시오전오후) */
-	.Radio_Btn{display:inline-block; position:relative; margin-top:5px; cursor:pointer;}
-	.Radio_Btn .Btn{background-color:#fff;}
-	.Radio_Btn input{display:none;} /* 일단숨김 */
-	.Radio_Btn input:checked ~ .Btn{color:#382f5d; border:1px solid #382f5d;}
-	/* 스위치형(옵션켜고끄기) https://codepen.io/salutmerry/pen/QzNPXB?editors=1100 */
-	.RadioSwitch{display:inline-block; position:relative; }
-	.RadioSwitch input{display:none;} /* 일단숨김 */
-	.RadioSwitch em{display:block; position:relative; width:60px; height:30px;}
-	.RadioSwitch label{display:block; width:100%; height:inherit; border-radius:50px; border:1px solid #e5e5e5; background:#ddd; border:1px solid #ddd; transition:all 0.3s ease; overflow:hidden; cursor:pointer;}
-	.RadioSwitch label button{position:absolute; top:1px; left:1px; display:block; width:28px; height:28px; border-radius:50%; background:#fff; transition:all 0.3s cubic-bezier(0.275, -0.45, 0.725, 1.45);}
-	.RadioSwitch input:active + em label,
-	.RadioSwitch input:checked + em label{background-color:#382f5d; border:1px solid #382f5d;}
-	.RadioSwitch input:active + em label button,
-	.RadioSwitch input:checked + em label button{left:31px;}
-	
-	.RadioSwitch.Small em{display:block; position:relative; width:40px; height:20px;}
-	.RadioSwitch.Small label{display:block; width:100%; height:inherit; border-radius:50px; border:1px solid #e5e5e5; background:#ddd; border:1px solid #ddd; transition:all 0.3s ease; overflow:hidden; cursor:pointer;}
-	.RadioSwitch.Small label button{position:absolute; top:3px; left:3px; display:block; width:14px; height:14px; border-radius:50%; background:#fff; transition:all 0.3s cubic-bezier(0.275, -0.45, 0.725, 1.45);}
-	.RadioSwitch.Small input:active + em label button,
-	.RadioSwitch.Small input:checked + em label button{left:23px;}
-	/* 체크형태라디오 */
-	.InputList .RadioCheckbox{ }
-	.RadioCheckbox{display:table; position:relative; table-layout:fixed;} 
-	.RadioCheckbox input{display:none;} /* 일단숨김 */
-	.RadioCheckbox input ~ *{display:table; position:relative; table-layout:fixed;}
-	.RadioCheckbox mark{background:none; margin:0px; padding:0px;}
-	.RadioCheckbox small{display:table-cell; width:20px; vertical-align:top;}
-	.RadioCheckbox small em{display:table-cell; position:relative; width:20px; font-style:normal; font-weight:normal; overflow:hidden;}
-	.RadioCheckbox small em b{display:block; position:relative; top:0; width:20px; height:20px; border:1px solid #dddddd; border-radius:50%; background-color:#fff;}
-	.RadioCheckbox small em span.Checked{position:absolute; top:8%; left:35%; width:6px; height:13px; border-bottom:2px solid #fff; border-right:2px solid #fff; transform:rotate( 45deg ); -webkit-transform:rotate( 45deg );-moz-transform:rotate( 45deg ); display:none;} /* 일단숨김 */
-	.RadioCheckbox big{display:table-cell; vertical-align:middle; padding-left:5px;}
-	.RadioCheckbox big p{color:#a9a9a9; font-size:11pt; line-height:1.5em;}
-	.RadioCheckbox input:checked ~ * small em{}
-	.RadioCheckbox input:checked ~ * small em b{border:1px solid #382f5d; background-color: #382f5d;}
-	.RadioCheckbox input:checked ~ * small em span.Checked{display:block; color:#382f5d;}
-	.RadioCheckbox input:checked ~ * big p{color:#272727;}
-		/* 기본체크형>>크게 */
-		.RadioCheckbox.Big{}
-		.RadioCheckbox.Big small{width:30px;}
-		.RadioCheckbox.Big small em{width:30px;}
-		.RadioCheckbox.Big small em b{width:30px; height:30px;}
-		.RadioCheckbox.Big small em span.Checked{left:33%; top:12%; width:10px; height:18px; border-bottom-width:3px; border-right-width:3px} /* 일단숨김 */
-		/* 기본체크형>>작게 */
-		.RadioCheckbox.Small{}
-		.RadioCheckbox.Small small{width:15px;}
-		.RadioCheckbox.Small small em{width:15px;}
-		.RadioCheckbox.Small small em b{width:15px; height:15px;}
-		.RadioCheckbox.Small small em span.Checked{top:10%; left:35%; width:5px; height:10px; border-bottom-width:1px; border-right-width:1px;} /* 일단숨김 */
-		.RadioCheckbox.Small big{padding-left:2px;}
-		/* 선형태 */
-		.RadioCheckbox.BorderCheckbox{}
-		.RadioCheckbox.BorderCheckbox small em span.Checked{border-bottom:2px solid #382f5d; border-right:2px solid #382f5d;}
-		.RadioCheckbox.BorderCheckbox input:checked ~ * small em b{background-color:#fff;}
-
-/* ------------------------------------------ */
-/* 토글스위치 */
-.ToggleSwitch{display:inline-block; vertical-align:middle; transform:scale(0.6);}
-.ToggleSwitch input[type=checkbox]{display: none;}
-.ToggleSwitch input[type=checkbox] + label .Toggle_Track:after{content:''; display:inline-block; position:absolute; right:8px; color:#fff;}
-.ToggleSwitch input[type=checkbox]:checked + label .Toggle_Track{background:#382f5d;}
-.ToggleSwitch input[type=checkbox]:checked + label .Toggle_Track:before{left:30px; border:1px solid #382f5d;}
-.ToggleSwitch input[type=checkbox]:checked + label .Toggle_Track:after{content:''; left:5px;}
-	.ToggleSwitch .Toggle_Track{display:inline-block; position:relative; width:60px; height:25px; border-radius:60px; background:#8b8b8b;}
-	.ToggleSwitch .Toggle_Track:before{ content:''; display:block; position:absolute; top:-8px; left:-15px; width:30px; height:30px; margin:5px; background:#fff; border-radius:100%; border:1px solid #8b8b8b; transition:left 0.3s;}
-
-/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* [공통] 동영상삽입 */
-.Movie_IframArea{content:""; clear:both; display:block; width:100%; position:relative; text-align:center; margin:auto;}
-.Movie_Iframe{position:relative; width:100%; margin:0; padding:0; padding-bottom:56.25%;}
-.Movie_Iframe iframe{position:absolute; left:0; width:100%; height:100%;  margin:0; padding:0;}
-.Movie_Iframe video{position:absolute; left:0; width:100%; height:100%; margin:0; padding:0; background-color:#000; } 
-.Movie_Iframe_Original{position:relative; width:100%; margin:auto; padding:0; padding-bottom:56.25%;}
-.Movie_Iframe_Original iframe{position:absolute; left:0; width:100%; height:100%;  margin:0; padding:0;}
-
-/*
 [공통] 동영상삽입_시술페이지내_상단
 .Movie_IframTopArea{content:""; clear:both; display:block; width:100%; position:relative;  text-align:center; margin:auto;}
 .Movie_IframeTop{position:relative; width:100%; margin:0; padding:0; padding-bottom:56.25%;}
@@ -13121,14 +13006,14 @@ input[type=radio]{}
 		.Company_Area .Time label + p{display:block; font-size:11pt; line-height:1.6em; font-weight:bold;}
 		
 		/* 링크 */
-		.Company_Area .Link{display:table-cell; position:relative; width:50%;}
-		.Company_Area .Link ul{display:table; width:100%;}
-		.Company_Area .Link li{display:table-cell; width:25%; vertical-align:middle; text-align:center; margin:auto; border-right:1px solid #dbdbdb;}
-		.Company_Area .Link li:last-child{border-right:none;}
-		.Company_Area .Link a{display:inline-block; position:relative; text-align:center;}
-		.Company_Area .Link a i{position:relative; font-size:28pt;}
-		.Company_Area .Link a img{display:block; margin:auto;}
-		.Company_Area .Link a p{color:#3d3d3d; font-size:12pt; font-weight:bold; margin-top:1em;}
+		.Company_Area .row{display:table-cell; position:relative; width:50%;}
+		.Company_Area .row ul{display:table; width:100%;}
+		.Company_Area .row li{display:table-cell; width:25%; vertical-align:middle; text-align:center; margin:auto; border-right:1px solid #dbdbdb;}
+		.Company_Area .row li:last-child{border-right:none;}
+		.Company_Area .row a{display:inline-block; position:relative; text-align:center;}
+		.Company_Area .row a i{position:relative; font-size:28pt;}
+		.Company_Area .row a img{display:block; margin:auto;}
+		.Company_Area .row a p{color:#3d3d3d; font-size:12pt; font-weight:bold; margin-top:1em;}
 			/* [배너관리] 26번배너 */
 			.Banner26{}
 			.Banner26 li{}
@@ -13162,54 +13047,50 @@ input[type=radio]{}
 	.Bottom_Area{content:""; clear:both; display:block; position:relative; width:100%; text-align:center; margin:auto;}
 	.Bottom_Area.Inner{}
 		/* 퀵링크 */
-		.Bottom_Area .Link{display:block; width:100%; text-align:center; margin:auto; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb;}
-		.Bottom_Area .Link .Inner{display:table;  table-layout:fixed;}
-		.Bottom_Area .Link ul{display:table-cell; width:50%; text-align:left;}
-		.Bottom_Area .Link ul li{display:inline-table; padding:1em 0px;}
-		.Bottom_Area .Link ul li:first-child a{border:none;}
-		.Bottom_Area .Link ul li:last-child a{padding-right:0px;}
-		.Bottom_Area .Link ul a{font-size:10.5pt; border-left:1px solid #e9e9e9; padding:0px 5px;}
-		.Bottom_Area .Link ul a img{}
-		.Bottom_Area .Link ol{display:table-cell; width:50%; text-align:right;}
-		.Bottom_Area .Link ol li{display:inline-table; padding:0px 5px;}
-		.Bottom_Area .Link ol li:last-child a{padding-right:0px;}
-		.Bottom_Area .Link ol a{}
-		.Bottom_Area .Link ol a strong{font-size: 12pt;}
-		.Bottom_Area .Link ol a img{}
-			/* [배너관리] 28번배너 */
-			.Banner28{}
-			.Banner28 ul{}
-			.Banner28 li{}
-			.Banner28 a{}
-			.Banner28 img{max-height:50px;}
+		.Bottom_Area .row{display:block; width:100%; text-align:center; margin:auto; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb;}
+		.Bottom_Area .row{display:table;  table-layout:fixed;}
+		.Bottom_Area .row .col-8 .Link ul{display:table-cell; width:50%; text-align:left;}
+		.Bottom_Area .row .col-8 .Link ul li{display:inline-table; padding:1em 0px;}
+		.Bottom_Area .row .col-8 .Link ul li:first-child a{border:none;}
+		.Bottom_Area .row .col-8 .Link ul li:last-child a{padding-right:0px;}
+		.Bottom_Area .row .col-8 .Link ul a{font-size:10.5pt; border-left:1px solid #e9e9e9; padding:0px 5px;}
+		.Bottom_Area .row .col-8 .Link ul a img{}
+		.Bottom_Area .row ol{display:table-cell; width:50%; text-align:right;}
+		.Bottom_Area .row ol li{display:inline-table; padding:0px 5px;}
+		.Bottom_Area .row ol li:last-child a{padding-right:0px;}
+		.Bottom_Area .row ol a{}
+		.Bottom_Area .row ol a strong{font-size: 12pt;}
+		.Bottom_Area .row ol a img{}
+		
 		/* 필수정보 */
 		#SkipNavAdd{}
-		.Bottom_Area .Add{display:block; width:100%; font-weight:normal; font-size:10.5pt; line-height:1.6em;  text-align:center; padding:50px 0px;}
-		.Bottom_Area .Add .Inner{text-align:center;}
-		.Bottom_Area .Add strong{display:block; margin-bottom:35px;}
-		.Bottom_Area .Add img{}
-		.Bottom_Area .Add p{}
-		.Bottom_Area .Add p span{}
-		.Bottom_Area .Add p span + span{padding-right:1em;}
-		.Bottom_Area .Add p .Item01{display:block;} /* 주소 */
-		.Bottom_Area .Add p .Item02{} /* 상호명 */
-		.Bottom_Area .Add p .Item03{} /* 대표자명 */
-		.Bottom_Area .Add p .Item04{} /* TEL */
-		.Bottom_Area .Add p .Item05{} /* FAX */
-		.Bottom_Area .Add p .Item06{} /* 사업자등록번호 */
-		.Bottom_Area .Add p b{display:block; width:100%; color:#838383; font-weight:normal; font-size:9pt; line-height:2em;} /* COPYRIGHT© */
-		.Bottom_Area .Add p .create{font-size:10px !important; color:#4e4e4e; line-height:3em; display:block;}
-		.Bottom_Area .Add p .create img{height:10px; width:auto; opacity:0.8; padding-left:2px;}
+		.Bottom_Area .row{display:block; width:100%; font-weight:normal; font-size:10.5pt; line-height:1.6em;  text-align:center; padding:50px 0px;}
+		.Bottom_Area .row .col-3{text-align:center;}
+    .Bottom_Area .row .col-8{text-align:center;}
+		.Bottom_Area .row .col-3 strong{display:block; margin-bottom:35px;}
+		.Bottom_Area .row img{}
+		.Bottom_Area .row p{}
+		.Bottom_Area .row p span{}
+		.Bottom_Area .row p span + span{padding-right:1em;}
+		.Bottom_Area .row p .Item01{display:block;} /* 주소 */
+		.Bottom_Area .row p .Item02{} /* 상호명 */
+		.Bottom_Area .row p .Item03{} /* 대표자명 */
+		.Bottom_Area .row p .Item04{} /* TEL */
+		.Bottom_Area .row p .Item05{} /* FAX */
+		.Bottom_Area .row p .Item06{} /* 사업자등록번호 */
+		.Bottom_Area .row p b{display:block; width:100%; color:#838383; font-weight:normal; font-size:9pt; line-height:2em;} /* COPYRIGHT© */
+		.Bottom_Area .row p .create{font-size:10px !important; color:#4e4e4e; line-height:3em; display:block;}
+		.Bottom_Area .row p .create img{height:10px; width:auto; opacity:0.8; padding-left:2px;}
 		/* 지점정보 */
 		.Bottom_Area .BranchBox{font-size:10pt; letter-spacing:-1px; margin-bottom:2em;}
 		.Bottom_Area .BranchList4{width:70%;}
 
 		/* 구분 */
 		/* 브레인메디링크숨김 */
-		.NC00037 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
-		.NC00078 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
-		.NC00166 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
-		.NC00168 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00037 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00078 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00166 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00168 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
 		
 		.NC00001 .Company_Area .Tel p{font-size:26pt; line-height:1.1em; font-weight:100; letter-spacing:0px;}/* 네트워크1 */
 		.NC00001 .Company_Area .Tel span{color:#010101; font-size:15pt; line-height:1.5em; font-weight:600;}/* 대표전화 */
@@ -13217,38 +13098,38 @@ input[type=radio]{}
 		.NC00001 .Company_Area .Tel a:nth-child(2) span{line-height:2em;}
 		.NC00001 .Company_Area .Tel a:nth-child(2) p, .NC00001 .Company_Area .Tel a:nth-child(3) p{font-size:17pt; color:#555;}
 		.NC00001 .Company_Area .Time{width:20%;}/* 운영시간 */
-		.NC00001 .Company_Area .Link{width:58%;}/* 네트워크3 */
-		.NC00010 .Company_Area .Link li{width:calc(100% / 6); vertical-align:bottom;}/* 네트워크3 */
-		.NC00010 .Company_Area .Link a{opacity:0.3; letter-spacing:-1px;} 
-		.NC00010 .Company_Area .Link a:hover{opacity:1; transition: .5s;}
-		.NC00010 .Company_Area .Link a img{}
+		.NC00001 .Company_Area .row{width:58%;}/* 네트워크3 */
+		.NC00010 .Company_Area .row li{width:calc(100% / 6); vertical-align:bottom;}/* 네트워크3 */
+		.NC00010 .Company_Area .row a{opacity:0.3; letter-spacing:-1px;} 
+		.NC00010 .Company_Area .row a:hover{opacity:1; transition: .5s;}
+		.NC00010 .Company_Area .row a img{}
 		.NC00010.C00024 .Company_Area .section1{display:none;}
 		.NC00010 .Footer_AreaComm .Company_Area .Tel{display:none;}
 		.NC00010 .Footer_AreaComm .Company_Area .Time{display:none;}
 		.NC00010 .Company_Area .Tel{display:none;}
 		.NC00010 .Company_Area .Time{display:none;}
 		.NC00010 .Bottom_Area{background-color:#e3deda;}
-		.NC00010 .Bottom_Area .Add *{font-size: 10pt; }
-		.NC00010 .Bottom_Area .Add span,
-		.NC00010 .Bottom_Area .Add span *{color: #767676 !important;}
-		.NC00010 .Bottom_Area .Add img{height:50px;}
+		.NC00010 .Bottom_Area .row *{font-size: 10pt; }
+		.NC00010 .Bottom_Area .row span,
+		.NC00010 .Bottom_Area .row span *{color: #767676 !important;}
+		.NC00010 .Bottom_Area .row img{height:50px;}
 		.NC00010.C00024 .BranchBox{} /* 숨김>>공개처리(20210304 링크없게) */
-		.NC00010 .Bottom_Area .Add p .Item04{display:none;} /* TEL */
+		.NC00010 .Bottom_Area .row p .Item04{display:none;} /* TEL */
 		.NC00030 .Footer_Area{background-color:#333;} /* 네트워크4 */
 		.NC00030 .Company_Area{color:#fff; }
 		.NC00030 .Company_Area > .Inner > div{vertical-align:middle;}
 		.NC00030 .Company_Area .Tel p{color:#fff;}
 		.NC00030 .Bottom_Area{color:#fff; } 
-		.NC00030 .Bottom_Area .Link{border:none;}
-		.NC00030 .Bottom_Area .Link .Inner{border-bottom: 1px solid #acacac;} 
-		.NC00030 .Bottom_Area .Link ul a{color:#fff; border:none;}
-		.NC00030 .Bottom_Area .Link ol li a img{height:30px; opacity:0.6;}
-		.NC00030 .Bottom_Area .Add strong{margin-bottom:0px;}
-		.NC00030 .Bottom_Area .Add img{height:70px;}
-		.NC00030 .Bottom_Area .Add p .create{color:#b4b4b4;}
-		.NC00030 .Bottom_Area .Add p .create img{opacity:1;}
-		.NC00032 .Bottom_Area .Add p .create{color:#b4b4b4;}
-		.NC00032 .Bottom_Area .Add p .create img{opacity:1;}
+		.NC00030 .Bottom_Area .row{border:none;}
+		.NC00030 .Bottom_Area .row .Inner{border-bottom: 1px solid #acacac;} 
+		.NC00030 .Bottom_Area .row ul a{color:#fff; border:none;}
+		.NC00030 .Bottom_Area .row ol li a img{height:30px; opacity:0.6;}
+		.NC00030 .Bottom_Area .row strong{margin-bottom:0px;}
+		.NC00030 .Bottom_Area .row img{height:70px;}
+		.NC00030 .Bottom_Area .row p .create{color:#b4b4b4;}
+		.NC00030 .Bottom_Area .row p .create img{opacity:1;}
+		.NC00032 .Bottom_Area .row p .create{color:#b4b4b4;}
+		.NC00032 .Bottom_Area .row p .create img{opacity:1;}
 		.NC00037 .Company_Area{display:none;}/* 숨김 20210527*/
 		.NC00037 .Bottom_Area{background-color:#f1edec;}
 
@@ -13364,7 +13245,7 @@ input[type=radio]{}
 			.Footer_BranchInfoSummary{display:table-cell; position:relative; width:55%; vertical-align:top;}
 			.Footer_BranchInfoBox .Name{display:block; font-size:23pt; font-weight:normal;}
 			.Footer_BranchInfoBox .Name em{font-weight:bold;}
-			.Footer_BranchInfoBox .Add{display:block; margin-top:0.5em;}
+			.Footer_BranchInfoBox .row{display:block; margin-top:0.5em;}
 			.Footer_BranchInfoBox .Call{display:block; font-size:30pt; font-family:'Roboto',sans-serif; margin-top:0.5em;}
 			.Footer_BranchInfoBox .Time{display:block; width:100%; letter-spacing:-1px; margin-top:1em;}
 			.Footer_BranchInfoBox .Time pre{font-size:11pt;}
@@ -13375,9 +13256,9 @@ input[type=radio]{}
 			.Footer_BranchInfoBox .Card pre{font-size:11pt;}
 			.Footer_BranchInfoBox .Parking{display:block; margin-top:1em;}
 			.Footer_BranchInfoBox .Parking pre{font-size:11pt;}
-			.Footer_BranchInfoBox .Link{display:table; position:relative; width:100%; table-layout:fixed; margin-top:2em;}
-			.Footer_BranchInfoBox .Link li{display:table-cell; position:relative; width:25%; line-height:4em; vertical-align:middle; text-align:center;}
-			.Footer_BranchInfoBox .Link a{display:block; position:relative; width:95%; color:#fff; background-color:#373737; border: 1px solid #373737;}
+			.Footer_BranchInfoBox .row{display:table; position:relative; width:100%; table-layout:fixed; margin-top:2em;}
+			.Footer_BranchInfoBox .row li{display:table-cell; position:relative; width:25%; line-height:4em; vertical-align:middle; text-align:center;}
+			.Footer_BranchInfoBox .row a{display:block; position:relative; width:95%; color:#fff; background-color:#373737; border: 1px solid #373737;}
 			/* 지도 */
 			.Footer_BranchInfoMap{display:table-cell; position:relative; vertical-align:top;}
 			.Footer_BranchInfoMap #map{display:block; position:relative; width:100%; height:24em !important; border: 1px solid #dbdbdb;}
@@ -13392,7 +13273,7 @@ input[type=radio]{}
 	.NC00010 .BranchrNetwork .Inner > section{} 
 	.NC00010 .Footer_BranchInfo{background-color:#f4f2ec;}
 	.NC00010 .Footer_BranchInfoBox .Call{color:#78bc27; }
-	.NC00010 .Footer_BranchInfoBox .Link li:last-child a{border-color:#78bc27; background-color:#78bc27;}
+	.NC00010 .Footer_BranchInfoBox .row li:last-child a{border-color:#78bc27; background-color:#78bc27;}
 
 
 /* -------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -13424,7 +13305,7 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 			.Banner21 img{}
 			
 			/* [배너관리] 22번배너 */
-			.RightBox >.Link{display:table-cell; vertical-align:middle; padding-left:1em;}
+			.RightBox >.row{display:table-cell; vertical-align:middle; padding-left:1em;}
 			.Banner22{display:table-cell; vertical-align:middle;}
 			.Banner22 li{border-radius:100px; overflow:hidden; display:inline-table;}
 
@@ -13443,7 +13324,7 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 				header .HeaderNav_GNBtop .Member a{letter-spacing:-2px; white-space:nowrap; padding-right:1.5em;}
 				header .HeaderNav_GNBtop .Member li:first-child{padding-left:15px;}
 				/* 22번배너 */
-				header .HeaderNav_GNBtop .Link{display:none;}
+				header .HeaderNav_GNBtop .row{display:none;}
 
 		/* ----------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -13457,34 +13338,33 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 	.C00146 .Contact_Quick{display:none;}
 	/* ---------------------- */
 	/* 상세정보 */
-	.Company_Area{padding-bottom:0; padding-top:100px;}
 	.aboutMapWrap .Company_Area{display:none;}
 	.Company_Area > .Inner{width:1400px;}
 	.Company_Area > .Inner > div{vertical-align:top;}
-	.Company_Area .Tel,
-	.Company_Area .Time *{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif" !important;}
-	.Company_Area .Time,
-	.Company_Area .Link *{color:#333;}
-	.Company_Area .Link.QuickLink{display:block; margin-top:3em; display:none;}
-	.Company_Area .Link.QuickLink li{border-color:#555;}
-	.Company_Area .Link.QuickLink li a:hover img{opacity:.7;}
-	.Company_Area .Link.QuickLink li img{}
+	.Company_Area .row .text-center .container-md .Tel,
+	.Company_Area .row .text-center .container-md .Title *{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif" !important;}
+	.Company_Area .row .text-center .container-md .Title,
+	.Company_Area .row .text-center .container-md *{color:#333;}
+	.Company_Area .row.QuickLink{display:block; margin-top:3em; display:none;}
+	.Company_Area .row.QuickLink li{border-color:#555;}
+	.Company_Area .row.QuickLink li a:hover img{opacity:.7;}
+	.Company_Area .row.QuickLink li img{}
 	.Company_Area .Title.Sub span{font-weight:500; display:block; font-size:15pt; color:#989898;}
 
 	/* 대표전화 */
 	.Company_Area .Inner>.Title{display:block; font-size:18pt; font-weight:bold; display:none;} /* 일단숨김 */
-	.Company_Area .Tel{display:block; width:100%;}
-	.Company_Area .Tel .Title.Sub span{padding-bottom:0.2em;} /* 타이틀 */
-	.Company_Area .Tel a p{font-family:'Montserrat', 'Noto Sans KR', sans-serif; font-weight:600; color:#333; letter-spacing:0;}
-	.Company_Area .Time{display:block; width:100%; margin-top:3em;}
-	.Company_Area .Time .Title.Sub span{padding-bottom:0.5em;} /* 타이틀 */
-	.Company_Area .Time label + p{font-weight:normal; color:#989898; padding-top:15px;}
-	.Company_Area .Link{width:70%;}
-	.Company_Area .Link .Title.Sub span{padding-bottom:0.5em; font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:#989898;} /* 타이틀 */
-	.Company_Area .Time label pre{line-height:2em;}
-	.Company_Area .Time pre.Left{width:20%;}
-	.Company_Area .Time pre.Right{text-align:right; padding-right:10px; width:50%; font-family:'Montserrat', 'Noto Sans KR', sans-serif;}
-	.Company_Area .Time label .last{color:#e09753;}
+	.container-md .Tel{display:block; width:100%;}
+	.container-md .Tel .Title.Sub span{padding-bottom:0.2em;} /* 타이틀 */
+	.container-md .Tel a p{font-family:'Montserrat', 'Noto Sans KR', sans-serif; font-weight:600; color:#333; letter-spacing:0;}
+	.container-md .Time{display:block; width:100%; margin-top:3em;}
+	.container-md .Time .Title.Sub span{padding-bottom:0.5em;} /* 타이틀 */
+	.container-md .Time label + p{font-weight:normal; color:#989898; padding-top:15px;}
+	.container-md .row{width:70%;}
+	.container-md .row .Title.Sub span{padding-bottom:0.5em; font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:#989898;} /* 타이틀 */
+	.container-md .Time label pre{line-height:2em;}
+	.container-md .Time pre.Left{width:20%;}
+	.container-md .Time pre.Right{text-align:right; padding-right:10px; width:50%; font-family:'Montserrat', 'Noto Sans KR', sans-serif;}
+	.container-md .Time label .last{color:#e09753;}
 		/* [배너관리] 26번배너 */
 		.Banner26{}
 			/* 등록된배너가없다면 지도표기 */
@@ -13507,22 +13387,22 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 
 	/* ---------------------- */
 	/* 기본정보 */
-	.Bottom_Area .Add{padding:30px 0 50px 0;}
-	.Bottom_Area .Add .Inner{display:table; width:1400px;}
-	.Bottom_Area .Add strong{display:inline-block; vertical-align:top; float:left;}
-	.Bottom_Area .Add img{width:19em;}
-	.Bottom_Area .Add #SkipNavAdd *{color:#989898;}
-	.Bottom_Area .Add #SkipNavAdd{display:inline-block; text-align:left; width:59%; margin-top:2em; margin-left:0;}
-	.Bottom_Area .Add p span.create{font-size:14px; color:#4e4e4e; line-height:3em; display:block;}
-	.Bottom_Area .Add p span.create img{height:10px; width:auto; opacity:0.8; padding-left:2px;}
-	.Bottom_Area .Link *{color:#333;}
-	.Bottom_Area .Link{position:relative; display:inline-block; width:59%; text-align:left; border:none; margin-left:0;}
-	.Bottom_Area .Link ul{width:100%; position:relative; display:block;}
-	.Bottom_Area .Link ul li{position:relative; display:inline-block; padding:0;}
-	.Bottom_Area .Link ul li:first-child a{padding-left:0;}
-	.Bottom_Area .Link ul li a{position:relative; display:inline-block; font-size:13pt; line-height:1em; padding:0px 10px; border-color:#333}
-	.Bottom_Area .Link ul li a:hover{color:#e09753;}
-		.aboutMapWrap .Bottom_Area .Add{padding:5em 0 50px 0;}
+	.Bottom_Area .row{padding:30px 0 50px 0;}
+	.Bottom_Area .row .Inner{display:table; width:1400px;}
+	.Bottom_Area .row strong{display:inline-block; vertical-align:top; float:left;}
+	.Bottom_Area .row img{width:19em;}
+	.Bottom_Area .row #SkipNavAdd *{color:#989898;}
+	.Bottom_Area .row #SkipNavAdd{display:inline-block; text-align:left; width:59%; margin-top:2em; margin-left:0;}
+	.Bottom_Area .row p span.create{font-size:14px; color:#4e4e4e; line-height:3em; display:block;}
+	.Bottom_Area .row p span.create img{height:10px; width:auto; opacity:0.8; padding-left:2px;}
+	.Bottom_Area .row *{color:#333;}
+	.Bottom_Area .row{position:relative; display:inline-block; width:59%; text-align:left; border:none; margin-left:0;}
+	.Bottom_Area .row ul{width:100%; position:relative; display:block;}
+	.Bottom_Area .row ul li{position:relative; display:inline-block; padding:0;}
+	.Bottom_Area .row ul li:first-child a{padding-left:0;}
+	.Bottom_Area .row ul li a{position:relative; display:inline-block; font-size:13pt; line-height:1em; padding:0px 10px; border-color:#333}
+	.Bottom_Area .row ul li a:hover{color:#e09753;}
+		.aboutMapWrap .Bottom_Area .row{padding:5em 0 50px 0;}
 
 /* -------------------------------------------------------------------------------------------------------------------------------- */	
 /* 퀵메뉴 */
@@ -13577,11 +13457,11 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 				header .HeaderNav_GNBtop .Member a{letter-spacing:-2px; white-space:nowrap; padding-right:0;}
 				.HeaderNav_GNBtop .Member a{font-size:10pt;}
 				/* 22번배너 */
-				header .HeaderNav_GNBtop .Link{display:inline-table; position:relative; }
-				header .HeaderNav_GNBtop .Link li{}
-				header .HeaderNav_GNBtop .Link li + li{padding-left:1em;}
-				header .HeaderNav_GNBtop .Link a{text-align:center; margin:0px;}
-				header .HeaderNav_GNBtop .Link a img{height:1.6em; }
+				header .HeaderNav_GNBtop .row{display:inline-table; position:relative; }
+				header .HeaderNav_GNBtop .row li{}
+				header .HeaderNav_GNBtop .row li + li{padding-left:1em;}
+				header .HeaderNav_GNBtop .row a{text-align:center; margin:0px;}
+				header .HeaderNav_GNBtop .row a img{height:1.6em; }
 		/* ----------------------------------------------------------------------------------------------------------- */
 		/* 주메뉴 */
 		header .HeaderNav_GNBmenu{border:none; margin-top:-65px;}
@@ -13759,11 +13639,3 @@ a img, input, textarea, select, img{ vertical-align:middle;}
 time, progress, mark, output {}
 img, input, select{vertical-align:middle;}
 article, aside, figure, figure img, figcaption, hgroup, footer, header, main, nav, section, label, video, object {}
-
-img{
-	border: 0 none;
-	overflow-clip-margin: content-box;
-    overflow: clip;
-	vertical-align: middle;
-	
-}

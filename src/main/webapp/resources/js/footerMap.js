@@ -1,7 +1,7 @@
 
 var footerMap = new naver.maps.Map("aboutmap26", {
     center: new naver.maps.LatLng(37.3595316, 127.1052133),
-    zoom: 13,
+    zoom: 15,
     mapTypeControl: true
 });
 
