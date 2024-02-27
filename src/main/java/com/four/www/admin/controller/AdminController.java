@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.admin.domain.NoticeVO;
+import com.four.www.admin.domain.PagingVO;
+import com.four.www.admin.handler.PagingHandler;
 import com.four.www.admin.service.AdminService;
 import com.four.www.admin.service.NoticeBoardService;
+import com.four.www.user.domain.MemberVO;
+import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +30,7 @@ public class AdminController {
 
 	private final AdminService asv;
 	private final NoticeBoardService nsv;
+	private final MemberService msv;
 	
 	@GetMapping("/index")
 	public void adminpage() {}
@@ -40,10 +45,20 @@ public class AdminController {
 		return "redirect:/admin/list";
 	}
 	
+	@GetMapping("/checkuser")
+	public String checkuser(Model m, MemberVO mvo) {
+		List<MemberVO> mlist = msv.getList(mvo);
+		m.addAttribute("mlist" , mlist);
+		return "/admin/checkuser";
+	}
+	
 	@GetMapping("/list")
-	public void list(Model m) {
-		List<NoticeVO> list = nsv.getList();
+	public void list(Model m, PagingVO pgvo) {
+		List<NoticeVO> list = nsv.getadminList(pgvo);
+		int totalCount = nsv.getTotalCount(pgvo);
+		PagingHandler ph = new PagingHandler(pgvo, totalCount);
 		m.addAttribute("list" , list);
+		m.addAttribute("ph",ph);
 	}
 	
 	@GetMapping({"/detail","/modify"})
@@ -55,7 +70,7 @@ public class AdminController {
 	public String modify(NoticeVO nvo,  RedirectAttributes re) {
 		int isOk = nsv.modify(nvo);
 		return "redirect:/admin/detail?notice_no="+nvo.getNoticeNo();
-	}
+	} 
 	
 	@GetMapping("/remove")
 	public String remove(@RequestParam("notice_no")int nvo, RedirectAttributes re) {

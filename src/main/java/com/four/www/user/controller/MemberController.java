@@ -5,7 +5,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.user.domain.CalendarVO;
 import com.four.www.user.domain.MemberVO;
+import com.four.www.user.domain.UserVO;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -52,11 +57,11 @@ public class MemberController {
 		log.info("START : " + Start + "\nEnd :" + End);
 		String dateStr = date + " " + Start;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		LocalDateTime datetime = LocalDateTime.parse(dateStr,formatter);
+		LocalDateTime datetime = LocalDateTime.parse(dateStr, formatter);
 		CalVO.setCalScheduleStartTime(datetime);
 		dateStr = date + " " + End;
 		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		datetime = LocalDateTime.parse(dateStr, formatter);   
+		datetime = LocalDateTime.parse(dateStr, formatter);
 		CalVO.setCalScheduleEndTime(datetime);
 		log.info(CalVO.toString());
 		return "/member/calendar";
@@ -76,26 +81,60 @@ public class MemberController {
 	public String memberModify(MemberVO mvo) {
 		log.info(">>>> mvo >>>> {}", mvo);
 
-		return "redirect:/member/mypage";
+		int isOk = msv.memberModify(mvo);
+
+		return "redirect:/member/memberLogout";
 	}
 
 	@PostMapping("/memberRegister")
-	public String memberRegister(MemberVO mvo) {
-		log.info(">>>> mvo >>>> {}", mvo);
+	public String memberRegister(MemberVO mvo, Model m,
+			@RequestParam(value = "userEmailPrev", required = true) String mailPrev,
+			@RequestParam(value = "emailSelect", required = true) String emailSelect) {
+
+		mvo.setUserEmail(mailPrev + "@" + emailSelect);
+		log.info("MAIL >>>>>>>>>>>>>>>>>>>>>>>>>>" + mailPrev + emailSelect);
+		log.info(">>>>>>>>>>>>>>>>>>>>>> mvo >>>> {}", mvo);
 
 		int isOk = msv.memberRegister(mvo);
-
-		return "/";
+		UserVO newUvo = new UserVO();
+		newUvo.setUserSerialNo(msv.getUserDetail(mvo.getUserEmail()));
+		newUvo.setUserName(mvo.getUserName());
+		newUvo.setUserNickName(mvo.getUserNickName());
+		msv.authRegister(newUvo.getUserSerialNo());
+		msv.userRegister(newUvo);
+		m.addAttribute("msg_mbrreg", isOk);
+		m.addAttribute("msg_mbrIsTrainer", mvo.getIsTrainer());
+		if (mvo.getIsTrainer().equals("Y") && isOk > 0) {
+			return "/member/trainerreg";
+		} else if (isOk == 0) {
+			m.addAttribute("msg_mbrreg", "2");
+		}
+		return "/index";
 	}
 
 	@GetMapping("/memberLogin")
 	public void memberLogin() {
 	}
 
-	@PostMapping("/memberLogin")
-	public String memberLogin(HttpServletRequest request, RedirectAttributes re) {
+	@PostMapping("/memberLogout")
+	public String memberLogout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		new SecurityContextLogoutHandler().logout(request, response, authentication);
+		return "/";
+	}
+
+	@PostMapping("/Login")
+	public String Login(HttpServletRequest request, RedirectAttributes re) {
 		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
-		return "redirect:/member/memberLogin";
+		log.info("<<<<USER EMAIL>>>>" + request.getAttribute("userEmail"));
+		log.info("<<<<ERR MSG>>>>" + request.getAttribute("errMsg"));
+		return "redirect:/member/mypage";
 	}
+
+	@GetMapping("/member/trainerreg")
+	public void trainerreg() {
+	}
+
 }

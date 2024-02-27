@@ -13138,11 +13138,14 @@ input[type=radio]{}
 				.Banner26Other{}
 				.Banner26Other .aboutmap26{display:block; position:relative; width:100%; height:10em; margin:auto;}
 				.Banner26Other #aboutmap26{}
+				.Banner26Other .aboutmap52{display:block; position:relative; width:100%; height:10em; margin:auto;}
+				.Banner26Other #aboutmap52{}
 				.Banner26Other p{display:block; font-size:10pt; font-weight:200; margin-bottom:0.5em;}
 				.Banner26Other p span{}
 					/* 지도크게보기링크 */
 					.Banner26Other .mapLink{display:block; position:absolute; left:0%; right:0%; top:0%; bottom:0%; width:100%; height:100%;}
 					.Banner26Other .mapLink a{display:block; position:relative; width:100%; height:100%;}		
+					
 
 	
 
@@ -13490,6 +13493,7 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 			.Banner26Other>p{font-size:13pt; font-weight:600; margin-bottom:8px;}
 			.Banner26Other>pre{font-size:11pt; font-weight:normal; margin-bottom:1em;}
 			.Banner26Other .aboutmap26{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:15em;}
+			.Banner26Other .aboutmap52{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:45em;}
 
 	/*일본어*/
 	.Company_Area .bottomSNS{padding-top:20px;}
@@ -13763,11 +13767,3 @@ img{
 	vertical-align: middle;
 	
 }
-
-
-
-
-
-
-
-

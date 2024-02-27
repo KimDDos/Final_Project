@@ -23,7 +23,6 @@ public class MemberVO {
 	private String userBirthDate;
 	private String userGender;
 	private String userPhoneNum;
-	private String userAddress;
 	private String userItrs;
 	private String userRegAt;
 	private String userLastLoginDate;

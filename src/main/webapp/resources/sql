@@ -87,24 +87,42 @@ CREATE TABLE coupon (
 
 [mbr_profile] 테이블 column 수정
 alter table mbr_profile modify column user_phone_num varchar(15) not null;
+alter table mbr_profile drop column user_address;
+alter table mbr_profile modify column user_itrs text null;
 
-[reservation] 테이블 생성
-CREATE TABLE reservation (
-    User_serial_no VARCHAR(15),
-    rno INT AUTO_INCREMENT,
-    trainer_no INT,
-    r_regdate varchar(20),
-    r_time varchar(20), 
-    r_pw VARCHAR(300),
-    r_content TEXT,
-    PRIMARY KEY (rno),
-    FOREIGN KEY (User_serial_no) REFERENCES mbr_user(User_serial_no)
-);
+[Reservation]테이블
+create table Reservation(
+    -> rno int auto_increment primary key,
+    -> date date not null,
+    -> time time not null);
+[ReservationItem] 테이블    
+     create table ReservationItem(
+    -> Ino int auto_increment primary key,
+    -> itemName varchar(255) not null);
+    
+[ReservationItemSelection]테이블
+create table ReservationItemSelection(
+-> sno int auto_increment primary key,
+-> rno int,
+-> ino int,
+-> foreign key (rno) references Reservation(rno),
+-> foreign key (ino) references ReservationItem(Ino));
 
-[purpose] 테이블 생성
-create table purpose(
-    pno int auto_increment,
-    User_serial_no varchar(15),
-    ptitle varchar(15),
-    primary key(pno),
-    foreign key(User_serial_no) references mbr_user(User_serial_no));
+-- 2024 02 20 --
+
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column User_serial_no varchar(15) not null;
+
+[T_profile] 테이블 생성
+CREATE TABLE T_profile (
+    T_profile_no int NOT NULL auto_increment,
+    T_experience text NOT NULL,
+    T_trophy text NOT NULL,
+    T_intro_text text NOT NULL,
+    User_serial_no varchar(15) NOT NULL,
+primary key(T_profile_no));
+
+-- 2024 02 21 --
+[mbr_user] 테이블 column 'Access_token' 추가
+alter table mbr_user add column Access_token varchar(200) not null;
+
