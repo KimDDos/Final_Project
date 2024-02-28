@@ -11,11 +11,12 @@
 	</select>
 
 	<insert id="register">
-		insert into mbr_profile(user_email,
+		insert into mbr_profile(user_serial_no, user_email,
 		user_pwd, user_name, user_nick_name, user_birth_date,
 		user_phone_num,
 		user_itrs, is_trainer)
 		values(
+		#{userSerialNo},
 		#{userEmail},
 		#{userPwd},
 		#{userName},
@@ -27,9 +28,9 @@
 	</insert>
 
 	<insert id="regUser">
-		insert into mbr_user(user_name,
+		insert into mbr_user(user_serial_no, user_name,
 		user_nick_name, user_login_type)
-		values(#{userName},
+		values(#{userSerialNo}, #{userName},
 		#{userNickName}, #{userLoginType})
 	</insert>
 
@@ -60,13 +61,13 @@
 	<insert id="authRegister">
 		insert into
 		mbr_auth(User_serial_no)
-		values(#{User_serial_no})
+		values(#{UserSerialNo})
 	</insert>
 
 	<insert id="userRegister">
 		insert into
 		mbr_user(User_serial_no,User_name,User_nick_name,User_login_type)
-		values(#{User_serial_no},#{userName},#{userNickName},"D")
+		values(#{userSerialNo},#{userName},#{userNickName},"D")
 	</insert>
 
 	<select id="getSocialMbr"
