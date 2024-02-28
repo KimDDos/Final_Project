@@ -78,7 +78,6 @@
 		update mbr_profile set
 		user_name =#{userName},
 		user_nick_name =#{userNickName},
-		user_email = #{userEmail},
 		user_phone_num =#{userPhoneNum}
 		where
 		User_serial_no = #{userSerialNo}

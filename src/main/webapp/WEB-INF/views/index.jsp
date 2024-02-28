@@ -129,10 +129,10 @@
 		<div class="row gx-5">
 			<div class="col-lg-4 mb-5">
 				<div class="card h-100 shadow border-0">
-					<img class="card-img-top"
-						src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+					<img class="card-img-top" style="height: 350px"
+						src="https://img.freepik.com/free-photo/young-athletic-man-using-rowing-machine-while-exercising-health-club_637285-2520.jpg?t=st=1709082566~exp=1709086166~hmac=1c9550aff0216e023eb9b6cf5e9d6596eea599f2a518522d2d51dd9ca01830ef&w=1380" alt="..." />
 					<div class="card-body p-4">
-						<div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+						<div class="badge bg-primary bg-gradient rounded-pill mb-2">근성장</div>
 						<a class="text-decoration-none link-dark stretched-link" href="#!"><h5
 								class="card-title mb-3">Blog post title</h5></a>
 						<p class="card-text mb-0">Some quick example text to build on
@@ -141,8 +141,8 @@
 					<div class="card-footer p-4 pt-0 bg-transparent border-top-0">
 						<div class="d-flex align-items-end justify-content-between">
 							<div class="d-flex align-items-center">
-								<img class="rounded-circle me-3"
-									src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+								<img class="rounded-circle me-3" style="width: 40px" "height="60px"
+									src="https://img.freepik.com/free-photo/young-athletic-man-using-rowing-machine-while-exercising-health-club_637285-2520.jpg?t=st=1709082566~exp=1709086166~hmac=1c9550aff0216e023eb9b6cf5e9d6596eea599f2a518522d2d51dd9ca01830ef&w=1380" alt="..." />
 								<div class="small">
 									<div class="fw-bold">Kelly Rowan</div>
 									<div class="text-muted">March 12, 2023 &middot; 6 min
@@ -155,10 +155,10 @@
 			</div>
 			<div class="col-lg-4 mb-5">
 				<div class="card h-100 shadow border-0">
-					<img class="card-img-top"
-						src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+					<img class="card-img-top" style="height: 350px"
+						src="https://img.freepik.com/premium-photo/fitness-exercising-dieting-concept-sporty-woman-with-heavy-steel-dumbbells_380164-59711.jpg?w=1380" alt="..." />
 					<div class="card-body p-4">
-						<div class="badge bg-primary bg-gradient rounded-pill mb-2">Media</div>
+						<div class="badge bg-primary bg-gradient rounded-pill mb-2">다이어트</div>
 						<a class="text-decoration-none link-dark stretched-link" href="#!"><h5
 								class="card-title mb-3">Another blog post title</h5></a>
 						<p class="card-text mb-0">This text is a bit longer to
@@ -183,8 +183,8 @@
 			</div>
 			<div class="col-lg-4 mb-5">
 				<div class="card h-100 shadow border-0">
-					<img class="card-img-top"
-						src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
+					<img class="card-img-top" style="height: 350px"
+						src="https://img.freepik.com/premium-photo/sport-bodybuilding-fitness-people-concept-close-up-young-man-with-dumbbells-flexing-muscles-gym_380164-188945.jpg?w=1380" alt="..." />
 					<div class="card-body p-4">
 						<div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
 						<a class="text-decoration-none link-dark stretched-link" href="#!"><h5
@@ -197,8 +197,8 @@
 					<div class="card-footer p-4 pt-0 bg-transparent border-top-0">
 						<div class="d-flex align-items-end justify-content-between">
 							<div class="d-flex align-items-center">
-								<img class="rounded-circle me-3"
-									src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+								<img class="rounded-circle me-3" style="width: 40px" "height="40px"
+									src="https://img.freepik.com/premium-photo/sport-bodybuilding-fitness-people-concept-close-up-young-man-with-dumbbells-flexing-muscles-gym_380164-188945.jpg?w=1380" alt="..." />
 								<div class="small">
 									<div class="fw-bold">Evelyn Martinez</div>
 									<div class="text-muted">April 2, 2023 &middot; 10 min
