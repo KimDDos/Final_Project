@@ -19,7 +19,7 @@ public interface MemberDAO {
 
 	MemberVO selectMemberInfo(String userEmail);
 
-	List<UserAuthVO> selectAuths(String username);
+	List<UserAuthVO> selectAuths(int username);
 
 	Object selectSocialUser(MemberDTO mdto);
 
@@ -27,20 +27,28 @@ public interface MemberDAO {
 
 	int regUser(UserVO uvo);
 	
-	UserVO selectUser(String userSerialNo);
+	UserVO selectUser(int userSerialNo);
 
-	void updateLoginDate(String userSerialNo);
+	void updateLoginDate(int userSerialNo);
 	
 	MemberVO getUserDetail (String userEmail);
+	
+	MemberVO getUserDetailS (int userSerialNo);
 
 	List<MemberVO> getList(MemberVO mvo);
 
-	void authRegister(String userSerialNo);
+	void authRegister(int userSerialNo);
 
 	void userRegister(UserVO newUvo);
 
 	int memberModify(MemberVO mvo);
 	
-	int memberUserVOModify(String userSerialNo);
+	int memberUserVOModify(MemberVO mvo);
+
+	int deleteMember(int userSerialNo);
+
+	int deleteMemberAuth(int userSerialNo);
+
+	int deleteMemberUser(int userSerialNo);
 
 }

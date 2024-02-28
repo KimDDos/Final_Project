@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserVO {
-	private String userSerialNo;
+	private int userSerialNo;
 	private String userName;
 	private String userNickName;
 	private String accessToken;

@@ -17,31 +17,10 @@
 					<header class="mb-4">
 						<h1 class="fw-bolder mb-1">MY PAGE</h1>
 					</header>
-					<sec:authentication property="principal.mdto.mvo.userNickName"
-						var="userNickName" />
-					<sec:authentication property="principal.mdto.mvo.userEmail"
-						var="userEmail" />
-					<sec:authentication property="principal.mdto.mvo.userPhoneNum"
-						var="userPhoneNum" />
-					<sec:authentication property="principal.mdto.mvo.isTrainer"
-						var="isTrainer" />
-					<div class="form-floating mb-3">
-						<input class="form-control" id="userNickName" type="text"
-							readonly="readonly" value="${userNickName}"
-							placeholder="Enter your name..." /> <label for="name">닉네임</label>
-					</div>
-					<div class="form-floating mb-3">
-						<input class="form-control" id="userEmail" type="email"
-							readonly="readonly" placeholder="name@example.com"
-							value="${userEmail}" /> <label for="email">이메일</label>
-					</div>
-					<div class="form-floating mb-3">
-						<input class="form-control" id="userPhoneNum" type="tel"
-							readonly="readonly" value="${userPhoneNum }"
-							placeholder="(123) 456-7890" /> <label for="phone">연락처</label>
-					</div>
-					<a href="/member/mypageModify"><button type="button"
+					<a href="/member/mypagePwdcheck?delete=0"><button type="button"
 							class="btn btn-warning">회원정보 수정</button></a>
+							<a href="/member/mypagePwdcheck?delete=1"><button type="button"
+							class="btn btn-danger">회원 탈퇴</button></a>
 
 					<section class="mb-5">
 						<p class="fs-5 mb-4">Science is an enterprise that should be

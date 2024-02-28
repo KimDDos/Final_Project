@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -23,7 +22,7 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
-<link href="/resources/css/reservation.css" rel="stylesheet" />
+<link href="/resources/css/test.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -96,8 +95,9 @@
 								<input type="hidden" name="email" value="${userEmail}">
 							</form>
 							<li class="nav-item"><a class="nav-link"
-								style="color: white;" href="#">${userNickName}
-								<c:if test="${isTrainer eq 'Y'}">트레이너</c:if>님 안녕하세요.</a></li>
+								style="color: white;" href="#">${userNickName} <c:if
+										test="${isTrainer eq 'Y'}">트레이너</c:if>님 안녕하세요.
+							</a></li>
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()">
 							<li class="nav-item"><a class="nav-link"

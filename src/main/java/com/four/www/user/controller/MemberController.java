@@ -71,9 +71,34 @@ public class MemberController {
 	public void coupon() {
 	}
 
-	// mypage에서 사용하는 modify.
-	@GetMapping("/mypageModify")
-	public void mypageModify() {
+	// mypage에서 패스워드 체크페이지로 이동.
+	@GetMapping("/mypagePwdcheck")
+	public void mypagePwdcheck(@RequestParam(value = "delete", required = false) int delete,Model m) {
+		m.addAttribute("delete",delete);
+	}
+
+	@GetMapping("/checkPwd")
+	public String checkPwd(MemberVO mvo,@RequestParam(value = "delete", required = true) int delete) {
+		log.info("" + mvo);
+		int isOk = msv.checkPwd(mvo);
+		log.info("VALIDATION>>>>>>>>>> " + isOk);
+		if (isOk == 1) {
+			if (delete != 1)return "/member/mypageModify";
+			else if (delete == 1) return "member/mypageDelete";
+		}
+		return "/member/mypagePwdcheck";
+	}
+	
+	@GetMapping("/memberDelete")
+	public String memberDelete(HttpServletRequest request, HttpServletResponse response,MemberVO mvo) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		new SecurityContextLogoutHandler().logout(request, response, authentication);
+		
+		int isOk = msv.deleteMember(mvo.getUserSerialNo());
+		
+		return "redirect:/member/memberLogout";
 	}
 
 	// mypage에서 사용하는 modify.
@@ -109,7 +134,7 @@ public class MemberController {
 		} else if (isOk == 0) {
 			m.addAttribute("msg_mbrreg", "2");
 		}
-		return "/index";
+		return "redirect:/";
 	}
 
 	@GetMapping("/memberLogin")
@@ -123,9 +148,9 @@ public class MemberController {
 		new SecurityContextLogoutHandler().logout(request, response, authentication);
 		return "/";
 	}
-
-	@PostMapping("/Login")
-	public String Login(HttpServletRequest request, RedirectAttributes re) {
+	
+	@PostMapping("/login")
+	public String login(HttpServletRequest request, RedirectAttributes re) {
 		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		log.info("<<<<USER EMAIL>>>>" + request.getAttribute("userEmail"));
