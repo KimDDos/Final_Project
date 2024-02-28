@@ -1,6 +1,7 @@
 package com.four.www.user.oauth;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -53,14 +54,12 @@ public class loginController {
 	@GetMapping(value = "/{socialLoginType}/callback")
 	public String getAccessToken(@PathVariable(name = "socialLoginType") String socialLoginType ,
 			@RequestParam(name="code") String code, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		log.info(">>>> 소셜 로그인 API 서버로부터 받은 code : {}", code);
 		MemberDTO mdto = new MemberDTO();
-		
+        
 		switch (socialLoginType) {
 		case "google":
 			try {
 				Map<String, String> userInfo = googleOAuth.getGoogleAccessTokenUrl(code);
-				log.info(">>>>>> Google UserInfo >>>>>>> {}", userInfo);
 				mdto = parser.googleUser(userInfo);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -71,8 +70,6 @@ public class loginController {
 		case "naver":
 			try {
 				Map<String, String> userInfo = naverOAuth.getNaverAccessTokenUrl(code);
-				log.info(">>>>>> Naver UserInfo >>>>>>> {}", userInfo);
-				log.info(">>>>>> Naver UserInfo >>>>>>> {}", userInfo.getClass().getName());
 				mdto = parser.naverUser(userInfo);
 			} catch (Exception e) {
 				e.printStackTrace();

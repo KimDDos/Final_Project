@@ -15,18 +15,40 @@ public interface MemberDAO {
 
 	int selectUserCount();
 
-	String selectUserInfo(String authEmail);
+	String selectUserInfo(String userEmail);
 
-	MemberVO selectMemberInfo(String username);
+	MemberVO selectMemberInfo(String userEmail);
 
-	List<UserAuthVO> selectAuths(String username);
+	List<UserAuthVO> selectAuths(int username);
 
 	Object selectSocialUser(MemberDTO mdto);
 
 	MemberVO getSocialMbr(MemberVO mvo);
 
 	int regUser(UserVO uvo);
+	
+	UserVO selectUser(int userSerialNo);
+
+	void updateLoginDate(int userSerialNo);
+	
+	MemberVO getUserDetail (String userEmail);
+	
+	MemberVO getUserDetailS (int userSerialNo);
 
 	List<MemberVO> getList(MemberVO mvo);
+
+	void authRegister(int userSerialNo);
+
+	void userRegister(UserVO newUvo);
+
+	int memberModify(MemberVO mvo);
+	
+	int memberUserVOModify(MemberVO mvo);
+
+	int deleteMember(int userSerialNo);
+
+	int deleteMemberAuth(int userSerialNo);
+
+	int deleteMemberUser(int userSerialNo);
 
 }

@@ -1,4 +1,8 @@
-const checkmonth = function () {
+window.onload=function(){
+  checkmonth();
+}
+
+function checkmonth() {
     const dest = document.querySelector('.calendar');
     const year = parseInt(document.frm.year.value);
     const month = parseInt(document.frm.month.value);

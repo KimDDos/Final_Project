@@ -14,10 +14,12 @@ import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
 @Component
+@Slf4j
 public class LoginFailurHandler implements AuthenticationFailureHandler {
 
 	private String authEmail;
@@ -26,6 +28,7 @@ public class LoginFailurHandler implements AuthenticationFailureHandler {
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
+		log.info(">>>>>>>>LOGIN FAILURE<<<<<<<<<<");
 		
 		setAuthEmail(request.getParameter("userEmail"));
 		

@@ -21,6 +21,6 @@ public class CalendarVO {
 	private LocalDateTime CalScheduleEndTime; // 스케줄 끝시간
 	private String CalScheduleTitle; //달력에 짧게 표시할 스케줄 제목
 	private String CalScheduleDetail; //스케줄 상세 내용
-	private String UserSerialNo; // 유저 시리얼 넘버.
-	private String TrainerSerialNo; // 트레이너 시리얼 넘버.
+	private int UserSerialNo; // 유저 시리얼 넘버.
+	private int TrainerSerialNo; // 트레이너 시리얼 넘버.
 }
