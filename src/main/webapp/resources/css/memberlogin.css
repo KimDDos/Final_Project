@@ -1,2 +1,109 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-container {
+	border: 3px solid blue;
+}
+
+.social-icons {
+    display: flex; /* 부모 요소를 flex 컨테이너로 설정 */
+    justify-content: space-between; /* 자식 요소 사이의 간격을 균등하게 설정 */
+    width: 100%; /* 부모 요소의 너비를 100%로 설정 */
+}
+
+.social {
+    flex: 1; /* 자식 요소를 균등한 비율로 설정 */
+}
+
+.social img {
+    max-width: 55%; /* 이미지의 최대 너비를 부모 요소에 맞춰 설정 */
+    height: 35px; /* 이미지의 높이를 자동으로 조정하여 가로세로 비율 유지 */
+}
+
+.col-sm-4, .col-sm-6, .col-sm-10, .input-group {
+	margin-top: 10px;
+}
+
+input {
+	height: 35px;
+	margin-bottom: 20px;
+}
+
+.py-5.bg-light {
+    display: flex; /* 부모 요소를 flex 컨테이너로 설정 */
+    justify-content: center; /* 자식 요소를 수평 중앙 정렬 */
+    align-items: center; /* 자식 요소를 수직 중앙 정렬 */
+    min-height: 92vh; /* 최소 높이를 화면 전체의 높이로 설정 */
+}
+
+.container-md {
+    width: 70%; /* 원하는 너비로 설정 */
+    display: flex; /* 컨테이너를 flex 컨테이너로 설정 */
+    justify-content: center; /* 내부 요소를 수평 중앙 정렬 */
+    align-items: center; /* 내부 요소를 수직 중앙 정렬 */
+    height: 100%; /* 부모 요소의 높이를 100%로 설정 */
+}
+
+#memberloginForm {
+	border: 1.5px solid #ccc;
+	border-radius: 10px; 
+	padding: 25px;
+	box-shadow: 2px 3px 5px 0px;
+}
+
+/* input 요소에 대한 공통 스타일 */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* hover 효과를 위한 transition 설정 */
+}
+
+/* input 요소가 focus 되었을 때의 스타일 */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: dodgerblue;
+    background-color: #ced4da;
+}
+
+/* input 요소에 hover 효과를 추가 */
+input[type="email"]:hover,
+input[type="password"]:hover {
+    border-color: lightblue;
+}
+
+.custom-naver {
+	width: 165.38px;
+	height: 35px;
+	background-image: url("/resources/img/btnNaver_완성형.png");
+	background-size: cover;
+	background-position: center;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+}
+
+.custom-google {
+	width: 165.38px;
+	height: 35px;
+	background-image: url("/resources/img/btnGoogle_완성형.png");
+	background-size: cover;
+	background-position: center;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+}
+
+#sign-up-go:hover{
+	color: #ccc;
+    transition: color 1s ease;
+}
