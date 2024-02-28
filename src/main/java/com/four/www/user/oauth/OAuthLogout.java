@@ -46,7 +46,6 @@ public class OAuthLogout {
 	}
 	
 	// 토큰 취소 
-	
 	public void sendRevokeRequest(String data, String provider, String accessToken) {
         String googleRevokeUrl = "https://accounts.google.com/o/oauth2/revoke";
         String naverRevokeUrl = "https://nid.naver.com/oauth2.0/token";

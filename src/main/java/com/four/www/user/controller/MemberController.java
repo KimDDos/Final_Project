@@ -144,7 +144,7 @@ public class MemberController {
 	@PostMapping("/memberLogout")
 	public String memberLogout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+		
 		new SecurityContextLogoutHandler().logout(request, response, authentication);
 		return "/";
 	}
