@@ -60,14 +60,14 @@
 
 	<insert id="authRegister">
 		insert into
-		mbr_auth(User_access_token,User_serial_no)
-		values("D",#{User_serial_no})
+		mbr_auth(User_serial_no)
+		values(#{User_serial_no})
 	</insert>
 
 	<insert id="userRegister">
 		insert into
-		mbr_user(User_serial_no,User_name,User_nick_name,User_login_type,Access_token)
-		values(#{userSerialNo},#{userName},#{userNickName},"D","D")
+		mbr_user(User_name,User_nick_name,User_login_type)
+		values(#{userName},#{userNickName},"D")
 	</insert>
 
 	<select id="getSocialMbr"

@@ -82,7 +82,6 @@ public class OauthParser {
 			mdto.getMvo().setUserItrs("None");
 			mdto.getMvo().setIsTrainer("N");
 			mdto.getUvo().setUserLoginType("N");
-			mdto.getUvo().setAccessToken(accessToken);
 			return regAndAuth(mdto);
 		} catch (Exception e) {
 			e.printStackTrace();
