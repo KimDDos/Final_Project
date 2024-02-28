@@ -60,7 +60,7 @@
 						<span>운영시간</span>
 					</div>
 					<table
-						class="table table-hover align-items-centerss justify-content-center"
+						class="table align-items-centerss justify-content-center"
 						style="color: white">
 						<thead class="table-primary">
 							<tr>

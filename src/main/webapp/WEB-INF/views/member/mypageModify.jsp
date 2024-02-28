@@ -43,11 +43,7 @@
 								value="${userNickName}" placeholder="Enter your Nickname..." /> <label
 								for="name">닉네임</label>
 						</div>
-						<div class="form-floating mb-3">
-							<input class="form-control" id="userEmail" type="email" name="userEmail"
-								placeholder="name@example.com" value="${userEmail}" /> <label
-								for="email">이메일</label>
-						</div>
+						
 						<div class="form-floating mb-3">
 							<input class="form-control" id="userPhoneNum" type="tel" name="userPhoneNum"
 								value="${userPhoneNum }" placeholder="(123) 456-7890" /> <label
