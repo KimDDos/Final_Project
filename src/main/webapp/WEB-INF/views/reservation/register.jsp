@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 
 
 
 <jsp:include page="../layout/header.jsp"></jsp:include>
-<<<<<<< HEAD
 
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,8 +30,7 @@
 </div>
 <div id="content">
 	<!-- 프로그램시작 -->
-	<form method="post" name="frm" id="frm" action="/reservation/register"
-		>
+	<form method="post" name="frm" id="frm" action="/reservation/register">
 		<!--form method="post" name="frm" id="frm" action="https://naturalface.co.kr/nconsult/reserve/process.php" onsubmit="return goSave(this);"-->
 		<div class="programCon" style="margin-top: 0; padding-top: 5px;">
 
@@ -113,7 +113,7 @@
 									<i></i>
 									<p class="coredr_rg">
 										예약선택시간 <input type="text" class="no02" id="resertime"
-											name="resertime" value="">시
+											name="rvTime" value="">시
 									</p>
 								</div>
 							</div>
@@ -128,7 +128,8 @@
 					<div>
 						<p>오전</p>
 						<ul>
-							<li data-value="10:00" class="data-value"; style="cursor: pointer !important;"
+							<li data-value="10:00" class="data-value"
+								; style="cursor: pointer !important;"
 								onclick="timeSelectedValue(this);">10:00<!--(예약가능)--></li>
 							<li data-value="10:30" style="cursor: pointer;"
 								onclick="timeSelectedValue(this);">10:30<!--(예약가능)--></li>
@@ -189,6 +190,10 @@
 						<col class="writeForm_col01">
 						<col width="*">
 					</colgroup>
+					<sec:authentication property="principal.mdto.mvo.userEmail"
+						var="userEmail" />
+					<sec:authentication property="principal.mdto.mvo.userPhoneNum"
+						var="userPhoneNum" />
 					<tbody>
 						<tr>
 							<th><span class="col01">*</span>이름</th>
@@ -199,36 +204,21 @@
 
 						<tr>
 							<th><span class="col01">*</span>비밀번호</th>
-							<td><input data-value="비밀번호를 입력하세요." name="password"
+							<td><input data-value="비밀번호를 입력하세요." name="rvPw"
 								id="password" class="inputPass wh420" type="password"
 								maxlength="100" placeholder="영문과 숫자를 조합해 비밀번호를 입력해주세요">
 							</td>
 						</tr>
 						<tr>
 							<th><span class="col01">*</span>휴대폰</th>
-							<td><input type="text" name="cell" id="cell" value=""
-								onkeyup="isNumberOrHyphen(this);"
-								onblur="cvtUserPhoneNumber(this);" data-value="휴대폰을 입력하세요."
-								placeholder="연락 가능한 휴대전화번호를 입력해주세요" maxlength="13"></td>
+							<td><input type="text" name="cell" id="cell" value="${userPhoneNum }" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<th><span class="col01">*</span>이메일</th>
 							<td class="mail_type"><input data-value="이메일을 입력하세요."
 								name="email1" id="email1" class="inputEmail wh420" type="text"
-								value="" maxlength="70" placeholder="이메일 주소를 입력해주세요"><span
-								class="email_txt">@</span> <span><input type="text"
-									id="email2" name="email2" maxlength="100" class="inputEmail02">
-									<select class="selecEmail" name="" id=""
-									data-value="이메일을 선택하세요" style="margin-right: 0;">
-										<option value="">선택하세요</option>
-										<option value="직접 입력">직접 입력</option>
-										<option value="naver.com">naver.com</option>
-										<option value="daum.net">daum.net</option>
-										<option value="gmail.com">gmail.com</option>
-										<option value="hotmail.com">hotmail.com</option>
-										<option value="nate.com">nate.com</option>
-										<option value="korea.com">korea.com</option>
-								</select></span></td>
+								value=${userEmail } maxlength="70" readonly="readonly">
+							</td>
 						</tr>
 
 						<!--<div class="check_box_wrap">
@@ -243,9 +233,9 @@
 						</td>
 						</tr>
 						<tr>
-							<th><span class="col01">*</span>내원경로</th>
-							<td><select id="route" name="route" title="내원경로를 선택해주세요."
-								data-value="내원경로를 선택해주세요." class="wh420">
+							<th><span class="col01">*</span>방문경로</th>
+							<td><select id="route" name="route" title="방문경로를 선택해주세요."
+								data-value="방문경로를 선택해주세요." class="wh420">
 									<option>경로를 선택해주세요.</option>
 									<option value="1">인터넷</option>
 									<option value="2">간판</option>
@@ -390,346 +380,8 @@
 																data-event="removeFormat" data-value="foreColor">기본
 																값으로 변경</button>
 														</div>
-														<div class="note-holder" data-event="foreColor">
-															<div class="note-color-palette">
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #000000"
-																		data-event="foreColor" data-value="#000000" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#000000"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #424242"
-																		data-event="foreColor" data-value="#424242" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#424242"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #636363"
-																		data-event="foreColor" data-value="#636363" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#636363"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #9C9C94"
-																		data-event="foreColor" data-value="#9C9C94" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#9C9C94"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #CEC6CE"
-																		data-event="foreColor" data-value="#CEC6CE" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#CEC6CE"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #EFEFEF"
-																		data-event="foreColor" data-value="#EFEFEF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#EFEFEF"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #F7F7F7"
-																		data-event="foreColor" data-value="#F7F7F7" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#F7F7F7"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFFFFF"
-																		data-event="foreColor" data-value="#FFFFFF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFFFFF"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FF0000"
-																		data-event="foreColor" data-value="#FF0000" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FF0000"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FF9C00"
-																		data-event="foreColor" data-value="#FF9C00" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FF9C00"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFFF00"
-																		data-event="foreColor" data-value="#FFFF00" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFFF00"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #00FF00"
-																		data-event="foreColor" data-value="#00FF00" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#00FF00"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #00FFFF"
-																		data-event="foreColor" data-value="#00FFFF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#00FFFF"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #0000FF"
-																		data-event="foreColor" data-value="#0000FF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#0000FF"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #9C00FF"
-																		data-event="foreColor" data-value="#9C00FF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#9C00FF"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FF00FF"
-																		data-event="foreColor" data-value="#FF00FF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FF00FF"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #F7C6CE"
-																		data-event="foreColor" data-value="#F7C6CE" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#F7C6CE"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFE7CE"
-																		data-event="foreColor" data-value="#FFE7CE" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFE7CE"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFEFC6"
-																		data-event="foreColor" data-value="#FFEFC6" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFEFC6"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #D6EFD6"
-																		data-event="foreColor" data-value="#D6EFD6" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#D6EFD6"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #CEDEE7"
-																		data-event="foreColor" data-value="#CEDEE7" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#CEDEE7"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #CEE7F7"
-																		data-event="foreColor" data-value="#CEE7F7" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#CEE7F7"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #D6D6E7"
-																		data-event="foreColor" data-value="#D6D6E7" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#D6D6E7"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #E7D6DE"
-																		data-event="foreColor" data-value="#E7D6DE" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#E7D6DE"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #E79C9C"
-																		data-event="foreColor" data-value="#E79C9C" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#E79C9C"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFC69C"
-																		data-event="foreColor" data-value="#FFC69C" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFC69C"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFE79C"
-																		data-event="foreColor" data-value="#FFE79C" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFE79C"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #B5D6A5"
-																		data-event="foreColor" data-value="#B5D6A5" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#B5D6A5"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #A5C6CE"
-																		data-event="foreColor" data-value="#A5C6CE" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#A5C6CE"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #9CC6EF"
-																		data-event="foreColor" data-value="#9CC6EF" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#9CC6EF"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #B5A5D6"
-																		data-event="foreColor" data-value="#B5A5D6" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#B5A5D6"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #D6A5BD"
-																		data-event="foreColor" data-value="#D6A5BD" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#D6A5BD"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #E76363"
-																		data-event="foreColor" data-value="#E76363" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#E76363"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #F7AD6B"
-																		data-event="foreColor" data-value="#F7AD6B" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#F7AD6B"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #FFD663"
-																		data-event="foreColor" data-value="#FFD663" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#FFD663"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #94BD7B"
-																		data-event="foreColor" data-value="#94BD7B" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#94BD7B"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #73A5AD"
-																		data-event="foreColor" data-value="#73A5AD" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#73A5AD"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #6BADDE"
-																		data-event="foreColor" data-value="#6BADDE" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#6BADDE"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #8C7BC6"
-																		data-event="foreColor" data-value="#8C7BC6" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#8C7BC6"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #C67BA5"
-																		data-event="foreColor" data-value="#C67BA5" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#C67BA5"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #CE0000"
-																		data-event="foreColor" data-value="#CE0000" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#CE0000"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #E79439"
-																		data-event="foreColor" data-value="#E79439" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#E79439"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #EFC631"
-																		data-event="foreColor" data-value="#EFC631" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#EFC631"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #6BA54A"
-																		data-event="foreColor" data-value="#6BA54A" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#6BA54A"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #4A7B8C"
-																		data-event="foreColor" data-value="#4A7B8C" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#4A7B8C"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #3984C6"
-																		data-event="foreColor" data-value="#3984C6" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#3984C6"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #634AA5"
-																		data-event="foreColor" data-value="#634AA5" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#634AA5"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #A54A7B"
-																		data-event="foreColor" data-value="#A54A7B" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#A54A7B"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #9C0000"
-																		data-event="foreColor" data-value="#9C0000" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#9C0000"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #B56308"
-																		data-event="foreColor" data-value="#B56308" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#B56308"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #BD9400"
-																		data-event="foreColor" data-value="#BD9400" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#BD9400"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #397B21"
-																		data-event="foreColor" data-value="#397B21" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#397B21"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #104A5A"
-																		data-event="foreColor" data-value="#104A5A" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#104A5A"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #085294"
-																		data-event="foreColor" data-value="#085294" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#085294"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #311873"
-																		data-event="foreColor" data-value="#311873" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#311873"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #731842"
-																		data-event="foreColor" data-value="#731842" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#731842"></button>
-																</div>
-																<div class="note-color-row">
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #630000"
-																		data-event="foreColor" data-value="#630000" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#630000"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #7B3900"
-																		data-event="foreColor" data-value="#7B3900" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#7B3900"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #846300"
-																		data-event="foreColor" data-value="#846300" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#846300"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #295218"
-																		data-event="foreColor" data-value="#295218" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#295218"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #083139"
-																		data-event="foreColor" data-value="#083139" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#083139"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #003163"
-																		data-event="foreColor" data-value="#003163" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#003163"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #21104A"
-																		data-event="foreColor" data-value="#21104A" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#21104A"></button>
-																	<button type="button" class="note-color-btn"
-																		style="background-color: #4A1031"
-																		data-event="foreColor" data-value="#4A1031" title=""
-																		data-toggle="button" tabindex="-1"
-																		data-original-title="#4A1031"></button>
-																</div>
-															</div>
-														</div>
+
+
 													</div>
 												</div>
 											</div>
@@ -1601,8 +1253,8 @@
 					src="/resources/img/quick_cost.png" class="off"><img
 					src="/resources/img/quick_cost.png" class="on"><br>
 			</a></li>
-			<li><a href="javascript:;" data-target="quick_review_cont"> <img
-					src="/resources/img/quick_review.png" class="off"><img
+			<li><a href="javascript:;" data-target="quick_review_cont">
+					<img src="/resources/img/quick_review.png" class="off"><img
 					src="/resources/img/quick_review.png" class="on"><br>
 			</a></li>
 			<li><a href="javascript:;"> <img
@@ -1622,8 +1274,8 @@
 		<div class="top_btn">TOP</div>
 	</div>
 
-	<div class="right" style="width:0px;">
-		<div class="quick_cont" >
+	<div class="right" style="width: 0px;">
+		<div class="quick_cont">
 			<div class="quick_box h30" id="quick_online_cont">
 				<div class="q_close">
 					<a href="javascript:;"> <img
@@ -1662,14 +1314,14 @@
 							<select name="clinic_fk" title="운동종목 선택"
 								data-value="관심분야를 선택해 주십시오.">
 								<option value="">관심분야를 선택해주세요</option>
-								<option value="1" data-hospital="1">체중감소</option>
-								<option value="2" data-hospital="1">체중증가</option>
-								<option value="4" data-hospital="1">근성장</option>
-								<option value="5" data-hospital="1">체형교정</option>
-								<option value="3" data-hospital="1">체지방관리</option>
-								<option value="8" data-hospital="1">건강목적</option>
-								<option value="6" data-hospital="1">체중집중관리</option>
-								<option value="7" data-hospital="1">기타운동</option>
+								<option value="체중감소" data-hospital="1">체중감소</option>
+								<option value="체중증가" data-hospital="1">체중증가</option>
+								<option value="근성장" data-hospital="1">근성장</option>
+								<option value="체형교정" data-hospital="1">체형교정</option>
+								<option value="체지방관리" data-hospital="1">체지방관리</option>
+								<option value="건강목적" data-hospital="1">건강목적</option>
+								<option value="체중집중관리" data-hospital="1">체중집중관리</option>
+								<option value="기타운동" data-hospital="1">기타운동</option>
 							</select>
 						</div>
 						<div class="q_content">
@@ -2090,14 +1742,6 @@
     });
 	
 	
-	
-	
-	
-
-	
-	
-	
-	
 </script>
 
 <script>
@@ -2199,53 +1843,44 @@
             })
 
 
-       function buildCalendar() {
+   function buildCalendar() {
+    nowYear = today.getFullYear();
+    nowMonth = today.getMonth();
+    firstDate = new Date(nowYear, nowMonth, 1).getDate();
+    firstDay = new Date(nowYear, nowMonth, 1).getDay(); //1st의 요일
+    lastDate = new Date(nowYear, nowMonth + 1, 0).getDate();
 
-                nowYear = today.getFullYear();
-                nowMonth = today.getMonth();
-                firstDate = new Date(nowYear, nowMonth, 1).getDate();
-                firstDay = new Date(nowYear, nowMonth, 1).getDay(); //1st의 요일
-                lastDate = new Date(nowYear, nowMonth + 1, 0).getDate();
+    let monthText = nowMonth + 1 < 10 ? "0" + (nowMonth + 1) : nowMonth + 1;
 
-                let monthText = nowMonth + 1 < 10 ? "0" + (nowMonth + 1) : nowMonth + 1;
+    $(".year_mon").text(nowYear + "년 " + monthText + "월");
 
-                if ((nowYear % 4 === 0 && nowYear % 100 !== 0) || nowYear % 400 === 0) { //윤년 적용
-                    lastDate[1] = 29;
-                }
+    for (i = 0; i < firstDay; i++) { //첫번째 줄 빈칸
+        $("#calendar tbody:last").append("<td></td>");
+    }
+    for (i = 1; i <= lastDate; i++) { // 날짜 채우기
+        plusDate = new Date(nowYear, nowMonth, i).getDay();
+        if (plusDate == 0) {
+            $("#calendar tbody:last").append("<tr></tr>");
+        }
+        // 현재 달 또는 다음 달의 날짜 비교 로직 수정
+        if(nowYear < date.getFullYear() || (nowYear == date.getFullYear() && nowMonth < date.getMonth()) || (nowYear == date.getFullYear() && nowMonth == date.getMonth() && i < date.getDate())) {
+            $("#calendar tbody:last").append("<td class='date old_date'>" + i + "</td>");
+        } else {
+            $("#calendar tbody:last").append("<td class='date' onclick='calendarSelectDayConfirm(\"" + nowYear + "-" + monthText + "-" + i + "\")'" + ">" + i + "</td>");
+        }
+    }
+    if ($("#calendar > tbody > td").length % 7 != 0) { //마지막 줄 빈칸
+        for (i = 1; i <= $("#calendar > tbody > td").length % 7; i++) {
+            $("#calendar tbody:last").append("<td ></td>");
+        }
+    }
+    $(".date").each(function (index) { // 오늘 날짜 표시
+        if (nowYear == date.getFullYear() && nowMonth == date.getMonth() && $(".date").eq(index).text() == date.getDate()) {
+            $(".date").eq(index).addClass('colToday');
+        }
+    })
+}
 
-                $(".year_mon").text(nowYear + "년 " + monthText + "월");
-
-                for (i = 0; i < firstDay; i++) { //첫번째 줄 빈칸
-                    $("#calendar tbody:last").append("<td></td>");
-                }
-                for (i = 1; i <= lastDate; i++) { // 날짜 채우기
-                    plusDate = new Date(nowYear, nowMonth, i).getDay();
-                    if (plusDate == 0) {
-                        $("#calendar tbody:last").append("<tr></tr>");
-                    }
-                    if(nowMonth < date.getMonth()) {
-                        $("#calendar tbody:last").append("<td class='date old_date'>" + i + "</td>");    
-                    } else {
-                        if(i < date.getDate()) {
-                            $("#calendar tbody:last").append("<td class='date old_date'>" + i + "</td>");    
-                        } else {
-                            $("#calendar tbody:last").append("<td class='date' onclick='calendarSelectDayConfirm(\"" + nowYear + "-" + monthText + "-" + i + "\")'" + ">" + i + "</td>");
-                        }
-                        
-                    }
-                    
-                }
-                if ($("#calendar > tbody > td").length % 7 != 0) { //마지막 줄 빈칸
-                    for (i = 1; i <= $("#calendar > tbody > td").length % 7; i++) {
-                        $("#calendar tbody:last").append("<td ></td>");
-                    }
-                }
-                $(".date").each(function (index) { // 오늘 날짜 표시
-                    if (nowYear == date.getFullYear() && nowMonth == date.getMonth() && $(".date").eq(index).text() == date.getDate()) {
-                        $(".date").eq(index).addClass('colToday');
-                    }
-                })
-            }
             buildCalendar();
             
 
@@ -2259,85 +1894,8 @@
     </script>
 
 
-=======
 
 
-<div class="container px-1 my-5">
-	<div class="row gx-5">
-		<jsp:include page="../reservation/reservationLayout.jsp"></jsp:include>
-		<div class="col-lg-9">
-			<header class="mb-4">
-				<h1 class="fw-bolder mb-1">온라인 예약</h1>
-			</header>
-			<form class="rvForm">
-				<label class="rvLabel" for="rvName">이름:</label> <input
-					class="rvInput" type="text" name="name" required> <label
-					class="rvLabel" for="rvContact">연락처:</label> <input class="rvInput"
-					type="text" name="contact" required> <label class="rvLabel"
-					for="rvEmail">이메일:</label> <input class="rvInput" type="email"
-					name="email" required> <label for="rvDate">날짜 선택:</label> <input
-					type="text" class="rvInput" id="rvDate" name="date" required>
-				<label class="rvLabel" for="rvTime">시간 선택:</label> <input
-					class="rvInput" type="time" name="time" required>
-				<div class="rvSelectedItemsContainer">
-					<label class="rvLabel" for="rvItem">예약 항목:</label>
-					<div class="rvCheckboxGroup">
-						<label> <img class="fit-picture"
-							src="/resources/img/circle.svg" id="checkImg_1" style="margin-right: 2px" /><input
-							type="checkbox" name="reservationItems" class="form-check-input"
-							id="checkBox" value="item1" style="display: none">체중감소/증가/관리
-						</label> <label><img class="fit-picture"
-							src="/resources/img/circle.svg" id="checkImg_2" style="margin-right: 2px" /><input
-							type="checkbox" name="reservationItems" class="form-check-input"
-							id="checkBox" value="item2" style="display: none">근성장</label> <label><img
-							class="fit-picture" src="/resources/img/circle.svg"
-							style="margin-right: 2px" id="checkImg_3" /><input type="checkbox"
-							name="reservationItems" class="form-check-input" id="checkBox"
-							value="item3" style="display: none">체형교정</label> <label><img
-							class="fit-picture" src="/resources/img/circle.svg"
-							style="margin-right: 2px" id="checkImg_4" /><input type="checkbox"
-							name="reservationItems" class="form-check-input" id="checkBox"
-							value="item4" style="display: none">건강</label> <label><img
-							class="fit-picture" src="/resources/img/circle.svg"
-							style="margin-right: 2px" id="checkImg_5" /><input type="checkbox"
-							name="reservationItems" class="form-check-input" id="checkBox"
-							value="item5" style="display: none">체지방 집중관리</label> <label><img
-							class="fit-picture" id="checkImg_6" src="/resources/img/circle.svg"
-							style="margin-right: 2px" /><input type="checkbox"
-							name="reservationItems" class="form-check-input" id="checkBox"
-							value="item6" style="display: none">재활치료</label>
-					</div>
-				</div>
-				<button class="rvButton" type="submit">예약 확인</button>
-			</form>
-		</div>
-	</div>
-</div>
 
-<script src="/resources/js/reservation.js"></script>
-
-<script>
-	$(function() {
-		$("#rvDate").datepicker({
-			dateFormat : "yy-mm-dd", // 날짜 형식 설정
-			minDate : 0, // 과거 날짜 선택 불가
-			maxDate : "+1Y", // 최대 1년 후까지만 선택 가능
-			showButtonPanel : true
-		// 하단 패널에 오늘 날짜와 닫기 버튼 표시
-		});
-	});
-</script>
-<script>
-	$(function() {
-		$("#rvDate").datepicker({
-			dateFormat : "yy-mm-dd", // 날짜 형식 설정
-			minDate : 0, // 과거 날짜 선택 불가
-			maxDate : "+1Y", // 최대 1년 후까지만 선택 가능
-			showButtonPanel : true
-		// 하단 패널에 오늘 날짜와 닫기 버튼 표시
-		});
-	});
-</script>
->>>>>>> main
 
 <jsp:include page="../layout/footer.jsp"></jsp:include>

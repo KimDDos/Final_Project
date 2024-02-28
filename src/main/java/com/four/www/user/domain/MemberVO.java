@@ -15,7 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class MemberVO {
 
-	private String userSerialNo;
+	private int userSerialNo;
 	private String userEmail;
 	private String userPwd;
 	private String userName;

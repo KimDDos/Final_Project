@@ -17,6 +17,7 @@
 					<header class="mb-4">
 						<h1 class="fw-bolder mb-1">MY PAGE</h1>
 					</header>
+
 					<sec:authentication property="principal.mdto.mvo.userNickName"
 						var="userNickName" />
 					<sec:authentication property="principal.mdto.mvo.userEmail"
