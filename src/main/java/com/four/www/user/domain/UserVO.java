@@ -15,6 +15,5 @@ public class UserVO {
 	private int userSerialNo;
 	private String userName;
 	private String userNickName;
-	private String accessToken;
 	private String userLoginType;
 }
