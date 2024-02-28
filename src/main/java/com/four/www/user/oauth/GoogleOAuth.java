@@ -85,6 +85,7 @@ public class GoogleOAuth {
 			
 			ResponseEntity<HashMap> userResult = restTemplate.exchange(userInfoURL, HttpMethod.GET, userInfoEntity, HashMap.class);
 			Map<String, String> userResultMap = userResult.getBody();
+			userResultMap.put("access_token", access_token);
 			// return resultMap을 반환해야함!;
 			log.info(">>>>> userResultMap 데이터 >>>>> {}",userResultMap);
 			return userResultMap;

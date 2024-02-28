@@ -71,6 +71,7 @@
                         <h6 class="collapse-header">Components:</h6>
                         <a class="collapse-item" href="/admin/register">공지사항 작성</a>
                         <a class="collapse-item" href="/admin/list">공지사항 목록</a>
+                        <a class="collapse-item" href="/admin/checkuser">회원 목록</a>
                     </div>
                 </div>
             </li>
