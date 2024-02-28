@@ -13353,18 +13353,18 @@ header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.
 
 	/* 대표전화 */
 	.Company_Area .Inner>.Title{display:block; font-size:18pt; font-weight:bold; display:none;} /* 일단숨김 */
-	.container-md .Tel{display:block; width:100%;}
-	.container-md .Tel .Title.Sub span{padding-bottom:0.2em;} /* 타이틀 */
-	.container-md .Tel a p{font-family:'Montserrat', 'Noto Sans KR', sans-serif; font-weight:600; color:#333; letter-spacing:0;}
-	.container-md .Time{display:block; width:100%; margin-top:3em;}
-	.container-md .Time .Title.Sub span{padding-bottom:0.5em;} /* 타이틀 */
-	.container-md .Time label + p{font-weight:normal; color:#989898; padding-top:15px;}
-	.container-md .row{width:70%;}
-	.container-md .row .Title.Sub span{padding-bottom:0.5em; font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:#989898;} /* 타이틀 */
-	.container-md .Time label pre{line-height:2em;}
-	.container-md .Time pre.Left{width:20%;}
-	.container-md .Time pre.Right{text-align:right; padding-right:10px; width:50%; font-family:'Montserrat', 'Noto Sans KR', sans-serif;}
-	.container-md .Time label .last{color:#e09753;}
+	.Company_Area .Tel{display:block; width:100%;}
+	.Company_Area .Tel .Title.Sub span{padding-bottom:0.2em;} /* 타이틀 */
+	.Company_Area .Tel a p{font-family:'Montserrat', 'Noto Sans KR', sans-serif; font-weight:600; color:#333; letter-spacing:0;}
+	.Company_Area .Time{display:block; width:100%; margin-top:3em;}
+	.Company_Area .Time .Title.Sub span{padding-bottom:0.5em;} /* 타이틀 */
+	.Company_Area .Time label + p{font-weight:normal; color:#989898; padding-top:15px;}
+	.Company_Area .row{width:70%;}
+	.Company_Area .row .Title.Sub span{padding-bottom:0.5em; font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:#989898;} /* 타이틀 */
+	.Company_Area .Time label pre{line-height:2em;}
+	.Company_Area .Time pre.Left{width:20%;}
+	.Company_Area .Time pre.Right{text-align:right; padding-right:10px; width:50%; font-family:'Montserrat', 'Noto Sans KR', sans-serif;}
+	.Company_Area .Time label .last{color:#e09753;}
 		/* [배너관리] 26번배너 */
 		.Banner26{}
 			/* 등록된배너가없다면 지도표기 */
