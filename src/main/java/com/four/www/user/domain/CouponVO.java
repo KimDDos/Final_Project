@@ -15,7 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class CouponVO {
 	private String a;
-	private String UserSerialNo;
+	private int UserSerialNo;
 	private int CpNum;
 	private String CpTitle;
 	private int CpValue;

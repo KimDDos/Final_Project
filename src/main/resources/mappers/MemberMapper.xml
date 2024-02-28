@@ -77,6 +77,7 @@
 
 	<update id="memberModify">
 		update mbr_profile set
+		user_name =#{userName},
 		user_nick_name =#{userNickName},
 		user_email = #{userEmail},
 		user_phone_num =#{userPhoneNum}
@@ -84,8 +85,9 @@
 		User_serial_no = #{userSerialNo}
 	</update>
 
-	<update id="memberUserVOModify">
+	<update id="memberUserVOModify" parameterType="com.four.www.user.domain.MemberVO">
 		update mbr_user set
+		user_name =#{userName},
 		user_nick_name = #{userNickName}
 		where
 		User_serial_no = #{userSerialNo}
@@ -95,6 +97,24 @@
 		resultType="com.four.www.user.domain.MemberVO">
 		select * from mbr_profile where user_email = #{userEmail}
 	</select>
+
+	<select id="getUserDetailS"
+		resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile where User_serial_no =
+		#{userSerialNo}
+	</select>
+
+	<delete id="deleteMember">
+		delete from mbr_profile where User_serial_no=#{userSerialNo}
+	</delete>
+
+	<delete id="deleteMemberAuth">
+		delete from mbr_auth where User_serial_no=#{userSerialNo}
+	</delete>
+
+	<delete id="deleteMemberUser">
+		delete from mbr_user where User_serial_no=#{userSerialNo}
+	</delete>
 
 	<select id="updateLoginDate">
 		update mbr_profile set user_last_login_date = now()

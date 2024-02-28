@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="col-lg-3">
-			<form action="/reservation/reservRegister" method="get">
+			<form action="/reservation/register" method="get">
 			<input id="selTitle" name="selTitle" type="text" style="visibility: hidden">
 			<input id="selAddress" name="selAddress" type="text" style="visibility: hidden">
 				<c:forEach var="nvo" items="${KList }" varStatus="status">

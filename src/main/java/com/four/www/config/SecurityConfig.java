@@ -82,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.formLogin()
 		.usernameParameter("userEmail")
 		.passwordParameter("userPwd")
-		.loginPage("/member/Login")
+		.loginPage("/member/login")
 		.successHandler(authSuccessHandler())
 		.failureHandler(authFailurHandler());
 		

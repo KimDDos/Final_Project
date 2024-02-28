@@ -54,9 +54,12 @@ AM 10:00 – PM 04:00</pre> <pre class="last" readonly="readonly">
 				<!-- 지도 -->
 				<div id="aboutmap26" class="aboutmap26" tabindex="0"
 					style="overflow: hidden; background: rgb(248, 249, 250);">
-					<form action="/main/searchMap" style="position: absolute; z-index: 100">
-						<input id="address" type="text" name="address" placeholder="검색할 주소" value="불정로 6">
-						<button type="submit" value="주소 검색" style="position: absolute; z-index: 100"></button>
+					<form action="/main/searchMap"
+						style="position: absolute; z-index: 100">
+						<input id="address" type="text" name="address"
+							placeholder="검색할 주소" value="불정로 6">
+						<button type="submit" value="주소 검색"
+							style="position: absolute; z-index: 100"></button>
 					</form>
 				</div>
 
@@ -112,18 +115,10 @@ AM 10:00 – PM 04:00</pre> <pre class="last" readonly="readonly">
 				<!--
 						<a href="https://www.brainmedi.co.kr/" class="create" target="_blank">헬스장홈페이지제작 <img src="https://www.brainmedi.co.kr/img/logo_C00032_footer.png" alt="브레인메디로고"></a>
 						-->
-<<<<<<< HEAD
-					</p> 
-				</div>
-			</div>
-			<!-- //필수정보 -->
-		</div>
-		
-		</html>
-=======
 			</p>
 		</div>
 	</div>
 	<!-- //필수정보 -->
 </div>
->>>>>>> main
+
+</html>

@@ -22,14 +22,18 @@ public interface MemberService {
 
 	List<MemberVO> getList(MemberVO mvo);
 
-	String getUserDetail(String userEmail);
+	int getUserDetail(String userEmail);
 
-	void updateLoginDate(String userSerialNo);
+	void updateLoginDate(int userSerialNo);
 
-	void authRegister(String userSerialNo);
+	void authRegister(int userSerialNo);
 
 	void userRegister(UserVO newUvo);
 
 	int memberModify(MemberVO mvo);
+
+	int checkPwd(MemberVO mvo);
+
+	int deleteMember(int userSerialNo);
 
 }

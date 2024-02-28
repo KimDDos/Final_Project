@@ -8,7 +8,7 @@
 <header class="bg-dark py-5">
 	<div class="container px-5">
 		<div class="row gx-5 align-items-centerss justify-content-center">
-			<div class="col-lg-8 col-xl-7 col-xxl-6">
+			<div class="col-lg-6 col-xl-7 col-xxl-6">
 				<div class="container-md" style="margin-top: 50px">
 					<table class="table" style="color: white">
 						<thead class="table-primary">

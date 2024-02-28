@@ -26,7 +26,7 @@ div {
 			<div class="col align-items-center flex-col sign-up">
 				<div class="form-wrapper align-items-center">
 					<div class="form sign-up">
-						<form action="/member/Login" method="post">
+						<form action="/member/login" method="post">
 							<div class="input-group">
 								<input type="email" name="userEmail" id="userEmail"
 									placeholder="Email">
