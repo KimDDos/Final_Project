@@ -8,6 +8,8 @@
 <meta charset="utf-8" />
 <sec:authentication property="principal.mdto.mvo.isTrainer"
 	var="isTrainer" />
+<sec:authentication property="principal.mdto.mvo.userSerialNo"
+	var="userSerialNo" />
 <div class="col-lg-3">
 	<a href="/member/mypage" style="text-decoration: none; color: black;">
 		<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
@@ -19,7 +21,7 @@
 		</div>
 	</a>
 	<hr>
-	<a href="/member/calendar" style="text-decoration: none; color: black;">
+	<a href="/member/calendar?userSerialNo=${userSerialNo}" style="text-decoration: none; color: black;">
 		<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
 			<img class="img-fluid rounded-circle"
 				src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />

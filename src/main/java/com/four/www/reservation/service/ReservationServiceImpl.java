@@ -1,5 +1,7 @@
 package com.four.www.reservation.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.four.www.reservation.domain.ReservationVO;
@@ -18,6 +20,11 @@ public class ReservationServiceImpl implements ReservationService {
 	public int register(ReservationVO rvo) {
 		int isOk=rdao.register(rvo);
 		return isOk;
+	}
+
+	@Override
+	public List<ReservationVO> getReserve(int userNo) {
+		return rdao.getReserve(userNo);
 	}
 
 }

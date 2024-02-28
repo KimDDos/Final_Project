@@ -31,9 +31,38 @@
 <div id="content">
 	<!-- 프로그램시작 -->
 	<form method="post" name="frm" id="frm" action="/reservation/register">
+		<sec:authentication property="principal.mdto.mvo.userSerialNo"
+			var="userSerialNo" />
+		<input class="form-control" id="userSerialNo" name="userSerialNo"
+			type="hidden" value="${userSerialNo}" />
 		<!--form method="post" name="frm" id="frm" action="https://naturalface.co.kr/nconsult/reserve/process.php" onsubmit="return goSave(this);"-->
 		<div class="programCon" style="margin-top: 0; padding-top: 5px;">
-
+			<div class="writeForm writeForm_top chg_writeForm">
+				<h2 class="rsv_h2">선택한 헬스장 위치</h2>
+				<table>
+					<colgroup>
+						<col class="writeForm_col01">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th style="background: #fff;"><span class="col01"></span>헬스장
+								이름</th>
+							<td><input name="rvTitle" type="text" readonly="readonly"
+								id="clinic_fk" value="${ppTitle}"
+								class="inputTxt inputName wh420" style="color: silver;">
+							</td>
+						</tr>
+						<tr>
+							<th style="background: #fff;"><span class="col01"></span>헬스장
+								주소</th>
+							<td><input name="rvAddress" type="text" readonly="readonly"
+								id="clinic_fk" value="${ppAddress}" style="color: silver;"
+								class="inputTxt inputName wh420"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			<!-- //join -->
 			<div class="writeForm writeForm_top chg_writeForm">
 				<h2 class="rsv_h2">1. 트레이닝 종목 선택</h2>
@@ -211,7 +240,8 @@
 						</tr>
 						<tr>
 							<th><span class="col01">*</span>휴대폰</th>
-							<td><input type="text" name="cell" id="cell" value="${userPhoneNum }" readonly="readonly"></td>
+							<td><input type="text" name="cell" id="cell"
+								value="${userPhoneNum }" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<th><span class="col01">*</span>이메일</th>
@@ -869,7 +899,7 @@
 												<div class="note-control-selection-info"></div>
 											</div>
 										</div>
-										<textarea class="note-codable"></textarea>
+										<textarea class="note-codable" name="rvContent"></textarea>
 										<div class="note-editable panel-body" contenteditable="true"
 											style="height: 280px; min-height: 100px;">
 											<p>

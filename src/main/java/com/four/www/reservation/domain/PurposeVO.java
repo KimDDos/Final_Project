@@ -19,7 +19,7 @@ public class PurposeVO {
 //		    PRIMARY KEY (pno),
 //		    FOREIGN KEY (User_serial_no) REFERENCES mbr_user(User_serial_no)
 //		);
-	private String UserSerialNo;
+	private int UserSerialNo;
 	private int pno;
 	private String ppTitle;
 
