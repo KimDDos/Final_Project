@@ -20,7 +20,7 @@
 							  <label class="form-check-label" for="inlineCheckbox1">일반사용자</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox2" value="Y" onclick="checkOnlyOne(this)">
+							  <input class="form-check-input" type="checkbox" name="isTrainer" id="inlineCheckbox2" value="W" onclick="checkOnlyOne(this)">
 							  <label class="form-check-label" for="inlineCheckbox2">트레이너</label>
 							</div>
 						</div>
