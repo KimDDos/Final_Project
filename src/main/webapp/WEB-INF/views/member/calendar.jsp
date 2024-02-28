@@ -4,8 +4,22 @@
 <link href="/resources/css/calendar.css" rel="stylesheet" />
 <jsp:include page="../layout/header.jsp"></jsp:include>
 <!DOCTYPE html>
+
 <!-- Page Content-->
 <section class="py-5">
+	<script type="text/javascript">
+		var dates = [];
+	</script>
+	<c:forEach var="rvo" items="${rList}" varStatus="status">
+		<script type="text/javascript">
+		var tmp = {};
+		tmp.regdate = `${rvo.rvRegdate}`;
+		tmp.time = `${rvo.rvTime}`;
+		tmp.rno = `${rvo.rno}`;
+		dates.push(tmp);
+		console.log(dates);
+		</script>
+	</c:forEach>
 	<div class="container px-1 my-5">
 		<div class="row gx-5">
 			<jsp:include page="../member/mypageLayout.jsp"></jsp:include>

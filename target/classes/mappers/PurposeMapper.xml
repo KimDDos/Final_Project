@@ -6,7 +6,7 @@
 <mapper
 	namespace="com.four.www.reservation.repository.PurposeDAO">
 
-	<insert id="register">
+	<insert id="register" parameterType="com.four.www.reservation.domain.PurposeVO">
 		insert into purpose(ptitle) values(#{ppTitle})
 	</insert>
 </mapper>

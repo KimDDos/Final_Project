@@ -3,12 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.four.www.reservation.repository.ReservationDAO">
+<mapper
+	namespace="com.four.www.reservation.repository.ReservationDAO">
 
 
 
-<insert id="register">
-     insert into reservation (trainer_no,r_regdate,r_time,r_pw,r_content) 
-     values(trainer_no=#{trainerNo},r_regdate=#{rvRegdate},r_time=#{rvTime},r_pw=#{rvPw},r_content=#{rvContent})
-     </insert>
+	<insert id="register" parameterType="com.four.www.reservation.domain.ReservationVO">
+		insert into reservation
+		(User_serial_no,trainer_no,rv_regdate,rv_time,rv_pw,rv_content,rv_title,rv_address)
+		values(#{userSerialNo},#{trainerNo},#{rvRegdate},#{rvTime},#{rvPw},#{rvContent},#{rvTitle},#{rvAddress})
+	</insert>
+	
+	<select id="getReserve" parameterType="int" resultType="com.four.www.reservation.domain.ReservationVO">
+	select * from reservation where User_serial_no =#{userNo}
+	</select>
 </mapper>
