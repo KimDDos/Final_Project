@@ -15,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class ReservationVO {
 //	CREATE TABLE reservation (
-//		    User_serial_no VARCHAR(15),
+//		    User_serial_no int(15),
 //		    rno INT AUTO_INCREMENT,
 //		    trainer_no INT,
 //		    r_regdate varchar(20),

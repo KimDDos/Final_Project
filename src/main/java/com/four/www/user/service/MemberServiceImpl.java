@@ -53,9 +53,10 @@ public class MemberServiceImpl implements MemberService{
 	public int regSocialMbr(MemberDTO mdto) {
 		int isOK = 1;
 		isOK *= memberRegister(mdto.getMvo());
+		MemberVO serialTemp = mdao.getUserDetail(mdto.getMvo().getUserEmail());
 		mdto.getUvo().setUserName(mdto.getMvo().getUserName());
 		mdto.getUvo().setUserNickName(mdto.getMvo().getUserNickName());
-		mdto.getUvo().setUserSerialNo(mdto.getMvo().getUserSerialNo());
+		mdto.getUvo().setUserSerialNo(serialTemp.getUserSerialNo());
 		isOK *= mdao.regUser(mdto.getUvo());
 		return isOK;
 	}

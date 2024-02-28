@@ -102,6 +102,7 @@ public class OauthParser {
 	// OAuth 전용 등록 메서드
 	private MemberDTO regAndAuth(MemberDTO mdto) {
 		// DB에 회원정보가 없으면 회원 등록(Oauth 전용)
+		log.info("SOCIAL MBR IS EXIST?????????????????????" + msv.getSocialMbr(mdto.getMvo()));
 		if(msv.getSocialMbr(mdto.getMvo()) == null) {
 			int isOk = msv.regSocialMbr(mdto);
 		}
