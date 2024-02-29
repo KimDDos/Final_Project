@@ -56,6 +56,7 @@ input {
 	border-radius: 10px; 
 	padding: 25px;
 	box-shadow: 2px 3px 5px 0px;
+    background-color: white;
 }
 
 /* input 요소에 대한 공통 스타일 */

@@ -9,6 +9,20 @@
 <script src="https://apis.google.com/js/api:client.js"></script>
 <link href="/resources/css/memberlogin.css" rel="stylesheet" />
 <!-- col-lg-8 col-xl-8 col-xxl-10 -->
+<style>
+	.py-5{
+		background-image: url("/resources/img/gym-LoginBG_1920.jpg");
+		background-color: rgba(255, 255, 255, 0.5);
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.py-5 > * {
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgAAAAHAAAFCACigAAAAASUVORK5CYII=");
+	}
+	
+	
+</style>
 <div class="py-5 bg-light">
 	<div class="container-md px-5 my-5" style="margin: 0 0 0 0;">
 		<div class="form-container sign-up row align-items-center justify-content-center"
