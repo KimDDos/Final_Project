@@ -7,7 +7,6 @@
 
 <jsp:include page="../layout/admin-topbar.jsp"></jsp:include>
 <body>
-<<<<<<< HEAD
 <table class="table table-hover">
   <thead>
     <tr>
@@ -67,9 +66,6 @@
 
 </ul>
 </nav>
-
-		</tbody>
-	</table>
 
 	<!-- Bootstrap core JS-->
 	<script

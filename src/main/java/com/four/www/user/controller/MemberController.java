@@ -139,7 +139,7 @@ public class MemberController {
 		m.addAttribute("msg_mbrreg", isOk);
 		m.addAttribute("msg_mbrIsTrainer", mvo.getIsTrainer());
 		if (mvo.getIsTrainer().equals("Y") && isOk > 0) {
-			return "/member/trainerreg";
+			return "/member/trainerPr";
 		} else if (isOk == 0) {
 			m.addAttribute("msg_mbrreg", "2");
 		}
@@ -167,7 +167,7 @@ public class MemberController {
 		return "redirect:/member/mypage";
 	}
 
-	@GetMapping("/member/trainerreg")
+	@GetMapping("/member/trainerPr")
 	public void trainerreg() {
 	}
 

@@ -30,6 +30,7 @@
 	
 	<update id="modify">
 		update notice_board set
+		notice_category = #{noticeCategory},
 		notice_title = #{noticeTitle},
 		notice_content = #{noticeContent}
 		where notice_no = #{noticeNo}
