@@ -126,3 +126,5 @@ primary key(T_profile_no));
 [mbr_user] 테이블 column 'Access_token' 추가
 alter table mbr_user add column Access_token varchar(200) not null;
 
+-- 2024 - 02 - 28 --
+alter table mbr_auth drop column user_access_token;

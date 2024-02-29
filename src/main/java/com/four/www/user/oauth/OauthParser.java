@@ -30,7 +30,6 @@ public class OauthParser {
 		String userEmail = userInfo.get("email");
 		String userName = userInfo.get("family_name") + userInfo.get("given_name");
 		String userNickName = userInfo.get("name"); 
-		String accessToken = userInfo.get("access_token");
 		
 		MemberDTO mdto = new MemberDTO();
 		MemberVO mvo = new MemberVO();
@@ -68,7 +67,6 @@ public class OauthParser {
 			String userGender = naver_resp.get("gender");
 			String userPhoneNum = naver_resp.get("mobile");
 			String userBirthDate = naver_resp.get("birthyear") + "-" + naver_resp.get("birthday");
-			String accessToken = naver_resp.get("access_token");
 
 			mdto.setMvo(mvo);
 			mdto.setUvo(uvo);
@@ -82,7 +80,6 @@ public class OauthParser {
 			mdto.getMvo().setUserItrs("None");
 			mdto.getMvo().setIsTrainer("N");
 			mdto.getUvo().setUserLoginType("N");
-			mdto.getUvo().setAccessToken(accessToken);
 			return regAndAuth(mdto);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,6 +102,7 @@ public class OauthParser {
 	// OAuth 전용 등록 메서드
 	private MemberDTO regAndAuth(MemberDTO mdto) {
 		// DB에 회원정보가 없으면 회원 등록(Oauth 전용)
+		log.info("SOCIAL MBR IS EXIST?????????????????????" + msv.getSocialMbr(mdto.getMvo()));
 		if(msv.getSocialMbr(mdto.getMvo()) == null) {
 			int isOk = msv.regSocialMbr(mdto);
 		}

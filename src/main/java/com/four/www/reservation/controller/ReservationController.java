@@ -31,8 +31,8 @@ public class ReservationController {
 	@GetMapping("/register")
 	public String register(@RequestParam(value="selAddress", required = true)String address,
 			@RequestParam(value="selTitle", required = true)String title,Model m) {
-		m.addAttribute("address",address);
-		m.addAttribute("title",title);
+		m.addAttribute("ppAddress",address);
+		m.addAttribute("ppTitle",title);
 		return "/reservation/register";
 	}
 	

@@ -1,7 +1,6 @@
-window.onload=function(){
-  checkmonth();
+window.onload = function () {
+    checkmonth();
 }
-
 function checkmonth() {
     const dest = document.querySelector('.calendar');
     const year = parseInt(document.frm.year.value);
@@ -41,13 +40,18 @@ function checkmonth() {
             fontColor = "blue";
         }
 
+        const matchingDate = dates.find(date => date.regdate === `${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}`);
+        const scheduleText = matchingDate ? "<br>일정 있음" : "";
+
         if ((i + weekStart - 1) % 7 === 0) {
             str += "</tr><tr>";
         }
         str += `<td>
-        <a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}'>
-        <button class='calendar_btn' style="color: ${fontColor}">${i}</button>
-        </a>
+            <a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}&rno=${dates.rno}'>
+            <button id='date-${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}' class='calendar_btn' style="color: ${fontColor}">
+            ${i}${scheduleText}
+            </button>
+            </a>
         </td>`;
     }
 

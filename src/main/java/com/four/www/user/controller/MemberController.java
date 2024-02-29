@@ -3,6 +3,7 @@ package com.four.www.user.controller;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.four.www.reservation.domain.ReservationVO;
+import com.four.www.reservation.service.ReservationService;
 import com.four.www.user.domain.CalendarVO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
@@ -33,6 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 
 	private final MemberService msv;
+	private final ReservationService rsv;
 
 	@GetMapping("/memberRegister")
 	public void memberRegister() {
@@ -43,12 +47,17 @@ public class MemberController {
 	}
 
 	@GetMapping("/calendar")
-	public void calendar() {
+	public void calendar(@RequestParam("userSerialNo")int userNo, Model m) {
+		List<ReservationVO> rvo = rsv.getReserve(userNo);
+		log.info("RVOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+rvo);
+		m.addAttribute("rList",rvo);
 	}
 
 	@GetMapping("/calendarRegister")
-	public void calendarRegister(@RequestParam(value = "date", required = false) String date, Model m) {
+	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rno", required = false) String rno,Model m) {
+		log.info("RNO" + rno);
 		m.addAttribute("datedata", date);
+		m.addAttribute("rno", rno);
 	}
 
 	@PostMapping("/calendarRegister")
