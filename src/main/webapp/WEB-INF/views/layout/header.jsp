@@ -34,7 +34,10 @@
 		<!-- Navigation-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container px-5">
-				<a class="navbar-brand" href="/"> <img src="/resources/img/logo3_th_removebg_re.png" alt="404 not found"> 득근득근</a>
+				<a class="navbar-brand" href="/"> <img
+					src="/resources/img/logo3_th_removebg_re.png" alt="404 not found">
+					득근득근
+				</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -82,9 +85,12 @@
 								aria-expanded="false">예약(test)</a>
 								<ul class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarDropdownBlog">
-									<li><a class="dropdown-item" href="/reservation/gymSelect">예약
-											하기</a></li>
-									<li><a class="dropdown-item" href="/notice/list">예약 문의</a></li>
+									<c:if test="${isTrainer eq 'N'}">
+										<li><a class="dropdown-item"
+											href="/reservation/gymSelect">예약 하기</a></li>
+									</c:if>
+									<li><a class="dropdown-item" href="/reservation/list">예약
+											게시판</a></li>
 									<li><a class="dropdown-item" href="#">예약일정 확인</a></li>
 								</ul></li>
 							<li class="nav-item"><a class="nav-link"

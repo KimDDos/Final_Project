@@ -48,16 +48,22 @@ public class MemberController {
 
 	@GetMapping("/calendar")
 	public void calendar(@RequestParam("userSerialNo")int userNo, Model m) {
+		MemberVO mvo = msv.userDetailS(userNo);
+		log.info("CALENDAR MVO>>>>>>>>>>>>>>" + mvo);
 		List<ReservationVO> rvo = rsv.getReserve(userNo);
+		if (mvo.getIsTrainer().equals("Y"))
+		{
+			rvo.addAll(rsv.getPTorder(userNo));
+		}
 		log.info("RVOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+rvo);
 		m.addAttribute("rList",rvo);
 	}
 
 	@GetMapping("/calendarRegister")
-	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rno", required = false) String rno,Model m) {
-		log.info("RNO" + rno);
+	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rnoList", required = false) List<Integer> rnoList,Model m) {
+		log.info("RNO" + rnoList);
 		m.addAttribute("datedata", date);
-		m.addAttribute("rno", rno);
+		m.addAttribute("rnoList", rnoList);
 	}
 
 	@PostMapping("/calendarRegister")

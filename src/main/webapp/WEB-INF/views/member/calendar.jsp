@@ -13,7 +13,7 @@
 	<c:forEach var="rvo" items="${rList}" varStatus="status">
 		<script type="text/javascript">
 		var tmp = {};
-		tmp.regdate = `${rvo.rvRegdate}`;
+		tmp.rvReservdate= `${rvo.rvReservdate}`;
 		tmp.time = `${rvo.rvTime}`;
 		tmp.rno = `${rvo.rno}`;
 		dates.push(tmp);

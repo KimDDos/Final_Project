@@ -38,6 +38,12 @@
 		select user_email from mbr_profile where user_email =
 		#{userEmail}
 	</select>
+	
+		<select id="userDetailS"
+		resultType="com.four.www.user.domain.MemberVO">
+		select * from mbr_profile where user_serial_no =
+		#{userSerialNo}
+	</select>
 
 
 	<select id="selectUser"
