@@ -116,5 +116,10 @@ public class MemberServiceImpl implements MemberService{
 		isOk *= mdao.deleteMemberUser(userSerialNo);
 		return isOk;
 	}
+
+	@Override
+	public MemberVO userDetailS(int userSerialNo) {
+		return mdao.userDetailS(userSerialNo);
+	}
 	
 }
