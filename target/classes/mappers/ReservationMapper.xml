@@ -11,8 +11,8 @@
 	<insert id="register"
 		parameterType="com.four.www.reservation.domain.ReservationVO">
 		insert into reservation
-		(User_serial_no,trainer_no,rv_reservdate,rv_time,rv_pw,rv_content,rv_title,rv_address,rv_status)
-		values(#{userSerialNo},#{trainerNo},#{rvReservdate},#{rvTime},#{rvPw},#{rvContent},#{rvTitle},#{rvAddress},"예약대기")
+		(User_serial_no,trainer_no,phone_num,rv_reservdate,rv_time,rv_pw,rv_content,rv_title,rv_address,rv_status)
+		values(#{userSerialNo},#{trainerNo},#{phoneNum},#{rvReservdate},#{rvTime},#{rvPw},#{rvContent},#{rvTitle},#{rvAddress},"예약대기")
 	</insert>
 
 	<select id="getReserve" parameterType="int"
@@ -28,7 +28,7 @@
 	<update id="submitReserv"
 		parameterType="com.four.www.reservation.domain.ReservationVO">
 		update reservation set trainer_no =
-		#{trainerNo},rv_status="예약 확정" where rno = #{rno}
+		#{trainerNo},trainer_phone_num=#{trainerPhoneNum},rv_status="예약확정",rv_suggest_price=#{rvSuggestPrice} where rno = #{rno}
 	</update>
 
 	<delete id="cancelReserv">

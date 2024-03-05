@@ -2,11 +2,14 @@ package com.four.www.reservation.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.four.www.admin.domain.NoticeVO;
@@ -53,7 +56,7 @@ public class ReservationController {
 		m.addAttribute("reservationResult", reservationResult);
 		m.addAttribute("purposeResult", purposeResult);
 
-		return "index";
+		return "/reservation/reservationList";
 	}
 
 	@GetMapping("/list")
@@ -72,22 +75,29 @@ public class ReservationController {
 		ReservationVO Reserv = rsv.getReserveOne(rno);
 		MemberVO mvo = msv.userDetailS(Reserv.getUserSerialNo());
 		String trainerName = "";
+		String trainerPhone = "";
 		if (Reserv.getTrainerNo() != 0)
+		{
 			trainerName = msv.userDetailS(Reserv.getTrainerNo()).getUserName();
+			trainerPhone = msv.userDetailS(Reserv.getTrainerNo()).getUserPhoneNum();
+		}
 		m.addAttribute("mvo", mvo);
 		m.addAttribute("rvo", Reserv);
 		m.addAttribute("trainerName", trainerName);
+		m.addAttribute("trainerPhone", trainerPhone);
 
 		return "/reservation/reservationDetail";
 	}
 	
 	@GetMapping("/submit")
-	public String submit(@RequestParam("trainerNo") int tno,@RequestParam("rno") int rno, Model m) {
-		ReservationVO rvo = new ReservationVO();
-		rvo.setRno(rno);
-		rvo.setTrainerNo(tno);
+	public String submit(ReservationVO rvo ,Model m) {
+		
+		MemberVO mvo = new MemberVO();
+		mvo = msv.userDetailS(rvo.getTrainerNo());
+		rvo.setTrainerPhoneNum(mvo.getUserPhoneNum());
+		log.info("RVO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+rvo);
 		int isOk = rsv.submitReserv(rvo);
-		return "redirect:/reservation/detail?rno="+rno;
+		return "redirect:/reservation/detail?rno="+rvo.getRno();
 	}
 	
 	@GetMapping("/cancel")

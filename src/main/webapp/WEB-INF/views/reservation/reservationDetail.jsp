@@ -19,9 +19,19 @@
 				readonly="readonly" value="${mvo.userName}">
 		</div>
 		<div class="mb-3">
+			<label class="form-label">작성자 연락처</label> <input type="text"
+				class="form-control" name="userPhoneNum" id="userPhoneNum"
+				readonly="readonly" value="${mvo.userPhoneNum}">
+		</div>
+		<div class="mb-3">
 			<label class="form-label">계약자</label> <input type="text"
 				class="form-control" name="trainerName" id="trainerName"
 				readonly="readonly" value="${trainerName}">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">계약자 연락처</label> <input type="text"
+				class="form-control" name="trainerPhone" id="trainerPhone"
+				readonly="readonly" value="${trainerPhone}">
 		</div>
 		<div class="mb-3">
 			<label class="form-label">작성일</label> <input type="text"
@@ -59,22 +69,25 @@
 				class="form-control" name="rvContent" id="rvContent"
 				readonly="readonly" value="${rvo.rvContent}">
 		</div>
-		<div class="mb-3">
-			<label class="form-label">가격</label> <input type="text"
-				class="form-control" name="rvSuggestPrice" id="rvSuggestPrice"
-				readonly="readonly" value="${rvo.rvSuggestPrice}">
-		</div>
-		<c:if test="${rvo.trainerNo ne ''}">
-			<!-- 여기에 카카오페이 추가. (https://scorpio-mercury.tistory.com/10) -->
-		</c:if>
-		<c:if test="${isTrainer == 'Y' and rvo.trainerNo eq '0'}">
-			<a
-				href="/reservation/submit?trainerNo=${userSerialNo}&rno=${rvo.rno}"><button
-					type="button" class="btn btn-success">예약 확정</button></a>
-		</c:if>
-		<a href="/reservation/cancel?rno=${rvo.rno}"><button type="button"
-				class="btn btn-danger">예약 취소</button></a> <a href="/reservation/list"><button
-				type="button">목록</button></a>
+		<form action="/reservation/submit" method="get">
+			<div class="mb-3">
+				<label class="form-label">가격</label> <input type="text"
+					class="form-control" name="rvSuggestPrice" id="rvSuggestPrice"
+					value="${rvo.rvSuggestPrice}"
+					${isTrainer == 'Y' and rvo.trainerNo eq '0' ? '' : 'readonly="readonly"'}>
+			</div>
+			<c:if test="${rvo.trainerNo ne ''}">
+				<!-- 여기에 카카오페이 추가. (https://scorpio-mercury.tistory.com/10) -->
+			</c:if>
+			<input name="trainerNo" value="${userSerialNo}" hidden="hidden">
+			<input name="rno" value="${rvo.rno}" hidden="hidden">
+			<c:if test="${isTrainer == 'Y' and rvo.trainerNo eq '0'}">
+				<button type="submit" class="btn btn-success">예약 확정</button>
+			</c:if>
+			<a href="/reservation/cancel?rno=${rvo.rno}"><button
+					type="button" class="btn btn-danger">예약 취소</button></a> <a
+				href="/reservation/list"><button type="button">목록</button></a>
+		</form>
 	</div>
 
 	<!-- Bootstrap core JS-->

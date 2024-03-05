@@ -29,6 +29,8 @@ public class ReservationVO {
 	private int userSerialNo;
 	private int rno;
 	private int trainerNo;
+	private String phoneNum;	
+	private String trainerPhoneNum;
 	private String rvRegdate;
 	private String rvTime;
 	private String rvPw;
@@ -38,6 +40,6 @@ public class ReservationVO {
 	private String rvReservdate;
 	private String rvStatus;
 	private String rvPurchased;
-	private int rvSuggestPrice;
+	private String rvSuggestPrice;
 	
 }
