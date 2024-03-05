@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <jsp:include page="../layout/admin-sidebar.jsp"></jsp:include>
 
 <jsp:include page="../layout/admin-topbar.jsp"></jsp:include>
@@ -17,9 +19,10 @@
 				readonly="readonly" value="${nvo.noticeTitle}">
 		</div>
 		<div>
-			<label class="form-label">content</label> <input type="text"
-				class="form-control" name="notice_content" id="notice_content"
-				readonly="readonly" value="${nvo.noticeContent}">
+			<label class="form-label">내용</label> 
+			<div class="form-control" readonly="readonly" style="height: auto">
+				<c:out value="${nvo.noticeContent}" escapeXml="false"/>
+			</div>
 		</div>
 		<div>
 			<label class="form-label">작성일</label> <input type="text"
