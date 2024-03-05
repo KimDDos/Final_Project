@@ -19,7 +19,9 @@
 					</header>
 					<a href="/member/mypagePwdcheck?delete=0"><button type="button"
 							class="btn btn-warning">회원정보 수정</button></a>
-							<a href="/member/mypagePwdcheck?delete=1"><button type="button"
+					<a href="/member/mypagePwdcheck?delete=2"><button type="button"
+							class="btn btn-primary">자기소개</button></a>
+					<a href="/member/mypagePwdcheck?delete=1"><button type="button"
 							class="btn btn-danger">회원 탈퇴</button></a>
 
 					<section class="mb-5">

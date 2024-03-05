@@ -9,17 +9,14 @@
 	</div>
 	<br>
 	<br>
-	<form action="/member/trainerReg" method="post">
-		<div class="mb-3">
-		  <label for="formGroupExampleInput" class="form-label">Example label</label>
-		  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+	<form action="/member/trainerPr" method="post">
+		<div class="card mb-3">
+		  <img src="..." class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">Card title</h5>
+		    <input type="text" class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		  </div>
 		</div>
-		<div class="mb-3">
-		  <label for="formGroupExampleInput2" class="form-label">Another label</label>
-		  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
-		</div>
-		
-		
 	</form>
 </div>
 <jsp:include page="../layout/footer.jsp"></jsp:include>
