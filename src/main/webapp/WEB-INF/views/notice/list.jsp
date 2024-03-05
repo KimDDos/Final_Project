@@ -9,7 +9,7 @@
 <table class="table table-hover" >
   <thead class="table-primary">
     <tr>
-      <th scope="col" style="width: 100px">번호</th>
+      <th scope="col" style="width: 100px">NO.</th>
       <th scope="col">제목</th>
       <th scope="col" style="width: 100px">작성일</th>
     </tr>
