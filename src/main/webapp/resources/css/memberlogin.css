@@ -1,11 +1,30 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Noto-Sans-Extra_Bold';
+    font-weight: 1em;
+    font-style: normal;
+    src: url('../font/Noto_Sans_KR/static/NotoSansKR-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-Regular';
+    font-style: normal;
+    src: url('../font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto-Sans-Bold';
+    font-weight: 1em;
+    font-style: normal;
+    src: url('../font/Noto_Sans_KR/static/NotoSansKR-Bold.ttf') format('truetype');
+}
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto-Sans-Regular', sans-serif, 'Noto-Sans-Extra_Bold', 'Noto-Sans-Regular', 'Noto-Sans-Bold';
 }
 
 .login-container {

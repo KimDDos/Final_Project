@@ -46,9 +46,6 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link" href="about.html"></a></li>
-						<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-						<li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
 						<li class="nav-item dropdowns"><a class="nav-link "
 							id="navbarDropdownBlog" href="#" role="button"
 							aria-expanded="false">고객지원</a>
@@ -58,17 +55,6 @@
 								<li><a class="dropdown-item" href="#">일반 문의</a></li>
 								<li><a class="dropdown-item" href="#">트레이너 문의</a></li>
 							</ul></li>
-						<li class="nav-item dropdowns"><a class="nav-link "
-							id="navbarDropdownPortfolio" href="#" role="button"
-							aria-expanded="false">Portfolio</a>
-							<ul class="dropdown-menu dropdown-menu-end"
-								aria-labelledby="navbarDropdownPortfolio">
-								<li><a class="dropdown-item" href="portfolio-overview.html">Portfolio
-										Overview</a></li>
-								<li><a class="dropdown-item" href="portfolio-item.html">Portfolio
-										Item</a></li>
-							</ul></li>
-
 						<li class="nav-item"><a class="nav-link" href="/admin/index"
 							target="_blank">어드민페이지</a></li>
 						<sec:authorize access="isAuthenticated()">
@@ -107,9 +93,9 @@
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()">
 							<li class="nav-item"><a class="nav-link"
-								href="/member/memberRegister">Sign up</a></li>
+								href="/member/memberRegister">회원가입</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="/member/memberLogin">Log in</a></li>
+								href="/member/memberLogin">로그인</a></li>
 						</sec:authorize>
 					</ul>
 				</div>
