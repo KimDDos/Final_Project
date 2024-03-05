@@ -51,4 +51,6 @@ public interface MemberDAO {
 
 	int deleteMemberUser(int userSerialNo);
 
+	MemberVO userDetailS(int userSerialNo);
+
 }

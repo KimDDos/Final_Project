@@ -40,14 +40,21 @@ function checkmonth() {
             fontColor = "blue";
         }
 
-        const matchingDate = dates.find(date => date.regdate === `${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}`);
-        const scheduleText = matchingDate ? "<br>일정 있음" : "";
+        const matchingDate = dates.filter(date => date.rvReservdate === `${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}`);
+        const rnoList = [];
+        
+        for(let i=0;i<matchingDate.length;i++)
+        {
+        rnoList.push(matchingDate[i].rno);
+        }
+     
+        const scheduleText = matchingDate.length > 0 ? "<br>일정 " + rnoList.length + "개 있음" : "";
 
         if ((i + weekStart - 1) % 7 === 0) {
             str += "</tr><tr>";
         }
         str += `<td>
-            <a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}&rno=${dates.rno}'>
+            <a href='/member/calendarRegister?date=${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}&rnoList=${rnoList}'>
             <button id='date-${year}-${month < 10 ? '0' : ''}${month}-${i < 10 ? '0' : ''}${i}' class='calendar_btn' style="color: ${fontColor}">
             ${i}${scheduleText}
             </button>

@@ -8,13 +8,49 @@
 
 
 
-	<insert id="register" parameterType="com.four.www.reservation.domain.ReservationVO">
+	<insert id="register"
+		parameterType="com.four.www.reservation.domain.ReservationVO">
 		insert into reservation
-		(User_serial_no,trainer_no,rv_regdate,rv_time,rv_pw,rv_content,rv_title,rv_address)
-		values(#{userSerialNo},#{trainerNo},#{rvRegdate},#{rvTime},#{rvPw},#{rvContent},#{rvTitle},#{rvAddress})
+		(User_serial_no,trainer_no,rv_reservdate,rv_time,rv_pw,rv_content,rv_title,rv_address,rv_status)
+		values(#{userSerialNo},#{trainerNo},#{rvReservdate},#{rvTime},#{rvPw},#{rvContent},#{rvTitle},#{rvAddress},"예약대기")
 	</insert>
-	
-	<select id="getReserve" parameterType="int" resultType="com.four.www.reservation.domain.ReservationVO">
-	select * from reservation where User_serial_no =#{userNo}
+
+	<select id="getReserve" parameterType="int"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		select * from reservation where User_serial_no =#{userNo}
 	</select>
+
+	<select id="getReserveOne" parameterType="int"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		select * from reservation where rno =#{rno}
+	</select>
+
+	<update id="submitReserv"
+		parameterType="com.four.www.reservation.domain.ReservationVO">
+		update reservation set trainer_no =
+		#{trainerNo},rv_status="예약 확정" where rno = #{rno}
+	</update>
+
+	<delete id="cancelReserv">
+		delete from reservation where rno =${rno}
+	</delete>
+
+	<select id="getPTorder" parameterType="int"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		select * from reservation where trainer_no=#{userNo}
+	</select>
+
+	<select id="getrsvList"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		SELECT *
+		FROM reservation
+		ORDER BY rno desc limit 0,8;
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(rno)
+		from
+		reservation
+	</select>
+
 </mapper>

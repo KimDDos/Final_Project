@@ -218,4 +218,3 @@
 <script src="/resources/js/scripts.js"></script>
 <script src="/resources/js/member/memberRegister.js"></script>
 <jsp:include page="../layout/footer.jsp"></jsp:include>
->>>>>>> main
