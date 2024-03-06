@@ -20,7 +20,7 @@ input,textarea,select{font-family:inherit; font-size:inherit; font-weight:inheri
 
 input[type=password]{IME-MODE: disabled;}
 
-ul,ol,dl{list-style:none;}
+/* ul,ol,dl{list-style:none;} */
 
 
 textarea{overflow:auto;} 
@@ -40,14 +40,14 @@ hr{display:none; clear:both;}
 
 
 /* reset */
-body, div, ul, li, ol, dl, dd, dt, h1, h2, h3, h4, h5, h6, p, form, fieldset, legend, select, input,iframe{margin:0; padding:0;}
+/* body, div, ul, li, ol, dl, dd, dt, h1, h2, h3, h4, h5, h6, p, form, fieldset, legend, select, input,iframe{margin:0; padding:0;} */
 h1, h2, h3, h4, h5, h6 {font-size:14px; font-weight:normal;}
 body, input, textarea, select, button,iframe{font-family: "Noto Sans KR", 'Nanum Gothic', sans-serif;}
 a {text-decoration:none; font-family: "Noto Sans KR";}
 a:link{font-size:14px; text-decoration:none;}
 a:hover{font-size:14px; text-decoration:none; }
 a:visited{font-size:14px; text-decoration:none;}
-li, ul, ol {list-style:none;}
+/* li, ul, ol {list-style:none;} */
 img,fieldset,iframe{border:0;}
 /*
 button,input[type="button"],input[type="submit"],input[type="reset"],input[type="file"]{-webkit-appearance:button;border-radius:0; appearance:none; -moz-appearance:none; -webkit-appearance:none; cursor:pointer;}

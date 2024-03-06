@@ -53,4 +53,5 @@ public interface MemberDAO {
 
 	MemberVO userDetailS(int userSerialNo);
 
-}
+	
+};

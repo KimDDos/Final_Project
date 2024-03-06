@@ -38,4 +38,5 @@ public interface MemberService {
 
 	MemberVO userDetailS(int userSerialNo);
 
+
 }
