@@ -64,7 +64,7 @@
 	<script src="/resources/js/toastui.js"></script>
 	<script>
 		function sendForm(form){
-			form.noticeContent.innerText = editor.getMarkdown();
+			form.noticeContent.innerText = editor.getHTML();
 			form.submit();
 			return false;
 		}	
