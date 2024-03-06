@@ -214,7 +214,6 @@
 </section>
 <!-- Footer-->
 
-<jsp:include page="./layout/footer.jsp"></jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
 	let msg_mbrreg = "<c:out value='${msg_mbrreg}'/>";
@@ -246,5 +245,5 @@
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="/resources/js/scripts.js"></script>
-</body>
+<jsp:include page="./layout/footer.jsp"></jsp:include>
 </html>
