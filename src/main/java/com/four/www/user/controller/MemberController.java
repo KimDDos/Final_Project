@@ -177,7 +177,7 @@ public class MemberController {
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		log.info("<<<<USER EMAIL>>>>" + request.getAttribute("userEmail"));
 		log.info("<<<<ERR MSG>>>>" + request.getAttribute("errMsg"));
-		return "redirect:/member/mypage";
+		return "redirect:/";
 	}
 
 	@GetMapping("/member/trainerPr")
