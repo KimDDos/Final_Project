@@ -2,6 +2,7 @@ package com.four.www.user.service;
 
 import java.util.List;
 
+import com.four.www.user.domain.AlarmVO;
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
@@ -37,5 +38,9 @@ public interface MemberService {
 	int deleteMember(int userSerialNo);
 
 	MemberVO userDetailS(int userSerialNo);
+
+	List<AlarmVO> getAlarmList(int userSerialNo);
+
+	int checkAlarm(int ano);
 
 }

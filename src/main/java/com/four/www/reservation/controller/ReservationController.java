@@ -76,8 +76,7 @@ public class ReservationController {
 		MemberVO mvo = msv.userDetailS(Reserv.getUserSerialNo());
 		String trainerName = "";
 		String trainerPhone = "";
-		if (Reserv.getTrainerNo() != 0)
-		{
+		if (Reserv.getTrainerNo() != 0) {
 			trainerName = msv.userDetailS(Reserv.getTrainerNo()).getUserName();
 			trainerPhone = msv.userDetailS(Reserv.getTrainerNo()).getUserPhoneNum();
 		}
@@ -88,18 +87,19 @@ public class ReservationController {
 
 		return "/reservation/reservationDetail";
 	}
-	
+
 	@GetMapping("/submit")
-	public String submit(ReservationVO rvo ,Model m) {
-		
+	public String submit(ReservationVO rvo, Model m, @RequestParam("userName") String userName,
+			@RequestParam("trainerName") String trainerName) {
+
 		MemberVO mvo = new MemberVO();
 		mvo = msv.userDetailS(rvo.getTrainerNo());
 		rvo.setTrainerPhoneNum(mvo.getUserPhoneNum());
-		log.info("RVO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+rvo);
+		log.info("RVO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + rvo);
 		int isOk = rsv.submitReserv(rvo);
-		return "redirect:/reservation/detail?rno="+rvo.getRno();
+		return "redirect:/reservation/detail?rno=" + rvo.getRno();
 	}
-	
+
 	@GetMapping("/cancel")
 	public String cancel(@RequestParam("rno") int rno, Model m) {
 		int isOk = rsv.cancelReserv(rno);

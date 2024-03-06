@@ -30,6 +30,12 @@
 		update reservation set trainer_no =
 		#{trainerNo},trainer_phone_num=#{trainerPhoneNum},rv_status="예약확정",rv_suggest_price=#{rvSuggestPrice} where rno = #{rno}
 	</update>
+	
+	<insert id="sendAlarm">
+	insert into mbr_alarm
+	(user_serial_no,content,alarm_type,rno)
+	values(#{userSerialNo},#{content},#{alarmType},#{rno})
+	</insert>
 
 	<delete id="cancelReserv">
 		delete from reservation where rno =${rno}

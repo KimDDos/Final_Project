@@ -14,12 +14,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CouponVO {
-	private String a;
 	private int userSerialNo;
 	private int cpNum;
 	private String cpTitle;
 	private int cpValue;
-	private String cpScheduleDetail;
 	private LocalDateTime cpReceivedate;
 	private LocalDateTime cpLimitdate;
 

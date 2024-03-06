@@ -44,6 +44,14 @@
 		select * from mbr_profile where user_serial_no =
 		#{userSerialNo}
 	</select>
+	
+	<select id="getAlarmList" resultType="com.four.www.user.domain.AlarmVO">
+	select * from mbr_alarm where user_serial_no = #{userSerialNo} and is_read = 0
+	</select>
+	
+	<update id="checkAlarm">
+	update mbr_alarm set is_read = 0 where ano=#{ano}
+	</update>
 
 
 	<select id="selectUser"

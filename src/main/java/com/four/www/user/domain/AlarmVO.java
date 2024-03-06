@@ -20,5 +20,7 @@ public class AlarmVO {
 	private String alarmType; // 공지, 쿠폰, 예약(예약 확정,예약일정 끝).
 	private int isRead;
 	private String regDate;
+	private int ano;
+	private int rno;
 	
 }

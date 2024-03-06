@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.four.www.admin.domain.PagingVO;
 import com.four.www.reservation.domain.ReservationVO;
 import com.four.www.reservation.repository.ReservationDAO;
+import com.four.www.user.domain.AlarmVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +47,15 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public int submitReserv(ReservationVO rvo) {
-		return rdao.submitReserv(rvo);
+		int isOk = rdao.submitReserv(rvo);
+		AlarmVO avo = new AlarmVO();
+		
+		avo.setUserSerialNo(rvo.getUserSerialNo());
+		avo.setContent(rvo.getRvReservdate()+ " "+ rvo.getRvTime() + " 에 신청하신 상담 예약이 접수 완료되었습니다!");
+		avo.setAlarmType("예약");
+		avo.setRno(rvo.getRno());
+		isOk *= rdao.sendAlarm(avo);
+		return isOk;
 	}
 	
 	@Override

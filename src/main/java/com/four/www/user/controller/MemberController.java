@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.reservation.domain.ReservationVO;
 import com.four.www.reservation.service.ReservationService;
+import com.four.www.user.domain.AlarmVO;
 import com.four.www.user.domain.CalendarVO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
@@ -48,25 +49,24 @@ public class MemberController {
 	}
 
 	@GetMapping("/calendar")
-	public void calendar(@RequestParam("userSerialNo")int userNo, Model m) {
+	public void calendar(@RequestParam("userSerialNo") int userNo, Model m) {
 		MemberVO mvo = msv.userDetailS(userNo);
 		log.info("CALENDAR MVO>>>>>>>>>>>>>>" + mvo);
 		List<ReservationVO> rvo = rsv.getReserve(userNo);
-		if (mvo.getIsTrainer().equals("Y"))
-		{
+		if (mvo.getIsTrainer().equals("Y")) {
 			rvo.addAll(rsv.getPTorder(userNo));
 		}
-		log.info("RVOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+rvo);
-		m.addAttribute("rList",rvo);
+		log.info("RVOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + rvo);
+		m.addAttribute("rList", rvo);
 	}
 
 	@GetMapping("/calendarRegister")
-	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rnoList", required = false) List<Integer> rnoList,Model m) {
+	public void calendarRegister(@RequestParam(value = "date", required = false) String date,
+			@RequestParam(value = "rnoList", required = false) List<Integer> rnoList, Model m) {
 		log.info("RNO" + rnoList);
 		m.addAttribute("datedata", date);
-		List<ReservationVO>rList = new ArrayList<ReservationVO>();
-		for(int i =0;i<rnoList.size();i++)
-		{
+		List<ReservationVO> rList = new ArrayList<ReservationVO>();
+		for (int i = 0; i < rnoList.size(); i++) {
 			rList.add(rsv.getReserveOne(rnoList.get(i)));
 		}
 		log.info("RLIST >>>>>>>>>>>>>>>>>>>>>>>>>>>> " + rList);
@@ -95,31 +95,33 @@ public class MemberController {
 
 	// mypage에서 패스워드 체크페이지로 이동.
 	@GetMapping("/mypagePwdcheck")
-	public void mypagePwdcheck(@RequestParam(value = "delete", required = false) int delete,Model m) {
-		m.addAttribute("delete",delete);
+	public void mypagePwdcheck(@RequestParam(value = "delete", required = false) int delete, Model m) {
+		m.addAttribute("delete", delete);
 	}
 
 	@GetMapping("/checkPwd")
-	public String checkPwd(MemberVO mvo,@RequestParam(value = "delete", required = true) int delete) {
+	public String checkPwd(MemberVO mvo, @RequestParam(value = "delete", required = true) int delete) {
 		log.info("" + mvo);
 		int isOk = msv.checkPwd(mvo);
 		log.info("VALIDATION>>>>>>>>>> " + isOk);
 		if (isOk == 1) {
-			if (delete != 1)return "/member/mypageModify";
-			else if (delete == 1) return "member/mypageDelete";
+			if (delete != 1)
+				return "/member/mypageModify";
+			else if (delete == 1)
+				return "member/mypageDelete";
 		}
 		return "/member/mypagePwdcheck";
 	}
-	
+
 	@GetMapping("/memberDelete")
-	public String memberDelete(HttpServletRequest request, HttpServletResponse response,MemberVO mvo) {
-		
+	public String memberDelete(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) {
+
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 		new SecurityContextLogoutHandler().logout(request, response, authentication);
-		
+
 		int isOk = msv.deleteMember(mvo.getUserSerialNo());
-		
+
 		return "redirect:/member/memberLogout";
 	}
 
@@ -166,18 +168,28 @@ public class MemberController {
 	@PostMapping("/memberLogout")
 	public String memberLogout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
+
 		new SecurityContextLogoutHandler().logout(request, response, authentication);
 		return "/";
 	}
-	
+
 	@PostMapping("/login")
 	public String login(HttpServletRequest request, RedirectAttributes re) {
 		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		log.info("<<<<USER EMAIL>>>>" + request.getAttribute("userEmail"));
 		log.info("<<<<ERR MSG>>>>" + request.getAttribute("errMsg"));
+
 		return "redirect:/";
+	}
+
+	@GetMapping("/alarmCheck")
+	public String alarmCheck(@RequestParam("alarmNo")int ano,@RequestParam("rno")int rno,
+			HttpServletRequest request,HttpServletResponse response)
+	{
+		msv.checkAlarm(ano);
+		log.info(""+rno);
+		return "redirect:/reservation/detail?rno="+rno;
 	}
 
 	@GetMapping("/member/trainerPr")

@@ -1,6 +1,7 @@
 package com.four.www.user.oauth;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 
+import com.four.www.user.domain.AlarmVO;
 import com.four.www.user.service.MemberService;
 
 import lombok.Getter;
@@ -48,7 +50,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		log.info("SUCCCCCCCCCCCCCCCCCCESSSSSSSSSSSSSS");
 		// authentication은 인증된 AuthMember의 객체
 		setAuthEmail(authentication.getName());
-		setAuthUrl("mypage");
+		setAuthUrl("/");
 
 		boolean isOk = msv.updateLastLogin(getAuthEmail());
 

@@ -90,6 +90,29 @@
 								style="color: white;" href="#">${userNickName} <c:if
 										test="${isTrainer eq 'Y'}">트레이너</c:if>님 안녕하세요.
 							</a></li>
+							<li class="nav-item"><button id="alarmBtn" type="button"
+									style="background-color: transparent;">
+									<img alt="" src="/resources/img/bell.svg">
+									<c:if test="${alarmSize != 0}">
+										<span class="badge rounded-pill text-bg-danger">${alarmSize}</span>
+										<div
+											style="position: absolute; right: 180px; visibility: hidden; color: white; background-color: blue;"
+											id="alarmLists">
+											<c:forEach var="alarm" items="${alarmList}">
+												<c:choose>
+													<c:when test="${alarm.alarmType eq '예약'}">
+														<a href="/member/alarmCheck?alarmNo=${alarm.ano }&rno=${alarm.rno}"><div
+																style="">${alarm.content}</div></a>
+													</c:when>
+													<c:otherwise>
+														<div style="">${alarm.content}</div>
+													</c:otherwise>
+												</c:choose>
+
+											</c:forEach>
+										</div>
+									</c:if>
+								</button></li>
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()">
 							<li class="nav-item"><a class="nav-link"
@@ -106,6 +129,12 @@
 	document.getElementById("logoutLink").addEventListener('click',(e)=>{
     e.preventDefault();
     document.getElementById("logoutForm").submit();
+    })
+    document.getElementById("alarmBtn").addEventListener('click',(e)=>{
+    	var alarmListStatus = document.getElementById("alarmLists").style.visibility;
+		if (alarmListStatus == "hidden") document.getElementById("alarmLists").style.visibility = "visible";
+		else if (alarmListStatus == "visible") document.getElementById("alarmLists").style.visibility = "hidden";
+		console.log(alarmListStatus);
     })
     </script>
 	</main>
