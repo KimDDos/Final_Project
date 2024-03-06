@@ -38,4 +38,6 @@ public interface MemberService {
 
 	MemberVO userDetailS(int userSerialNo);
 
+	int isDupleEmail(String userEmail);
+
 }

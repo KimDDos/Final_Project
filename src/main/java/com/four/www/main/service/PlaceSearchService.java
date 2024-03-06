@@ -58,7 +58,7 @@ public class PlaceSearchService {
 		 * 자료 형식
 		 * title
 		 * link
-		 * category
+		 * category '스포츠센터>헬스장'
 		 * description
 		 * telephone
 		 * address
