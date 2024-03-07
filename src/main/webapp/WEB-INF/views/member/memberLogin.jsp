@@ -10,6 +10,7 @@
 <link href="/resources/css/memberlogin.css" rel="stylesheet" />
 <!-- col-lg-8 col-xl-8 col-xxl-10 -->
 <style>
+
 	.py-5{
 		background-image: url("/resources/img/gym-LoginBG_1920.jpg");
 		background-color: rgba(255, 255, 255, 0.5);
@@ -44,29 +45,32 @@
 						<input type="password" class="col-lg-8 col-xl-8 col-xxl-10" name="userPwd"
 							id="userPwd" placeholder="Password">
 					</div>
-					<button type="submit" class="btn btn-secondary col-lg-8 col-xl-8 col-xxl-10">로그인</button>
+					<div class="row align-items-center justify-content-center" style="margin-top: 8px;">
+						<button type="submit" class="btn btn-secondary col-lg-8 col-xl-8 col-xxl-10">로그인</button>
+					</div>
 				</form>
-				<div class="input-group row align-items-center justify-content-center">
+				<div class="row align-items-center justify-content-center">
 					<div class="col-lg-8 col-xl-8 col-xxl-10 text-center" style="margin-top: 10px;">
 						<!-- Modal 창으로 password 찾기? 아니면 찾는 페이지로? -->
-						<b> 비밀번호를 잊으셨나요? </b> <br> <a href="/member/memberRegister"
+						<p style="margin-bottom: 6px;">
+							<b> 비밀번호를 잊으셨나요? </b> <br> 
+						</p>
+						
+						<a href="/member/memberRegister"
 							style="text-decoration: none;" id="sign-up-go"><b> 회원가입 </b></a>
 					</div>
 				</div>
 				<div class="row align-items-center justify-content-center">
 					<div class="col-sm-10 text-center">
-						<p style="margin-top: 20px;">
+						<p style="margin-top: 12px;">
 							<b> 또는 SNS 아이디로 로그인 </b>
 						</p>
 					</div>
 					<div class="col-sm-4 social-icons text-center align-items-center justify-content-center">
-						<button type="button" class="custom-google" onclick="googleLogin()"></button>
-						<!-- <a href="/login/google" class="social">
-						</a>  -->
+						<a href="/login/google" class="social"><button type="button" class="custom-google" onclick="googleLogin()"></button></a>
 					</div>
 					<div class="col-sm-4 social-icons text-center align-items-center justify-content-center">
-						<button type="button" class="custom-naver" onclick="naverLogin()"></button>
-						<!-- <a href="/login/naver" class="social"></a> -->
+						<a href="/login/naver" class="social"><button type="button" class="custom-naver"></button></a>
 					</div>
 				</div>
 			</div>

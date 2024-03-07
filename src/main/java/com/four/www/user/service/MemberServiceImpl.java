@@ -121,5 +121,10 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO userDetailS(int userSerialNo) {
 		return mdao.userDetailS(userSerialNo);
 	}
+
+	@Override
+	public int isDupleEmail(String userEmail) {
+		return mdao.isDupleEmail(userEmail);
+	}
 	
 }

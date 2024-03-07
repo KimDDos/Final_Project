@@ -9,11 +9,21 @@
 
 <style>
 	
+	@font-face {
+	    font-family: 'Noto-Sans-Regular';
+	    font-style: normal;
+	    src: url('../font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf') format('truetype');
+	}
+	
+	*{
+		font-family: 'Noto-Sans-Regular', sans-serif, 'Noto-Sans-Extra_Bold', 'Noto-Sans-Regular', 'Noto-Sans-Bold';
+	}
+	
 	.aboutmap52 {
 		display: block;
 		position: relative;
 		width: 100%;
-		height: 30em;
+		height: 550px;
 		margin: auto;
 		border: 1px solid #6c757d;
 		border-radius: 15px;
@@ -112,7 +122,7 @@
 <div class="container px-1 my-5">
 	<div class="row gx-8 ">
 	
-		<h1>헬스장 선택</h1>
+		<h1 style="font-size: xx-large;">헬스장 선택</h1>
 	
 		<div class="col-12">
 			<div class="Link">

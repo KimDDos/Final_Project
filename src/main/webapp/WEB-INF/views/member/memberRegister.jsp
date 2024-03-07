@@ -5,9 +5,13 @@
 <jsp:include page="../layout/header.jsp"></jsp:include>
 <style>
 	@font-face {
-	  font-family: 'summernote';
-	  src: url('/resources/summernote/font/summernote.woff2') format('woff2'),
-	       url('/resources/summernote/font/summernote.woff') format('woff');
+	    font-family: 'Noto-Sans-Regular';
+	    font-style: normal;
+	    src: url('../font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf') format('truetype');
+	}
+	
+	*{
+		font-family: 'Noto-Sans-Regular', sans-serif, 'Noto-Sans-Extra_Bold', 'Noto-Sans-Regular', 'Noto-Sans-Bold';
 	}
 
 	#memberRegisterForm{
@@ -92,9 +96,9 @@
 						<button type="button" class="btn btn-dark" id="isEmailDuplicateBtn">이메일 중복체크</button>
 					</div>
 					<div class="col-sm-5">
-						<div id="isDupleEmailResult">
+						<span id="isDupleEmailResult">
 							
-						</div>
+						</span>
 					</div>
 				</div>
 				<div class="row align-items-center justify-content-center">
@@ -141,7 +145,7 @@
 						class="col-sm-2 col-form-label text-center"> 생년월일 </label>
 					<div class="col-sm-5">
 						<input type="text" class="form-control" id="datepicker"
-							name="userBirthDate">
+							name="userBirthDate" readonly="readonly">
 					</div>
 				</div>
 				<div class="row align-items-center justify-content-center">

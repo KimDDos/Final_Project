@@ -37,6 +37,7 @@ public interface MemberService {
 	int deleteMember(int userSerialNo);
 
 	MemberVO userDetailS(int userSerialNo);
-
+	
+	int isDupleEmail(String userEmail);
 
 }

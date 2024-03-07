@@ -56,9 +56,8 @@
 							class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
 							<i class="bi bi-collection"></i>
 						</div>
-						<h2 class="h5">Featured title</h2>
-						<p class="mb-0">Paragraph of text beneath the heading to
-							explain the heading. Here is just a bit more text.</p>
+						<h2 class="h5">가까운 헬스장 찾기</h2>
+						<p class="mb-0">제일 가까운 헬스장이 어디 있을까요?</p>
 					</div>
 					<div class="col mb-5 h-100">
 						<div
@@ -215,7 +214,6 @@
 </section>
 <!-- Footer-->
 
-<jsp:include page="./layout/footer.jsp"></jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
 	let msg_mbrreg = "<c:out value='${msg_mbrreg}'/>";
@@ -247,5 +245,5 @@
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="/resources/js/scripts.js"></script>
-</body>
+<jsp:include page="./layout/footer.jsp"></jsp:include>
 </html>

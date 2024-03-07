@@ -53,5 +53,6 @@ public interface MemberDAO {
 
 	MemberVO userDetailS(int userSerialNo);
 
-	
-};
+	int isDupleEmail(String userEmail);
+
+}
