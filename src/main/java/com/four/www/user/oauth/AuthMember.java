@@ -11,10 +11,12 @@ import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 
 import lombok.Getter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Getter
+@ToString
 public class AuthMember extends User{
 	
 	private static final long serialVersionUID = 1L;

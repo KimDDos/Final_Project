@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.four.www.user.domain.AlarmVO;
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
@@ -125,6 +126,17 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int isDupleEmail(String userEmail) {
 		return mdao.isDupleEmail(userEmail);
+	}
+
+	@Override
+	public List<AlarmVO> getAlarmList(int userSerial) {
+		return mdao.getAlarmList(userSerial);
+	}
+
+	@Override
+	public List<AlarmVO> checkAlarm(int ano,int userSerial) {
+		mdao.checkAlarm(ano);
+		return mdao.getAlarmList(userSerial);
 	}
 	
 }

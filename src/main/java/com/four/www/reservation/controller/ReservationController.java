@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import com.four.www.reservation.domain.ReservationVO;
 import com.four.www.reservation.service.PurposeService;
 import com.four.www.reservation.service.ReservationService;
 import com.four.www.user.domain.MemberVO;
+import com.four.www.user.oauth.CustomAuthMemberService;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -34,9 +36,12 @@ public class ReservationController {
 	private final ReservationService rsv;
 	private final PurposeService psv;
 	private final MemberService msv;
+	private final CustomAuthMemberService cms;
 
 	@GetMapping("/gymSelect")
 	public void gymSelect() {
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
 	}
 
 	@GetMapping("/register")
@@ -44,6 +49,10 @@ public class ReservationController {
 			@RequestParam(value = "selTitle", required = true) String title, Model m) {
 		m.addAttribute("ppAddress", address);
 		m.addAttribute("ppTitle", title);
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
+		
 		return "/reservation/register";
 	}
 
@@ -55,17 +64,24 @@ public class ReservationController {
 
 		m.addAttribute("reservationResult", reservationResult);
 		m.addAttribute("purposeResult", purposeResult);
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
 
-		return "/reservation/reservationList";
+		return "redirect:/reservation/list";
 	}
 
 	@GetMapping("/list")
 	public String list(Model m, PagingVO pgvo) {
+		log.info("PGVO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+pgvo);
 		List<ReservationVO> list = rsv.getrsvList(pgvo);
 		int totalCount = rsv.getTotalCount(pgvo);
 		PagingHandler ph = new PagingHandler(pgvo, totalCount);
 		m.addAttribute("list", list);
 		m.addAttribute("ph", ph);
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
 
 		return "/reservation/reservationList";
 	}
@@ -73,17 +89,11 @@ public class ReservationController {
 	@GetMapping("/detail")
 	public String detail(@RequestParam("rno") int rno, Model m) {
 		ReservationVO Reserv = rsv.getReserveOne(rno);
-		MemberVO mvo = msv.userDetailS(Reserv.getUserSerialNo());
-		String trainerName = "";
-		String trainerPhone = "";
-		if (Reserv.getTrainerNo() != 0) {
-			trainerName = msv.userDetailS(Reserv.getTrainerNo()).getUserName();
-			trainerPhone = msv.userDetailS(Reserv.getTrainerNo()).getUserPhoneNum();
-		}
-		m.addAttribute("mvo", mvo);
+		
 		m.addAttribute("rvo", Reserv);
-		m.addAttribute("trainerName", trainerName);
-		m.addAttribute("trainerPhone", trainerPhone);
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
 
 		return "/reservation/reservationDetail";
 	}
@@ -94,16 +104,27 @@ public class ReservationController {
 
 		MemberVO mvo = new MemberVO();
 		mvo = msv.userDetailS(rvo.getTrainerNo());
+		rvo.setTrainerName(mvo.getUserName());
 		rvo.setTrainerPhoneNum(mvo.getUserPhoneNum());
 		log.info("RVO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + rvo);
 		int isOk = rsv.submitReserv(rvo);
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
+		
 		return "redirect:/reservation/detail?rno=" + rvo.getRno();
 	}
 
 	@GetMapping("/cancel")
 	public String cancel(@RequestParam("rno") int rno, Model m) {
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
+		
+		PagingVO pgvo = new PagingVO();
+		
 		int isOk = rsv.cancelReserv(rno);
-		return "/reservation/reservationList";
+		return "redirect:/reservation/list";
 	}
 
 }

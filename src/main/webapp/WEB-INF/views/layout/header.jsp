@@ -58,6 +58,8 @@
 						<li class="nav-item"><a class="nav-link" href="/admin/index"
 							target="_blank">어드민페이지</a></li>
 						<sec:authorize access="isAuthenticated()">
+							<sec:authentication property="principal.mdto.mvo.userSerialNo"
+								var="userSerialNo" />
 							<sec:authentication property="principal.mdto.mvo.userNickName"
 								var="userNickName" />
 							<sec:authentication property="principal.mdto.mvo.userEmail"
@@ -66,6 +68,7 @@
 								var="userPhoneNum" />
 							<sec:authentication property="principal.mdto.mvo.isTrainer"
 								var="isTrainer" />
+							<sec:authentication property="principal.mdto.avo" var="avos" />
 							<li class="nav-item dropdowns"><a class="nav-link "
 								id="navbarDropdownBlog" href="#" role="button"
 								aria-expanded="false">예약(test)</a>
@@ -93,22 +96,22 @@
 							<li class="nav-item"><button id="alarmBtn" type="button"
 									style="background-color: transparent;">
 									<img alt="" src="/resources/img/bell.svg">
-									<c:if test="${alarmSize != 0}">
-										<span class="badge rounded-pill text-bg-danger">${alarmSize}</span>
+									<c:if test="${avos.size() > 0}">
+										<span class="badge rounded-pill text-bg-danger">${avos.size()}</span>
 										<div
 											style="position: absolute; right: 180px; visibility: hidden; color: white; background-color: blue;"
 											id="alarmLists">
-											<c:forEach var="alarm" items="${alarmList}">
+											<c:forEach var="alarm" items="${avos}">
 												<c:choose>
 													<c:when test="${alarm.alarmType eq '예약'}">
-														<a href="/member/alarmCheck?alarmNo=${alarm.ano }&rno=${alarm.rno}"><div
+														<a
+															href="/member/alarmCheck?alarmNo=${alarm.ano }&rno=${alarm.rno}&userNo=${userSerialNo}"><div
 																style="">${alarm.content}</div></a>
 													</c:when>
 													<c:otherwise>
 														<div style="">${alarm.content}</div>
 													</c:otherwise>
 												</c:choose>
-
 											</c:forEach>
 										</div>
 									</c:if>

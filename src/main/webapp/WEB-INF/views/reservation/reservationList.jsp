@@ -16,6 +16,7 @@
 			<thead class="table-primary">
 				<tr>
 					<th scope="col" style="width: 100px">번호</th>
+					<th scope="col" style="width: 100px">작성자</th>
 					<th scope="col">장소</th>
 					<th scope="col" style="width: 120px">시간</th>
 				</tr>
@@ -24,6 +25,7 @@
 				<c:forEach var="rvo" items="${list }">
 					<tr>
 						<td>${rvo.rno}</td>
+						<td>${rvo.userName}</td>
 						<c:choose>
 							<c:when test="${rvo.userSerialNo == userSerialNo}">
 								<td onclick="location.href='/reservation/detail?rno=${rvo.rno}'">
@@ -37,7 +39,7 @@
 								<td onclick="#">${rvo.rvTitle}</td>
 							</c:otherwise>
 						</c:choose>
-						<td>${rvo.rvReservdate}${rvo.rvTime}</td>
+						<td>${rvo.rvReservdate} ${rvo.rvTime}</td>
 					</tr>
 				</c:forEach>
 

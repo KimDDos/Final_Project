@@ -51,6 +51,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		// authentication은 인증된 AuthMember의 객체
 		setAuthEmail(authentication.getName());
 		setAuthUrl("/");
+		
 
 		boolean isOk = msv.updateLastLogin(getAuthEmail());
 

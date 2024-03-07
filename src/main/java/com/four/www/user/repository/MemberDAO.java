@@ -3,6 +3,7 @@ package com.four.www.user.repository;
 import java.util.List;
 
 import com.four.www.user.domain.UserAuthVO;
+import com.four.www.user.domain.AlarmVO;
 import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
@@ -54,5 +55,9 @@ public interface MemberDAO {
 	MemberVO userDetailS(int userSerialNo);
 
 	int isDupleEmail(String userEmail);
+
+	List<AlarmVO> getAlarmList(int userSerial);
+
+	int checkAlarm(int ano);
 
 }

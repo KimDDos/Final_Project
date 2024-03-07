@@ -228,7 +228,7 @@
 					<tbody>
 						<tr>
 							<th><span class="col01">*</span>이름</th>
-							<td><input data-value="작성자을 입력하세요." id="name" name="name"
+							<td><input data-value="작성자을 입력하세요." id="name" name="userName"
 								class="inputTxt inputName wh420" type="text" readonly="readonly"
 								value="${userName }" placeholder="이름을 입력하세요" maxlength="20"></td>
 						</tr>

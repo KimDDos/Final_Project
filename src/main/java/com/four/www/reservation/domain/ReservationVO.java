@@ -41,5 +41,7 @@ public class ReservationVO {
 	private String rvStatus;
 	private String rvPurchased;
 	private String rvSuggestPrice;
+	private String userName;
+	private String trainerName;
 	
 }

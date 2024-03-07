@@ -20,22 +20,22 @@
 			<div class="mb-3">
 				<label class="form-label">작성자</label> <input type="text"
 					class="form-control" name="userName" id="userName"
-					readonly="readonly" value="${mvo.userName}">
+					readonly="readonly" value="${rvo.userName}">
 			</div>
 			<div class="mb-3">
 				<label class="form-label">작성자 연락처</label> <input type="text"
 					class="form-control" name="phoneNum" id="phoneNum"
-					readonly="readonly" value="${mvo.userPhoneNum}">
+					readonly="readonly" value="${rvo.phoneNum}">
 			</div>
 			<div class="mb-3">
 				<label class="form-label">계약자</label> <input type="text"
 					class="form-control" name="trainerName" id="trainerName"
-					readonly="readonly" value="${trainerName}">
+					readonly="readonly" value="${rvo.trainerName}">
 			</div>
 			<div class="mb-3">
 				<label class="form-label">계약자 연락처</label> <input type="text"
 					class="form-control" name="trainerPhoneNum" id="trainerPhoneNum"
-					readonly="readonly" value="${trainerPhone}">
+					readonly="readonly" value="${rvo.trainerPhoneNum}">
 			</div>
 			<div class="mb-3">
 				<label class="form-label">작성일</label> <input type="text"

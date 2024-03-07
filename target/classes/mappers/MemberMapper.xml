@@ -50,7 +50,7 @@
 	</select>
 	
 	<update id="checkAlarm">
-	update mbr_alarm set is_read = 0 where ano=#{ano}
+	update mbr_alarm set is_read = 1 where ano=#{ano}
 	</update>
 
 
