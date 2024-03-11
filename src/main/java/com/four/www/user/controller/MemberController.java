@@ -1,27 +1,17 @@
 package com.four.www.user.controller;
 
-import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.jaas.SecurityContextLoginModule;
-import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,13 +24,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.four.www.reservation.domain.ReservationVO;
 import com.four.www.reservation.service.ReservationService;
-import com.four.www.user.domain.AlarmVO;
 import com.four.www.user.domain.CalendarVO;
-import com.four.www.user.domain.MemberDTO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
-import com.four.www.user.oauth.AuthMember;
-import com.four.www.user.oauth.CustomAuthMemberService;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -54,46 +40,33 @@ public class MemberController {
 
 	private final MemberService msv;
 	private final ReservationService rsv;
-	private final CustomAuthMemberService cms;
 
 	@GetMapping("/memberRegister")
 	public void memberRegister() {
-		
 	}
 
 	@GetMapping("/mypage")
 	public void mypage() {
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
 	}
 
 	@GetMapping("/calendar")
-	public void calendar(@RequestParam("userSerialNo") int userNo, Model m) {
+	public void calendar(@RequestParam("userSerialNo")int userNo, Model m) {
 		MemberVO mvo = msv.userDetailS(userNo);
 		log.info("CALENDAR MVO>>>>>>>>>>>>>>" + mvo);
 		List<ReservationVO> rvo = rsv.getReserve(userNo);
-		if (mvo.getIsTrainer().equals("Y")) {
+		if (mvo.getIsTrainer().equals("Y"))
+		{
 			rvo.addAll(rsv.getPTorder(userNo));
 		}
-		log.info("RVOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + rvo);
-		m.addAttribute("rList", rvo);
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
+		log.info("RVOS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+rvo);
+		m.addAttribute("rList",rvo);
 	}
 
 	@GetMapping("/calendarRegister")
-	public void calendarRegister(@RequestParam(value = "date", required = false) String date,
-			@RequestParam(value = "rnoList", required = false) List<Integer> rnoList, Model m) {
+	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rnoList", required = false) List<Integer> rnoList,Model m) {
 		log.info("RNO" + rnoList);
 		m.addAttribute("datedata", date);
-		List<ReservationVO> rList = new ArrayList<ReservationVO>();
-		for (int i = 0; i < rnoList.size(); i++) {
-			rList.add(rsv.getReserveOne(rnoList.get(i)));
-		}
-		log.info("RLIST >>>>>>>>>>>>>>>>>>>>>>>>>>>> " + rList);
-		m.addAttribute("rList", rList);
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
+		m.addAttribute("rnoList", rnoList);
 	}
 
 	@PostMapping("/calendarRegister")
@@ -109,50 +82,41 @@ public class MemberController {
 		datetime = LocalDateTime.parse(dateStr, formatter);
 		CalVO.setCalScheduleEndTime(datetime);
 		log.info(CalVO.toString());
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
 		return "/member/calendar";
 	}
 
 	@GetMapping("/coupon")
 	public void coupon() {
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
 	}
 
 	// mypage에서 패스워드 체크페이지로 이동.
 	@GetMapping("/mypagePwdcheck")
-	public void mypagePwdcheck(@RequestParam(value = "delete", required = false) int delete, Model m) {
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
-		m.addAttribute("delete", delete);
+	public void mypagePwdcheck(@RequestParam(value = "delete", required = false) int delete,Model m) {
+		m.addAttribute("delete",delete);
 	}
 
 	@GetMapping("/checkPwd")
-	public String checkPwd(MemberVO mvo, @RequestParam(value = "delete", required = true) int delete) {
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
+	public String checkPwd(MemberVO mvo,@RequestParam(value = "delete", required = true) int delete) {
 		log.info("" + mvo);
 		int isOk = msv.checkPwd(mvo);
 		log.info("VALIDATION>>>>>>>>>> " + isOk);
 		if (isOk == 1) {
-			if (delete != 1)
-				return "/member/mypageModify";
-			else if (delete == 1)
-				return "member/mypageDelete";
+			if (delete != 1)return "/member/mypageModify";
+			else if (delete == 1) return "member/mypageDelete";
+			else if (delete == 2) return "member/trainerPr";
 		}
 		return "/member/mypagePwdcheck";
 	}
-
+	
 	@GetMapping("/memberDelete")
-	public String memberDelete(HttpServletRequest request, HttpServletResponse response, MemberVO mvo) {
-
+	public String memberDelete(HttpServletRequest request, HttpServletResponse response,MemberVO mvo) {
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
 		new SecurityContextLogoutHandler().logout(request, response, authentication);
-
+		
 		int isOk = msv.deleteMember(mvo.getUserSerialNo());
-
+		
 		return "redirect:/member/memberLogout";
 	}
 
@@ -162,11 +126,8 @@ public class MemberController {
 		log.info(">>>> mvo >>>> {}", mvo);
 
 		int isOk = msv.memberModify(mvo);
-		
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
 
-		return "redirect:/";
+		return "redirect:/member/memberLogout";
 	}
 
 	@PostMapping("/memberRegister")
@@ -197,50 +158,35 @@ public class MemberController {
 
 	@GetMapping("/memberLogin")
 	public void memberLogin() {
-		
 	}
 
 	@PostMapping("/memberLogout")
 	public String memberLogout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+		
 		new SecurityContextLogoutHandler().logout(request, response, authentication);
 		return "/";
 	}
-
+	
 	@PostMapping("/login")
 	public String login(HttpServletRequest request, RedirectAttributes re) {
 		re.addFlashAttribute("userEmail", request.getAttribute("userEmail"));
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		log.info("<<<<USER EMAIL>>>>" + request.getAttribute("userEmail"));
 		log.info("<<<<ERR MSG>>>>" + request.getAttribute("errMsg"));
-
-		return "redirect:/";
-	}
-
-	@GetMapping("/alarmCheck")
-	public String alarmCheck(@RequestParam("alarmNo") int ano, @RequestParam("rno") int rno,
-			@RequestParam("userNo") int userNo) {
-		msv.checkAlarm(ano, userNo);
-
-		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
-
-		return "redirect:/reservation/detail?rno=" + rno;
+		return "redirect:/member/mypage";
 	}
 
 	@GetMapping("/member/trainerPr")
 	public void trainerreg() {
-		SecurityContextHolder.getContext()
-		.setAuthentication(cms.createNewAuthentication());
 	}
-
+	
 	@GetMapping("/isEmail/{userEmail}")
 	public ResponseEntity<String> isDupleEmail(@PathVariable("userEmail") String userEmail) {
 		log.info(">>>>>>> isDupleEmail PathVariable userEmail >>>>> {}", userEmail);
 		int isOk = msv.isDupleEmail(userEmail);
 		log.info("isOk >>>>> {}", isOk);
-		return isOk > 0 ? new ResponseEntity<String>("1", HttpStatus.OK)
-				: new ResponseEntity<String>("0", HttpStatus.OK);
+		return isOk > 0 ? new ResponseEntity<String>("1", HttpStatus.OK) : new ResponseEntity<String>("0", HttpStatus.OK);
 	}
 
 }
