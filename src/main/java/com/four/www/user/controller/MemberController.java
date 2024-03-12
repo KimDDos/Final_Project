@@ -3,6 +3,7 @@ package com.four.www.user.controller;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,10 +64,16 @@ public class MemberController {
 	}
 
 	@GetMapping("/calendarRegister")
-	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rnoList", required = false) List<Integer> rnoList,Model m) {
+	public void calendarRegister(@RequestParam(value = "date", required = false) String date,
+			@RequestParam(value = "rnoList", required = false) List<Integer> rnoList, Model m) {
 		log.info("RNO" + rnoList);
 		m.addAttribute("datedata", date);
-		m.addAttribute("rnoList", rnoList);
+		List<ReservationVO> rList = new ArrayList<ReservationVO>();
+		for (int i = 0; i < rnoList.size(); i++) {
+			rList.add(rsv.getReserveOne(rnoList.get(i)));
+		}
+		log.info("RLIST >>>>>>>>>>>>>>>>>>>>>>>>>>>> " + rList);
+		m.addAttribute("rList", rList);
 	}
 
 	@PostMapping("/calendarRegister")
@@ -179,6 +186,15 @@ public class MemberController {
 
 	@GetMapping("/member/trainerPr")
 	public void trainerreg() {
+	}
+	
+	@GetMapping("/alarmCheck")
+	public String alarmCheck(@RequestParam("alarmNo")int ano,@RequestParam("rno")int rno,
+			HttpServletRequest request,HttpServletResponse response)
+	{
+		msv.checkAlarm(ano);
+		log.info(""+rno);
+		return "redirect:/reservation/detail?rno="+rno;
 	}
 	
 	@GetMapping("/isEmail/{userEmail}")

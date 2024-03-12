@@ -56,7 +56,7 @@ public interface MemberDAO {
 
 	int isDupleEmail(String userEmail);
 
-	List<AlarmVO> getAlarmList(int userSerial);
+	List<AlarmVO> getAlarmList(int userSerialNo);
 
 	int checkAlarm(int ano);
 

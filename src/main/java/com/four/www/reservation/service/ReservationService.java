@@ -24,5 +24,6 @@ public interface ReservationService {
 
 	Collection<? extends ReservationVO> getPTorder(int userNo);
 
+	int setTid(ReservationVO rvo);
 
 }

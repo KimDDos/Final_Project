@@ -69,4 +69,9 @@ public class ReservationServiceImpl implements ReservationService {
 		return rdao.getPTorder(userNo);
 	}
 
+	@Override
+	public int setTid(ReservationVO rvo) {
+		return rdao.setTid(rvo);
+	}
+
 }

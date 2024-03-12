@@ -99,14 +99,15 @@
 									<c:if test="${avos.size() > 0}">
 										<span class="badge rounded-pill text-bg-danger">${avos.size()}</span>
 										<div
-											style="position: absolute; right: 180px; visibility: hidden; color: white; background-color: blue;"
+											style="overflow: auto; position: absolute; width:500px; right: 180px;
+											visibility: hidden; color: white; background-color: blue; height: 150px;"
 											id="alarmLists">
 											<c:forEach var="alarm" items="${avos}">
 												<c:choose>
 													<c:when test="${alarm.alarmType eq '예약'}">
 														<a
 															href="/member/alarmCheck?alarmNo=${alarm.ano }&rno=${alarm.rno}&userNo=${userSerialNo}"><div
-																style="">${alarm.content}</div></a>
+																style="font-size: large;">${alarm.content}</div></a>
 													</c:when>
 													<c:otherwise>
 														<div style="">${alarm.content}</div>

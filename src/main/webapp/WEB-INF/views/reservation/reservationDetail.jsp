@@ -16,7 +16,10 @@
 		<div class="container-md" style="margin-top: 50px">
 			<input type="text" class="form-control" name="userSerialNo"
 				id="userSerialNo" readonly="readonly" value="${rvo.userSerialNo}"
-				hidden="hidden">
+				hidden="hidden"> 
+			<input type="text" class="form-control"
+				name="rno" id="rno" readonly="readonly"
+				value="${rvo.rno}" hidden="hidden">
 			<div class="mb-3">
 				<label class="form-label">작성자</label> <input type="text"
 					class="form-control" name="userName" id="userName"
@@ -80,7 +83,7 @@
 					${isTrainer == 'Y' and rvo.trainerNo eq '0' ? '' : 'readonly="readonly"'}>
 			</div>
 			<c:if test="${rvo.trainerNo ne ''}">
-				<!-- 여기에 카카오페이 추가. (https://scorpio-mercury.tistory.com/10) -->
+				<button id="purchase" type="button" class="btn btn-success">결제하기</button>
 			</c:if>
 			<input name="trainerNo" value="${userSerialNo}" hidden="hidden">
 			<input name="rno" value="${rvo.rno}" hidden="hidden">
@@ -94,10 +97,11 @@
 	</form>
 
 	<!-- Bootstrap core JS-->
+	<script src="/resources/js/purchase.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	<script src="/resources/js/scripts.js"></script>
 
 </body>
 <jsp:include page="../layout/footer.jsp"></jsp:include>

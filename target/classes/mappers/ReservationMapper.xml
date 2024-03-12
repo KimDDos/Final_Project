@@ -36,9 +36,13 @@
 	(user_serial_no,content,alarm_type,rno)
 	values(#{userSerialNo},#{content},#{alarmType},#{rno})
 	</insert>
+	
+	<update id="setTid">
+	update reservation set tid = #{tid} where rno=#{rno}
+	</update>
 
 	<delete id="cancelReserv">
-		delete from reservation where rno =${rno}
+		delete from reservation where rno =#{rno}
 	</delete>
 
 	<select id="getPTorder" parameterType="int"

@@ -27,4 +27,6 @@ public interface ReservationDAO {
 
 	int sendAlarm(AlarmVO avo);
 
+	int setTid(ReservationVO rvo);
+
 }
