@@ -42,10 +42,10 @@
   			</td>
   			<td> 
      			 <div class="btn-group-sm" role="group-sm" aria-label="Basic radio toggle button group">
-					  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="1" checked >
+					  <input type="radio" class="btn-check" name="discountType" id="btnradio1" autocomplete="off" value="1">
 					  <label class="btn btn-outline-primary" for="btnradio1">비율 할인</label>
 					  
-					  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="2">
+					  <input type="radio" class="btn-check" name="discountType" id="btnradio2" autocomplete="off" value="2">
 					  <label class="btn btn-outline-primary" for="btnradio2">금액 할인</label>
 				  </div>
    			</td>
@@ -57,8 +57,28 @@
    				</div>
    			</td>
    			<td>
-   					<input type="text" name="cpValue">
+   				<div id="ratioInput">
+   					<input type="text" name="ratioValue">
+   					<label for="cotent" class="form-label">%</label>
+   				</div>
+   				<div id="amountInput">
+   					<input type="text" name="amountValue">
+   					<label for="cotent" class="form-label">원</label>
+   				</div>
    			</td>
+   			</tr>
+   			<tr>
+				<td>
+					<div>
+						<label for="cotent" class="form-label">발급인원</label>
+					</div>
+				</td>
+				<td>
+					<div class="form-check">
+					 	<input class="form-check-input" type="checkbox" checked>
+				  		<label class="form-check-label" for="flexCheckChecked"> 일반회원 전체 </label>
+				  	</div>
+  				</td>
    			</tr>
   	</table>
       
@@ -93,5 +113,35 @@
 <script src="/resources/js/demo/chart-area-demo.js"></script>
 <script src="/resources/js/demo/chart-pie-demo.js"></script>
 
+<script>
+// 페이지 로드 시 실행되는 함수
+window.onload = function() {
+    // 할인율 input 창 숨기기
+    var ratioInput = document.getElementById('ratioInput');
+    var amountInput = document.getElementById('amountInput');
+    ratioInput.style.display = 'none';
+    amountInput.style.display = 'none';
+    
+    // 라디오 버튼 변경 이벤트 처리
+    document.querySelectorAll('input[name="discountType"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            // 선택된 라디오 버튼의 값 확인
+            var selectedValue = document.querySelector('input[name="discountType"]:checked').value;
+            
+            // 할인율 input 창 보이거나 숨기기
+            if (selectedValue === '1') { // 비율 할인 선택 시 보이기
+                ratioInput.style.display = 'block';
+                amountInput.style.display = 'none';
+            } else if (selectedValue === '2') { // 금액 할인 선택 시 보이기
+                ratioInput.style.display = 'none';
+                amountInput.style.display = 'block';
+            } else { // 다른 옵션 선택 시 숨기기
+                ratioInput.style.display = 'none';
+                amountInput.style.display = 'none';
+            }
+        });
+    });
+};
+</script>
 </body>
 

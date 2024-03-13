@@ -19,7 +19,9 @@ public class CouponVO {
 	private int cpNum;
 	private String cpTitle;
 	private int cpValue;
-	private String cpScheduleDetail;
+	private String ratioValue;
+	private String amountValue;
+	private String discountType;
 	private Date cpReceivedate;
 	private Date cpLimitdate;
 }
