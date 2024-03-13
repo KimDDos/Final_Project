@@ -82,6 +82,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/admin/list">공지사항 목록</a>
+                        <a class="collapse-item" href="/admin/couponregister">쿠폰등록</a>
                     </div>
                 </div>
             </li>

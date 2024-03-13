@@ -1,5 +1,6 @@
 package com.four.www.user.domain;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -18,7 +19,9 @@ public class CouponVO {
 	private int cpNum;
 	private String cpTitle;
 	private int cpValue;
-	private LocalDateTime cpReceivedate;
-	private LocalDateTime cpLimitdate;
-
+	private String ratioValue;
+	private String amountValue;
+	private String discountType;
+	private Date cpReceivedate;
+	private Date cpLimitdate;
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html 에서 가져와야한다. -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.four.www.admin.repository.AdminDAO">
+
+	<insert id="registerCoupon">
+		INSERT INTO coupon
+		(
+		    user_serial_no
+		    , Cp_title
+		    , Cp_value
+		    , Cp_receivedate
+		    , Cp_limitdate
+		)
+		SELECT user_serial_no
+		    , #{cpTitle}
+		    , CASE 
+      		 	 WHEN #{discountType} = '1' THEN #{ratioValue} -- 비율 할인인 경우
+     		 	 WHEN #{discountType} = '2' THEN #{amountValue} -- 금액 할인인 경우
+      		  END
+		    , #{cpReceivedate}
+		    , #{cpLimitdate}
+		FROM mbr_profile
+		WHERE is_trainer = 'N'
+	</insert>
+
+</mapper>
