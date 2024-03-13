@@ -13606,7 +13606,7 @@ html{scroll-behavior: smooth;}
 html, body{font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif";}
 html, body{color:#010101; font-size:12pt; line-height:1.4em;margin:0; padding:0; width:100%; height:100%; white-space:normal; word-break:keep-all;} 
 *{outline:none; box-sizing:border-box; line-height:revert;}
-ul,ol,li{list-style:none;}
+/* ul,ol,li{list-style:none;} */
 img,fieldset,iframe,form{border:0 none;}
 a,a:hover,a:active,a:focus{color:inherit; text-decoration:none; outline:none;}
 button, input, select, textarea{font-family:revert; font-size:revert; line-height:revert; font-weight:revert;}
@@ -13616,8 +13616,8 @@ a, button{cursor:pointer;}
 table{table-layout:fixed; border-collapse:collapse; border-spacing:0;}
 i{font-style:normal;}
 h1,h2,h3,h4,h5,h6{font-size:revert;}
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, abbr, acronym, address, big, cite, code, ins, small, sub, sup {padding:0; margin:0; font-weight:revert; font-size:revert;}
-* .glyphicon{font-family: 'Glyphicons Halflings';}
+/* div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, abbr, acronym, address, big, cite, code, ins, small, sub, sup {padding:0; margin:0; font-weight:revert; font-size:revert;}
+ */* .glyphicon{font-family: 'Glyphicons Halflings';}
 pre{font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:revert; line-height:revert; background:none; border:none; }
 input:-webkit-autofill{-webkit-box-shadow: 0 0 0 1000px white inset;} /* 자동완성 배경색제거  */
 label{max-width:revert; margin:0; font-weight:revert;}

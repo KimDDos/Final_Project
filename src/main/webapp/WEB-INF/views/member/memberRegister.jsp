@@ -96,9 +96,9 @@
 						<button type="button" class="btn btn-dark" id="isEmailDuplicateBtn">이메일 중복체크</button>
 					</div>
 					<div class="col-sm-5">
-						<div id="isDupleEmailResult">
+						<span id="isDupleEmailResult">
 							
-						</div>
+						</span>
 					</div>
 				</div>
 				<div class="row align-items-center justify-content-center">
@@ -145,7 +145,7 @@
 						class="col-sm-2 col-form-label text-center"> 생년월일 </label>
 					<div class="col-sm-5">
 						<input type="text" class="form-control" id="datepicker"
-							name="userBirthDate">
+							name="userBirthDate" readonly="readonly">
 					</div>
 				</div>
 				<div class="row align-items-center justify-content-center">

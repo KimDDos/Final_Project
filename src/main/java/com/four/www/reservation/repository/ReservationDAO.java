@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.four.www.admin.domain.PagingVO;
 import com.four.www.reservation.domain.ReservationVO;
+import com.four.www.user.domain.AlarmVO;
 
 public interface ReservationDAO {
 
@@ -23,5 +24,11 @@ public interface ReservationDAO {
 	int cancelReserv(int rno);
 
 	Collection<? extends ReservationVO> getPTorder(int userNo);
+
+	int sendAlarm(AlarmVO avo);
+
+	int setTid(ReservationVO rvo);
+
+	int paysubmit(ReservationVO rvo);
 
 }

@@ -2,6 +2,9 @@ package com.four.www.user.oauth;
 
 import javax.inject.Inject;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -33,7 +36,21 @@ public class CustomAuthMemberService implements UserDetailsService {
 		mvo.setAuthList(mdao.selectAuths(mvo.getUserSerialNo()));
 		mdto.setMvo(mvo);
 		mdto.setUvo(uvo);
+		mdto.setAvo(mdao.getAlarmList(mvo.getUserSerialNo()));
 		return new AuthMember(mdto);
+	}
+	
+	public Authentication createNewAuthentication() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		AuthMember authMember = (AuthMember) auth.getPrincipal();
+		String username = authMember.getUsername();
+		log.info("USER NAME ================================="+username);
+		UserDetails newPrincipal = this.loadUserByUsername(username);
+		UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(newPrincipal,
+				auth.getCredentials(), newPrincipal.getAuthorities());
+		newAuth.setDetails(auth.getDetails());
+		return newAuth;
 	}
 
 }

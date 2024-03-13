@@ -44,6 +44,14 @@
 		select * from mbr_profile where user_serial_no =
 		#{userSerialNo}
 	</select>
+	
+	<select id="getAlarmList" resultType="com.four.www.user.domain.AlarmVO">
+	select * from mbr_alarm where user_serial_no = #{userSerialNo} and is_read = 0
+	</select>
+	
+	<update id="checkAlarm">
+	update mbr_alarm set is_read = 1 where ano=#{ano}
+	</update>
 
 
 	<select id="selectUser"
@@ -132,5 +140,9 @@
 	<select id="getList"
 		resultType="com.four.www.user.domain.MemberVO">
 		select * from mbr_profile order by User_serial_no desc
+	</select>
+	
+	<select id="isDupleEmail" resultType="int">
+		select count(user_email) from mbr_profile where user_email = #{userEmail}
 	</select>
 </mapper>

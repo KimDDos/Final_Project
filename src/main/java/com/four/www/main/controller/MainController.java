@@ -2,6 +2,7 @@ package com.four.www.main.controller;
 
 import java.util.List;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.four.www.main.repository.SearchDTO;
 import com.four.www.main.service.MainService;
 import com.four.www.main.service.PlaceSearchService;
+import com.four.www.user.oauth.CustomAuthMemberService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MainController {
 	
 	private final MainService mainsv;
+	private final CustomAuthMemberService cms;
 	
 	@GetMapping("/footerPi")
 	public String footerpi() {
@@ -45,6 +48,9 @@ public class MainController {
 		List<SearchDTO>KeywordLists = pss.searchPlace(keyword);
 		log.info(KeywordLists.toString());
 		m.addAttribute("KList",KeywordLists);
+		
+		SecurityContextHolder.getContext()
+		.setAuthentication(cms.createNewAuthentication());
 		
 		return "/reservation/gymSelect";
 	}

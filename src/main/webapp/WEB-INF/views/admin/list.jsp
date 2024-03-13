@@ -7,6 +7,7 @@
 
 <jsp:include page="../layout/admin-topbar.jsp"></jsp:include>
 <body>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -39,6 +40,10 @@
     
   </tbody>
 </table>
+
+<a href="/admin/register"><button type="button">등록</button></a>
+	</div>
+
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
   

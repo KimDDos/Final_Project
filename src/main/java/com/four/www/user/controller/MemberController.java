@@ -9,12 +9,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,12 +64,12 @@ public class MemberController {
 	}
 
 	@GetMapping("/calendarRegister")
-	public void calendarRegister(@RequestParam(value = "date", required = false) String date, @RequestParam(value = "rnoList", required = false) List<Integer> rnoList,Model m) {
+	public void calendarRegister(@RequestParam(value = "date", required = false) String date,
+			@RequestParam(value = "rnoList", required = false) List<Integer> rnoList, Model m) {
 		log.info("RNO" + rnoList);
 		m.addAttribute("datedata", date);
-		List<ReservationVO>rList = new ArrayList<ReservationVO>();
-		for(int i =0;i<rnoList.size();i++)
-		{
+		List<ReservationVO> rList = new ArrayList<ReservationVO>();
+		for (int i = 0; i < rnoList.size(); i++) {
 			rList.add(rsv.getReserveOne(rnoList.get(i)));
 		}
 		log.info("RLIST >>>>>>>>>>>>>>>>>>>>>>>>>>>> " + rList);
@@ -107,6 +110,7 @@ public class MemberController {
 		if (isOk == 1) {
 			if (delete != 1)return "/member/mypageModify";
 			else if (delete == 1) return "member/mypageDelete";
+			else if (delete == 2) return "member/trainerPr";
 		}
 		return "/member/mypagePwdcheck";
 	}
@@ -177,11 +181,28 @@ public class MemberController {
 		re.addFlashAttribute("errMsg", request.getAttribute("errMsg"));
 		log.info("<<<<USER EMAIL>>>>" + request.getAttribute("userEmail"));
 		log.info("<<<<ERR MSG>>>>" + request.getAttribute("errMsg"));
-		return "redirect:/";
+		return "redirect:/member/mypage";
 	}
 
 	@GetMapping("/member/trainerPr")
 	public void trainerreg() {
+	}
+	
+	@GetMapping("/alarmCheck")
+	public String alarmCheck(@RequestParam("alarmNo")int ano,@RequestParam("rno")int rno,
+			HttpServletRequest request,HttpServletResponse response)
+	{
+		msv.checkAlarm(ano);
+		log.info(""+rno);
+		return "redirect:/reservation/detail?rno="+rno;
+	}
+	
+	@GetMapping("/isEmail/{userEmail}")
+	public ResponseEntity<String> isDupleEmail(@PathVariable("userEmail") String userEmail) {
+		log.info(">>>>>>> isDupleEmail PathVariable userEmail >>>>> {}", userEmail);
+		int isOk = msv.isDupleEmail(userEmail);
+		log.info("isOk >>>>> {}", isOk);
+		return isOk > 0 ? new ResponseEntity<String>("1", HttpStatus.OK) : new ResponseEntity<String>("0", HttpStatus.OK);
 	}
 
 }
