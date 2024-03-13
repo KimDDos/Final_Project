@@ -9,8 +9,8 @@
 <body>
 	<div class="container-md">
 		<div>
-			<label class="form-label">번호</label> <input type="text"
-				class="form-control" name="notice_no" id="notice_no"
+			<label class="form-label">번호</label> 
+			<input type="text" class="form-control" name="notice_no" id="notice_no"
 				readonly="readonly" value="${nvo.noticeNo}">
 		</div>
 		<div>

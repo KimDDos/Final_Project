@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
+
 <jsp:include page="./layout/header.jsp"></jsp:include>
 
 <!-- Header-->
@@ -33,7 +35,7 @@
 				</div>
 			</div>
 			<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-				<a href="/reservation/register"><img
+				<a href="/reservation/gymSelect"><img
 					class="img-fluid rounded-3 my-5" src="/resources/img/main.jpg"
 					alt="..." /></a>
 			</div>
@@ -89,29 +91,6 @@
 		</div>
 	</div>
 </section>
-<!-- Testimonial section-->
-<div class="py-5 bg-light">
-	<div class="container px-5 my-5">
-		<div class="row gx-5 justify-content-center">
-			<div class="col-lg-10 col-xl-7">
-				<div class="text-center">
-					<div class="fs-4 mb-4 fst-italic">"Working with Start
-						Bootstrap templates has saved me tons of development time when
-						building new projects! Starting with a Bootstrap template just
-						makes things easier!"</div>
-					<div class="d-flex align-items-center justify-content-center">
-						<img class="rounded-circle me-3"
-							src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-						<div class="fw-bold">
-							Tom Ato <span class="fw-bold text-primary mx-1">/</span> CEO,
-							Pomodoro
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <!-- Blog preview section-->
 <section class="py-5">
 	<div class="container px-5 my-5">
@@ -212,7 +191,6 @@
 </section>
 <!-- Footer-->
 
-<jsp:include page="./layout/footer.jsp"></jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
 	let msg_mbrreg = "<c:out value='${msg_mbrreg}'/>";
@@ -244,5 +222,5 @@
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="/resources/js/scripts.js"></script>
-</body>
+<jsp:include page="./layout/footer.jsp"></jsp:include>
 </html>

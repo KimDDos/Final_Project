@@ -15,6 +15,7 @@ import com.four.www.admin.domain.PagingVO;
 import com.four.www.admin.handler.PagingHandler;
 import com.four.www.admin.service.AdminService;
 import com.four.www.admin.service.NoticeBoardService;
+import com.four.www.user.domain.CouponVO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.service.MemberService;
 
@@ -37,6 +38,16 @@ public class AdminController {
 	
 	@GetMapping("/register")
 	public void register() {}
+	
+	@GetMapping("/couponregister")
+	public void couponregister() {}
+	
+	@PostMapping("/couponregister")
+	public String couponRegister(CouponVO cvo) {
+		log.info(">>>> cvo>>>{}", cvo);
+		int isOk = asv.registerCoupon(cvo);
+		return "redirect:/admin/index";
+	}
 	
 	@PostMapping("/register")
 	public String register(NoticeVO nvo) {

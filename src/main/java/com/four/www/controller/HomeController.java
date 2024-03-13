@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.four.www.admin.domain.NoticeVO;
 import com.four.www.admin.domain.PagingVO;
 import com.four.www.admin.service.NoticeBoardService;
+import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,10 +49,10 @@ public class HomeController {
 		List<NoticeVO> list = nsv.getList(pgvo);
 		model.addAttribute("list" , list);
 		
+		
+		
 		return "index";
-		
-	
-		
 	}
+
 	
 }
