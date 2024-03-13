@@ -82,7 +82,7 @@
 					value="${rvo.rvSuggestPrice}"
 					${isTrainer == 'Y' and rvo.trainerNo eq '0' ? '' : 'readonly="readonly"'}>
 			</div>
-			<c:if test="${rvo.trainerNo ne ''}">
+			<c:if test="${rvo.trainerNo ne '' and rvo.rvPayment eq '0'}">
 				<button id="purchase" type="button" class="btn btn-success">결제하기</button>
 			</c:if>
 			<input name="trainerNo" value="${userSerialNo}" hidden="hidden">

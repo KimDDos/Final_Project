@@ -26,4 +26,6 @@ public interface ReservationService {
 
 	int setTid(ReservationVO rvo);
 
+	int paysubmit(ReservationVO rvo);
+
 }

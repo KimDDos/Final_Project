@@ -40,6 +40,7 @@ public class ReservationVO {
 	private String rvStatus;
 	private String rvPurchased;
 	private String rvSuggestPrice;
+	private int rvPayment;
 	private String userName;
 	private String trainerName;
 	private String tid;

@@ -40,6 +40,12 @@
 	<update id="setTid">
 	update reservation set tid = #{tid} where rno=#{rno}
 	</update>
+	
+	<update id="paysubmit">
+	update reservation set rv_payment = #{rvPayment},
+	rv_purchased = "결제완료",rv_status = "일정대기"
+	where rno=#{rno}
+	</update>
 
 	<delete id="cancelReserv">
 		delete from reservation where rno =#{rno}

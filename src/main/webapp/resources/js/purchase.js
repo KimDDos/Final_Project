@@ -8,7 +8,7 @@ $(function(){
             success:function(data){
             alert(data.tid);
                 var box = data.next_redirect_pc_url;
-                window.open(box);
+                window.open(box,"_self");
             } ,
             error:function(error){
                 alert(error);

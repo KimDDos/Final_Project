@@ -128,6 +128,7 @@ public class MemberServiceImpl implements MemberService{
 		return mdao.isDupleEmail(userEmail);
 	}
 
+	@Override
 	public List<AlarmVO> getAlarmList(int userSerialNo) {
 		return mdao.getAlarmList(userSerialNo);
 	}

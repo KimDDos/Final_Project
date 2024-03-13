@@ -29,4 +29,6 @@ public interface ReservationDAO {
 
 	int setTid(ReservationVO rvo);
 
+	int paysubmit(ReservationVO rvo);
+
 }

@@ -100,46 +100,72 @@ public class ReservationController {
 	}
 
 	@GetMapping("/purchased")
-	public String purchased(@RequestParam("rno") int rno,@RequestParam(value = "pg_token", required = false) String token,
-			Model m) {
+	public String purchased(@RequestParam("rno") int rno,
+			@RequestParam(value = "pg_token", required = false) String token, Model m) {
+		JSONParser parser = new JSONParser();
 		ReservationVO Reserv = rsv.getReserveOne(rno);
-			try {
-				log.info("이거되긴하는거냐고"+token);
-				URL url = new URL("https://kapi.kakao.com/v1/payment/approve");
-				HttpURLConnection connect = (HttpURLConnection) url.openConnection();
-				connect.setRequestProperty("Authorization", "KakaoAK 15c69c060c54d5af410d96587b9f78e8");
-				connect.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-				connect.setDoOutput(true);
+		try {
+			log.info("이거되긴하는거냐고" + token);
+			URL url = new URL("https://kapi.kakao.com/v1/payment/approve");
+			HttpURLConnection connect = (HttpURLConnection) url.openConnection();
+			connect.setRequestProperty("Authorization", "KakaoAK 15c69c060c54d5af410d96587b9f78e8");
+			connect.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+			connect.setDoOutput(true);
 
-				String params = "cid=TC0ONETIME" + "&partner_order_id=partner_order_id" + "&partner_user_id=partner_user_id"
-				+"&tid="+URLEncoder.encode(Reserv.getTid(), "UTF-8") + "&pg_token="+token;
-				OutputStream output = connect.getOutputStream();
-				DataOutputStream dataOutput = new DataOutputStream(output);
-				dataOutput.writeBytes(params);
-				dataOutput.close();
-				int res = connect.getResponseCode();
+			String params = "cid=TC0ONETIME" + "&partner_order_id=partner_order_id" + "&partner_user_id=partner_user_id"
+					+ "&tid=" + URLEncoder.encode(Reserv.getTid(), "UTF-8") + "&pg_token=" + token;
+			OutputStream output = connect.getOutputStream();
+			DataOutputStream dataOutput = new DataOutputStream(output);
+			dataOutput.writeBytes(params);
+			dataOutput.close();
+			int res = connect.getResponseCode();
 
-				InputStream input;
-				if (res == 200) {
-					input = connect.getInputStream();
-				} else {
-					input = connect.getErrorStream();
-				}
-				InputStreamReader reader = new InputStreamReader(input);
-
-				BufferedReader caster = new BufferedReader(reader);
-
-				String temp = caster.readLine();
-				
-				log.info("결제성공했냐????????????" + temp);
-			} catch (Exception e) {
-				// TODO: handle exception
+			InputStream input;
+			if (res == 200) {
+				input = connect.getInputStream();
+			} else {
+				input = connect.getErrorStream();
 			}
+			InputStreamReader reader = new InputStreamReader(input);
+
+			BufferedReader caster = new BufferedReader(reader);
+
+			String temp = caster.readLine();
+
+			log.info("결제성공했냐????????????" + temp);
+
+			Object obj = parser.parse(temp);
+			JSONObject jobj = (JSONObject) obj;
+
+			JSONObject items = (JSONObject) jobj.get("amount");
+			
+			long longpay = (long) items.get("total");
+
+			int payment = Long.valueOf(longpay).intValue();
+			
+			ReservationVO rvo = new ReservationVO();
+			
+			rvo.setRvPayment(payment);
+			rvo.setRno(rno);
+
+			log.info("aaaaaaaaaaaaaaaa"+payment);
+			rsv.paysubmit(rvo);
+		} catch (MalformedURLException e) {
+			// TODO: handle exception
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Reserv = new ReservationVO();
+		Reserv = rsv.getReserveOne(rno);
 
 		m.addAttribute("rvo", Reserv);
 
 		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
-		
+
 		return "/reservation/reservationDetail";
 	}
 
@@ -195,7 +221,7 @@ public class ReservationController {
 			String params = "cid=TC0ONETIME" + "&partner_order_id=partner_order_id" + "&partner_user_id=partner_user_id"
 					+ "&item_name=" + URLEncoder.encode("득근득근 예약 : " + rvo.getRvTitle(), "UTF-8") + "&quantity=1"
 					+ "&total_amount=" + rvo.getRvSuggestPrice() + "&vat_amount=0" + "&tax_free_amount=0"
-					+ "&approval_url=http://localhost:8089/reservation/purchased?rno="+rno
+					+ "&approval_url=http://localhost:8089/reservation/purchased?rno=" + rno
 					+ "&fail_url=http://localhost:8089/reservation/reservationDetail"
 					+ "&cancel_url=http://localhost:8089/reservation/reservationDetail";
 			OutputStream output = connect.getOutputStream();

@@ -74,4 +74,9 @@ public class ReservationServiceImpl implements ReservationService {
 		return rdao.setTid(rvo);
 	}
 
+	@Override
+	public int paysubmit(ReservationVO rvo) {
+		return rdao.paysubmit(rvo);
+	}
+
 }
