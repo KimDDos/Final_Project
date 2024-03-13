@@ -1,5 +1,6 @@
 package com.four.www.user.domain;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -14,13 +15,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CouponVO {
-	private String a;
 	private int userSerialNo;
 	private int cpNum;
 	private String cpTitle;
 	private int cpValue;
 	private String cpScheduleDetail;
-	private LocalDateTime cpReceivedate;
-	private LocalDateTime cpLimitdate;
-
+	private Date cpReceivedate;
+	private Date cpLimitdate;
 }
