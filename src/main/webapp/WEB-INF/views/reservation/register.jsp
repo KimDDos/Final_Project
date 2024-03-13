@@ -137,12 +137,13 @@
 									<input type="hidden" name="resermonth" id="resermonth">
 									<p class="coredr_rg">
 										예약선택일 <input type="text" class="reserDate_input"
-											id="reserdate" name="rvReservdate" value=""> 일
+											id="reserdate" name="rvReservdate" readonly="readonly"
+											value=""> 일
 									</p>
 									<i></i>
 									<p class="coredr_rg">
 										예약선택시간 <input type="text" class="no02" id="resertime"
-											name="rvTime" value="">시
+											name="rvTime" readonly="readonly" value="">시
 									</p>
 								</div>
 							</div>
@@ -225,7 +226,7 @@
 						var="userEmail" />
 					<sec:authentication property="principal.mdto.mvo.userPhoneNum"
 						var="userPhoneNum" />
-					<tbody>
+					<tbody>					
 						<tr>
 							<th><span class="col01">*</span>이름</th>
 							<td><input data-value="작성자을 입력하세요." id="name" name="name"
@@ -378,19 +379,19 @@
 					<div class="jcheck">
 						<input type="checkbox" data-value="개인정보취급방침에 동의하세요." id="agree02"
 							name="agree02" value="" title="개인정보취급방침에 동의합니다 체크해주세요."
-							class="hide"> <label for="agree02"> <span></span>
+							> <label for="agree02"> <span></span>
 							개인정보취급방침에 동의합니다.
 						</label>
 					</div>
+					<div id="error" style="color:red; display:none;">개인정보취급방침에 동의해주세요.</div>
 					<!-- //jcheck -->
 				</div>
 			</div>
-			<div class="writeForm_btn chg_writeForm_btn">
-				<a href="write.php" class="cancel coredr_rg"
-					style="font-size: 16px;">취소</a> <a href="javascript:;" id="w_btn"
-					onclick="$('#frm').submit()" class="res coredr_md"
-					style="background: #a77bca; font-size: 16px;">상담예약하기</a>
-			</div>
+		<div class="writeForm_btn chg_writeForm_btn">
+    <a href="write.php" class="cancel coredr_rg" style="font-size: 16px;">취소</a> 
+    <a href="javascript:;" id="w_btn" onclick="submitForm()" class="res coredr_md" style="background: #a77bca; font-size: 16px;">상담예약하기</a>
+</div>
+
 			<input type="hidden" name="cmd" id="cmd" value="write"> <input
 				type="hidden" name="email" id="email" value=""> <input
 				type="hidden" name="curMonth" id="curMonth" value=""> <input
@@ -410,402 +411,400 @@
 					<img src="/resources/img/quick_online.png" class="off"> <img
 					src="/resources/img/quick_online.png" class="on"><br>
 			</a></li>
-			<li><a href="http://pf.kakao.com/_xmBxoYV/chat" target="_blank">
-					<img src="/resources/img/quick_kakao.png" class="off"><img
-					src="/resources/img/quick_kakao.png" class="on"><br>
-			</a></li>
 
-			<li><a href="javascript:;" data-target="quick_cost_cont"> <img
-					src="/resources/img/quick_cost.png" class="off"><img
-					src="/resources/img/quick_cost.png" class="on"><br>
-			</a></li>
-			<li><a href="javascript:;" data-target="quick_review_cont">
-					<img src="/resources/img/quick_review.png" class="off"><img
-					src="/resources/img/quick_review.png" class="on"><br>
-			</a></li>
-			<li><a href="javascript:;"> <img
-					src="/resources/img/quick_reserve.png" class="off"><img
-					src="/resources/img/quick_reserve.png" class="on"><br>
-			</a></li>
-			<li><a href="https://blog.naver.com/running8806" target="_blank">
-					<!-- 210802 공식블로그 바로가기 추가 --> <img
-					src="/resources/img/quick_blog.png" class="off"><img
-					src="/resources/img/quick_blog.png" class="on"><br>
-			</a></li>
-			<li><a href="javascript:;"> <img
-					src="/resources/img/quick_road.png" class="off"><img
-					src="/resources/img/quick_road.png" class="on"><br>
-			</a></li>
-		</ul>
-		<div class="top_btn">TOP</div>
+			<li>
+				<div id="testasd"
+					data-channel-public-id="_xjbexiG" data-size="small"
+					data-support-multiple-densities="true"><img
+				src="/resources/img/quick_kakao.png"> <br>
 	</div>
+	</li>
 
-	<div class="right" style="width: 0px;">
-		<div class="quick_cont">
-			<div class="quick_box h30" id="quick_online_cont">
-				<div class="q_close">
-					<a href="javascript:;"> <img
-						src="/resources/img/close_icon.png">닫기
-					</a>
-				</div>
-				<div class="q_title">
-					<p>전문트레이너 온라인상담</p>
-					<span>득근득근 온라인상담예약입니다.</span>
-				</div>
-				<form name="frmQProfessoional" id="frmQProfessoional"
-					action="/process.php" method="post">
-					<div class="q_box">
-						<div class="q_name">
-							<input type="text" class="name" name="name"
-								data-value="이름을 입력해주세요." maxlength="50" title="이름"
-								placeholder="이름">
-						</div>
-						<div class="q_phone">
-							<input type="text" placeholder="핸드폰 번호" class="phone" name="cell"
-								data-value="연락처를 입력해주세요." maxlength="13"
-								onkeyup="isNumberOrHyphen(this);"
-								onblur="cvtUserPhoneNumber(this);" value="" title="핸드폰 번호">
-							<label for="p1"> <input type="checkbox" id="p1"
-								name="iscall" value="1"> 수신
-							</label>
-						</div>
-						<div class="q_email">
-							<input type="text" placeholder="이메일" class="email" name="email"
-								data-value="이메일을 입력해주세요." maxlength="100" value="" title="이메일">
-							<label for="e1"> <input type="checkbox" id="e1"
-								name="ismail" value="1"> 수신
-							</label>
-						</div>
-						<div class="q_atten">
-							<select name="clinic_fk" title="운동종목 선택"
-								data-value="관심분야를 선택해 주십시오.">
-								<option value="">관심분야를 선택해주세요</option>
-								<option value="체중감소" data-hospital="1">체중감소</option>
-								<option value="체중증가" data-hospital="1">체중증가</option>
-								<option value="근성장" data-hospital="1">근성장</option>
-								<option value="체형교정" data-hospital="1">체형교정</option>
-								<option value="체지방관리" data-hospital="1">체지방관리</option>
-								<option value="건강목적" data-hospital="1">건강목적</option>
-								<option value="체중집중관리" data-hospital="1">체중집중관리</option>
-								<option value="기타운동" data-hospital="1">기타운동</option>
-							</select>
-						</div>
-						<div class="q_content">
-							<textarea placeholder="상담받으실 내용" name="contents" class="not_vali"
-								title="내용" data-value="내용을 입력해주세요."></textarea>
-						</div>
-						<div class="q_recaptcha">
-							<div class="g-recaptcha"
-								data-sitekey="6Lcvz94gAAAAANUD2KOfsCKXKCCQ4z5O9GARTiPE">
-								<div style="width: 304px; height: 78px;">
-									<div>
-										<iframe title="reCAPTCHA" width="304" height="78"
-											role="presentation" name="a-5459ofiisco0" frameborder="0"
-											scrolling="no"
-											sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-											src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6Lcvz94gAAAAANUD2KOfsCKXKCCQ4z5O9GARTiPE&amp;co=aHR0cHM6Ly9uYXR1cmFsZmFjZS5jby5rcjo0NDM.&amp;hl=ko&amp;v=yiNW3R9jkyLVP5-EEZLDzUtA&amp;size=normal&amp;cb=yxjw08k7b14c"></iframe>
-									</div>
-									<textarea id="g-recaptcha-response" name="g-recaptcha-response"
-										class="g-recaptcha-response"
-										style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+
+
+
+	<li><a href="javascript:;" data-target="quick_cost_cont"> <img
+			src="/resources/img/quick_cost.png" class="off"><img
+			src="/resources/img/quick_cost.png" class="on"><br>
+	</a></li>
+	<li><a href="javascript:;" data-target="quick_review_cont"> <img
+			src="/resources/img/quick_review.png" class="off"><img
+			src="/resources/img/quick_review.png" class="on"><br>
+	</a></li>
+	<li><a href="javascript:;"> <img
+			src="/resources/img/quick_reserve.png" class="off"><img
+			src="/resources/img/quick_reserve.png" class="on"><br>
+	</a></li>
+	<li><a href="https://blog.naver.com/running8806" target="_blank">
+			<!-- 210802 공식블로그 바로가기 추가 --> <img
+			src="/resources/img/quick_blog.png" class="off"><img
+			src="/resources/img/quick_blog.png" class="on"><br>
+	</a></li>
+	<li><a href="javascript:;"> <img
+			src="/resources/img/quick_road.png" class="off"><img
+			src="/resources/img/quick_road.png" class="on"><br>
+	</a></li>
+	</ul>
+	<div class="top_btn">TOP</div>
+</div>
+
+<div class="right" style="width: 0px;">
+	<div class="quick_cont">
+		<div class="quick_box h30" id="quick_online_cont">
+			<div class="q_close">
+				<a href="javascript:;"> <img src="/resources/img/close_icon.png">닫기
+				</a>
+			</div>
+			<div class="q_title">
+				<p>전문트레이너 온라인상담</p>
+				<span>득근득근 온라인상담예약입니다.</span>
+			</div>
+			<form name="frmQProfessoional" id="frmQProfessoional"
+				action="/process.php" method="post">
+				<div class="q_box">
+					<div class="q_name">
+						<input type="text" class="name" name="name"
+							data-value="이름을 입력해주세요." maxlength="50" title="이름"
+							placeholder="이름">
+					</div>
+					<div class="q_phone">
+						<input type="text" placeholder="핸드폰 번호" class="phone" name="cell"
+							data-value="연락처를 입력해주세요." maxlength="13"
+							onkeyup="isNumberOrHyphen(this);"
+							onblur="cvtUserPhoneNumber(this);" value="" title="핸드폰 번호">
+						<label for="p1"> <input type="checkbox" id="p1"
+							name="iscall" value="1"> 수신
+						</label>
+					</div>
+					<div class="q_email">
+						<input type="text" placeholder="이메일" class="email" name="email"
+							data-value="이메일을 입력해주세요." maxlength="100" value="" title="이메일">
+						<label for="e1"> <input type="checkbox" id="e1"
+							name="ismail" value="1"> 수신
+						</label>
+					</div>
+					<div class="q_atten">
+						<select name="clinic_fk" title="운동종목 선택"
+							data-value="관심분야를 선택해 주십시오.">
+							<option value="">관심분야를 선택해주세요</option>
+							<option value="체중감소" data-hospital="1">체중감소</option>
+							<option value="체중증가" data-hospital="1">체중증가</option>
+							<option value="근성장" data-hospital="1">근성장</option>
+							<option value="체형교정" data-hospital="1">체형교정</option>
+							<option value="체지방관리" data-hospital="1">체지방관리</option>
+							<option value="건강목적" data-hospital="1">건강목적</option>
+							<option value="체중집중관리" data-hospital="1">체중집중관리</option>
+							<option value="기타운동" data-hospital="1">기타운동</option>
+						</select>
+					</div>
+					<div class="q_content">
+						<textarea placeholder="상담받으실 내용" name="contents" class="not_vali"
+							title="내용" data-value="내용을 입력해주세요."></textarea>
+					</div>
+					<div class="q_recaptcha">
+						<div class="g-recaptcha"
+							data-sitekey="6Lcvz94gAAAAANUD2KOfsCKXKCCQ4z5O9GARTiPE">
+							<div style="width: 304px; height: 78px;">
+								<div>
+									<iframe title="reCAPTCHA" width="304" height="78"
+										role="presentation" name="a-5459ofiisco0" frameborder="0"
+										scrolling="no"
+										sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+										src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6Lcvz94gAAAAANUD2KOfsCKXKCCQ4z5O9GARTiPE&amp;co=aHR0cHM6Ly9uYXR1cmFsZmFjZS5jby5rcjo0NDM.&amp;hl=ko&amp;v=yiNW3R9jkyLVP5-EEZLDzUtA&amp;size=normal&amp;cb=yxjw08k7b14c"></iframe>
 								</div>
-								<iframe style="display: none;"></iframe>
+								<textarea id="g-recaptcha-response" name="g-recaptcha-response"
+									class="g-recaptcha-response"
+									style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
 							</div>
-						</div>
-						<div class="q_agree">
-							<label for="agree1"> <input type="checkbox" id="agree1"
-								name="agree" data-value="개인정보 수집에 동의해주세요."> 개인정보취급방침에
-								동의합니다.
-							</label>
+							<iframe style="display: none;"></iframe>
 						</div>
 					</div>
-					<input type="hidden" name="cmd" value="write"> <input
-						type="hidden" name="setTablename" value="q_professional">
-				</form>
-				<div class="q_btn">
-					<a>상담하기</a>
+					<div class="q_agree">
+						<label for="agree1"> <input type="checkbox" id="agree1"
+							name="agree" data-value="개인정보 수집에 동의해주세요."> 개인정보취급방침에
+							동의합니다.
+						</label>
+					</div>
 				</div>
+				<input type="hidden" name="cmd" value="write"> <input
+					type="hidden" name="setTablename" value="q_professional">
+			</form>
+			<div class="q_btn">
+				<a>상담하기</a>
 			</div>
-			<div class="quick_box">
-				<div class="q_close">
-					<a href="javascript:;"> <img
-						src="/resources/img/close_icon.png">닫기
-					</a>
-				</div>
-				<div class="q_title">
-					<p>카톡상담</p>
-					<span>득근득근 온라인상담예약입니다.</span>
-				</div>
-				<div class="kakao_box">
-					<p>kakaoTalk ID :</p>
-					<b>naturalps<i></i></b>
-					<div class="q_posK">
-						<img src="">
-					</div>
-					<span>친구로 추가하시면 실시간으로 상담 받아보실 수 있습니다!</span>
-				</div>
-				<form name="frmQKakao" id="frmQKakao" action="/process.php"
-					method="post">
-					<div class="q_box">
-						<div class="q_name">
-							<input type="text" placeholder="이름" class="name" name="name"
-								data-value="이름을 입력해주세요." maxlength="50" value="" title="이름">
-						</div>
-						<div class="q_phone">
-							<input type="text" placeholder="핸드폰 번호" class="phone" name="cell"
-								data-value="연락처를 입력해주세요." maxlength="13"
-								onkeyup="isNumberOrHyphen(this);"
-								onblur="cvtUserPhoneNumber(this);" value="" title="핸드폰 번호">
-							<label for="p2"> <input type="checkbox" id="p2"
-								name="iscall" value="1"> 수신
-							</label>
-						</div>
-						<div class="q_atten">
-							<select name="clinic_fk" title="진료과목 선택"
-								data-value="진료과목을 선택해 주십시오.">
-								<option value="">전체</option>
-								<option value="1" data-hospital="1">눈성형</option>
-								<option value="2" data-hospital="1">코성형</option>
-								<option value="4" data-hospital="1">가슴성형</option>
-								<option value="5" data-hospital="1">안티에이징</option>
-								<option value="3" data-hospital="1">안면윤곽</option>
-								<option value="8" data-hospital="1">남자성형</option>
-								<option value="6" data-hospital="1">바디성형</option>
-								<option value="7" data-hospital="1">기타성형</option>
-							</select>
-						</div>
-						<div class="q_content">
-							<textarea placeholder="내용" name="contents" class="not_vali"
-								title="내용"></textarea>
-						</div>
-						<div class="q_agree">
-							<label for="agree2"> <input type="checkbox" id="agree2"
-								name="agree2" data-value="개인정보 수집에 동의해주세요."> 개인정보취급방침에
-								동의합니다.
-							</label>
-						</div>
-					</div>
-					<input type="hidden" name="cmd" value="write"> <input
-						type="hidden" name="setTablename" value="q_kakao">
-				</form>
-				<div class="q_btn">
-					<a href="javascript:;" class="mt5"
-						onclick="goSaveQuick(document.frmQKakao);">상담하기</a>
-				</div>
+		</div>
+		<div class="quick_box">
+			<div class="q_close">
+				<a href="javascript:;"> <img src="/resources/img/close_icon.png">닫기
+				</a>
 			</div>
-			<div class="quick_box h30" id="quick_cost_cont">
-				<div class="q_close">
-					<a href="javascript:;"> <img
-						src="/resources/img/close_icon.png">닫기
-					</a>
-				</div>
-				<div class="q_title">
-					<p>실시간 비용상담</p>
-					<span>득근득근 온라인상담예약입니다.</span>
-				</div>
-				<form name="frmQCost" id="frmQCost" action="/process.php"
-					method="post">
-					<div class="q_box">
-						<div class="q_name">
-							<input type="text" placeholder="이름" class="name" name="name"
-								data-value="이름을 입력해주세요." maxlength="50" value="" title="이름">
-						</div>
-						<div class="q_phone">
-							<input type="text" placeholder="핸드폰 번호" class="phone" name="cell"
-								data-value="연락처를 입력해주세요." maxlength="13"
-								onkeyup="isNumberOrHyphen(this);"
-								onblur="cvtUserPhoneNumber(this);" value="" title="핸드폰 번호">
-							<label for="p3"> <input type="checkbox" id="p3"
-								name="iscall" value="1"> 수신
-							</label>
-						</div>
-						<div class="q_atten">
-							<select name="clinic_fk" title="진료과목 선택"
-								data-value="진료과목을 선택해 주십시오.">
-								<option value="">전체</option>
-								<option value="1" data-hospital="1">눈성형</option>
-								<option value="2" data-hospital="1">코성형</option>
-								<option value="4" data-hospital="1">가슴성형</option>
-								<option value="5" data-hospital="1">안티에이징</option>
-								<option value="3" data-hospital="1">안면윤곽</option>
-								<option value="8" data-hospital="1">남자성형</option>
-								<option value="6" data-hospital="1">바디성형</option>
-								<option value="7" data-hospital="1">기타성형</option>
-							</select>
-						</div>
-						<div class="q_atten">
-							<select name="area" data-value="거주지역을 선택해주세요.">
-								<option value="">거주지역</option>
-								<option value="서울">서울</option>
-								<option value="부산">부산</option>
-								<option value="대구">대구</option>
-								<option value="인천">인천</option>
-								<option value="광주">광주</option>
-								<option value="대전">대전</option>
-								<option value="울산">울산</option>
-								<option value="강원">강원</option>
-								<option value="경기">경기</option>
-								<option value="경남">경남</option>
-								<option value="경북">경북</option>
-								<option value="전남">전남</option>
-								<option value="전북">전북</option>
-								<option value="제주">제주</option>
-								<option value="충남">충남</option>
-								<option value="충북">충북</option>
-							</select>
-						</div>
-						<div class="q_atten">
-							<select name="sex" data-value="성별을 선택해주세요.">
-								<option value="">성별</option>
-								<option value="1">남자</option>
-								<option value="2">여자</option>
-							</select>
-						</div>
-						<div class="q_atten">
-							<select name="age" data-value="연령을 선택해주세요.">
-								<option value="">연령</option>
-								<option value="10대">10대</option>
-								<option value="20대 초반">20대 초반</option>
-								<option value="20대 중반">20대 중반</option>
-								<option value="20대 후반">20대 후반</option>
-								<option value="30대 초반">30대 초반</option>
-								<option value="30대 중반">30대 중반</option>
-								<option value="30대 후반">30대 후반</option>
-								<option value="40대">40대</option>
-								<option value="50대">50대</option>
-								<option value="60대 이상">60대 이상</option>
-							</select>
-						</div>
-						<div class="q_agree">
-							<label for="agree3"> <input type="checkbox" id="agree3"
-								name="agree3" data-value="개인정보 수집에 동의해주세요."> 개인정보취급방침에
-								동의합니다.
-							</label>
-						</div>
-					</div>
-					<input type="hidden" name="cmd" value="write"> <input
-						type="hidden" name="setTablename" value="q_cost">
-				</form>
-				<div class="q_btn">
-					<a href="javascript:;" onclick="goSaveQuick(document.frmQCost);">상담하기</a>
-				</div>
+			<div class="q_title">
+				<p>카톡상담</p>
+				<span>득근득근 온라인상담예약입니다.</span>
 			</div>
-			<div class="quick_box" id="quick_review_cont">
-				<div class="q_close">
-					<a href="javascript:;"> <img
-						src="/resources/img/close_icon.png">닫기
-					</a>
+			<div class="kakao_box">
+				<p>kakaoTalk ID :</p>
+				<b>naturalps<i></i></b>
+				<div class="q_posK">
+					<img src="">
 				</div>
-				<div class="q_title">
-					<p>수술후기</p>
-					<span>득근득근 온라인상담예약입니다.</span>
-				</div>
-				<div class="q_table">
-					<table>
-						<colgroup>
-							<col width="65px">
-							<col width="135px">
-							<col width="*">
-						</colgroup>
-						<tbody>
-							<tr>
-								<th>번호</th>
-								<th>이미지</th>
-								<th>제목</th>
-							</tr>
-							<tr style="cursor: pointer;"
-								onclick="location.href='/review/review/read.php?no=559'">
-								<td>447</td>
-								<td><img src="" style="width: 135px; height: 80px;">
-								</td>
-								<td>뒤밑재수술 너무 잘해주셔서 감사해요 ㅎㅎㅎ</td>
-							</tr>
-							<tr style="cursor: pointer;"
-								onclick="location.href='/review/review/read.php?no=558'">
-								<td>446</td>
-								<td><img src="" style="width: 135px; height: 80px;">
-								</td>
-								<td>어떤가용?!! 이정도면 잘 자리잡은거죠?</td>
-							</tr>
-							<tr style="cursor: pointer;"
-								onclick="location.href='/review/review/read.php?no=557'">
-								<td>445</td>
-								<td><img src="" style="width: 135px; height: 80px;">
-								</td>
-								<td>복코 수술 받앗어요!</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="q_btn add">
-					<a href="/review/review/index.php">더보기</a>
-				</div>
+				<span>친구로 추가하시면 실시간으로 상담 받아보실 수 있습니다!</span>
 			</div>
-			<div class="quick_box">
-				<div class="q_close">
-					<a href="javascript:;"> <img
-						src="/resources/img/close_icon.png">닫기
-					</a>
-				</div>
-				<div class="q_title">
-					<p>온라인예약</p>
-					<span class="pb10">득근득근 온라인상담예약입니다.</span>
-				</div>
-				<div class="q_online">
-					<h4>상담문의</h4>
-					<p class="font_B">02. 1234. 5678</p>
-					<div class="online_pos">
-						<img src="">
+			<form name="frmQKakao" id="frmQKakao" action="/process.php"
+				method="post">
+				<div class="q_box">
+					<div class="q_name">
+						<input type="text" placeholder="이름" class="name" name="name"
+							data-value="이름을 입력해주세요." maxlength="50" value="" title="이름">
 					</div>
-					<span>온라인예약 후 방문해주시면,<br> <b>원하시는 날짜와 시간에 상담을 받으실 수
-							있습니다!</b></span>
-					<div class="q_online_Box">
-						<p>
-							<b class="letter745">평<i>일</i></b><span><u>AM. </u><b>10:00
-							</b><u>~ PM. </u><b>7:00</b></span>
-						</p>
-						<p>
-							<b>금요일</b><span><u>AM. </u><b>10:00 </b><u>~ PM. </u><b>9:00</b></span>
-						</p>
-						<p>
-							<b>토요일</b><span><u>AM. </u><b>10:00 </b><u>~ PM. </u><b>4:00</b></span>
-						</p>
-						<span>*일요일, 공휴일 휴진</span>
+					<div class="q_phone">
+						<input type="text" placeholder="핸드폰 번호" class="phone" name="cell"
+							data-value="연락처를 입력해주세요." maxlength="13"
+							onkeyup="isNumberOrHyphen(this);"
+							onblur="cvtUserPhoneNumber(this);" value="" title="핸드폰 번호">
+						<label for="p2"> <input type="checkbox" id="p2"
+							name="iscall" value="1"> 수신
+						</label>
+					</div>
+					<div class="q_atten">
+						<select name="clinic_fk" title="진료과목 선택"
+							data-value="진료과목을 선택해 주십시오.">
+							<option value="">전체</option>
+							<option value="1" data-hospital="1">눈성형</option>
+							<option value="2" data-hospital="1">코성형</option>
+							<option value="4" data-hospital="1">가슴성형</option>
+							<option value="5" data-hospital="1">안티에이징</option>
+							<option value="3" data-hospital="1">안면윤곽</option>
+							<option value="8" data-hospital="1">남자성형</option>
+							<option value="6" data-hospital="1">바디성형</option>
+							<option value="7" data-hospital="1">기타성형</option>
+						</select>
+					</div>
+					<div class="q_content">
+						<textarea placeholder="내용" name="contents" class="not_vali"
+							title="내용"></textarea>
+					</div>
+					<div class="q_agree">
+						<label for="agree2"> <input type="checkbox" id="agree2"
+							name="agree2" data-value="개인정보 수집에 동의해주세요."> 개인정보취급방침에
+							동의합니다.
+						</label>
 					</div>
 				</div>
-				<div class="q_btn">
-					<a href="/nconsult/reserve/write.php" class="mt15">온라인예약</a>
-				</div>
+				<input type="hidden" name="cmd" value="write"> <input
+					type="hidden" name="setTablename" value="q_kakao">
+			</form>
+			<div class="q_btn">
+				<a href="javascript:;" class="mt5"
+					onclick="goSaveQuick(document.frmQKakao);">상담하기</a>
 			</div>
-			<div class="quick_box"></div>
-			<div class="quick_box">
-				<div class="q_close">
-					<a href="javascript:;"> <img
-						src="/resources/img/close_icon.png">닫기
-					</a>
+		</div>
+		<div class="quick_box h30" id="quick_cost_cont">
+			<div class="q_close">
+				<a href="javascript:;"> <img src="/resources/img/close_icon.png">닫기
+				</a>
+			</div>
+			<div class="q_title">
+				<p>실시간 비용상담</p>
+				<span>득근득근 온라인상담예약입니다.</span>
+			</div>
+			<form name="frmQCost" id="frmQCost" action="/process.php"
+				method="post">
+				<div class="q_box">
+					<div class="q_name">
+						<input type="text" placeholder="이름" class="name" name="name"
+							data-value="이름을 입력해주세요." maxlength="50" value="" title="이름">
+					</div>
+					<div class="q_phone">
+						<input type="text" placeholder="핸드폰 번호" class="phone" name="cell"
+							data-value="연락처를 입력해주세요." maxlength="13"
+							onkeyup="isNumberOrHyphen(this);"
+							onblur="cvtUserPhoneNumber(this);" value="" title="핸드폰 번호">
+						<label for="p3"> <input type="checkbox" id="p3"
+							name="iscall" value="1"> 수신
+						</label>
+					</div>
+					<div class="q_atten">
+						<select name="clinic_fk" title="진료과목 선택"
+							data-value="진료과목을 선택해 주십시오.">
+							<option value="">전체</option>
+							<option value="1" data-hospital="1">눈성형</option>
+							<option value="2" data-hospital="1">코성형</option>
+							<option value="4" data-hospital="1">가슴성형</option>
+							<option value="5" data-hospital="1">안티에이징</option>
+							<option value="3" data-hospital="1">안면윤곽</option>
+							<option value="8" data-hospital="1">남자성형</option>
+							<option value="6" data-hospital="1">바디성형</option>
+							<option value="7" data-hospital="1">기타성형</option>
+						</select>
+					</div>
+					<div class="q_atten">
+						<select name="area" data-value="거주지역을 선택해주세요.">
+							<option value="">거주지역</option>
+							<option value="서울">서울</option>
+							<option value="부산">부산</option>
+							<option value="대구">대구</option>
+							<option value="인천">인천</option>
+							<option value="광주">광주</option>
+							<option value="대전">대전</option>
+							<option value="울산">울산</option>
+							<option value="강원">강원</option>
+							<option value="경기">경기</option>
+							<option value="경남">경남</option>
+							<option value="경북">경북</option>
+							<option value="전남">전남</option>
+							<option value="전북">전북</option>
+							<option value="제주">제주</option>
+							<option value="충남">충남</option>
+							<option value="충북">충북</option>
+						</select>
+					</div>
+					<div class="q_atten">
+						<select name="sex" data-value="성별을 선택해주세요.">
+							<option value="">성별</option>
+							<option value="1">남자</option>
+							<option value="2">여자</option>
+						</select>
+					</div>
+					<div class="q_atten">
+						<select name="age" data-value="연령을 선택해주세요.">
+							<option value="">연령</option>
+							<option value="10대">10대</option>
+							<option value="20대 초반">20대 초반</option>
+							<option value="20대 중반">20대 중반</option>
+							<option value="20대 후반">20대 후반</option>
+							<option value="30대 초반">30대 초반</option>
+							<option value="30대 중반">30대 중반</option>
+							<option value="30대 후반">30대 후반</option>
+							<option value="40대">40대</option>
+							<option value="50대">50대</option>
+							<option value="60대 이상">60대 이상</option>
+						</select>
+					</div>
+					<div class="q_agree">
+						<label for="agree3"> <input type="checkbox" id="agree3"
+							name="agree3" data-value="개인정보 수집에 동의해주세요."> 개인정보취급방침에
+							동의합니다.
+						</label>
+					</div>
 				</div>
-				<div class="q_title">
-					<p>오시는길</p>
-					<span class="pb5 mb20">득근득근 온라인상담예약입니다.</span>
+				<input type="hidden" name="cmd" value="write"> <input
+					type="hidden" name="setTablename" value="q_cost">
+			</form>
+			<div class="q_btn">
+				<a href="javascript:;" onclick="goSaveQuick(document.frmQCost);">상담하기</a>
+			</div>
+		</div>
+		<div class="quick_box" id="quick_review_cont">
+			<div class="q_close">
+				<a href="javascript:;"> <img src="/resources/img/close_icon.png">닫기
+				</a>
+			</div>
+			<div class="q_title">
+				<p>수술후기</p>
+				<span>득근득근 온라인상담예약입니다.</span>
+			</div>
+			<div class="q_table">
+				<table>
+					<colgroup>
+						<col width="65px">
+						<col width="135px">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>번호</th>
+							<th>이미지</th>
+							<th>제목</th>
+						</tr>
+						<tr style="cursor: pointer;"
+							onclick="location.href='/review/review/read.php?no=559'">
+							<td>447</td>
+							<td><img src="" style="width: 135px; height: 80px;"></td>
+							<td>뒤밑재수술 너무 잘해주셔서 감사해요 ㅎㅎㅎ</td>
+						</tr>
+						<tr style="cursor: pointer;"
+							onclick="location.href='/review/review/read.php?no=558'">
+							<td>446</td>
+							<td><img src="" style="width: 135px; height: 80px;"></td>
+							<td>어떤가용?!! 이정도면 잘 자리잡은거죠?</td>
+						</tr>
+						<tr style="cursor: pointer;"
+							onclick="location.href='/review/review/read.php?no=557'">
+							<td>445</td>
+							<td><img src="" style="width: 135px; height: 80px;"></td>
+							<td>복코 수술 받앗어요!</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="q_btn add">
+				<a href="/review/review/index.php">더보기</a>
+			</div>
+		</div>
+		<div class="quick_box">
+			<div class="q_close">
+				<a href="javascript:;"> <img src="/resources/img/close_icon.png">닫기
+				</a>
+			</div>
+			<div class="q_title">
+				<p>온라인예약</p>
+				<span class="pb10">득근득근 온라인상담예약입니다.</span>
+			</div>
+			<div class="q_online">
+				<h4>상담문의</h4>
+				<p class="font_B">02. 1234. 5678</p>
+				<div class="online_pos">
+					<img src="">
 				</div>
-				<div class="q_map">
-					<div id="daumRoughmapContainer1517375074018"
-						class="root_daum_roughmap root_daum_roughmap_landing"></div>
-
-				</div>
-				<div class="q_map_txt">
+				<span>온라인예약 후 방문해주시면,<br> <b>원하시는 날짜와 시간에 상담을 받으실 수
+						있습니다!</b></span>
+				<div class="q_online_Box">
 					<p>
-						서울시 강남구 논현동 1 (강남대로 606)<br>삼주빌딩 11층
+						<b class="letter745">평<i>일</i></b><span><u>AM. </u><b>10:00
+						</b><u>~ PM. </u><b>7:00</b></span>
 					</p>
-					<div class="bar"></div>
-					<span>3호선 신사역 2, 3번 출구 바로 앞</span>
+					<p>
+						<b>금요일</b><span><u>AM. </u><b>10:00 </b><u>~ PM. </u><b>9:00</b></span>
+					</p>
+					<p>
+						<b>토요일</b><span><u>AM. </u><b>10:00 </b><u>~ PM. </u><b>4:00</b></span>
+					</p>
+					<span>*일요일, 공휴일 휴진</span>
 				</div>
-				<div class="q_btn">
-					<a href="/intro/information.php" class="mt17">진료안내 및 오시는길</a>
-				</div>
+			</div>
+			<div class="q_btn">
+				<a href="/nconsult/reserve/write.php" class="mt15">온라인예약</a>
+			</div>
+		</div>
+		<div class="quick_box"></div>
+		<div class="quick_box">
+			<div class="q_close">
+				<a href="javascript:;"> <img src="/resources/img/close_icon.png">닫기
+				</a>
+			</div>
+			<div class="q_title">
+				<p>오시는길</p>
+				<span class="pb5 mb20">득근득근 온라인상담예약입니다.</span>
+			</div>
+			<div class="q_map">
+				<div id="daumRoughmapContainer1517375074018"
+					class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+			</div>
+			<div class="q_map_txt">
+				<p>
+					서울시 강남구 논현동 1 (강남대로 606)<br>삼주빌딩 11층
+				</p>
+				<div class="bar"></div>
+				<span>3호선 신사역 2, 3번 출구 바로 앞</span>
+			</div>
+			<div class="q_btn">
+				<a href="/intro/information.php" class="mt17">진료안내 및 오시는길</a>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 
@@ -1022,4 +1021,43 @@
 				})
 				/* 예약 선택날짜 받아오기 */
 			</script>
+<!-- 카카오 상담톡 -->
+<script>
+  window.kakaoAsyncInit = function() {
+    Kakao.Channel.createAddChannelButton({
+      container: '#testasd',
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    console.log("JS" + js + "\m " + d + " " + s + " " +id);
+    console.log("FJS" + fjs);
+    js.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.channel.min.js';
+    js.integrity = 'sha384-BSbysXza7dDuXIO1tS8Xj7Em8iygTWPkqxIJhWSA7ATH4plc58qTJmIJ19toGZ8g';
+    js.crossOrigin = 'anonymous';
+    fjs.parentNode.insertBefore(js, fjs);
+  })(document, 'script', 'kakao-js-sdk');
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 폼 제출 함수
+    window.submitForm = function() {
+        var agreeCheckbox = document.getElementById('agree02');
+        if (!agreeCheckbox.checked) {
+            alert('개인정보취급방침에 동의해주세요.'); // 체크박스 선택 확인
+            return; // 체크되지 않았다면 여기서 중단
+        }
+        document.getElementById('frm').submit(); // 모든 검증이 통과되면 폼 제출
+    };
+});
+</script>
+
+
+
+
+
 <jsp:include page="../layout/footer.jsp"></jsp:include>
