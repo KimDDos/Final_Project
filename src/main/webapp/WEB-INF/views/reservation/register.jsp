@@ -75,7 +75,7 @@
 						<tr style="border-bottom: none;">
 
 							<th style="background: #fff;"><span class="col01">*</span>운동목적</th>
-							<td><select name="ppTitle" id="clinic_fk"
+							<td><select name="rvCategory" id="clinic_fk"
 								data-value="운동목적을 선택해주세요." class="chg_sec">
 									<option value="">운동목적을 선택해주세요.</option>
 									<option value="체중감소" data-hospital="1">체중감소</option>
