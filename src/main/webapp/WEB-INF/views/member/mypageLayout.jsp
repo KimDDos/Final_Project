@@ -32,7 +32,7 @@
 	</a>
 	<c:if test="${isTrainer eq 'N'}">
 		<hr>
-		<a href="/member/coupon" style="text-decoration: none; color: black;">
+		<a href="/member/coupon?UserNo=${userSerialNo}" style="text-decoration: none; color: black;">
 			<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
 				<img class="img-fluid rounded-circle"
 					src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />

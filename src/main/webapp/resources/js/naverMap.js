@@ -10,6 +10,7 @@ map = new naver.maps.Map("aboutmap52", {
 });
 
 var marker = [];
+var infoWindow2 = [];
 
 for (let i = 0; i < markers.length; i++) {
     var temp = new naver.maps.Marker({
@@ -28,29 +29,27 @@ for (let i = 0; i < markers.length; i++) {
         '</div>'
     ].join('');
 
-    var infoWindow2 = new naver.maps.InfoWindow({
+    infoWindow2[i] = new naver.maps.InfoWindow({
         anchorSkew: true,
         content: contentString
     });
 
+    console.log(infoWindow2);
+
     naver.maps.Event.addListener(marker[i], "click", function (e) {
-        console.log(marker[i].position.x);
-        console.log(marker[i].position.y);
         var templat = new naver.maps.LatLng(markers[i].x, markers[i].y);
-        if (infoWindow2.getMap()) {
+        if (infoWindow2[i].getMap()) {
             if (i != select) {
-                console.log("DIFFERENT SELECT");
                 select = i;
-                infoWindow2.close();
-                infoWindow2.open(map, marker[i]);
+                infoWindow2[i].close();
+                infoWindow2[i].open(map, marker[i]);
             }
             else {
-                console.log("SAME SELECT");
-                infoWindow2.close();
+                infoWindow2[i].close();
             }
         } else {
             select = i;
-            infoWindow2.open(map, marker[i]);
+            infoWindow2[i].open(map, marker[i]);
         }
         SAddress.value = markers[i].address;
         STitle.value = markers[i].title;
@@ -60,21 +59,19 @@ for (let i = 0; i < markers.length; i++) {
 
     document.getElementById(`MList${i}`).addEventListener("click", function () {
         var templat = new naver.maps.LatLng(markers[i].x, markers[i].y);
-        if (infoWindow2.getMap()) {
+        if (infoWindow2[i].getMap()) {
             if (i != select) {
-                console.log("DIFFERENT SELECT");
                 select = i;
-                infoWindow2.close();
-                infoWindow2.open(map, marker[i]);
+                infoWindow2[i].close();
+                infoWindow2[i].open(map, marker[i]);
             }
             else {
-                console.log("SAME SELECT");
-                infoWindow2.close();
+                infoWindow2[i].close();
             }
         }
         else {
             select = i;
-            infoWindow2.open(map, marker[i]);
+            infoWindow2[i].open(map, marker[i]);
         }
         SAddress.value = markers[i].address;
         STitle.value = markers[i].title;

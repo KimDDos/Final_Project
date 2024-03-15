@@ -26,8 +26,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.four.www.reservation.domain.ReservationVO;
 import com.four.www.reservation.service.ReservationService;
 import com.four.www.user.domain.CalendarVO;
+import com.four.www.user.domain.CouponVO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.domain.UserVO;
+import com.four.www.user.service.CouponService;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -41,6 +43,7 @@ public class MemberController {
 
 	private final MemberService msv;
 	private final ReservationService rsv;
+	private final CouponService csv;
 
 	@GetMapping("/memberRegister")
 	public void memberRegister() {
@@ -93,7 +96,9 @@ public class MemberController {
 	}
 
 	@GetMapping("/coupon")
-	public void coupon() {
+	public void coupon(@RequestParam(value = "UserNo", required = false)int UserNo,Model m) {
+		List<CouponVO>cList = csv.getCouponList(UserNo);
+		m.addAttribute("cList",cList);
 	}
 
 	// mypage에서 패스워드 체크페이지로 이동.

@@ -35,8 +35,10 @@ import com.four.www.admin.handler.PagingHandler;
 import com.four.www.main.repository.SearchDTO;
 import com.four.www.reservation.domain.ReservationVO;
 import com.four.www.reservation.service.ReservationService;
+import com.four.www.user.domain.CouponVO;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.oauth.CustomAuthMemberService;
+import com.four.www.user.service.CouponService;
 import com.four.www.user.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -50,6 +52,7 @@ public class ReservationController {
 
 	private final ReservationService rsv;
 	private final MemberService msv;
+	private final CouponService csv;
 	private final CustomAuthMemberService cms;
 
 	@GetMapping("/gymSelect")
@@ -167,9 +170,11 @@ public class ReservationController {
 	@GetMapping("/detail")
 	public String detail(@RequestParam("rno") int rno, Model m) {
 		ReservationVO Reserv = rsv.getReserveOne(rno);
+		List<CouponVO> coupons = csv.getCouponList(Reserv.getUserSerialNo());
 
 		m.addAttribute("rvo", Reserv);
-
+		m.addAttribute("cvo", coupons);
+		
 		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
 
 		return "/reservation/reservationDetail";
