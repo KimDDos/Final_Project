@@ -1,6 +1,7 @@
 package com.four.www.reservation.controller;
 
 import java.io.BufferedReader;
+
 import java.io.DataOutput;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -33,9 +34,7 @@ import com.four.www.admin.domain.NoticeVO;
 import com.four.www.admin.domain.PagingVO;
 import com.four.www.admin.handler.PagingHandler;
 import com.four.www.main.repository.SearchDTO;
-import com.four.www.reservation.domain.PurposeVO;
 import com.four.www.reservation.domain.ReservationVO;
-import com.four.www.reservation.service.PurposeService;
 import com.four.www.reservation.service.ReservationService;
 import com.four.www.user.domain.MemberVO;
 import com.four.www.user.oauth.CustomAuthMemberService;
@@ -51,7 +50,6 @@ import lombok.extern.slf4j.Slf4j;
 public class ReservationController {
 
 	private final ReservationService rsv;
-	private final PurposeService psv;
 	private final MemberService msv;
 	private final CustomAuthMemberService cms;
 
@@ -72,13 +70,11 @@ public class ReservationController {
 	}
 
 	@PostMapping("/register")
-	public String register(Model m, ReservationVO rvo, PurposeVO pvo) {
+	public String register(Model m, ReservationVO rvo) {
 
 		int reservationResult = rsv.register(rvo);
-		int purposeResult = psv.register(pvo);
 
 		m.addAttribute("reservationResult", reservationResult);
-		m.addAttribute("purposeResult", purposeResult);
 
 		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
 

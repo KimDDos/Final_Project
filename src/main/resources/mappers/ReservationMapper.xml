@@ -11,8 +11,8 @@
 	<insert id="register"
 		parameterType="com.four.www.reservation.domain.ReservationVO">
 		insert into reservation
-		(User_serial_no,trainer_no,phone_num,rv_reservdate,rv_time,rv_pw,rv_content,rv_title,rv_address,rv_status,user_name,rv_category)
-		values(#{userSerialNo},#{trainerNo},#{phoneNum},#{rvReservdate},#{rvTime},#{rvPw},#{rvContent},#{rvTitle},#{rvAddress},"예약대기",#{userName}
+		(User_serial_no,trainer_no,phone_num,rv_reservdate,rv_time,rv_content,rv_title,rv_address,rv_status,user_name,rv_category)
+		values(#{userSerialNo},#{trainerNo},#{phoneNum},#{rvReservdate},#{rvTime},#{rvContent},#{rvTitle},#{rvAddress},"예약대기",#{userName},
 		#{rvCategory})
 	</insert>
 
