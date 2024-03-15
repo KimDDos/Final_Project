@@ -44,5 +44,6 @@ public class ReservationVO {
 	private String userName;
 	private String trainerName;
 	private String tid;
+	private String rvCategory;
 	
 }
