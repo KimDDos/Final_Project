@@ -581,7 +581,7 @@ select::-ms-expand {display: none;}
 .schedule > div .cal_check{display:inline-block; width:18px; height:16px; background:#f6f9fd; box-sizing:border-box; border:1px solid #ddd; margin:0 10px 0 0; vertical-align:middle;}
 /*.schedule > div div input[type="text"]{width:178px; height:28px; margin-left:10px; text-align:center;}*/
 
-.schedule_time{overflow:hidden; width:calc(100% - 620px); float:left;}
+.schedule_time{overflow:hidden; width:calc(100% - 620px); float:left; }
 .schedule_time > p.titype {font-size:14px; font-weight:700; color:#222; border:0; background:none; text-align:left; margin:20px 0 10px;}
 .schedule_time div{width:32%; float:left; text-align:center; border:1px solid #e1e3e4; border-radius:15px; box-sizing:border-box; margin:0 2% 0 0;}
 .schedule_time div:last-of-type {margin-right:0;}
@@ -603,8 +603,8 @@ select::-ms-expand {display: none;}
 .calender_wrap .under_wrap p {float:left; font-size:13px; color:#444; vertical-align:middle; line-height:30px;}
 .calender_wrap .under_wrap > .sr_wrap {float:right;}
 .calender_wrap .under_wrap > .sr_wrap i {display:block; float:left; width:1px; height:17px; vertical-align:middle; background:#d7d7d7; margin:6px 10px 0px;}
-.calender_wrap .under_wrap > .sr_wrap input {width:90px; height:30px; text-align:center; border:1px solid #e1e3e4; font-size:13px; color:#bb99b1; box-sizing:border-box; padding:0 2px; vertical-align:baseline; margin:0 3px;}
-.calender_wrap .under_wrap > .sr_wrap input.no02 {width:70px;}
+.calender_wrap .under_wrap > .sr_wrap input {width:90px; height:30px; text-align:center; border:1px solid #e1e3e4; font-size:13px; color:#bb99b1; box-sizing:border-box; padding:0 2px; vertical-align:baseline; margin:0 3px; color:black;}
+.calender_wrap .under_wrap > .sr_wrap input.no02 {width:70px; color:black !important;}
 
 /* FAQ */
 .faq_tab{overflow:hidden; margin:35px auto 40px; text-align:center;}
@@ -1404,6 +1404,9 @@ select::-ms-expand {display: none;}
 .chg_schedule_wrap .schedule_time div p{font-size:16px;color:#181818;font-family: 'S-CoreDream-5Medium';text-align:left;}
 .chg_schedule_wrap .schedule_time div ul{overflow:hidden;}
 .chg_schedule_wrap .schedule_time div ul li{float:left;margin-right:10px;margin-bottom:10px;width:126px;height:45px;box-sizing:border-box;border:1px solid #e3e5e6;background:#fff;border-radius:5px;padding:0;line-height:45px;font-size:14px;color:#181818;font-family: 'S-CoreDream-4Regular';}
+.chg_schedule_wrap .schedule_time div ul li:hover{
+	background-color:lightgray;
+}
 .chg_schedule_wrap .schedule_time div ul li.choiceTime{border-color:#a77bca;background:#a77bca;color:#fff;}
 
 .chg_writeForm table tr td {padding: 20px 0 20px 15px;}
@@ -1521,7 +1524,7 @@ select::-ms-expand {display: none;}
 .fa-ul {
     padding-left: 0;
     margin-left: 2.14285714em;
-    list-style-type: none
+    list-style-type: none;
 }
 
 .fa-ul>li {
@@ -4431,6 +4434,9 @@ select::-ms-expand {display: none;}
         td.date{
            cursor:pointer;
         }
+        td.date:hover{
+           background-color:lightgray;
+        }
         .old_date{
            cursor:default !important;
         }
@@ -4454,8 +4460,12 @@ select::-ms-expand {display: none;}
 	color:gray !important;
 }
 
-.data-value:hover{
-	 background-color: #f0f0f0;
+.reserDate_input{
+	color:black;
+}
+
+.schedule_time ul{
+	list-style-type:none;
 	
 	
 }
