@@ -44,6 +44,19 @@ public class MainController {
 	}
 	@GetMapping("/searchMap")
 	public String searchMap(@RequestParam(value="address", required = true)String keyword, Model m) {
+		if(keyword.contains("헬스장") == false);
+		{
+			log.info("헬스장이라는글자가없는데어떡함"+keyword.charAt(keyword.length()-1));
+			if (keyword.charAt(keyword.length()-1) != ' ')
+			{
+				keyword = keyword.concat(" 헬스장");
+			}
+			else if (keyword.charAt(keyword.length()-1) == ' ')
+			{
+				keyword = keyword.concat("헬스장");
+			}
+		}
+		log.info("헬스장검색중.............."+keyword);
 		PlaceSearchService pss = new PlaceSearchService();
 		List<SearchDTO>KeywordLists = pss.searchPlace(keyword);
 		log.info(KeywordLists.toString());

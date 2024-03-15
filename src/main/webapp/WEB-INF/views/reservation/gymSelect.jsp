@@ -132,7 +132,7 @@
 						<form action="/main/searchMap"
 							style="position: absolute; z-index: 100" class="aboutmap52-serch">
 							<input class="aboutmap52-serch-input" id="address" type="text" name="address"
-								placeholder="검색할 주소" value="불정로 6">
+								placeholder="검색(ex.인천 헬스장)" value="">
 							<div calss="aboutmap52-serch-box">
 								<button type="submit" value="주소 검색"
 									style="position: absolute; z-index: 100"><i class="bi bi-box-arrow-left"></i></button>
