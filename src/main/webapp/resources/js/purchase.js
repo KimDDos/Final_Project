@@ -1,7 +1,11 @@
-var rno = document.getElementById("rno").value;
+
+$(function(){
+    $("#purchase").click(function(){
+    var rno = document.getElementById("rno").value;
 var cno = document.getElementById("useCpNum").value;
-var string;
-if (cno != '')
+var string = '';
+console.log("CPNUM"+cno);
+    if (cno != '')
 {
 string = '?rno='+rno + '&cno=' + cno;
 }
@@ -9,9 +13,7 @@ else
 {
 string = '?rno='+rno;
 }
-
-$(function(){
-    $("#purchase").click(function(){
+console.log("/reservation/payment"+string);
         $.ajax({
             url:'/reservation/payment'+string,
             dataType:'json',

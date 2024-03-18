@@ -234,10 +234,12 @@ public class ReservationController {
 
 	@RequestMapping("/payment")
 	@ResponseBody
-	public String payment(@RequestParam("rno") int rno, @RequestParam(value = "useCpNum", required = false) String cpNum) {
+	public String payment(@RequestParam("rno") int rno, @RequestParam(value = "cno", required = false) String cpNum) {
 		ReservationVO rvo = rsv.getReserveOne(rno);
 		int cno = 0;
 		int TotalPay = Integer.parseInt(rvo.getRvSuggestPrice());
+		log.info("TOTALPAYYYYYYYYYYY"+TotalPay);
+		log.info("CPNUMSSS"+cpNum);
 		if (cpNum != null) {
 			CouponVO cvo = csv.getCoupon(Integer.parseInt(cpNum));
 			log.info("CVOSSSSSSSSSSSSSSSSSSSSSS"+cvo);
@@ -245,8 +247,10 @@ public class ReservationController {
 			if (cvo.getCpValue() > 99)
 				TotalPay = TotalPay - cvo.getCpValue();
 			else if (cvo.getCpValue() < 100)
-				TotalPay = TotalPay - (TotalPay * cvo.getCpValue());
+				TotalPay = TotalPay - (int)(TotalPay * (float)(cvo.getCpValue()/100.0f));
+			log.info("RATEEEEEEEEEEEEE"+(float)(cvo.getCpValue()/100.0f));
 		}
+		log.info("PAYYYYYYYYYYYYYYYYYYYYYYYYY"+TotalPay);
 		try {
 			URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
 			HttpURLConnection connect = (HttpURLConnection) url.openConnection();
@@ -265,7 +269,7 @@ public class ReservationController {
 			dataOutput.writeBytes(params);
 			dataOutput.close();
 			int res = connect.getResponseCode();
-
+			
 			InputStream input;
 			if (res == 200) {
 				input = connect.getInputStream();
@@ -290,6 +294,8 @@ public class ReservationController {
 			tempRvo.setTid(tid);
 
 			rsv.setTid(tempRvo);
+			
+			log.info("이거씨발왜안됨"+temp);
 
 			return temp;
 
