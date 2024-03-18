@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.four.www.reservation.repository.ReservationDAO">
+
+
+
+	<insert id="register"
+		parameterType="com.four.www.reservation.domain.ReservationVO">
+		insert into reservation
+		(User_serial_no,trainer_no,phone_num,rv_reservdate,rv_time,rv_content,rv_title,rv_address,rv_status,user_name,rv_category)
+		values(#{userSerialNo}
+		,#{trainerNo}
+		,#{phoneNum}
+		,#{rvReservdate}
+		,#{rvTime}
+		,#{rvContent}
+		,#{rvTitle}
+		,#{rvAddress}
+		,'예약대기'
+		,#{userName}
+		,#{rvCategory})
+	</insert>
+
+	<select id="getReserve" parameterType="int"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		select * from reservation where User_serial_no =#{userNo}
+	</select>
+
+	<select id="getReserveOne" parameterType="int"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		select * from reservation where rno =#{rno}
+	</select>
+
+	<update id="submitReserv"
+		parameterType="com.four.www.reservation.domain.ReservationVO">
+		update reservation set trainer_no =
+		#{trainerNo},trainer_name=#{trainerName},trainer_phone_num=#{trainerPhoneNum},rv_status="예약확정",rv_suggest_price=#{rvSuggestPrice} where rno = #{rno}
+	</update>
+	
+	<insert id="sendAlarm">
+	insert into mbr_alarm
+	(user_serial_no,content,alarm_type,rno)
+	values(#{userSerialNo},#{content},#{alarmType},#{rno})
+	</insert>
+	
+	<update id="setTid">
+	update reservation set tid = #{tid} where rno=#{rno}
+	</update>
+	
+	<update id="paysubmit">
+	update reservation set rv_payment = #{rvPayment},
+	rv_purchased = "결제완료",rv_status = "일정대기"
+	where rno=#{rno}
+	</update>
+
+	<delete id="cancelReserv">
+		delete from reservation where rno =#{rno}
+	</delete>
+
+	<select id="getPTorder" parameterType="int"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		select * from reservation where trainer_no=#{userNo}
+	</select>
+
+	<select id="getrsvList"
+		resultType="com.four.www.reservation.domain.ReservationVO">
+		SELECT *
+		FROM reservation ORDER BY rno desc limit #{pageStart}, #{qty}
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(rno)
+		from
+		reservation
+	</select>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.four.www.user.repository.CouponDAO">
+	<select id="getCouponList"
+		resultType="com.four.www.user.domain.CouponVO">
+		select * from coupon where User_serial_no = #{userNo};
+	</select>
+		<select id="getCoupon"
+		resultType="com.four.www.user.domain.CouponVO">
+		select * from coupon where cp_num = #{cpNum};
+	</select>
+	<delete id="delCoupon">
+		delete from coupon where cp_num = #{cpNum};
+	</delete>
+</mapper>

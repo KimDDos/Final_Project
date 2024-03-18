@@ -1,16 +1,130 @@
-create table Notice_Board(
-notice_no int not null auto_increment,
-notice_title varchar(100) not null,
-notice_content text not null,
-notice_read_count int default 0,
-notice_reg_date datetime default now(),
-primary key(notice_no));
+sql 구문
+<DB접속 구문> 비번:1234
+mysql -h 175.196.223.181 -P 3306 -u four -p
 
+-- 2024.02.06 --
+
+[Notice_Board] 테이블
+create table Notice_Board(
+	notice_no int not null auto_increment,
+	notice_title varchar(100) not null,
+	notice_content text not null,
+	notice_read_count int default 0,
+	notice_reg_date datetime default now(),
+	primary key(notice_no));
+
+[QNA_Board] 테이블
 create table QNA_Board(
-qna_no int not null auto_increment,
-qna_title varchar(200) not null,
-qna_content text not null,
-qna_reg_date datetime default now(),
-qna_answer_content text,
-qna_answer_status varchar(10) not null,
-primary key(qna_no));
+	qna_no int not null auto_increment,
+	qna_title varchar(200) not null,
+	qna_content text not null,
+	qna_reg_date datetime default now(),
+	qna_answer_content text,
+	qna_answer_status varchar(10) not null,
+	primary key(qna_no));
+
+[mbr_profile] 테이블 
+CREATE TABLE mbr_profile(
+	user_serial_no varchar(256) NOT NULL,
+	user_email varchar(50) NOT NULL,
+	user_pwd varchar(256) NOT NULL,
+	user_name varchar(10) NOT NULL,
+	user_nick_name varchar(20) NOT NULL,
+	user_birth_date varchar(10) NOT NULL,
+	user_gender varchar(1) NOT NULL DEFAULT 'M',
+	user_phone_num varchar(11) NOT NULL,
+	user_address varchar(100) NOT NULL,
+	user_itrs varchar(100) NOT NULL,
+	user_reg_at datetime NOT NULL,
+	user_last_login_date datetime NOT NULL,
+	is_trainer varchar(1) NOT NULL,
+	primary key(User_serial_no));
+	
+<< user_serial_no : COMMENT '사용자:U00000... / 트레이너:T0000....' >>
+	
+[mbr_user] 테이블 
+CREATE TABLE mbr_user (
+	User_serial_no varchar(10) NOT NULL,
+	User_name varchar(20) NOT NULL,
+	User_nick_name varchar(20) NOT NULL,
+	User_login_type varchar(2) NOT NULL,
+	primary key(User_serial_no));
+
+<< User_login_type : COMMENT '플랫폼:H / 구글:G / 네이버:N / 카카오:K' >> 	
+	
+[mbr_user] 테이블 
+CREATE TABLE mbr_auth(
+    User_access_token varchar(100) NOT NULL,
+    User_serial_no varchar(10) NOT NULL,
+    user_role varchar(10) NOT NULL);
+    
+    
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column user_reg_at datetime not null default now();
+alter table mbr_profile modify column user_last_login_date datetime not null default now();
+
+[schedule] 테이블 
+CREATE TABLE calendar (
+	Cal_schedule_number int auto_increment NOT NULL,
+	Cal_schedule_start_time datetime NOT NULL,
+	Cal_schedule_end_time datetime NOT NULL,
+	Cal_schedule_title varchar(80) NOT NULL,
+	Cal_schedule_detail text NOT NULL,
+	User_serial_no varchar(256) NOT NULL,
+	Trainer_serial_no varchar(256) NOT NULL,
+	primary key(Cal_schedule_number));
+	
+[coupon] 테이블
+CREATE TABLE coupon (
+	User_serial_no varchar(256) NOT NULL,
+	Cp_num int auto_increment NOT NULL,
+	Cp_title varchar(80) NOT NULL,
+	Cp_value  int NOT NULL,
+	Cp_schedule_detail text NOT NULL,
+	Cp_receivedate datetime NOT NULL,
+	Cp_limitdate datetime NOT NULL,
+	primary key(Cp_num));
+
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column user_phone_num varchar(15) not null;
+alter table mbr_profile drop column user_address;
+alter table mbr_profile modify column user_itrs text null;
+
+[Reservation]테이블
+create table Reservation(
+    -> rno int auto_increment primary key,
+    -> date date not null,
+    -> time time not null);
+[ReservationItem] 테이블    
+     create table ReservationItem(
+    -> Ino int auto_increment primary key,
+    -> itemName varchar(255) not null);
+    
+[ReservationItemSelection]테이블
+create table ReservationItemSelection(
+-> sno int auto_increment primary key,
+-> rno int,
+-> ino int,
+-> foreign key (rno) references Reservation(rno),
+-> foreign key (ino) references ReservationItem(Ino));
+
+-- 2024 02 20 --
+
+[mbr_profile] 테이블 column 수정
+alter table mbr_profile modify column User_serial_no varchar(15) not null;
+
+[T_profile] 테이블 생성
+CREATE TABLE T_profile (
+    T_profile_no int NOT NULL auto_increment,
+    T_experience text NOT NULL,
+    T_trophy text NOT NULL,
+    T_intro_text text NOT NULL,
+    User_serial_no varchar(15) NOT NULL,
+primary key(T_profile_no));
+
+-- 2024 02 21 --
+[mbr_user] 테이블 column 'Access_token' 추가
+alter table mbr_user add column Access_token varchar(200) not null;
+
+-- 2024 - 02 - 28 --
+alter table mbr_auth drop column user_access_token;

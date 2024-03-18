@@ -10,7 +10,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] {RootConfig.class};
+		return new Class[] {RootConfig.class, SecurityConfig.class};
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 		
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] {"/", "/user/"};
+		return new String[] {"/"};
 	}
 	
 	@Override
@@ -36,9 +36,6 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
-		
-		
-		
 	}
 	
 

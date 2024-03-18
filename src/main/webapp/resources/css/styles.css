@@ -2109,6 +2109,18 @@ progress {
           margin-inline-end: 1rem;
 }
 
+.calendar_btn {
+	width : 100px;
+	height : 100px;
+	background-color: white;
+}
+.calendar_btn_hidden{
+	width : 100px;
+	height : 100px;
+	background-color: white;
+	visibility : hidden;
+}
+
 textarea.form-control {
   min-height: calc(1.5em + 0.75rem + 2px);
 }
@@ -10846,3 +10858,2784 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 기본통합세팅 */
+html{}
+body{min-width:1300px; overflow-y:scroll;}
+body.OpenFixed{}
+
+#wrap > #contents .contentsArea{}
+#wrap, .Wrap{width:100%; overflow:hidden;}
+#wrapEvent, .WrapEvent{width:100%; overflow:hidden;}
+#container, .Container{content:""; clear:both; display:block; position:relative; text-align:left; margin:auto;} /* width:1300px; min-width:1300px;  */
+.InnerSession{content:""; clear:both; display:block; }
+.Inner, .InnerContainer{content:""; clear:both; display:block; position:relative; width:1300px; min-width:1300px; text-align:left; margin:auto;}
+.contentsArea{content:""; clear:both; display:block; position:relative;}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 체크박스 */
+.Checkbox{position:relative; cursor:pointer; line-height:revert;} 
+.Checkbox input[type="checkbox"]{position:absolute; top:6px; left:2px; opacity:0; display:none;} /* z-index:3; */
+.Checkbox input[type="radio"]{position:absolute; top:6px; left:2px; opacity:0; display:none;} /* z-index:3; */
+.Checkbox .Box{display:table-row; width:100%; table-layout:fixed;  }
+.Checkbox small{display:table-cell; width:18px; position:relative; vertical-align:middle;}
+.Checkbox small em{display:block; position:relative; width:15px; margin-right:3px;}
+.Checkbox small em b{display:block; width:15px; height:15px; line-height:15px; border:1px solid #c7c7c7; background-color:#ffffff;}
+.Checkbox small em span{position:absolute; top:0px; left:1px; color:transparent !important; font-size:9pt; line-height:12px; font-weight:normal; display:none;}
+.Checkbox i.icon{color:#b7b7b7; font-size:12pt; margin-right:6px;}
+.Checkbox i.icon.empty{display:block;}
+.Checkbox i.icon.fill{display:none;}
+.Checkbox input:checked ~ .Box small em span{display:block;}
+.Checkbox input:checked ~ .Box i.icon.empty{display:none;}
+.Checkbox input:checked ~ .Box i.icon.fill{display:block; color:#555;}
+.Checkbox big{display:table-cell; table-layout:fixed; vertical-align:middle; line-height:1;}
+	.Checkbox.Radio small{width:23px;}
+	.Checkbox.Radio small em b{width:18px; height:18px; border-radius:50%;}
+	.Checkbox.Radio small em span{top:5px; left:5px; width:8px; height:8px; font-size:1px; background-color:#686868; border-radius:50%;;}
+	.AgreeBox .Checkbox big{color:#727272; font-size:10pt; line-height:1; letter-spacing:-1px;}
+	.contactWrap .AgreeBox .Checkbox big{font-size:11pt;}
+	
+	/* 구분 */
+	.reserveInfoWrap .AgreeBox .Checkbox big{font-size:12pt; font-weight:300; color:#393939;}
+
+/* 체크박스 - 마크업다른형태(기본체크시 색채움) */
+.Checkbox mark{background:none; margin:0px; padding:0px;}
+.Checkbox mark small{display:table-cell; width:20px; vertical-align:top;}
+.Checkbox mark small em{display:table-cell; position:relative; width:20px; font-style:normal; font-weight:normal; overflow:hidden;}
+.Checkbox mark small em b{display:block; position:relative; top:0; width:20px; height:20px; border:1px solid #dadada; border-radius:4px; background-color:#fff;}
+.Checkbox mark small em span.Checked{position:absolute; top:8%; left:35%; width:6px; height:13px; border-bottom:2px solid #fff; border-right:2px solid #fff; transform:rotate( 45deg ); -webkit-transform:rotate( 45deg );-moz-transform:rotate( 45deg ); display:none;} /* 일단숨김 */
+.Checkbox mark big{display:table-cell; vertical-align:middle; padding-left:5px;}
+.Checkbox mark big p{color:#a9a9a9; font-size:11pt; line-height:1em;}
+.Checkbox input:checked ~ mark small em{}
+.Checkbox input:checked ~ mark small em b{border:1px solid #272727; background-color:#272727; box-shadow:none;}
+.Checkbox input:checked ~ mark small em span.Checked{display:block; color:#272727;}
+.Checkbox input:checked ~ mark big p{color:#272727;}
+	/* 작게 */
+	.Checkbox.Small{ }
+	.Checkbox.Small mark small{width:15px; }
+	.Checkbox.Small mark small em{width:15px; vertical-align:middle;}
+	.Checkbox.Small mark small em b{width:15px; height:15px; border-radius:3px;}
+	.Checkbox.Small mark small em span.Checked{top:10%; left:35%; width:5px; height:10px; border-bottom-width:1px; border-right-width:1px;} /* 일단숨김 */
+	.Checkbox.Small mark big{padding-left:2px;}
+	.Checkbox.Small mark big p{font-size:9pt;}
+	/* 선형태 */
+	.Checkbox.Border{}
+	.Checkbox.Border mark small em b{background:none;}
+	.Checkbox.Border mark small em b:after{border-bottom-color:#272727; border-right-color:#272727; }
+	.Checkbox.Border input:checked ~ mark small em b{border-color:#272727; background:none;}
+	.Checkbox.Border input:disabled:checked ~ mark small em b{border-color:#272727;}
+	.Checkbox.Border input:checked ~ mark small em span.Checked{border-bottom-color:#272727; border-right-color:#272727;}
+	
+	/* 구분 */
+	.NC00035 .Checkbox small em span{color:#5b4785;} /* 네트워크5 */
+	.NC00035 .Checkbox.Radio small em span{background-color:#5b4785;}
+	
+	.NC00037 .Checkbox small em b{box-shadow:none;} /* 네트워크6 */
+	.NC00037 .Checkbox mark big{padding-left:7px;}
+	.NC00037 .Checkbox mark big p{font-size:9pt; display:inline; padding-left:10px; vertical-align:middle; color:#999;}
+	.NC00037 .Checkbox mark small em b{box-shadow:none;}
+	.NC00037 .Checkbox input:checked ~ mark small em b{background-color:#ff5e90; border-color:#ff5e90;}
+	.NC00037 .Checkbox input:checked ~ mark big{font-size:12pt;}
+	.NC00037 .Checkbox input:checked ~ mark big p{font-size:9pt; display:inline; padding-left:10px; vertical-align:middle; color:#999;}
+	.NC00037 .Checkbox small em span{color:#ff5e90;}
+	.NC00037 .Checkbox.Radio small{width:26px;}
+	.NC00037 .Checkbox.Radio small em span{background-color:#ff5e90;}
+	.NC00037 .Checkbox.Radio .Box big{font-size:12pt; font-weight:300; color:#393939;}
+	
+	.reserveInfoWrap .Checkbox{margin-right:20px;} /* reserveInfo.php에서만 */
+	
+	/* footer영역 */
+
+[공통] 동영상삽입_시술페이지내_상단
+.Movie_IframTopArea{content:""; clear:both; display:block; width:100%; position:relative;  text-align:center; margin:auto;}
+.Movie_IframeTop{position:relative; width:100%; margin:0; padding:0; padding-bottom:56.25%;}
+.Movie_IframeTop iframe{position:absolute; left:0; width:100%; height:100%; margin:0; padding:0;}
+*/
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 배지류 */
+.BadgeText1{display:inline-block; color:#fff; font-size:9pt;  line-height:1em; text-align:center; white-space:nowrap; vertical-align:baseline; background-color:#777; border-radius:3px; padding:4px 6px;}
+.BadgeText2{display:inline-block; color:#fff; font-size:9pt; line-height:1em; text-align:center; white-space:nowrap; vertical-align:baseline; background-color:#000; border-radius:3px; padding:4px 6px;} 
+.BadgeText_Line{display:inline-block; color:#a4d332; font-size:9pt; line-height:1em; text-align:center; white-space:nowrap; vertical-align:baseline; border:1px solid #777; border-radius:5px; padding:4px 6px;} 
+	/* 구분 */
+	.NC00001 .BadgeText2{background-color:#000000;}
+	.NC00001.C00003 .BadgeText2{background-color:#000000;}
+	.NC00005 .BadgeText2{background-color:#0f4b9f;}
+	.NC00010 .BadgeText2{background-color:#78bc27;}
+	.NC00030 .BadgeText2{}
+	.NC00035 .BadgeText2{background-color:#5b4785;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* [공통]모니터에따른이미지중앙정렬 */
+.CenterFixed{position:relative; width:1920px !important; left:50%; margin-left:-960px;}
+.CenterFixedBox{display:block; position:relative; width:1920px !important; left:50%; margin-left:-960px; text-align:center;}
+.CenterFixedBox .Inner{width:100%;}
+.CenterFixedBox img{display:block; margin:auto; width:100%;}
+
+.AlignLeft{text-align:left;}
+.AlignRight{text-align:right;}
+.AlignCenter{text-align:center;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* [공통] 동의영역 */
+.AgreeBox{display:table; position:relative; width:100%;  text-align:left; padding:2em 0 1em 0;}
+.AgreeBox label{display:inline-table; width:auto; font-size:10pt; letter-spacing:-2px; margin:0; vertical-align:middle; line-height:1;}
+.AgreeBox label em + span{display:inline-block; color: #727272; font-size:9pt; font-weight:normal; line-height:15px; vertical-align:top; padding-left:3px;}
+.AgreeBox a{display:inline-table; margin-left:0.5em; position:relative; color:#fff; font-size:9pt; line-height:1.2em; background-color:#aeafb3; padding:2px 4px; border-radius:3px; vertical-align:middle; line-height:1;}
+.AgreeBox label:first-child{}
+.AgreeBox label + label{margin-top:0 !important; margin-left:1.5em;}
+.AgreeBox strong{}
+	.AgreeBox .PrivacyText{width:100%; border:1px solid #ccc; border-radius:3px;} /* 일단숨김 */
+	.AgreeBox .PrivacyText pre,
+	.AgreeBox .PrivacyText pre *,
+	.AgreeBox .PrivacyText pre strong{font-size:8pt; line-height:1.5em;}
+	.AgreeBox .PrivacyText pre{display:inline-block; width:100%; height:300px; color:#bebebe; text-align:left; white-space:pre-wrap; overflow:auto; margin:0px; padding:1%;}
+	.AgreeBox .PrivacyText pre strong{}
+	.AgreeBox .PrivacyText table{width:100%;}
+	.AgreeBox .PrivacyText table th,
+	.AgreeBox .PrivacyText table td{text-align:center; border:1px solid #cccccc; padding:1%; }
+	.AgreeBox .PrivacyText table th{background-color:#faf9ec; font-weight:bold;}
+	.AgreeBox .PrivacyText table td{}
+
+
+	.AgreeBox + .BtnBox,
+	table.reserveTable + .BtnBox,
+	.reserveTable table + .BtnBox{}
+
+	.AgreeBox + .BtnBox,
+	table.reserveTable + .BtnBox,
+	.reserveTable table + .BtnBox{margin:2% auto;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* [공통] 게시판하단텍스트 */
+.BottomText{position:relative; display:block; width:50%; background-color:#f2f2f2; border-radius:10px; padding:2em; text-align:center; margin:2em auto; }
+.BottomText p{font-size:14pt; line-height:1.4em; font-weight:400; word-break:keep-all;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/*  버튼류 */
+.BtnBox{display:table; position:relative; text-align:center; margin:auto;}
+.BtnBox a,
+.BtnBox button,
+.BtnBox p{display:inline-table;}
+.BtnBox a,
+.BtnBox button,
+.BtnBox p span{display:inline-table; color:#ffffff; font-size:16pt; font-weight:500; font-family:"Pretendard","돋음, Dotum","Arial","sans-serif"; letter-spacing:1px; text-align:center; background-color:#393939; border:none; border-radius:5px; /*box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);*/  padding:20px 40px; cursor:pointer; min-width:200px;}
+.BtnBox p + p{margin-left:0.7em;}
+.BtnBox a:hover,
+.BtnBox button:hover,
+.BtnBox p span:hover{background-color:#000;}
+	/* 구분 */
+	.NC00001 .BtnBox a,
+	.NC00001 .BtnBox button,
+	.NC00001 .BtnBox p span{background-color:#000000;}
+	.NC00001 .BtnBox a:hover,
+	.NC00001 .BtnBox button:hover,
+	.NC00001 .BtnBox p span:hover{background-color:#b37c56} /* 네트워크1(하이푸바이오) */
+
+	.NC00001.C00001 .BtnBox a,
+	.NC00001.C00001 .BtnBox button,
+	.NC00001.C00001 .BtnBox p span{background-color:#000000;}
+	.NC00001.C00001 .BtnBox a:hover,
+	.NC00001.C00001 .BtnBox button:hover,
+	.NC00001.C00001 .BtnBox p span:hover{background-color:#333333;}
+	.NC00001.C00002 .BtnBox a,
+	.NC00001.C00002 .BtnBox button,
+	.NC00001.C00002 .BtnBox p span{background-color:#000000;}
+	.NC00001.C00002 .BtnBox a:hover,
+	.NC00001.C00002 .BtnBox button:hover,
+	.NC00001.C00002 .BtnBox p span:hover{background-color:#333333;} 
+	.NC00001.C00003 .BtnBox a,
+	.NC00001.C00003 .BtnBox button,
+	.NC00001.C00003 .BtnBox p span{background-color:#0000000;}
+	.NC00001.C00003 .BtnBox a:hover,
+	.NC00001.C00003 .BtnBox button:hover,
+	.NC00001.C00003 .BtnBox p span:hover{background-color:#333333;}
+	/* 네트워크1(통합&기본) */
+
+	.NC00005 .BtnBox a,
+	.NC00005 .BtnBox button,
+	.NC00005 .BtnBox p span{background-color:#0f4b9f;}
+	.NC00005 .BtnBox a:hover,
+	.NC00005 .BtnBox button:hover,
+	.NC00005 .BtnBox p span:hover{background-color:#013d92} /* 네트워크2 */
+	
+	.C00007 .BtnBox a,
+	.C00007 .BtnBox button,
+	.C00007 .BtnBox p span{background-color:#690b3a;}
+	.C00007 .BtnBox a:hover,
+	.C00007 .BtnBox button:hover,
+	.C00007 .BtnBox p span:hover{background-color:#550b30;} /* 네트워크2(산부) */
+
+	.NC00010 .BtnBox a,
+	.NC00010 .BtnBox button,
+	.NC00010 .BtnBox p span{background-color:#78bc27;}
+	.NC00010 .BtnBox a:hover,
+	.NC00010 .BtnBox button:hover,
+	.NC00010 .BtnBox p span:hover{background-color:#78bc27} /* 네트워크3 */
+	
+	.NC00037 .BtnBox a,
+	.NC00037 .BtnBox button,
+	.NC00037 .BtnBox p span{background-color:#ff5e90;}
+	.reserveInfoWrap .BtnBox a,
+	.reserveInfoWrap .BtnBox button,
+	.reserveInfoWrap .BtnBox p span{width:100%; border-radius:0; box-shadow:none;}
+	.NC00037 .BtnBox a:hover,
+	.NC00037 .BtnBox button:hover,
+	.NC00037 .BtnBox p span:hover{background-color:#ff2a6c;}
+	.NC00037 .AgreeBox label{vertical-align:middle;}
+	.NC00037 .AgreeBox a{vertical-align:middle; padding:0.2 0.5em;}
+
+/* 좋아요 */
+.Btn_Likeit{display:inline-table; position:relative; font-size:0.9em; line-height:2em; text-align:center; vertical-align:middle; border-radius:30px; border:1px solid #dedede; background-color:#fff; padding:0px 10px; cursor:pointer;}
+.Btn_Likeit i{color:#ec4856; font-size:1.4em;}
+.Btn_Likeit:hover{background-color:#ec4856; color:#fff; border-color:#ec4856;}
+.Btn_Likeit:hover i{color:#fff;}
+
+
+
+/* ================================================================================================= */
+/* 팝업(기본) : 쿠키설정위한display:none;상태필수 / 모니터작을경우때문에 fixed 사용하지 않음  */
+.LayerPopArea{content:""; clear:both; position:absolute; top:0px; width:100%; display:none;} 
+.LayerPopBg{position:fixed; left:0px; top:0px; width:100%; height:100%; background:rgba(0, 0, 0, 0.7); z-index:100; display:none;}
+.LayerPop{position:absolute; left:50%; top:0px; width:auto; height:auto; z-index:101;} 
+.LayerPop dl{display:block; position:relative; box-shadow: 1px 1px 10px rgba(0,0,0, 0.4); }
+.LayerPop dl dt{text-align:center;}
+.LayerPop dl dt a{display:table-cell;}
+.LayerPop dl dt img{display:block; width:100%; height:auto; cursor:pointer; }
+.LayerPop dl dd{display:table; width:100%; background: rgba(0,0,0, 0.4); }
+.LayerPop dl dd button{display:table-cell; width:50%; color:#fff; letter-spacing:-2px; text-align:left; border:none; background:none; margin:0; padding:6px; cursor:pointer; }
+.LayerPop dl dd button.btn-warning{text-align:right;}
+.LayerPopArea:after{content:""; clear:both;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* 팝업(롤링버튼커스텀20200810) */
+.LayerPopSliderArea{content:""; clear:both; position:fixed; left:0px; top:0px; width:100%; height:100%;  z-index:998; display:none;} /* 일단숨김  */
+.LayerPopSliderBg{position:fixed; left:0px; top:0px; width:100%; height:100%; background-color:rgba(0, 0, 0, 0.7); z-index:998;}
+	.LayerPopSlider{position:fixed; top:50% !important; left:50% !important; margin-left:auto !important; width:940px; overflow:hidden;  z-index:999; transform:translate(-50%, -50%) !important;} 
+	.LayerPopSlider dl{display:block; position:relative; width:100%;}
+	.LayerPopSlider dt{display:block; position:relative;}
+	.LayerPopSlider dt a{position:relative;}
+	.LayerPopSlider dd{display:block; position:relative; width:100%; height:30px; background-color:rgba(0,0,0, 0.6);}
+	.LayerPopSlider dd button{color:#fff; letter-spacing:-2px; border:none; background:none; padding:8px; cursor: pointer;}
+	.LayerPopSlider dd button.btn-warning{float:right; padding:6px;}
+	.LayerPopSlider img{max-width:100%;}
+	.LayerPopSlider .MultiBarSlider{}
+	.LayerPopSlider .MultiBarSlider .Thum{}
+	.LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li button{} 
+	.LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li.slick-active button{color:#fff; background-color:#272727;}
+		/* 텍스트타입일때 */
+		.LayerPopSlider .Type1{display:block; position:relative;}
+		.LayerPopSlider .Type1 img{}
+
+		/* 이미지타입일때 */
+		.LayerPopSlider .Type2{display:block; position:relative;}
+		.LayerPopSlider .Type2 img{}
+
+		/* 구분 */
+		.LayerPopSliderArea.NC00001{} /* 네트워크1 */
+		.LayerPopSliderArea.NC00001 .LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li button{background-color:#fff; color:#272727;} 
+		.LayerPopSliderArea.NC00001 .LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li.slick-active button{background-color:#000000; color:#fff; font-weight:bold;}
+		.LayerPopSliderArea.NC00001.C00003 .LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li.slick-active button{background-color:#009abd; color:#fff; font-weight:bold;}
+		.LayerPopSliderArea.NC00005{} /* 네트워크2 */
+		.LayerPopSliderArea.NC00005 .LayerPopSlider{top:130px; width:800px; margin-left:-400px;}
+		.LayerPopSliderArea.NC00010{} /* 네트워크3 */
+		.LayerPopSliderArea.NC00037{} /* 네트워크6 */
+		.LayerPopSliderArea.NC00037 .LayerPopSlider{top:13%;}  /* 네트워크6 */
+		.LayerPopSliderArea.NC00037 .LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li button{background-color:#fff; color:#272727;} 
+		.LayerPopSliderArea.NC00037 .LayerPopSlider .MultiBarSlider ul.SliderThum_BtnPage li.slick-active button{background-color:#ff5e90; color:#fff; font-weight:bold;}
+		
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 휴진안내팝업(202006) display:none; */
+.PopHoursArea{content:""; clear:both; position:absolute; top:0px; width:100%;}
+.PopHoursArea .LayerPopBg{display:none;}
+.PopHoursArea fieldset{display:block; position:fixed; top:150px; left:10%; width:400px; height:auto; text-align:center; background-color:#f5f5f5; background-repeat:no-repeat;
+    background-size:100% auto; background-position:top center; border:1px solid rgba(0,0,0, 0.4);  z-index:998; }
+	/* 배경있을땐 padding-top:2.5em; 아닐때는 1em */
+	/* background-image: url('/img/common/popHoursArea_bgTitle_05.jpg'); */ 
+	/* padding-top:1em; */
+.PopHoursArea fieldset .InnerBox{display:block; width:100%; position:relative; padding:1.5em;}
+	/* 타이틀 */
+	.PopHours_Head{display:block; position:relative; width:100%; text-align:center; margin:auto; padding-bottom:5%; line-height:2em;}
+	.PopHours_Head p{display:inline-table; color:#383838; font-size:17pt; font-weight:300; }
+	.PopHours_Head p strong{font-weight:bold;}
+	/* 등록일정 */
+	.PopHours_Cont{display:block; position:relative; text-align:center; margin:auto;}
+	.PopHours_Cont ul{display:inline-table; max-width:100%; min-width:45%; table-layout:fixed;}
+	.PopHours_Cont li{display:table-cell; vertical-align:top; text-align:center; margin:auto; border:1px solid #e9e9e9; border-radius:12px; background-color:#fff;}
+	.PopHours_Cont dl{display:inline-block; width:98%; height:inherit;}
+
+
+		/* 날짜 */
+		.PopHours_Cont dt{display:inline-block; width:100%; height:4.4em; border-bottom:1px dashed #e9e9e9; padding-top:10px;}
+		.PopHours_Cont dt strong{font-size:14pt;}
+		.PopHours_Cont dt strong b{font-size:17pt; font-family:'Roboto',sans-serif;}
+		.PopHours_Cont dt span{display:block; font-size:11pt;  margin-top:6px;}
+		/* 문구 */
+		.PopHours_Cont dd{display:inline-table; width:100%; min-height:2.8em; text-align:center; margin:auto;}
+		.PopHours_Cont dd strong{display:table-cell; width:65px; text-align:center; line-height:1.5em; vertical-align:middle; font-size:10pt; letter-spacing:-2px;}
+		.PopHours_Cont dd strong p{position:relative; display:block; text-align:center; font-size:10pt; line-height:1.5em;}
+		.PopHours_Cont dd span{display:block; font-size:10.5pt; letter-spacing:-2px;}
+		.PopHours_Cont dd span b{letter-spacing:-1px; font-weight:normal; font-family:'Roboto',sans-serif;}
+			/* 휴진인날 */
+			.DayOff{}
+			.DayOff *{color:#c0121e;}
+			.DayOff dd strong{font-size:14pt; line-height:2em;}
+			/* 정상진료인날 */
+			.DayNormal{}
+			.DayNormal *{}
+			.DayNormal dd strong{font-size:14pt; line-height:2em; letter-spacing:-2px;}
+			/* 진료시간변경 */
+			.DayChange{}
+			.DayChange dd strong{line-height:1.5em; }
+
+	/* 안내문구 */
+	.PopHours_Footer{display:block; position:relative; width:100%; text-align:center; margin:auto; padding-top:3%;}
+	.PopHours_Footer p{font-size:11pt; line-height:1.6em; font-weight:500;}
+
+	/* 닫기관련 */
+	.PopHours_Btn{display:table; position:relative; width:100%; table-layout:fixed; background: rgba(0,0,0, 0.4);}
+	.PopHours_Btn button{display:table-cell; vertical-align:middle; color:#fff;  border:none; background:none; margin:0; padding:5px; cursor:pointer;}
+	.PopHours_Btn button strong{display:inline-block; width:100%; letter-spacing:-1px; text-align:left;  font-weight:normal;}
+	.PopHours_Btn button span{display:inline-block;  font-size:15pt; cursor:pointer;}
+	.PopHours_Btn button:nth-child(1){width:80%; }
+	.PopHours_Btn button:nth-child(2){width:20%; text-align:right;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 팝업(한번에2개의링크사용시) */
+.Pop_LinkDivision{display:table; position:relative; width:100%; table-layout:fixed; max-width:1080px;}
+.Pop_LinkDivision a{display:table-cell !important; width:50% !important; vertical-align:top;}
+.Pop_LinkDivision a img{display:block; width:100%; max-width:100%;}
+/*
+<div class="Pop_LinkDivision" alt="2개로나눈팝업">
+	<a href="" alt=""></a>
+	<a href="" alt=""></a>
+</div>
+*/
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* [팝업] 동영상함께올리기 */
+.PopWithMovieArea{content:""; clear:both; display:block; position:relative; height:100%; text-align:center; }
+.PopWithMovieArea img{display:block; max-width:100%; margin:auto;}
+.PopWithMovieArea .Movie_IframArea{max-width:100%}
+.PopWithMovieArea section{display:block; position:relative; overflow:hidden;}
+.PopWithMovieArea .bgImg{display:block; position:relative;}
+.PopWithMovieArea dl{display:table; position:absolute; top:0px; right:0px; bottom:0px; left:0px; table-layout:fixed; vertical-align:middle; padding:1em; } 
+.PopWithMovieArea dt{display:table-cell; position:relative; width:50%; text-align:center; vertical-align:middle; }
+.PopWithMovieArea dd{display:table-cell; position:relative; width:50%; text-align:center; vertical-align:middle;} 
+
+
+/*
+.PopWithMovieArea{content:""; clear:both; display:block; position:relative; height:100%; text-align:center; background-color:#f8f8f8; padding:4em 2em 2em 2em;}
+.PopWithMovieArea .BgImg{}
+.PopWithMovieArea section{display:block; position:relative;}
+.PopWithMovieArea section > img{display:block; max-width:100%; margin:auto; margin-bottom:1.6em;}
+.PopWithMovieArea dl{display:table; position:relative; width:100%; table-layout:fixed; border:1px solid #dddddd;  background-color:#fff; overflow:hidden;}
+.PopWithMovieArea dt{display:table-cell; width:50%; text-align:center; vertical-align:middle; border-right:1px dashed #dddddd; padding:1em;}
+.PopWithMovieArea dt img{display:block; max-width:100%; margin:auto;}
+.PopWithMovieArea dd{display:table-cell; width:50%;  text-align:center;  vertical-align:middle; background-color:#fff; padding:2em;} 
+.PopWithMovieArea dd .Movie_IframArea{max-width:100%}
+
+*/
+
+
+/* ================================================================================================= */
+/* UI탭기본스타일클리어(20150215) */
+.TabsClear.ui-tabs{content:""; clear:both; display:block; position:relative; padding:0; margin:0; border-radius:0px; border:none;}
+.TabsClear.ui-tabs.ui-widget-content{border:none; background-color:transparent; background:none !important; font-weight:normal; color:#393939;}
+	/* 탭메뉴 */
+	.TabsClear .TabsHead{display:block; position:relative;}
+	.TabsClear .TabsHead .Inner{}
+	.TabsClear.ui-tabs .ui-widget-header,
+	.TabsClear.ui-tabs .ui-tabs-nav{display:table; width:100%; color:#393939; text-align:center; border:none;  background-image:none; background-color:transparent; margin:0 auto; padding:0; border-radius:0px; background-color:#fff; overflow:hidden;}
+	.TabsClear.ui-tabs .ui-tabs-nav li,
+	.TabsClear.ui-tabs .ui-tabs-nav li.ui-tabs-tab{float:none; display:table-cell; position: relative; top:0px; margin:0;  padding: 0;}
+	.TabsClear.ui-tabs .ui-tabs-nav li a,
+	.TabsClear.ui-tabs .ui-tabs-nav .ui-tabs-anchor,
+	.TabsClear.ui-tabs .ui-tabs-nav li.ui-tabs-tab a{float:none; display:block; color:#393939; line-height:1em; padding:0;}
+	.TabsClear.ui-tabs .ui-helper-reset{line-height:1em; margin:0; padding:0;}
+		/* 기본상태 */
+		.TabsClear.ui-tabs .ui-state-default.ui-corner-top{border:none;  border-radius:0px; background:none;}
+		/* 선택상태 */
+		.TabsClear.ui-tabs .ui-state-active,
+		.TabsClear.ui-tabs .ui-widget-content .ui-state-active,
+		.TabsClear.ui-tabs .ui-widget-header .ui-state-active{border:none; border-radius:0px;}
+		.TabsClear.ui-tabs .ui-tabs-nav .ui-tabs-selected{margin:0; padding:0;}
+		.TabsClear.ui-tabs .ui-tabs-nav .ui-tabs-active{margin:0; padding:0;}
+	/* 컨텐츠 */
+	.TabsClear .TabsBody{display:block; position:relative;}
+	.TabsClear.ui-tabs .ui-tabs-panel{display:block; border-width:0; background:none; border-radius:0px; padding:0; margin:0;}
+		
+		/* 탭메뉴스타일설정_소메뉴2 */
+		.TabsClear .SubNav_Small2{}
+		.TabsClear .SubNav_Small2 li{}
+			/* 탭메뉴 */
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-widget-header,
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-tabs-nav.SubNav_Small2{border:1px solid #e8e8e8; border-radius:10px;}
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-tabs-nav li.ui-tabs-tab{border-right:1px solid #e8e8e8;}
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-tabs-nav li.ui-tabs-tab:last-child{border-right:none;}
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-tabs-nav .ui-tabs-anchor,
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-tabs-nav li.ui-tabs-tab a{font-size:12pt; letter-spacing:-1px; line-height:2.7em;}
+			/* 선택상태 */
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-state-active,
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-widget-content .ui-state-active a,
+			.TabsClear.ui-tabs .SubNav_Small2 .ui-widget-header .ui-state-active a{background-color:#f4f4f4;}
+				/* 구분 */
+				.NC00001 .TabsClear.ui-tabs .SubNav_Small2 .ui-state-active,
+				.NC00001 .TabsClear.ui-tabs .SubNav_Small2 .ui-widget-content .ui-state-active a,
+				.NC00001 .TabsClear.ui-tabs .SubNav_Small2 .ui-widget-header .ui-state-active a{color:#8d8078;} /* 네트워크1 */
+				.NC00005 .TabsClear.ui-tabs .SubNav_Small2 .ui-state-active,
+				.NC00005 .TabsClear.ui-tabs .SubNav_Small2 .ui-widget-content .ui-state-active a,
+				.NC00005 .TabsClear.ui-tabs .SubNav_Small2 .ui-widget-header .ui-state-active a{color:#0f4b9f;} /* 네트워크2 */
+				.NC00010 .TabsClear.ui-tabs .SubNav_Small2 .ui-state-active,
+				.NC00010 .TabsClear.ui-tabs .SubNav_Small2 .ui-widget-content .ui-state-active a,
+				.NC00010 .TabsClear.ui-tabs .SubNav_Small2 .ui-widget-header .ui-state-active a{color:#78bc27;} /* 네트워크3 */
+
+/* 스크롤시고정 */
+.TabsHead.Fixed{display:block; position:fixed; width:100%; z-index:995; margin:0px;}
+
+
+/* ================================================================================================= */
+/* 멀티롤링배너기본 */
+.MultiSlider{content:""; clear:both; display:block; position:relative; width:100%; height:inherit;}
+.MultiSlider.slider{content:""; clear:both; display:block;}
+.MultiSlider.slick-dotted{}
+	.MultiSlider .slick-list{position:relative; display:block; overflow:hidden; margin:0; padding: 0;} 
+	.MultiSlider .slick-list.draggable{cursor:pointer; text-align:center; margin:auto;}
+	.MultiSlider .slick-list .slick-slide{text-align:center; margin:auto;}
+	.MultiSlider .slick-list .slick-slide div{}
+	.MultiSlider .slick-list .slick-slide a{display:block; width:100%; text-align:center; outline:none;}
+	.MultiSlider .slick-list .slick-slide a img{}
+	.MultiSlider .slick-prev:before,
+	.MultiSlider .slick-next:before {color:black;}
+	.MultiSlider .slick-slide{display:none; float:left; height:100%; min-height: 1px; }
+	.MultiSlider .slick-active{}/* 왼쪽 첫번째인 이미지 */
+	.MultiSlider .slick-current{}/* 왼쪽 첫번째가 아닌 이미지 */
+	.MultiSlider.slick-slider{position:relative; display: block; }
+	.MultiSlider.slick-slider .slick-track{text-align:center; margin:auto;}
+	.MultiSlider.slick-slider .slick-track,
+	.MultiSlider.slick-slider .slick-list{-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+	.MultiSlider.slick-initialized .slick-slide{display: block;}
+	.MultiSlider .slick-arrow.SliderThum_BtnPrev,
+	.MultiSlider .slick-arrow.SliderThum_BtnNext{display:block; width:50px; height:50px; font-size:70px; text-indent:-10000px; color:#d3d3d3; z-index:100;}
+	.MultiSlider .slick-arrow.SliderThum_BtnPrev{position:absolute; top:45%; left:0px; margin-left:50px; border:none; background:transparent; outline:none; cursor:pointer;
+	border-left:1px solid #1d1d1d; border-bottom:1px solid #1d1d1d;  -webkit-transform: rotate( 45deg ); moz-transform: rotate( 45deg ); -ms-transform: rotate( 45deg ); -o-transform: rotate( 45deg );}
+	.MultiSlider .slick-arrow.SliderThum_BtnNext{position:absolute; top:45%; right:0px; margin-right:50px; border:none; background:transparent; outline:none; cursor:pointer;
+	border-right:1px solid #1d1d1d; border-bottom:1px solid #1d1d1d;  -webkit-transform: rotate( -45deg ); moz-transform: rotate( -45deg ); -ms-transform: rotate(-45deg ); -o-transform: rotate( -45deg );}
+	.MultiSlider .slick-arrow.slick-hidden{display: none; }
+	.MultiSlider ul.SliderThum_BtnPage{content:""; clear:both; display:block; position:absolute; bottom:15px; width:100%; text-align:center; margin-top:15px; }
+	.MultiSlider ul.SliderThum_BtnPage li{display: inline-block; }
+	.MultiSlider ul.SliderThum_BtnPage li button{width:20px; height:20px; color:transparent; border:2px solid #b9b9b9; border-color:#b9b9b9; border-radius:50px; background: transparent; cursor:pointer; overflow:hidden; margin-right:5px;} 
+	.MultiSlider ul.SliderThum_BtnPage li:last-child button{margin-right:0px;}
+	.MultiSlider ul.SliderThum_BtnPage li.slick-active button{width:40px; border-color:#b9b9b9; background-color:#b9b9b9;}
+	.MultiSlider ul.SliderThum_BtnPage li button:hover,
+	.MultiSlider ul.SliderThum_BtnPage li button:focus{outline:none;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* [멀티롤링배너] 제목바(버튼커스텀) */
+.MultiBarSlider{content:""; clear:both; display:block; position:relative; width:100%; height:inherit;}
+.MultiBarSlider.slider{content:""; clear:both; display:block;}
+.MultiBarSlider.slick-dotted{}
+	.MultiBarSlider .slick-list{display:block; position:relative; overflow:hidden; margin:0; padding: 0;}
+	.MultiBarSlider .slick-list.dragging{cursor:pointer;}
+	.MultiBarSlider .slick-list .slick-slide{}
+	.MultiBarSlider .slick-list .slick-slide div{}
+	.MultiBarSlider .slick-list .slick-slide a{display:block; width:100%; text-align:center; outline:none;}
+	.MultiBarSlider .slick-list .slick-slide a img{}
+	.MultiBarSlider .slick-prev:before,
+	.MultiBarSlider .slick-next:before {color:black;}
+	.MultiBarSlider .slick-slide{display:none; float:left; height:100%; min-height: 1px; }
+	.MultiBarSlider .slick-active{}/* 왼쪽 첫번째인 이미지 */
+	.MultiBarSlider .slick-current{}/* 왼쪽 첫번째가 아닌 이미지 */
+	.MultiBarSlider.slick-slider{position:relative; display: block; }
+	.MultiBarSlider.slick-slider .slick-track,
+	.MultiBarSlider.slick-slider .slick-list{-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+	.MultiBarSlider.slick-initialized .slick-slide{display: block;}
+	.MultiBarSlider .slick-arrow.SliderThum_BtnPrev,
+	.MultiBarSlider .slick-arrow.SliderThum_BtnNext{height:inherit; font-size:70px; color:#d3d3d3; z-index:998; }
+	.MultiBarSlider .slick-arrow.SliderThum_BtnPrev{position:absolute; top:0px; left:0px; margin-left:-30px; border:none; background: transparent; outline:none; cursor:pointer;}
+	.MultiBarSlider .slick-arrow.SliderThum_BtnNext{position:absolute; top:0px; right:0px; margin-right:-30px; border:none; background: transparent; outline:none; cursor:pointer;}
+	.MultiBarSlider .slick-arrow.slick-hidden{display: none; }
+	.MultiBarSlider ul.SliderThum_BtnPage{content:""; clear:both; display:table; position:relative; width:100%; table-layout:fixed; text-align:center;}
+	.MultiBarSlider ul.SliderThum_BtnPage li{display:table-cell; vertical-align:middle;}
+	.MultiBarSlider ul.SliderThum_BtnPage li button{display:block; position:relative; width:100%; height:40px; font-size:10pt; line-height:1em; font-weight:bold; background-color:#fff; cursor:pointer;} 
+	.MultiBarSlider ul.SliderThum_BtnPage li.slick-active button{color:#fff; background-color:#272727;}
+	.MultiBarSlider ul.SliderThum_BtnPage li button:hover,
+	.MultiBarSlider ul.SliderThum_BtnPage li button:focus{outline: none;}
+	/* for IE8 */
+	@media \0screen { 
+		.MultiBarSlider{overflow:hidden;}
+		.MultiBarSlider .MainContents_Thum{float:left;}
+	}
+	/* for IE7 */
+	.MultiBarSlider{*overflow:hidden;}
+	.MultiBarSlider .MainContents_Thum{*float:left;}
+
+	/* 버튼이옆으로붙을경우(겔러리에서사용) */
+	.MultiBarSlider.ButtonLeft{position:relative; display:table; table-layout:fixed;}
+	.MultiBarSlider.ButtonLeft .slick-list{position:relative; display:table-cell; width:80%; vertical-align:top;}
+	.MultiBarSlider.ButtonLeft .slick-list img{width:100%;}
+	.MultiBarSlider.ButtonLeft ul.SliderThum_BtnPage{position:relative; display:table-cell; width:20%; vertical-align:top; background-color: #272727;}
+	.MultiBarSlider.ButtonLeft ul.SliderThum_BtnPage li{display:block; width:100%; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgba(255,255,255, 0.2);}
+	.MultiBarSlider.ButtonLeft ul.SliderThum_BtnPage li:last-child{border-bottom:none;}
+	.MultiBarSlider.ButtonLeft ul.SliderThum_BtnPage li button{height:auto; color:rgba(255,255,255, 0.8);}
+	.MultiBarSlider.ButtonLeft ul.SliderThum_BtnPage li.slick-active button{color:#b88e66; background:none;}
+	.MultiBarSlider:after{content:""; clear:both; display:block;}
+
+	/*구분*/
+	.NC00030 .MultiBarSlider ul.SliderThum_BtnPage li button{background-color:#373737;} /*청담슬림*/
+
+
+/* ================================================================================================= */
+/* [멀티롤링배너] 사진바(버튼커스텀) */
+.MultiImgSliderArea{}
+.MultiImgSliderArea .Inner{width:1000px; min-width:1000px; padding:30px 30px 30px 30px; background-color:#fff;}
+.MultiImgSlider{content:""; clear:both; display:block; position:relative; width:100%; height:inherit;}
+.MultiImgSlider.slider{content:""; clear:both; display:block;}
+.MultiImgSlider.slick-dotted{}
+	.MultiImgSlider.slider-for{width:auto; height:620px; overflow:hidden;}
+	.MultiImgSlider.slider-for .slick-slide li .ThumBox{height:620px; background-color:#fff !important;}
+	.MultiImgSlider.slider-for .slick-slide li .ThumBox img{width:auto; height:100%;}
+	.MultiImgSlider.slider-nav{margin-top:30px;}
+	.MultiImgSlider.slider-nav .slick-slide{width:100%; height:64px; overflow:hidden;}
+	.MultiImgSlider.slider-nav .slick-slide li{width:100%; cursor:pointer;}
+	.MultiImgSlider.slider-nav .slick-slide li .ThumBox img{width:100%; opacity:.6;}
+	.MultiImgSlider.slider-nav div.slick-active li{padding-right:10px;}
+	.MultiImgSlider .slick-slide li .ThumBox{background-color:#000; display: block; position:relative; margin:auto; overflow:hidden;}
+	.MultiImgSlider .slick-slide.slick-current li .ThumBox img{opacity:1;}
+	.MultiImgSlider .slick-list{position:relative; display:block; overflow:hidden; margin:0; padding: 0;} 
+	.MultiImgSlider .slick-list.draggable{cursor:pointer; text-align:center; margin:auto;}
+	.MultiImgSlider .slick-list .slick-slide{text-align:center; margin:auto;}
+	.MultiImgSlider .slick-list .slick-slide div{}
+	.MultiImgSlider .slick-list .slick-slide a{display:block; width:100%; text-align:center; outline:none;}
+	.MultiImgSlider .slick-list .slick-slide a img{}
+	.MultiImgSlider .slick-prev:before,
+	.MultiImgSlider .slick-next:before{color:black;}
+	.MultiImgSlider .slick-slide{display:none; float:left; height:100%; min-height:1px; }
+	.MultiImgSlider .slick-active{}/* 왼쪽 첫번째인 이미지 */
+	.MultiImgSlider .slick-current{}/* 왼쪽 첫번째가 아닌 이미지 */
+	.MultiImgSlider .slick-slider{position:relative; display: block; }
+	.MultiImgSlider .slick-slider .slick-track{text-align:center; margin:auto;}
+	.MultiImgSlider .slick-slider .slick-track,
+	.MultiImgSlider .slick-slider .slick-list{-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+	.MultiImgSlider.slick-initialized .slick-slide{display: block;}
+	.MultiImgSlider .slick-button{position:absolute; top:43%; width:100%; left:0; z-index:1;}
+	.MultiImgSlider .slick-arrow.SliderThum_BtnPrev,
+	.MultiImgSlider .slick-arrow.SliderThum_BtnNext{display:block; width:30px; height:30px; font-size:70px; text-indent:-10000px; color:#d3d3d3; z-index:100;}
+	.MultiImgSlider .slick-arrow.SliderThum_BtnPrev{position:absolute; top:45%; left:0px; margin-left:50px; border:none; background:transparent; outline:none; cursor:pointer;
+	bMultiImgSlider1px solid #1d1d1d; border-bottom:1px solid #1d1d1d;  -webkit-transform: rotate( 45deg ); moz-transform: rotate( 45deg ); -ms-transform: rotate( 45deg ); -o-transform: rotate( 45deg );}
+	.MultiImgSlider .slick-arrow.SliderThum_BtnNext{position:absolute; top:45%; right:0px; margin-right:50px; border:none; background:transparent; outline:none; cursor:pointer;
+	bMultiImgSlider:1px solid #1d1d1d; border-bottom:1px solid #1d1d1d;  -webkit-transform: rotate( -45deg ); moz-transform: rotate( -45deg ); -ms-transform: rotate(-45deg ); -o-transform: rotate( -45deg );}
+	.MultiImgSlider .slick-arrow.slick-hidden{display: none; }
+	.MultiImgSlider ul.SliderThum_BtnPage{content:""; clear:both; display:block; position:relative; bottom:15px; width:100%; text-align:center; margin-top:50px;}
+	.MultiImgSlider ul.SliderThum_BtnPage li{display: inline-block; }
+	.MultiImgSlider ul.SliderThum_BtnPage li button{width:20px; height:20px; color:transparent; border:2px solid #b9b9b9; border-color:#b9b9b9; border-radius:50px; background: transparent; cursor:pointer; overflow:hidden; margin-right:5px;} 
+	.MultiImgSlider ul.SliderThum_BtnPage li:last-child button{margin-right:0px;}
+	.MultiImgSlider ul.SliderThum_BtnPage li.slick-active button{width:15px; height:15px; background-color:#555;}
+	.MultiImgSlider ul.SliderThum_BtnPage li button:hover,
+	.MultiImgSlider ul.SliderThum_BtnPage li button:focus{outline:none;}
+	
+
+/* ================================================================================================= */
+ /* 풀스크롤롤링 */
+.fullScrollArea{display:block; position:relative;}
+.fullScrollArea .scrollContBox{display:block; position:relative; width:100%; height:100%;}
+.fullScrollArea #scrollContNavi{display:block; position:fixed; top:0%; bottom:0; right:4%; z-index:99;}
+.fullScrollArea #scrollContNavi .MenuBox{display:inline-table; position:relative; height:100%; }
+.fullScrollArea #scrollContNavi .Menu{display:table-cell; position:relative; vertical-align:middle;}
+.fullScrollArea #scrollContNavi .Menu li{display:block; position:relative;}
+.fullScrollArea #scrollContNavi .Menu li + li{margin-top:0.5em;}
+.fullScrollArea #scrollContNavi .Menu a{display:block; position:relative;}
+.fullScrollArea #scrollContNavi .Menu a p{display:block; position:relative; width:1.5em; height:1.5em;  color:#fff; text-align:center; border:2px solid #fff; border-radius:50%; text-indent: -1000px; margin:0 auto; overflow:hidden;}
+.fullScrollArea #scrollContNavi .Menu a p:hover{background-color:#fff; }
+.fullScrollArea #scrollContNavi .Menu a p.Active{background-color:#fff; }
+	/* 메뉴에문자가있을경우 */
+	.fullScrollArea #scrollContNavi.getText{}
+	.fullScrollArea #scrollContNavi.getText .MenuBox{}
+	.fullScrollArea #scrollContNavi.getText .Menu{}
+	.fullScrollArea #scrollContNavi.getText .Menu li{}
+	.fullScrollArea #scrollContNavi.getText .Menu a p{width:auto; height:auto; text-indent:0px; border-color:transparent; border-radius:30px; padding:0.5em 1em; }
+	.fullScrollArea #scrollContNavi.getText .Menu a p:hover{border-color:#fff; background:none;}
+	.fullScrollArea #scrollContNavi.getText .Menu a p.Active{color:#b88e66; border-color:#b88e66; background:none;}
+	/* 스크롤안내 */
+	.fullScrollGuide{display:block; position:fixed; bottom:0px; left:50%; margin-left:-10%; width:20%; color:#fff; text-align:center; z-index:99;}
+	.fullScrollGuide .infoText{display:block; position:relative; font-size:13pt; letter-spacing:0.1em; text-transform:uppercase; text-align:center; margin-bottom:1em;}
+	.fullScrollGuide .Bar{display:block; position:relative; width:3px; height:4em; background-color:rgba(255,255,255, 0.5); margin:auto;}
+	.fullScrollGuide .Bar:after{content: ""; clear: both; display:block; position:absolute; width:100%; height:30%; background-color:#fff; animation:fullScrollGuide_Animation 2s linear infinite;}
+	@keyframes fullScrollGuide_Animation{
+													0%{top:0%}
+													50%{top:80%;}
+													100%{top:0%;}
+												}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* 영역스크롤(https://github.com/Mobius1/Pageable https://www.cssscript.com/fullscreen-scrolling-presentation-pageable/	)*/
+.pageableScrollArea{display:block; position:relative;}
+.pageableScrollArea .scrollContBox{display:block; position:relative;}
+	/* 영역컨텐츠 */
+	.pageableScrollArea .scrollContSection{display:flex; position:relative; align-items:center; justify-content:center; flex-flow:row; background-color:#000; background-repeat:no-repeat; background-repeat:no-repeat; background-position:center top; overflow:hidden;} /* background-size:auto 100%;  */
+	.pageableScrollArea .contBox{display:block; position:relative; }
+	.pageableScrollArea .contBox img{max-width:100%;}
+	.pageableScrollArea .contBox .ani{opacity:0; animation-fill-mode:forwards; animation-timing-function:ease;}
+	.pageableScrollArea .contBox.Active{}
+	/* 메뉴 */
+	.pageableScrollArea .scrollContNav{display:block; position:fixed; display:flex; align-items:center; justify-content:center; height:100vh; top:0; right:5%; z-index:99;}
+	.pageableScrollArea .scrollContNav .Menu{display:block; position:relative;}
+	.pageableScrollArea .scrollContNav .Menu li{display:block; position:relative; }
+	.pageableScrollArea .scrollContNav .Menu li + li{margin-top:1em;}
+	.pageableScrollArea .scrollContNav .Menu a{display:flex; position:relative; width:1em; height:1em; align-items:center; text-align:center; text-transform:uppercase; z-index:1; cursor:pointer; }
+	.pageableScrollArea .scrollContNav .Menu a span{display:block; position:relative; width:0.6em; height:0.6em; border-radius:50%; background:#fff; transition:all 0.1s ease-in-out; margin:auto;}
+	.pageableScrollArea .scrollContNav .Menu a span:after{content:""; display:block; position:absolute; left:-32%; top:-32%; width:160%; height:160%; border-radius:50%; background:rgba(255, 255, 255, 0.3); z-index:1; display:none;}/* 일단숨김 */
+	.pageableScrollArea .scrollContNav .Menu a:hover span:after{display:block; transition:0.3s; }
+	.pageableScrollArea .scrollContNav .Menu a.Active{}
+	.pageableScrollArea .scrollContNav .Menu a.Active span{width:1em; height:1em;}
+	.pageableScrollArea .scrollContNav .Menu a.Active span:after{display:block; transition:0.3s; }
+	.pageableScrollArea .pg-wrapper.pg-vertical{}  /* 세로가기본 */
+	.pageableScrollArea .pg-wrapper.pg-horizontal{} /* 가로일때(하단에위치) */
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav{top:auto; right:0px; left:0; bottom:4%; width:100%;}
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav .Menu{display:inline-table;}
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav .Menu li{display:table-cell; vertical-align:middle;}
+	.pageableScrollArea .pg-wrapper.pg-horizontal .scrollContNav .Menu li + li{margin-top:0px; padding-left:0.5em;}
+	/* 메뉴- 별도로메뉴삽입시(세로가기본) */
+	.pageableScrollArea .otherMenu{display:block; position:fixed; display:flex; align-items:center; justify-content:center; height:100vh; top:0; left:5%; z-index:99;} 
+	.pageableScrollArea .otherMenu .Menu{display:block; position:relative;}
+	.pageableScrollArea .otherMenu .Menu li{display:block; position:relative;}
+	.pageableScrollArea .otherMenu .Menu li + li{margin-top:0.2em;}
+	.pageableScrollArea .otherMenu .Menu a{display:block; position:relative; writing-mode:vertical-rl; text-transform:uppercase; color:#fff;  border:2px solid transparent; border-radius:30px; padding:1em 0.5em; }
+	.pageableScrollArea .otherMenu .Menu a span{display:block; position:relative;}
+	.pageableScrollArea .otherMenu .Menu a:hover{background:rgba(255, 255, 255, 0.2);}
+	.pageableScrollArea .otherMenu .Menu a.Active{border-color:#fff;}
+	.pageableScrollArea .otherMenu.Horizontal{top:auto; left:0; right:0px; bottom:3%; width:100%; height:auto;} /* 가로일때(하단에위치) */
+	.pageableScrollArea .otherMenu.Horizontal .Menu{display:inline-table;}
+	.pageableScrollArea .otherMenu.Horizontal .Menu li{display:table-cell; vertical-align:middle;}
+	/* 스크롤안내 */
+	.pageableScrollGuide{display:block; position:fixed; bottom:0px; left:50%; margin-left:-10%; width:20%; color:#fff; font-size:0.9em; text-align:center; z-index:98;}
+	.pageableScrollGuide .infoText{display:block; position:relative; letter-spacing:0.1em; text-transform:uppercase; text-align:center; margin-bottom:0.5em;}
+	.pageableScrollGuide .infoText:before{content: "SCROLL"; clear: both; display:block; position:relative;}
+	.pageableScrollGuide .Bar{display:block; position:relative; width:2px; height:3em; background-color:rgba(255,255,255, 0.5); margin:auto;}
+	.pageableScrollGuide .Bar:after{content: ""; clear: both; display:block; position:absolute; width:100%; height:30%; background-color:#fff; animation:fullScrollGuide_Animation 2s linear infinite;}
+	@keyframes fullScrollGuide_Animation{
+													0%{top:0%}
+													50%{top:80%;}
+													100%{top:0%;}
+												}
+
+
+
+/* ================================================================================================= */
+/* 최상단배너(배너관리 0번) */
+.TopBannerArea{content:""; clear:both; display:block; position:relative; width:100%; text-align:center; margin:auto; overflow:hidden !important; max-height:110px;} 
+	/* 내용 */
+	.TopBannerArea .Banner{display:block; position:relative;  background-position:center top; background-repeat:no-repeat; background-size:auto 100%;}
+	.TopBannerArea a.InnerContainer{}
+	.TopBannerArea img{max-width:100%;}
+	.TopBannerArea .TopBannerBox{}
+	.TopBannerArea .MultiSlider{}
+	.TopBannerArea .MultiSlider .Banner{}
+	.TopBannerArea .MultiSlider ul.SliderThum_BtnPage{display:block; bottom:5px; left:50%; width:650px; text-align:right;}
+	.TopBannerArea .MultiSlider ul.SliderThum_BtnPage li button{width:10px; height:10px; border-width:1px; }
+	.TopBannerArea .MultiSlider ul.SliderThum_BtnPage li.slick-active button{}
+
+	/* 버튼 */
+	.TopBannerBtnBox{position:relative; text-align:right;}
+	.TopBannerBtn{position:absolute; right:0px; color:#cccccc; font-size:11px; cursor:pointer; z-index:100;}
+	.TopBannerBtn label{position:absolute; top:-23px; margin-left:7px; text-align:center; color:#8e8e8e; cursor:pointer;}
+	.TopBannerBtn label *{color:#8e8e8e;}
+	.TopBannerBtn span.glyphicon{color:#cccccc;}
+	.TopBannerBtn span.glyphicon.glyphicon-remove{padding:5px;}
+	.TopBannerBtn span.glyphicon.glyphicon-chevron-down{position:absolute; padding:5px;}
+
+
+/* ================================================================================================= */
+/* 배지류 */
+
+
+/* ================================================================================================= */
+/* 카카오팝업창 */
+.ContactPop_Kakao{content:""; clear:both; display:block; position:fixed; left:0px; top:0px; width:100%; z-index:9991; display:none;} /* 일단숨김  */
+.ContactPop_Kakao .LayerPopBg{display:block;}
+	/* 팝업내용  */
+	.ContactPop_KakaoSection{content:""; clear:both; display:block; position:fixed; top:15%; left:50%; margin-left:-250px; width:500px; background-color:#fff000; z-index:9999;}
+	.ContactPop_KakaoSection fieldset{content:""; clear:both; display:block; position:relative; padding:2em;}
+		/* 타이틀_상담신청만있었을때의타이틀 */
+		.ContactPop_Kakao_Title{content:""; clear:both; display:block; color:#3c1e1e; text-align:center;}
+		.ContactPop_Kakao_Title img{height:18px; margin-bottom:2%;}
+		.ContactPop_Kakao_Title img.Logo{margin-right:1%;}
+		.ContactPop_Kakao_Title img.Plus{}
+		.ContactPop_Kakao_Title p{font-size:22pt; font-weight:bold; margin-bottom:1%;} 
+		.ContactPop_Kakao_Title span{font-size:8pt; letter-spacing:-1px;}
+		.ContactPop_Kakao_Title .ContactPop_Kakao_Close{position:absolute; top:2em; right:2em;}
+		.ContactPop_Kakao_Title .ContactPop_Kakao_Close span{display:block; font-size:20pt; cursor:pointer; padding:2%;}
+		/* 상단꾸밈(20181219) */
+		.ContactPop_Kakao_YellowTitle{display:block; text-align:center;}
+		.ContactPop_Kakao_YellowTitle img.KakaoFriends{width:80%; text-align:center; margin:auto; margin-bottom:3%;}
+		.ContactPop_Kakao_YellowTitle .InfoText{margin-bottom:1em;} 
+		.ContactPop_Kakao_YellowTitle .InfoText span{display:block; font-size:15pt; line-height:1.6em; letter-spacing:-1px; }
+		.ContactPop_Kakao_YellowTitle .InfoText p{display:inline-block; font-size:18pt; font-weight:bold; line-height:1em; border-bottom:3px double #1e1e1e; padding-bottom:3px;}
+		.ContactPop_Kakao_YellowTitle .InfoText p b{position:relative; font-family:'Roboto',sans-serif;}
+		.ContactPop_Kakao_YellowTitle .InfoText p span{display:inline-block; font-size:22pt;}
+		.ContactPop_Kakao_YellowTitle .InfoText strong{display:block; font-weight:normal; margin-top:2em;}
+		.ContactPop_Kakao_YellowTitle .ContactPop_Kakao_Close{position:absolute; top:0; right:3%;}
+		.ContactPop_Kakao_YellowTitle .ContactPop_Kakao_Close span{display:block; font-size:20pt; cursor:pointer; padding:1em;}		 
+		/* 탭내용 */
+		.ContactPop_Kakao_Content{content:""; clear:both; display:block; position:relative;}
+			/* 입력및선택 */
+			.ContactPop_Kakao_Content ol{margin:0px; padding:0px;}
+			.ContactPop_Kakao_Content ol li{position:relative; background-color:#ffffff; border:1px solid #e6d42e; border-radius:5px; padding:0.8em 0.8em;}
+			.ContactPop_Kakao_Content ol li span,
+			.ContactPop_Kakao_Content ol li input,
+			.ContactPop_Kakao_Content ol li select{display:block; width:100%; height:inherit; color:#1e1e1e; font-size:10pt; vertical-align:middle; background:none; border:none;}
+			.ContactPop_Kakao_Content ol li span{display:table-cell;}
+			.ContactPop_Kakao_Content ol li + li{margin-top:0.5em;}
+			/* 동의체크 */
+			.ContactPop_Kakao_Check{content:""; clear:both; display:block; margin:2% 0% 2% 0%;}
+			.ContactPop_Kakao_Check p{margin:0px; padding:0px; position:relative; margin-top:-2%;}
+			.ContactPop_Kakao_Check label{display:inline-block; position:relative; color:#3c1e1e; font-size:9pt; line-height:1em; letter-spacing:-1px; padding:0px; margin:0px; padding:2% 0% 0% 5%;  cursor:pointer;}
+			.ContactPop_Kakao_Check label input{position:absolute; left:0; margin:0px;}
+			.ContactPop_Kakao_Check span{color:#3c1e1e; font-size:7pt; margin:0px; margin-left:2px; cursor:pointer;}
+			.ContactPop_Kakao_Check span:hover{color:#333333;}
+			/* 버튼 */
+			.ContactPop_Kakao_Btn{content:""; clear:both; display:block; margin-top:3%;}
+				/* 상담신청만있을때의버튼 */
+				.ContactPop_Kakao_Btn button{display:block; width:100%; color:#fff; font-size:15pt; font-weight:bold; text-align:center; vertical-align:middle;
+				border:none; border-radius:5px; background-color:#3c1e1e; box-shadow:1px 1px 3px 0px #959595; padding:4% 1% 4% 1%; cursor:pointer;}
+				.ContactPop_Kakao_Btn button:active{background-color:#2b1212;}
+				.ContactPop_Kakao_Btn button span{margin-left:1%;}
+				/* 버튼추가 */
+				a.ContactPop_Kakao_YellowBtn{display:block; color:#ffffff; text-align:center; margin:auto; border-radius:5px; background-color:#41352f; cursor:pointer; padding:4% 8%;}
+				a.ContactPop_Kakao_YellowBtn span{display:block; font-size:10pt;}
+				a.ContactPop_Kakao_YellowBtn b{}
+			/* 개인정보취급방침 */
+			.ContactPop_Kakao_Privacy{content:""; clear:both; display:block; position:absolute; top:1%; left:50%; margin-left:-42%; margin-top:6%; width:85%; box-sizing: border-box; border:1px solid #b0b0b0; border-radius:5px; background-color:#f6f6f6; z-index:9999; display:none;}
+			.ContactPop_Kakao_PrivacyBox{position:relative; margin:5%;}
+			.ContactPop_Kakao_Privacy .Title{font-size:10pt; border-left:4px solid #3c1e1e; padding-left:1%; margin-bottom:2%;}
+			.ContactPop_Kakao_Privacy .ContactPop_Kakao_PrivacyClose{position:absolute; top:-2%; right:1%; font-size:18pt;}
+			.ContactPop_Kakao_Privacy pre{display:block; width:95%; height:280px; font-size:8pt; line-height:13px; text-align:left; white-space: pre-line; background-color:#ffffff; overflow:hidden; overflow-y:scroll;  resize:none; margin:0px; padding:0px; padding:2%;}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 문의관련팝업창 */
+.ContactPopArea{content:""; clear:both; display:block;}
+	/* 뒷배경 : 모달사용으로빠짐 */
+	.ContactPopBg{position:fixed; left:0px; top:0px; width:100%; height:100%; background:#000000; opacity:0.7; z-index:99999997;}
+	/* 팝업내용  */
+	.ContactPop{content:""; clear:both; display:block; width:900px; background-color:#ededed;}
+	/* content:""; clear:both; display:block; position:fixed; left:50%; top:15%; width:900px; margin-left:-450px; background-color:#ededed; z-index:99999999;  */
+	.ContactPop *{font-family: 'Noto Sans KR', "sans-serif"; outline:none;}
+	.ContactPopTabs{content:""; clear:both; display:block; position:relative;}
+		/* 뒷배경 */
+		.ui-widget-overlay{background-color:#000000 !important; opacity:0.7 !important; }
+		/* 팝업닫기  */
+		.ContactPop_Close{position:absolute; top:0px; right:-30px; display:inline; width:25px; height:20px; color:#ffffff; font-size:35px; text-align:right; line-height:10px;
+		border:none; border-radius:0px 20px 20px 0px; background-color:#1e1e1e; cursor:pointer; z-index:9999999; margin:0px; padding:5px; overflow:hidden; cursor:pointer;}
+		/* 탭메뉴 */
+		.ContactPopTabs_Head{content:""; clear:both; display:block; background-color:#1e1e1e; padding:15px 15px 100px 15px;}
+		.ContactPopTabs_Head ul{}
+		.ContactPopTabs_Head ul li{float:left; width:25%; border:none; margin: 0px; padding: 0px; }
+		.ContactPopTabs_Head ul li:nth-child(2){} /* width:34%; */
+		.ContactPopTabs_Head ul li:nth-child(3){} /* float:right; */
+		.ContactPopTabs_Head ul li a{display:block; width:100%; height:70px; color:#ffffff; font-size:23px; font-weight:bold; line-height:70px; text-align:center; padding:0px; outline:none; cursor:pointer;}
+		.ContactPopTabs_Head ul li a img{position:relative; top:-3px; height:20px; margin-right:5px;}
+		.ContactPopTabs_Head ul li a:hover, 
+		.ContactPopTabs_Head ul li a:active,
+		.ContactPopTabs_Head ul li a:focus,
+		.ContactPopTabs_Head ul li a:visited{background:#000000; text-decoration:none; outline:none; cursor:pointer;}
+		.ContactPopTabs_Head ul li a.Action{color:#1e1e1e; background:#ffffff; text-decoration:none; outline:none; }
+		.ContactPopTabs_Head .Tabs_Head1{}
+		.ContactPopTabs_Head .Tabs_Head2{}
+		.ContactPopTabs_Head .Tabs_Head3{}
+		.ContactPopTabs_Head .Tabs_Head4{}
+		.ContactPopTabs_Head .Tabs_Head4 a span.glyphicon{color:#b82157; font-size:20px; margin-right:3px;}
+		.ContactPopTabs_Head ul li.TwoTabs{width:50%;} /* 20180731 클릭에따른 탭메뉴노출 다르게함에따라 크기조절위함 */
+
+		/* 탭내용 모달 */
+		.ui-dialog.ui-widget.ui-widget-content.ui-corner-all{background:none; border-radius:0px; border:none; padding:0px; margin:0px;} /* border:none;  */
+		#contentDetail.ui-dialog-content.ui-widget-content{border:none; padding:0px; margin:0px; overflow:hidden;}
+		.ui-dialog.ui-dialog-content{overflow:hidden;}
+
+		/* 탭내용 */
+		.ContactPopTabs_Body{content:""; clear:both; display:block; position:relative; height:430px;}
+			.ContactPopTabs.ui-tabs .ui-tabs-panel{padding:0px;}
+			.ContactPop_Cont{display:block; position:relative; top:-100px;}	
+			.ContactPop_ContBox{display:block; position:relative; background-color:#ffffff; height:430px; padding:35px 30px 20px 30px; margin:0px 15px;}
+				.ContactPopSection_Title{font-size:18px; letter-spacing:0px; border-left-style:solid; border-left-width:7px; padding-left:10px; margin-bottom:20px; }
+				.ContactPopSection_Cont{content:""; clear:both; display:block; width:100%;}
+				.ContactPopSection_Cont .Cont_Left{float:left; width:49%;}
+				.ContactPopSection_Cont .Cont_Right{float:right; width:49%;}
+
+				.ContactPopSection_Cont ol{}
+				.ContactPopSection_Cont li{position:relative; background-color:#ececec; margin-bottom:10px; padding:0px 15px 0px 15px; height:50px;}
+				.ContactPopSection_Cont li input,
+				.ContactPopSection_Cont li select{display:inline-block; width:100%; height:50px; color:#1e1e1e; font-size:16px; line-height:20px; background:none; border:none;}
+				.ContactPopSection_Cont li span.branchNameText{position:relative; top:15px; overflow:hidden; display:inline-block; width:100%; color:#1e1e1e; font-size:16px; line-height:20px; background:none; border:none;}
+				.ContactPopSection_Cont li select option{padding:5px; line-height:1px;}
+				.ContactPopSection_Cont li img.BtnIcon{position:relative; top:-3px; cursor:pointer;}
+				.ContactPopSection_Cont li span.CutBar{position:absolute; top:0px; margin-left:-3px; display:inline-block; width:5px; height:50px; background-color:#ffffff;}
+
+				.ContactPopSection_Cont .Cont_ClinicPickList{content:""; clear:both; display:block; min-height:30px; color:#1e1e1e; font-size:16px; line-height:20px; border:1px solid #ececec; border-radius:3px; padding:10px 15px 5px 15px; margin-bottom:10px;}
+				.ContactPopSection_Cont .Cont_ClinicPickList b{font-weight:normal;}
+				.ContactPopSection_Cont .Cont_ClinicPickList label{display:inline-block; font-size:15px; border-radius:3px; cursor:pointer; padding:2px 5px 2px 5px; margin-bottom: 5px;}
+				.ContactPopSection_Cont .Cont_ClinicPickList label span{font-size:20px; line-height:10px;}
+				.ContactPopSection_Cont .Cont_ClinicPickList label:hover{background-color:#ececec;}
+
+				.ContactPopSection_Check{margin:0px 0px 10px 0px;}
+				.ContactPopSection_Check label{width:100%; color:#939393; font-size:13px; padding:0px; margin:0px; cursor:pointer;}
+				.ContactPopSection_Check span{color:#939393; margin-left:5px; cursor:pointer;}
+				.ContactPopSection_Check span:hover{color:#333333;}
+				
+				/* 버튼 */
+				.ContactPopSection_Btn{content:""; clear:both; display:block; position:absolute; bottom:25px; width:93%;}
+				.ContactPopSection_Btn button{display:block; width:100%; height:70px; font-size:25px; font-weight:bold; text-align:center; border:none; cursor:pointer;}
+
+			/* 비용문의 */
+			.ContactPop_Cont1{}
+			.ContactPop_Cont1 .ContactPopSection_Title{border-left-color:#fcccdc; }
+			.ContactPop_Cont1 .ContactPopSection_Btn button{color:#212121; background-color:#fcccdc;}
+
+			/* 카톡상담 */
+			.ContactPop_Cont2{}
+			.ContactPop_Cont2 .ContactPopSection_Title{border-left-color:#fff000; }
+			.ContactPop_Cont2 .ContactPopSection_Btn button{color:#3b1f1e; background-color:#fff000;}
+			.ContactPop_Cont2 .ContactPopSection_Cont{}
+			.ContactPop_Cont2 .ContactPopSection_Cont ul{width:100%;}
+
+			/* 예약신청 */
+			.ContactPop_Cont3{}
+			.ContactPop_Cont3 .ContactPopSection_Title{border-left-color:#9edaf0;}
+			.ContactPop_Cont3 .ContactPopSection_Btn button{color:#212121; background-color:#9edaf0;}
+
+			/* 이벤트신청 */
+			.ContactPop_Cont4{}
+			.ContactPop_Cont4 .ContactPopSection_Title{border-left-color:#b82157;}
+			.ContactPop_Cont4 .ContactPopSection_Btn button{color:#ffffff; background-color:#b82157;}
+			.ContactPop_Cont4 .Cont_Left,
+			.ContactPop_Cont4 .Cont_Right{width:45%;}
+
+			/* 개인정보취급방침 */
+			.ContactPopTabs_Privacy{content:""; clear:both; display:block; position:absolute; top:-102px; left:50%; margin-left:-440px; width:880px; background-color:#ffffff; z-index:9999999; box-shadow:0px 5px 5px #c5c5c5; border:1px solid #c5c5c5; border-radius:10px; display:none;}
+			.ContactPopTabs_PrivacyBox{margin:20px;}
+			.ContactPopTabs_Privacy .ContactPopSection_Title{border-left-color:#ffe400; }
+			.ContactPopTabs_Privacy pre{display:block; width:100%; height:400px; text-align:left; background-color:#ececec; overflow:hidden; overflow-y: scroll; margin:0px; padding:0px;}
+
+			/* 닫기  */
+			.ContactPopTabs_Privacy_Close{position:absolute; top:0px; right:0px; display:inline; color:#1e1e1e; font-size:30px; line-height:10px; border:none; cursor:pointer; z-index:9999999; margin:0px; padding:5px;}
+
+			/* 하단공통문구 */
+			.ContactPopTabs_Bottom{content:""; clear:both; display:block; position:absolute; bottom:0px;  width:100%; text-align:center;}
+			.ContactPopTabs_Bottom p{margin:15px;}
+			.ContactPopTabs_Bottom p b{color:#ef4d84;}
+
+/* ----------------------------------------------------------------------------------- */
+/* 예약신청함께하기(20181022) */
+.ContactPop_WithArea{content:""; clear:both; display:block; position:fixed; left:50%; top:12%; width:700px; margin-left:-350px;  background-color:#ededed;  box-shadow:1px 1px 5px 0px #393939; z-index:99999998;}
+.ContactPop_WithArea *{font-family: 'Noto Sans KR',"sans-serif"; box-sizing:border-box;}
+.ContactPop_WithArea .ContactPopTabs_Bottom{position:static;}
+	.ContactPop_With{content:""; clear:both; display:block; position:relative; text-align:center; margin:auto;  background-color:#ffffff; padding:20px 20px 15px 20px; }
+		/* 닫기  */
+		.ContactPop_With_Close{display:table; position:absolute; top:10px; right:10px;  border:none; cursor:pointer; }
+		.ContactPop_With_Close span{display:table-cell; position:relative; color:#1e1e1e; font-size:25pt; line-height:0.5em;}
+		.ContactPop_With_Close b{display:table-cell; font-size:11pt;  line-height:0.5em; vertical-align:middle;}
+		/* 타이틀 */
+		.ContactPop_With_Head{color:#1e1e1e; letter-spacing:1px; padding-bottom:15px; } /* padding-bottom:10px; */
+		.ContactPop_With_Head big{font-size:18pt; font-weight:bold;}
+		.ContactPop_With_Head big strong{font-size:16pt; letter-spacing:-1px; margin-top:10px;}
+		.ContactPop_With_Head big strong span{color:#d50429;}
+		.ContactPop_With_Head p{font-size:10pt; line-height:1.5em; letter-spacing:-1px; margin-top:20px;}
+		.ContactPop_With h2{display:block; position:relative; font-size:12pt; text-align:left; margin-bottom:5px;}
+		.ContactPop_With h2 em{display:inline-block; font-style:normal; font-weight:bold;}
+		.ContactPop_With ol li:first-child{}
+		.ContactPop_With ol li:first-child h2{}
+			/* 예약할인문구 */
+			.NowSale{display:inline-block; width:55%; font-weight:bold; text-align:center; margin-top:1%;}
+			.NowSale p{display:table; width:100%; font-size:11pt; text-align:center; border-radius:4px; background-color:#d50429; padding:1% 2%;}
+			.NowSale p b{color:#ffffff; }
+			.NowSale p span{color:#ffffff; margin-left:1%;}
+
+		/* 컨텐츠 */
+		.ContactPop_With_Cont{display:table; width:100%;}
+
+			/* 예약날짜 */
+			.ContactPop_With_Cont .ContactPopSection_Cont{display:table-cell; position:relative; width:47%; vertical-align:top; padding-right:1%; margin-bottom:10px;}
+			.ContactPop_With_Cont .ContactPopSection_Cont .CalendarArea{height:260px; background-color:#f7f7f7; padding:5% 5% 3% 5%;}
+			/* 예약시간 */
+			.ContactPop_With_Cont .Booking_TimeList{display:table-cell; position:relative; width:53%; vertical-align:top;}
+			.ContactPop_With_Cont .Booking_TimeList .Booking_TimeListBox{height:260px; background-color:#f7f7f7; padding:5% 2% 3% 2%;}
+				/* 내용 */
+				.ContactPop_With ol{display:inline-block; width:100%;}
+				.ContactPop_With ul{display:inline-block; width:100%;}
+				.ContactPop_With li{position:relative;}
+				.ContactPop_With li input,
+				.ContactPop_With li select,
+				.ContactPop_With li button{position:relative; display:block; width:100%; }
+				.ContactPop_With li .ui-datepicker-trigger{position:absolute; top:40%; right:5%;}
+				.ContactPop_With li{width:100%; margin-bottom:0px;} /* float:left;  */
+				.ContactPop_With li:nth-child(2n){margin-left:2%;}
+				.ContactPop_With ol li{height:auto; text-align:left; background:none; padding:0px;}
+				.ContactPop_With ol li p{color:#d50429;}
+				.ContactPop_With ul li{}
+				.ContactPop_With .InputBox{position:relative; background-color:#f7f7f7; margin-bottom:10px; padding:0px 15px 0px 15px; height:50px;}
+				.ContactPop_With .InputBox input,
+				.ContactPop_With .InputBox select{width:100%; height:50px; font-size:12pt; line-height:1em; border:none; background:none;}
+				.ContactPop_With .InputBox .glyphicon{position:absolute; right:4%; top:30%;}
+				.ContactPop_With .InputBox img.ui-datepicker-trigger{position:absolute; right:4%; top:30%;}
+
+			/* 버튼 */
+			.ContactPop_With_Btn{content:""; clear:both; display:block; width:100%;margin-top:1%; }
+			.ContactPop_With_Btn button{display:block; width:100%; height:50px; font-size:18px; color:#fff;  font-weight:bold; text-align:center; border-radius:0px; border:none; cursor:pointer; background-color:#444444; border:0; box-shadow:0;}
+			.ContactPop_With_Btn button:hover{color:#ffffff; background-color:#aeaeae;} /* background-color:#e8447e; */
+			.ContactPop_With_Btn button.Btn_Ok{color:#ffffff; background-color:#444444;}
+			.ContactPop_With_Btn button.Btn_No{color:#ffffff; background-color:#777777;}
+			.ContactPop_With_Btn button.Btn_No:hover{background-color:#aeaeae;}
+			.ContactPop_With_Btn ul{display:table; width:100%;}
+			.ContactPop_With_Btn ul li{display:table-cell; width:50%;}
+			/* 하단문구 */
+			.ContactPop_WithArea .ContactPopTabs_Bottom{}
+			/* 모달불필요부분 숨기기 */
+			.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{display:none;}
+
+
+			/* 구분 */
+			.NC00001 .ContactPop_With_Btn{} /* 네트워크1 */
+			.NC00001 .ContactPop_With_Btn button:hover{background-color:#333333;}
+
+			.NC00005 .ContactPop_With_Btn{} /* 네트워크2 */
+			.NC00005 .ContactPop_With_Btn button:hover{background-color:#0f4b9f;}
+
+			.NC00010 .ContactPop_With_Btn{} /* 네트워크3 */
+			.NC00010 .ContactPop_With_Btn button:hover{background-color:#78bc27;}
+
+			.NC00030 .ContactPop_With_Btn{} /* 네트워크4 */
+			.NC00030 .ContactPop_With_Btn button:hover{background-color:#fabf3a;}
+
+			.NC00084 .ContactPop_With_Head{padding:4% 3%;}
+			.NC00084 .ContactPop_With_Cont{display:none;}
+			.NC00084 .ContactPop_With_Btn{display:none;}
+
+
+			/* ----------------------------------------------------------------------------------- */
+			/* 예약함께하기의 가능시간 표기(20181119) */
+			.Booking_TimeList{content:""; clear:both; display:block; margin-bottom:2%;}
+			.Booking_TimeList *{font-family: 'Noto Sans KR',"sans-serif"; box-sizing:border-box;}
+				.Booking_TimeListBox{}
+				.Booking_TimeList ul{}
+				.Booking_TimeList ul li{display:block; float:left; width:20%; text-align:center; margin-top:2.4%;}
+				.Booking_TimeList li:nth-child(2n){margin-left:0px;}
+					/* 시간표기 */
+					.Booking_TimeList label{display:table; width:95%; color:#111111; font-size:10.5pt; line-height:15pt; vertical-align:middle; border:1px solid #ccc; border-radius:50px; background-color:#ffffff; box-shadow:2px 2px 5px 0px #e5e5e5; cursor:pointer; padding:4% 0% 6% 0%;}
+					.Booking_TimeList label b{font-weight:normal;}
+					.Booking_TimeList label span{font-size:9pt; display:none;}
+					.Booking_TimeList label:hover{border-color:#111111; }
+					/* 예약불가 */
+					.Booking_TimeList li.Impossible label{color:#cccccc; border:1px solid #dfdfdf; background-color:#f7f7f7;}
+					.Booking_TimeList li.Impossible label:hover{color:#cccccc; border:1px solid #dfdfdf; background-color:#f7f7f7;}
+					/* 선택된 */
+					.Booking_TimeList li.Selected label{color:#ffffff; background-color:#111111;}
+					.Booking_TimeList li.Selected label b{color:#ffffff; }
+
+			/* ---------------------------------------------------------------------------------------------------------------- */
+			/* 타임세일(201902) */
+			.ContactPop_With .TimeInfo{display:block; position:relative; width:100%; text-align:center; margin-bottom:2%;}
+			.ContactPop_With .TimeInfo p{display:inline; vertical-align:middle;}
+			.ContactPop_With .TimeInfo p strong{display:inline-block; color:#ffffff; font-size:10.5pt; line-height:1.4em; border-radius:20px; background-color:#d50429; padding:0% 3%;}
+			.ContactPop_With .TimeInfo p strong span{font-size:9pt; padding-right:3px;}
+			.ContactPop_With .TimeInfo p b{display:inline-block; font-size:9pt; line-height:1em; font-weight:normal; padding-left:5px; margin-top:2%;}
+				/* 시간대속아이콘 */
+				.ContactPop_With .TimeSale_Icon{display:inline-block; position:absolute; top:-20%; right:-5%; width:1.4em; height:1.4em; color:#ffffff;  background-color:#d50429; border-radius:50%; z-index:100;}
+				.ContactPop_With .TimeSale_Icon span{vertical-align:middle; line-height:1.3em;}
+				.ContactPop_With .TimeSale_Icon:before{content: ''; position:absolute; border-top:5px solid #d50429; border-right:8px solid transparent; border-left:-8px solid transparent; bottom:-15%; left:20%;}
+				.ContactPop_With .Impossible .TimeSale_Icon{background-color:#cccccc;}
+				.ContactPop_With .Impossible .TimeSale_Icon:before{border-top-color:#cccccc;}
+				/* 시간표시 */
+				.ContactPop_With .TimeSale_Time{}
+				.ContactPop_With .TimeSale_Time label{}
+				.ContactPop_With .TimeSale_Time label b{color:#d50429;}
+				.ContactPop_With .TimeSale_Time label:hover b{} /* color:#ffffff; */
+				.ContactPop_With li.TimeSale_Time.Selected label b{color:#ffffff;}
+				.ContactPop_With .TimeSale_Time .TimeSale_Icon{}
+				/* 선택불가일때 */
+				.ContactPop_With .TimeSale_Time.Impossible label b{color:#cccccc;}
+
+			/* ---------------------------------------------------------------------------------------------------------------- */
+			/* 달력(20190319) */
+			.CalendarArea{display:table; position:relative; width:100%; }
+				/* 달력 */
+				.CalendarBox{width:100%; vertical-align:top; }
+				.CalendarBox.hasDatepicker{}
+				.CalendarBox *{color:#1d1d1d; font-family: 'Noto Sans KR',"sans-serif"; box-sizing:border-box;}
+					/* 달력시작 */
+					.CalendarBox .ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{width:100%; border-radius:0;  }
+					.CalendarBox .ui-datepicker{width:100%;}
+					.CalendarBox .ui-widget-content{border:none; background:none;}
+						/* 년도부분 */
+						.CalendarBox .ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all{padding:0; border-radius:0; margin-bottom:5px;}
+						.CalendarBox .ui-datepicker-header{background:none;} 
+						.CalendarBox .ui-widget-header{ border:none;}
+							.CalendarBox .ui-datepicker-title{line-height:1em; background:none; margin:0; color:#1d1d1d; font-size:11pt; line-height:1em;}
+							.CalendarBox .ui-datepicker-title select.ui-datepicker-year,
+							.CalendarBox .ui-datepicker-title select.ui-datepicker-month{display:inline-block; width:auto; font-size:12pt; line-height:1em; border:none; background:none;}
+							.CalendarBox .ui-datepicker-title select.ui-datepicker-year{}
+							.CalendarBox .ui-datepicker-title select.ui-datepicker-month{}
+							.CalendarBox .ui-datepicker-title select{height:auto; margin:0;}
+							.CalendarBox .ui-datepicker-title select option{padding:2px;}
+							.CalendarBox .ui-datepicker-title span{}
+							/* 양쪽방향 */
+							.CalendarBox .ui-widget-content a{top:0;}
+							.CalendarBox .ui-widget-content a span.ui-icon {background-image:url('/css/js/images/ui-icons_444444_256x240.png')}
+						/* 날짜부분 */
+						.CalendarBox table.ui-datepicker-calendar{margin:0;}
+							/* 요일 */
+							.CalendarBox table.ui-datepicker-calendar thead th{}
+							.CalendarBox table.ui-datepicker-calendar thead th span{}
+							.CalendarBox table.ui-datepicker-calendar thead th.ui-datepicker-week-end{} /* 토일 */
+							/* 일자 */
+							.CalendarBox table.ui-datepicker-calendar td{margin:0px; padding:0px;}
+							.CalendarBox table.ui-datepicker-calendar a.ui-state-default{color:#1d1d1d; font-size:10pt; line-height:1.8em; text-align:center; border:none; background:none; border:1px solid rgba(255, 0, 0, .0); #111111; border-radius:5px; font-family: 'Noto Sans KR',"sans-serif"; margin:0px; padding:0px;} /* 기본   */
+							.CalendarBox table.ui-datepicker-calendar a.ui-state-default:hover{border:1px solid #111111;} /* 오버시 */
+							.CalendarBox table.ui-datepicker-calendar a.ui-state-disabled{} /* 빈칸&비활성화 */
+							.CalendarBox table.ui-datepicker-calendar a.ui-state-default.ui-state-active{color:#ffffff; font-weight:bold; background-color:#111111;} /* 선택된상태 */
+							.CalendarBox table.ui-datepicker-calendar span.ui-state-default{color:#646464; font-size:10pt; line-height:1.8em; text-align:center; font-weight:normal; border:none; background:none;} /* 비활성화 */
+
+/* ----------------------------------------------------------------------------------- */
+/* 간편로그인팝업_simpleLogin.php 상용화되지않음 */
+.ContactPopLogin_Area{content:""; clear:both; display:block;}
+	/* 팝업내용  */
+	.ContactPopLogin_Box{content:""; clear:both; display:block; position:relative; width:900px; box-sizing:border-box; } /* box-shadow:1px 1px 5px 0px #ededed;  */
+		/* 팝업닫기  */
+		.ContactPop_Close{position:absolute; top:0px; right:-30px; display:inline; text-align:right; border:none; border-radius:0px 20px 20px 0px; background-color:#1e1e1e; z-index:9999999; overflow:hidden; cursor:pointer;}
+		.ContactPop_Close span{width:25px; height:20px; color:#ffffff; font-size:35px;}
+		/* 탭메뉴 */
+		.ContactPopLogin_Head{content:""; clear:both; display:block; width:100%; text-align:center; background-color:#1e1e1e; padding-top:30px;}
+		.ContactPopLogin_Head p{content:""; clear:both; display:block; color:#1d1d1d;  font-size:24px; font-weight:bold; background-color:#ffffff; padding-top:30px;}
+		/* 탭내용 */
+		.ContactPopLogin_Body{content:""; clear:both; display:block; position:relative; background-color:#ffffff;  padding:30px 30px 20px 30px; } /* border:1px solid #1e1e1e; box-sizing:border-box;  */
+		.ContactPopLogin_Body fieldset{display:block; width:48%; border:none; margin:0px; padding:0px;}
+		.ContactPopLogin_Body .ContBoxTop{display:block; width:100%; height:180px; border:none; margin:0px; padding:0px;}
+		.ContactPopLogin_Body ol{}
+		.ContactPopLogin_Body ol li{list-style:none; position:relative; background-color:#ececec; margin-bottom:10px; padding:0px 15px 0px 15px; height:50px;}		
+
+			/* 타이틀 */
+			.ContactPopLogin_Body  .Title{font-size:20px; line-height:20px; padding-left:5px; margin-bottom:15px;}
+			/* 버튼 */
+			.ContactPopLogin_Body button{display:block; width:100%; height:60px; color:#ffffff; font-size:20px; font-weight:bold; letter-spacing:-1px; text-align:center; border:none; cursor:pointer; margin-top:15px; overflow:hidden; }
+			.ContactPopLogin_Body button.Btn1{background-color:#2db400;}
+			.ContactPopLogin_Body button.Btn2{background-color:#e8447e;}
+			.ContactPopLogin_Body button.Btn3{background-color:#ffb400;}
+			/* 인풋 */
+			.ContactPopLogin_Body ol li input{display:inline-block; width:100%; height:50px; color:#1e1e1e; font-size:16px; line-height:20px; background:none; border:none;}
+			/* 네이버로그인 */
+			.ContBox_Left{float:left;}	
+			.ContBox_Left .Title{border-left:4px solid #2db400;}
+			.ContBox_Left .ContBoxTop{text-align:center;}
+			.ContBox_Left .ContBoxTop img{margin-top:60px;}
+				/* 네이버로그인기존세팅파일무효화 */
+				.ContBox_Left button.Btn1{position:relative;}
+				.ContBox_Left #naver_id_login{position:absolute; top:0px; left:0px;  width:100%; height:60px;}
+				.ContBox_Left #naver_id_login a{display:block; width:100%; height:60px;}
+				.ContBox_Left #naver_id_login img{opacity:0;}
+			/* 간편로그인 */
+			.ContBox_Right{float:right;}
+			.ContBox_Right p.Title{border-left:4px solid #ffb400;}
+			.ContBox_Right fieldset ol li input{display:inline-block; width:100%; height:50px; color:#1e1e1e; font-size:16px; line-height:20px; background:none; border:none;}
+
+			/* 체크박스 */
+			.ContactPopLogin_Check{margin:0px 0px 10px 0px;}
+			.ContactPopLogin_Check label{width:100%; color:#939393; font-size:13px; padding:0px; margin:0px; cursor:pointer;}
+			.ContactPopLogin_Check span{color:#939393; font-size:13px; margin-left:5px; cursor:pointer;}
+			.ContactPopLogin_Check span:hover{color:#333333;}
+
+			/* 개인정보취급방침 */
+			.ContactPopLogin_Privacy{content:""; clear:both; display:block; position:absolute; top:0px; left:50%; margin-top:-30px; margin-left:-440px; width:880px;
+			background-color:#ffffff; z-index:9999999; box-shadow:0px 5px 5px #c5c5c5; border:1px solid #c5c5c5; border-radius:10px; display:none;}
+			.ContactPopLogin_PrivacyBox{margin:20px;}
+			.ContactPopLogin_Privacy .Title{border-left:7px solid #ffe400; padding-left:10px; margin-bottom:20px;}
+			.ContactPopLogin_Privacy pre{display:block; width:100%; height:400px; font-size:13px; text-align:left; background-color:#ececec; overflow:hidden; overflow-y: scroll; margin:0px; padding:0px;}
+			.ContactPopLogin_Privacy_Close{position:absolute; top:0px; right:0px; display:inline; color:#1e1e1e; font-size:30px; line-height:10px; border:none; cursor:pointer; z-index:9999999; margin:0px; padding:5px;}
+
+			/* 하단공통문구 */
+			.ContactPopLogin_Bottom{content:""; clear:both; display:block; width:100%; height:50px; line-height:50px; text-align:center;  background-color:#ededed;}
+			.ContactPopLogin_Bottom p{color:#1d1d1d; }
+			.ContactPopLogin_Bottom p b{color:#ef4d84;}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 회원로그인및가입(20190522) */
+#contentDetail{}
+.ui-dialog #contentDetail.ui-dialog-content{}
+.MemberLogin_Area *{font-family:'Pretendard';}
+.MemberLogin_Area{content:""; clear:both; display:block;}
+#contentDetail ..MemberLogin_Area{box-shadow:1px 1px 10px rgba(0,0,0, 0.4);}
+.MemberLogin_Area *{line-height:1em;}
+	/* 팝업내용  */
+	.MemberLogin_Area section{content:""; clear:both; display:block; position:relative; background-color:#ffffff;}
+		/* 팝업닫기  */
+		.MemberLogin_Area .ContactPop_Close{position:absolute; top:15px; right:15px; display:inline; text-align:center; border:none; border-radius:0px; background-color:#fff; z-index:9999999; overflow:hidden; cursor:pointer; padding:0px;}
+		.MemberLogin_Area .ContactPop_Close span{color:#1d1d1d; font-size:22pt; font-weight:200; line-height:0.5em;}
+		.MemberLogin_Area .ContactPop_Close b{}
+		/* 헤더(탭) */
+		.MemberLogin_Head{content:""; clear:both; display:block; width:100%; text-align:center; display:none;}
+		.MemberLogin_Head .Title{content:""; clear:both; display:block; color:#1d1d1d;  font-size:24px; font-weight:bold; font-family: 'Roboto',sans-serif; padding:20px;}
+		.MemberLogin_Area .TabsClear.ui-tabs .ui-tabs-nav .ui-tabs-anchor,
+		.MemberLogin_Area .TabsClear.ui-tabs .ui-tabs-nav li.ui-tabs-tab a{}
+		/* 컨텐츠(탭내용) */
+		.MemberLogin_Content{content:""; clear:both; display:table; table-layout:fixed; position:relative; width:100%; text-align:center; margin:auto; padding:40px;}
+		.MemberLogin_Content > div{text-align:left;}
+			/* 타이틀 */
+			.MemberLogin_Area .TitleBig{content:""; clear:both; display:block; text-align:left; min-height:5em; margin-bottom:10px;}
+			.MemberLogin_Area .TitleBig p{font-size:17pt; font-weight:600; }
+			.MemberLogin_Area .TitleBig span{display:block; line-height:1.4; margin-top:0.8em; font-size:9pt; letter-spacing:0; color:#b2b2b2;}
+			/* 내용 */
+			.MemberLogin_Area .ContSection{content:""; clear:both; display:block; position:relative; width:100%;}
+				/* 버튼 */
+				.MemberLogin_Area  .BtnClub a,
+				.MemberLogin_Area button{display:inline-block; font-weight:bold; border-radius:3px; text-align:center; border:none; cursor:pointer; overflow:hidden; padding:15px 20px; font-family:'Pretendard';}			
+				.MemberLogin_Area .BtnClub{display:block; width:100%; text-align:center; margin:auto; padding-top:15px;}	/*   */
+				.MemberLogin_Area .BtnClub a{font-size:11pt; letter-spacing:-1px; background-color:#fff; border:1px solid #cfcfcf; }
+				.MemberLogin_Area .BtnClub a{}
+				.MemberLogin_Area .BtnClub a{padding:0; line-height:1; border:none; border-radius:0; color:#888; font-weight:500; font-size:11pt;}
+				.MemberLogin_Area .BtnClub a:hover{color:#999; background:none;}
+				.MemberLogin_Area .BtnClub a + a{padding-left:10px; margin-left:10px; border-left:1px solid #adadad;}
+				.MemberLogin_Area .BtnClub button{font-size:11pt; letter-spacing:-1px; background-color:#fff; border:1px solid #cfcfcf;}
+				.MemberLogin_Area .BtnClub button:hover{background:#ededed; background: -moz-linear-gradient(top, #ededed 0%, #ffffff 100%); background: -webkit-linear-gradient(top, #ededed 0%,#ffffff 100%); background: linear-gradient(to bottom, #ededed 0%,#ffffff 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff',GradientType=0 );}
+				.MemberLogin_Area li button{width:100%; color:#fff; letter-spacing:0px; background-color:#747474; font-weight:500;}
+				.MemberLogin_Area li button:hover{background-color:#646464;}
+				.MemberLogin_Area li.SimpleKakao button{color:#403a00; background-color:#fee500; border:1px solid #e9d202; letter-spacing:0;}
+				.MemberLogin_Area li.SimpleKakao span:before{content:""; clear:both; position:absolute; left:1em; width:1.4em; height:1.4em; background-repeat:no-repeat; background-repeat:no-repeat; background-size:100% auto; background-position:center top; cursor:pointer; overflow:hidden; background-image:url("/img/common/icon_kakao_sb.png");}
+				.MemberLogin_Area li.SimpleKakao:hover button{background-color:#e9d202;}
+				.MemberLogin_Area li.SimpleNaver button{color:#fff; background-color:#03C75A; border:1px solid #01a446; letter-spacing:0;}
+				.MemberLogin_Area li.SimpleNaver span:before{content:""; clear:both; position:absolute; left:0.5em; top:0.3em; width:2.4em; height:2.4em; background-repeat:no-repeat; background-repeat:no-repeat; background-size:100% auto; background-position:center top; cursor:pointer; overflow:hidden; background-image:url("/img/common/icon_naver_sb.png");}
+				.MemberLogin_Area li.SimpleNaver:hover button{background-color:#01a446;}
+					/* 중복체크버튼 */
+					.MemberLogin_Area button.OverlapBtn{display:inline-block; position:absolute; right:5px; margin-top:-2px; width:25%; letter-spacing:-1px; padding:4px 0px;}
+				
+				/* 인풋 */
+				.MemberLogin_Area ol{display:block; width:100%;}
+				.MemberLogin_Area li{display:table; width:100%; table-layout:fixed; position:relative; margin-top:10px;}	
+				.MemberLogin_Area li:first-child{margin-top:0px;}
+				.MemberLogin_Area li *{font-size:12pt;}
+				.MemberLogin_Area li .Title{display:table-cell; width:24%; vertical-align:middle;  font-weight:500; padding-right:10px;}
+				.MemberLogin_Area li .Title span{color:#fb9999; font-size:11pt; font-weight:500; margin-left:3px;}
+				.MemberLogin_Area li .InputBox{}
+				.MemberLogin_Area li .InputBox input,
+				.MemberLogin_Area li .InputBox select{font-family:'Pretendard'; border: 1px solid #c7c7c7; width:100%; padding:0 10px; height:38px; max-width:100%; line-height:38px; font-size:11pt; letter-spacing:0;}
+				.MemberLogin_Area li p{display:block; width:100%; color:#1e1e1e;  font-size:8pt; text-align:right;}
+
+				/* 동의 */
+				.MemberLogin_Area  .PersonalBox{content:""; clear:both; display:block; position:relative; width:100%; margin-top:10px;}
+					/* 약관 */
+					.MemberLogin_Area .AgreeBox .PrivacyText{display:block !important; margin-top:0px; margin-bottom:3px;}
+					.MemberLogin_Area .AgreeBox .PrivacyText pre{height:50px;}
+					/* 체크박스  */
+					.MemberLogin_Area .Checkbox{}
+					/* 이메일 */
+					.MemberLogin_Area .InputBox .EmailBox{display:table; width:100%; table-layout:fixed; vertical-align:top;}
+					.MemberLogin_Area .InputBox .EmailBox span,
+					.MemberLogin_Area .InputBox .EmailBox input,
+					.MemberLogin_Area .InputBox .EmailBox select{display:inline-block; float:left; height:18px;}
+					.MemberLogin_Area .InputBox .EmailBox input:nth-child(1){width:30%;}
+					.MemberLogin_Area .InputBox .EmailBox span:nth-child(2){width:5%;}
+					.MemberLogin_Area .InputBox .EmailBox input:nth-child(3){width:30%;}
+					.MemberLogin_Area .InputBox .EmailBox select:nth-child(4){width:35%;}
+					/* 탭메뉴 */
+					.MemberLogin_Area.TabsClear,
+					.MemberLogin_Area .TabsClear{}
+					.MemberLogin_Area.TabsClear ul.ui-tabs-nav,
+					.MemberLogin_Area .TabsClear ul.ui-tabs-nav{display:table; width:100%; margin-bottom:10px;}
+					.MemberLogin_Area.TabsClear ul.ui-tabs-nav,
+					.MemberLogin_Area .TabsClear ul.ui-tabs-nav li{display:table-cell; text-align:center;}
+					.MemberLogin_Area.TabsClear ul.ui-tabs-nav li a,
+					.MemberLogin_Area .TabsClear ul.ui-tabs-nav li a{display:block; width:100%; font-size:11pt; font-weight:bold; text-align:center; border: 1px solid #dadada; padding:10px;}
+					 .MemberLogin_Area.TabsClear ul.ui-tabs-nav li.ui-state-active a,
+					 .MemberLogin_Area .TabsClear ul.ui-tabs-nav li.ui-state-active a{color:#fff; background-color:#000; border: 1px solid #000; }
+					 /* 결과안내메세지 */
+					.MemberLogin_Area .OutcomeMsg{content:""; clear:both; display:block; width:100%; text-align:center; padding:3% 0%;}
+					.MemberLogin_Area .OutcomeMsg p{display:block; width:100%; text-align:center; font-size:10pt; line-height:1.6em;} /* height:40px;  */
+					.MemberLogin_Area .OutcomeMsg p strong{font-size:11pt; font-weight:bold;}
+
+
+			/* 양쪽구분 */
+			.MemberLogin_Area .ContentLeft{display:table-cell; position:relative; width:50%; text-align:left; border-right:1px solid #f5f6f7; padding-right:30px;}
+			.MemberLogin_Area .ContentRight{display:table-cell; position:relative; width:50%; text-align:left;  padding-left:30px;}
+				/* 회원로그인 */
+				.MemberLogin_Area .Login{}
+				.MemberLogin_Area .Login .AgreeBox{display:inline-block; position:absolute; top:4px; right:10px; width:auto; text-align:right; background:none; margin:0px; padding:0;}
+				.MemberLogin_Area .Login .AgreeBox label{display:inline-block;}
+				.MemberLogin_Area .Login .AgreeBox a{}
+
+				/* 회원가입 */
+				.MemberLogin_Area .Join{}
+				.MemberLogin_Area .Join .AgreeBox{}
+				.MemberLogin_Area .Join .AgreeBox label{display:block; width:100%; margin-bottom:3px;}
+				.MemberLogin_Area .Join .AgreeBox label em{}
+				.MemberLogin_Area .Join .AgreeBox label em + span{color:#939293;  font-size:8pt; letter-spacing:-1px;}
+
+			/* 하단공통문구 */
+			.MemberLogin_Bottom{content:""; clear:both; display:block; width:100%; text-align:center;  background-color:#ededed; padding:15px;}
+			.MemberLogin_Bottom p{color:#1d1d1d; }
+			.MemberLogin_Bottom p b{color:#ef4d84;}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* 메인회원로그인및가입(20211204) */
+/* 기본 영역 */
+#contents .MainMemberLogin_Area section.Inner{width:640px; min-width:640px;}
+.MainMemberLogin_Area{content:""; clear:both; display:block; padding-top:20px;}
+.MainMemberLogin_Area *{line-height:1em;}
+	/* 팝업내용  */
+	.MainMemberLogin_Area section{content:""; clear:both; display:block; position:relative; width:auto; min-width:auto;}
+		/* 컨텐츠(탭내용) */
+		.MainMemberLogin_Content{content:""; clear:both; display:table; table-layout:fixed; position:relative; width:100%; text-align:center; margin:auto;}
+		.MainMemberLogin_Content > div{text-align:left;}
+			/* 헤더(로고) */
+			.MainMemberLogin_Head{content:""; clear:both; display:block; width:640px; min-width:640px; margin:auto; text-align:center;}
+			.MainMemberLogin_Head .HeadLogo{position:relative; display:block; margin:1.3em 0;}
+			.MainMemberLogin_Head .HeadLogo>li{position:relative;display:inline-block;width:33%;text-align:center;margin:auto;vertical-align: middle;}
+			.MainMemberLogin_Head .HeadLogo>li img{position:relative; display:block;}
+			.MainMemberLogin_Head .HeadLogo>li.LogoLeft img{height: 40px;margin:auto;margin-right: 20px;}
+			.MainMemberLogin_Head .HeadLogo>li.LogoRight img{height: 26px;margin:auto;margin-left: 20px;}
+			.MainMemberLogin_Head .HeadLogo span.LogoCollabo{position:relative;display:inline-block;vertical-align:middle;width: 20px;height: 20px;}
+			.MainMemberLogin_Head .HeadLogo span.LogoCollabo:before,
+			.MainMemberLogin_Head .HeadLogo span.LogoCollabo:after{position:absolute;left:50%;content:'';height: 20px;width: 1px;background-color:#000;}
+			.MainMemberLogin_Head .HeadLogo span.LogoCollabo:before{transform:rotate(45deg);}
+			.MainMemberLogin_Head .HeadLogo span.LogoCollabo:after{transform:rotate(-45deg);}
+			/* 헤더(타이틀) */
+			.MainMemberLogin_Head .HeadTitle h1{position:relative; display:block; font-weight:normal; line-height:1.3em;}
+			.MainMemberLogin_Head .HeadTitle h1 b{color:#382f5d;}
+			.MainMemberLogin_Head .HeadTitle h3{position:relative; display:block; font-weight:normal; font-size:14pt; line-height:1.3em; margin-top:20px; color:#888}
+			.MainMemberLogin_Head .HeadTitle h3 b{color:#000;}
+
+			/* 타이틀 */
+			.MainMemberLogin_Area .TitleBig{content:""; clear:both; display:block; text-align:left; margin:0;}
+			.MainMemberLogin_Area .TitleBig p{font-size:14pt; font-weight:bold; }
+			.MainMemberLogin_Area .TitleBig span{display:block; color:#939293; font-size:10pt; line-height:1.2em; margin-top:5px;}
+			/* 내용 */
+			.MainMemberLogin_Area .ContSection{content:""; clear:both; display:block; position:relative; width:100%;}
+				/* 버튼 */
+				.MainMemberLogin_Area .BtnClub{display:block; width:100%; text-align:center; margin:auto; color:#9e9e9e;}
+				.MainMemberLogin_Area .BtnClub a,
+				.MainMemberLogin_Area button{display:inline-block; font-weight:bold; border-radius:3px; text-align:center; border:none; cursor:pointer; overflow:hidden; padding:15px 20px;}
+				.MainMemberLogin_Area .BtnClub a{display:table-cell; width:100%; font-weight:normal; border:none; cursor:pointer; overflow:hidden; padding:5px 0;}
+				.MainMemberLogin_Area .BtnClub a,
+				.MainMemberLogin_Area .BtnClub button{font-size:11pt; letter-spacing:0px;}
+				.MainMemberLogin_Area .BtnClub a.BtnOpen{background-color:#646464; color:#fff; padding:1em; font-weight:bold; text-align:center;}
+				.MainMemberLogin_Area .BtnClub a span{font-size:11.5pt;}
+				.MainMemberLogin_Area li button{width:100%; color:#fff; letter-spacing:2px; background-color:#747474;}
+				.MainMemberLogin_Area li button:hover{background-color:#646464;}
+					/* 중복체크버튼 */
+					.MainMemberLogin_Area button.OverlapBtn{display:inline-block; position:absolute; right:5px; margin-top:-2px; width:25%; letter-spacing:-1px; padding:8px 0px;}
+					
+
+				/* 인풋 */
+				.MainMemberLogin_Area ol{display:block; width:100%; padding:15px 0px 0px 0px;}
+				.MainMemberLogin_Area li{display:table; width:100%; table-layout:fixed; position:relative; margin-top:8px;}
+				.MainMemberLogin_Area li:first-child{margin-top:0px;}
+				.MainMemberLogin_Area li *{font-size:10.5pt;}
+				.MainMemberLogin_Area li .Title{display:table-cell; width:21%; vertical-align:middle; font-weight:bold; padding-right:10px; text-align:left; display:none;} /* 일단숨김 */
+				.MainMemberLogin_Area li .Title span{color:#000; font-size:12pt; margin-right:5px; vertical-align:middle;}
+				.MainMemberLogin_Area li .InputBox{display:table-cell; vertical-align:middle; background-color:#ffffff; border:1px solid #dadada; padding:6px 10px;}
+				.MainMemberLogin_Area li .InputBox input,
+				.MainMemberLogin_Area li .InputBox select{display:inline-block; width:100%; color:#1e1e1e; font-size:10pt; background:none; border:none; line-height:2em;}
+				.MainMemberLogin_Area li .InputBox span.FixUrl{position:absolute; top:0; right:164px; vertical-align:middle; padding:1em 0; color:#837f7e;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple{}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple>div{height:100px; overflow-y:scroll; }
+				.MainMemberLogin_Area li .InputBox .SelectMultiple>div ul{padding:5px;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple>div ul li{margin-top:0;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple button{background:none; letter-spacing:0; font-weight:normal; padding:0;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple button span{position:relative; display:block; padding:0; text-align:left; color:#747474;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple label{text-align:left; color:#747474;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple label input{width:auto;}
+				.MainMemberLogin_Area li .InputBox .SelectMultiple label input[type="checkbox"]{margin-top:0;}
+				.MainMemberLogin_Area li p{display:block; width:100%; color:#1e1e1e;  font-size:8pt; text-align:right;}
+
+				/* 동의 */
+				.MainMemberLogin_Area .PersonalBox{}
+					/* 약관 */
+					.MainMemberLogin_Area .AgreeBox .Box{position:relative; display:block; width:100%; margin-bottom:3px;}
+					.MainMemberLogin_Area form .AgreeBox .Agree01,
+					.MainMemberLogin_Area form .AgreeBox .Agree02{display:none; margin-top:0px; margin-bottom:3px;}
+					.MainMemberLogin_Area .AgreeBox .Agree01 pre,
+					.MainMemberLogin_Area .AgreeBox .Agree02 pre{display:block;}
+					/* 체크박스  */
+					.MainMemberLogin_Area .Checkbox{}
+					/* 이메일 */
+					.MainMemberLogin_Area .InputBox .EmailBox{display:table; width:100%; table-layout:fixed; vertical-align:top;}
+					.MainMemberLogin_Area .InputBox .EmailBox span,
+					.MainMemberLogin_Area .InputBox .EmailBox input,
+					.MainMemberLogin_Area .InputBox .EmailBox select{display:inline-block; float:left; height:18px;}
+					.MainMemberLogin_Area .InputBox .EmailBox input:nth-child(1){width:30%;}
+					.MainMemberLogin_Area .InputBox .EmailBox span:nth-child(2){width:5%;}
+					.MainMemberLogin_Area .InputBox .EmailBox input:nth-child(3){width:30%;}
+					.MainMemberLogin_Area .InputBox .EmailBox select:nth-child(4){width:35%;}
+
+				/* 회원로그인 */
+				.MainMemberLogin_Area .Login{padding:0px 30px 0 30px;}
+				.MainMemberLogin_Area .Login .BtnClub a:first-child{text-align:left;}
+				.MainMemberLogin_Area .Login .BtnClub a:last-child{text-align:right;}
+				.MainMemberLogin_Area .Login .AgreeBox{display:inline-block; position:absolute; top:9px; right:10px; width:auto; text-align:right; background:none; margin:0px;}
+				.MainMemberLogin_Area .Login .AgreeBox label{display:inline-block;}
+				.MainMemberLogin_Area .Login .AgreeBox a{}
+				/* 회원가입 */
+				.MainMemberLogin_Area .Join{padding:0px 30px 0 30px;}
+				.MainMemberLogin_Area .Join ol:nth-child(1) .MemberKakao{display:table; width:100%; table-layout:fixed; color:#fff; font-family:'Nanum Gothic', sans-serif; border:1px solid rgba(0,0,0, 0.05);}
+				.MainMemberLogin_Area .Join ol:nth-child(1) .MemberKakao{color:#222222; background-color:#dddddd; padding: 1em; font-weight:bold; text-align:center;;}
+				.MainMemberLogin_Area .Join ol:nth-child(1) .MemberKakao span:before{content:"";clear:both;position:absolute;left: 13em;width: 1.3em;vertical-align: middle;height: 1.3em;background-repeat:no-repeat;background-size:100% auto;background-position:center top;cursor:pointer;overflow:hidden;background-image:url("/img/common/icon_kakao_sb.png");}
+				.MainMemberLogin_Area .Join ol:last-child{padding-top:30px;}
+				.MainMemberLogin_Area .Join ol:last-child li:last-child{margin-top:30px;}
+				.MainMemberLogin_Area .Join li .Title{display:table-cell; color:#999;}
+				.MainMemberLogin_Area .Join .BtnClub{padding:15px 0px 0px 0px; display:none;} /* 일단숨김 */
+				.MainMemberLogin_Area .Join .AgreeBox{position:relative; width:80%; margin:20px 0 0 auto;}
+				.MainMemberLogin_Area .Join .AgreeBox .Box label{display:block; width:100%; margin-bottom:3px;}
+				.MainMemberLogin_Area .Join .AgreeBox .Box a{position:absolute; right:0; top:0; background:none; color:#999; text-decoration:underline;}
+				.MainMemberLogin_Area .Join .AgreeBox .Box a:hover{color:#555;}
+				.MainMemberLogin_Area .Join .AgreeBox .Box label em{}
+				.MainMemberLogin_Area .Join .AgreeBox .Box label em + span{color:#939293; font-size:8pt; letter-spacing:-1px;}
+
+				/* 간편로그인 */
+				.MainMemberLogin_Area .JoinSimple{padding:0px 30px 30px 30px;}
+				.MainMemberLogin_Area .JoinSimple .BtnClub{padding:15px 0px 0px 0px;}
+				.MainMemberLogin_Area .JoinSimple .BtnOpen.MemberKakao{color:#222222; background-color:#fee500;}
+				.MainMemberLogin_Area .JoinSimple .BtnOpen.MemberKakao span:before{content:""; clear:both; position:absolute; left:2em; width:1.3em; vertical-align:middle; height: 1.3em; background-repeat:no-repeat; background-size:100% auto; background-position:center top; cursor:pointer; overflow:hidden; background-image:url("/img/common/icon_kakao_sb.png");}
+
+				/* 회원가입 성공 */
+				.MainMemberLogin_Area .JoinSuccess{}
+				.MainMemberLogin_Area .JoinSuccess .BtnOpen i{position:absolute; right:20px; animation:BtnOpen_Animation 0.5s 0s infinite ease-in-out alternate;}
+				.MainMemberLogin_Area .JoinSuccess .BtnOpen:hover i{display:none;}
+				@keyframes BtnOpen_Animation{
+					0%{margin-bottom:0px;}
+					100%{margin-right:10px;}
+				}
+
+				/* 회원가입 성공 > 무료체험 */
+				.MainMemberLogin_Area .JoinTrial{}
+				.MainMemberLogin_Area .JoinTrial li .Title{display:table-cell; color:#999;}
+				.MainMemberLogin_Area .JoinTrial li .Title span{display:none;}
+				.MainMemberLogin_Area .JoinTrial li.Radiobox_Area{text-align:right;}
+				.MainMemberLogin_Area .JoinTrial li .Radiobox{margin-left:15px;}
+				.MainMemberLogin_Area .JoinTrial ol:nth-child(2){padding-top:30px;}
+				.MainMemberLogin_Area .JoinTrial ol:nth-child(2) li:last-child{margin-top:30px;}
+				.MainMemberLogin_Area .JoinTrial ol:nth-child(2) li p{text-align:right; line-height:1em;}
+				.MainMemberLogin_Area .JoinTrial ol li p{font-size:9pt; text-align:left; line-height:1.3em;}
+
+				/* 무료체험 입력 성공 */
+				.MainMemberLogin_Area .JoinTrialSuccess{}
+				.MainMemberLogin_Area .JoinTrialSuccess ol li p{font-size:9pt; text-align:left; line-height:1.3em;}
+				.MainMemberLogin_Area .JoinTrialSuccess .Btn{text-align:left;}
+				.MainMemberLogin_Area .JoinTrialSuccess .Btn span{border-bottom:1px solid #a1a3a2; font-size:10pt;}
+				.MainMemberLogin_Area .JoinTrialSuccess .BtnOpen i{position:absolute; right:20px; animation:BtnOpen_Animation 0.5s 0s infinite ease-in-out alternate;}
+				.MainMemberLogin_Area .JoinTrialSuccess .BtnOpen:hover i{display:none;}
+				@keyframes BtnOpen_Animation{
+					0%{margin-bottom:0px;}
+					100%{margin-right:10px;}
+				}
+				
+				/* 로더 */
+				.loader_Area{content:""; clear:both; position:fixed; left:0px; top:0px; width:100%; height:100%; background-color: rgba(0, 0, 0, 0.7); z-index: 998;}
+				.loader{position:relative; margin:auto; border:8px solid #eeeeee; border-radius:50%; border-top:8px solid #6f5db8; width:60px; height:60px; margin-top:15px; transform:translate(-50%,-50%); -webkit-animation: spin 2s linear infinite; /* Safari */ animation:spin 2s linear infinite;}
+				.loader_Cont{position:fixed; top:30%; left:50%; margin-left:-320px; width:640px; z-index: 999; background-color:#fff; border-radius:15px; text-align:center; padding:1.5%;}
+				.loader_Cont h2{margin:auto; display:block; font-weight:normal; line-height:1.5em;}
+				.loader_Cont h3{margin:auto; display:block; color:#aaaaaa; font-weight:normal; line-height:1.5em;}
+				@keyframes spin {
+					0% { transform: rotate(0deg); }
+					100% { transform: rotate(360deg); }
+				}
+				/* Safari */
+				@-webkit-keyframes spin {
+					0% { -webkit-transform: rotate(0deg); }
+					100% { -webkit-transform: rotate(360deg); }
+				}
+
+				/* 로그인 퀵메뉴 */
+				.MainMemberQuick_Area {position:relative; display:inline-block; padding:10px 0px 0px 0px;}
+				.MainMemberQuick_Area ul {position:relative; display:inline-block;}
+				.MainMemberQuick_Area li {float:left;width:50%;height: 100px;margin:0 -1px -1px 0;border: 1px solid #dadada;background-color:#fff;color:#333 !important;text-align:center;box-sizing:border-box;z-index:1;}
+				.MainMemberQuick_Area li:last-child {width:100%;height: 90px;}
+				.MainMemberQuick_Area li:hover {color:#6f5db8 !important; border: 1px solid #6f5db8; font-weight:bold !important; text-decoration:none !important; z-index:10;}
+				.MainMemberQuick_Area li a {position:relative;  width:100%; height:100%; padding-top:17px; box-sizing:border-box;}
+					/* 로그인 퀵메뉴 버튼 */
+					.MainMemberQuick_Area .QuickBtn{position:relative; display:inline-block; color:#666; letter-spacing:-1px; box-sizing:border-box;}
+					.MainMemberQuick_Area .QuickBtn:before{content:""; display:inline-block; background:url("/img/C00032/icon_LogQuick.png") no-repeat; vertical-align:middle; box-sizing:border-box;}
+					.MainMemberQuick_Area .QuickBtn span,
+					.MainMemberQuick_Area .QuickBtn:before{position:relative;}
+	
+					.MainMemberQuick_Area .QuickBtn01:before {display:block;width: 35px;height: 36px;margin: 2px auto 10px auto;background-position: 0px 0px;}
+					.MainMemberQuick_Area .QuickBtn02:before {display:block;width: 35px;height: 36px;margin: 2px auto 10px auto;background-position: -46px 0px;}
+					.MainMemberQuick_Area .QuickBtn03:before {display:block;width: 36px;height: 36px;margin: 2px auto 10px auto;background-position: -92px 0px;}
+					.MainMemberQuick_Area .QuickBtn04:before {display:block;width: 40px;height: 36px;margin: 2px auto 10px auto;background-position: -141px -0px;}
+				.MainMemberQuick_Area .QuickBtn05:before {display:block;width: 83px;height: 24px;margin: 2px auto 10px auto;background:url("/img/logo_C00081.png") no-repeat;background-size: contain;}
+			
+/* 팝업일때_simpleLogin.php */
+.PopLogin_Area{}
+.ui-widget-overlay{width:100% !important;}
+.PopLogin_Area section{width:900px;}
+.PopLogin_Area .MemberLogin_Head .Title{display:none;}
+.PopLogin_Area{border:1px solid rgba(0,0,0,.2); border-radius:6px; overflow:hidden;}
+.PopLogin_Area .MemberLogin_Content ol{background-color:#fff; padding:0;}
+.PopLogin_Area .MemberLogin_Content li:has(.AgreeBox){text-align:right;}
+.PopLogin_Area .MemberLogin_Content li:has(p){margin-top:5px;}
+.PopLogin_Area .MemberLogin_Content li p{font-size:9pt; letter-spacing:0; color:#b2b2b2;}
+.PopLogin_Area .MemberLogin_Content .TitleBig span{color:#b2b2b2;}
+.PopLogin_Area .MemberLogin_Content #userID{width:73%; display:table-cell;}
+.PopLogin_Area .MemberLogin_Content button.OverlapBtn{position:relative; display:table-cell; left:auto; right:auto; top:auto; width:25%; font-weight:0; font-size:11pt; margin-left:2%; height:37px; padding:0;}
+.PopLogin_Area .MemberLogin_Content .Login .AgreeBox{position:relative; right:auto; left:0; display:contents;}
+.PopLogin_Area .MemberLogin_Content .Join .AgreeBox .Checkbox{margin-top:4px !important; margin-left:0 !important; display:inline-table; width:auto;}
+.PopLogin_Area .MemberLogin_Content .Join .AgreeBox{padding:1.5em 0 0 0}
+/* 회원메뉴일때 findID.php */
+.FindLogin_Area{}
+.FindLogin_Area section{}
+	.FindLogin_Area .MemberLogin_Content li .Title{ width:25%;}
+		/* 아이디찾기 */
+		.FindLogin_Area .FindID{}
+		.FindLogin_Area .FindID .ContSection{}
+		.FindLogin_Area .TabsClear ul.ui-tabs-nav li{width:50%;}
+		.FindLogin_Area .BtnClub{margin-bottom:3%;}
+			/* 연락처로찾기 */
+			.FindID_Tel{}
+			/* 이메일로찾기 */
+			.FindID_Email{}
+
+		/* 비밀번호찾기*/
+		.infoFindWrap #contents .FindLogin_Area section > .Inner{background:none; width:50%; min-width:50%;}
+		.FindLogin_Area .FindPw{}
+		.FindLogin_Area .FindPw .TitleBig{}
+
+		/* 비밀번호변경*/
+		.infoChangeWrap #contents .FindLogin_Area section .Inner{background:none; width:60%; min-width:60%;}
+		.FindLogin_Area .ChangePw{display:inline-block; width:50%;}
+		.FindLogin_Area .ChangePw .TitleBig{}
+
+/* ================================================================================================= */
+/* 가격안내(20211227) */
+.Service_Area *{text-align:left;}
+.PriceBody .Service_Area {padding-top:40px;}
+.Service_Area {content:""; clear:both; display:block; padding-top:40px;}
+	.Service_Area section.Inner{}
+	.Service_Area .Section01 .Price_Table *{text-align:center;}
+	.Service_Area .Section01 .Price_Table{width:100%;}
+	/* 헤더(타이틀) */
+	.Service_Area .HeadTitle h1{position:relative; display:block; font-weight:normal; line-height:1.3em; text-align:center;}
+	.Service_Area .HeadTitle h1 b{color:#382f5d;}
+	.Service_Area .HeadTitle h3{position:relative; display:block; font-weight:normal; font-size:14pt; line-height:1.3em; margin-top:20px; color:#888; text-align:center;}
+	.Service_Area .HeadTitle h3 b{color:#000;}
+	.Service_Area thead{}
+	.Service_Area thead tr{}
+	.Service_Area .Section01 thead tr th{font-weight:normal; font-size:13pt; color:#888;}
+	.Service_Area .Section01 thead tr th span{display:block; padding:5px 0 0 0; font-size:12pt;}
+	.Service_Area tr:hover td:not([colspan="6"]){background:rgb(255 255 255 / 29%);}
+	.Service_Area .Section01 tr:hover td{background:none;}
+	.Service_Area tr:hover td:not([colspan="6"]):first-child, .Service_Area tr:last-child td{background:none;}
+	.Service_Area td{font-size:13pt;}
+	.Service_Area td[colspan="6"]{padding-top:50px; color:#b2b2b2;}
+	.Service_Area td:not([colspan="6"]):first-child, .Service_Area tr:last-child td{border-bottom:none;}
+	.Service_Area .Section01 tbody tr td([colspan="4"]){padding:0;}
+	.Service_Area thead tr.HeadTitle_Big{font-size:22pt;}
+	.Service_Area thead tr.HeadTitle_Big th{padding:26px 0 20px; font-weight:normal;}
+	.Service_Area thead tr.HeadTitle_Big th.ServiceName{}
+	.Service_Area thead tr.HeadTitle_Big th.ServiceName i{display:none;}
+	.Service_Area thead tr.HeadTitle_Big th.ServiceName.Active{color:#f65e5e;}
+	.Service_Area thead tr.HeadTitle_Big th.ServiceName.Active i{display:inline;}
+	.Service_Area thead tr.HeadTitle_Big th[colspan="2"]{font-size:14pt;}
+	.Service_Area thead tr.HeadTitle_Small th[colspan="2"]{vertical-align:bottom; color:#ff7164;}
+	.Service_Area thead tr.HeadTitle_Small th p{font-weight:normal; font-size:11pt;}
+	.Service_Area thead tr.HeadTitle_Small th p em{font-size:15pt; margin-right:5px; padding:0 3px; background: linear-gradient(to top, #ffe10230 50%, transparent 50%);}
+	.Service_Area .Section01 tbody tr td{font-size:16pt;}
+	.Service_Area .Section01 tbody tr td p em{font-size:15pt;}
+	.Service_Area thead tr.HeadTitle_Small th span{display:block; font-size:11pt; font-weight:normal; color:#888888; min-height:100px; vertical-align:middle; line-height:1.5em;}
+	.Service_Area thead tr.HeadTitle_Small th span b{font-weight:normal; color:#000;}
+	.Service_Area tbody tr td{position:relative; vertical-align:top; border-bottom:1px solid #d8dcdf; padding:10px 24px 10px 0;}
+	.Service_Area .Section01 tbody tr td{padding:0;}
+	.Service_Area .Section01 tbody tr td a{padding:0 5px; background-color:#bbbbbb; color:#fff; font-size:8.5pt; border-radius:1.5px; vertical-align:middle;}
+	.Service_Area .Section01 tbody tr td{position:relative; vertical-align:top; border:none; padding:10px 0 0 0;}
+	.Service_Area .Section01 tbody tr:nth-child(3) td{padding:0;}
+	.Service_Area .Section01 tbody tr td p{min-height:30px;}
+	.Service_Area tbody tr td:first-child{font-size:11pt; color:#aaaaaa;}
+	.Service_Area .Section01 tbody tr:first-child td:first-child{color:#000; font-size:13pt;}
+	.Service_Area tbody tr td i{color:#FF7164; font-size:19pt;}
+	.Service_Area tbody tr td i.bi-dash{color:#cccccc; font-size:15pt;}
+	.Service_Area tbody tr td i.Tooltip{font-size:11pt; padding:5px; vertical-align:top; color:#afafaf;}
+	.Service_Area tbody tr td i.Tooltip{position:relative;}
+	.Service_Area tbody tr td i.Tooltip .TooltipText{visibility:hidden; width:250px; background-color:#fff; color:#666; border-radius:6px; padding:5px 0; position:absolute; z-index:1; font-size:10pt; line-height:1.2em; padding:7px 10px; text-align:left; font-weight:normal; box-shadow:10px 10px 50px rgb(0 0 0 / 13%);}
+	.Service_Area tbody tr td i.Tooltip:hover .TooltipText{visibility:visible;}
+	.Service_Area tbody tr td i.Tooltip .TooltipText:after{content:" "; position:absolute; border-style:solid; border-width:7px;}
+	.Service_Area tbody tr td i.Tooltip .Tooltip-right{top:0; left:150%;}
+	.Service_Area tbody tr td i.Tooltip .Tooltip-right:after{top:16%; right:100%; margin-top:-5px; border-color:transparent #fff transparent transparent;}
+	
+	.Service_Area .Button_Area{}
+	.Service_Area .Section01 .Button_Area th{padding:0; }
+	.Service_Area .Button_Area th{padding:20px 0 0 0;}
+	.Service_Area .Button_Area .PriceBtn{position:relative; text-align:center; width:85%; padding:13px; color:#fff; background-color:#4a4268; border-radius:8px; font-size:11pt;}
+	.Service_Area .Button_Area .PriceBtn.Active{font-weight:bold; background-color:#f65e5e;}
+	.Service_Area .Button_Area .PriceBtn.Active:hover{background-color:#f65e5e;}
+	.Service_Area .Section01 .Button_Area{position:relative;}
+	.Service_Area .Section01 .Button_Area .PriceBtn{position:absolute; text-align:center; width:230px; bottom:-20px; right:0%;padding:13px; color:#fff; background-color:#4a4268; border-radius:8px; font-size:11pt;}
+	.Service_Area .Section01 .Button_Area .PriceBtn:nth-child(2){bottom:-75px; background:none; border:1px solid #4a4268; color:#4a4268; z-index:1;}
+	.Service_Area .Section01 .Button_Area .PriceBtn:nth-child(2):hover{background-color:#fff;}
+	.Service_Area .Button_Area .PriceBtn:hover{background-color:#342e49;}
+	/* 선택한 서비스 */
+	.ServiceSelect{display:none;}
+	.Active .ServiceSelect{position:absolute; top:-39px; display:block; width:225px; height:1973px; border:3px solid #f65e5e; z-index:0; left:-15px;}
+	.ServiceSelect span{display:block; width:100%; padding:1px 0 5px 0; background-color:#f65e5e; color:#fff; text-align:center; font-size:11pt;}
+	.finishWrap .Active .ServiceSelect{height:1844px;}
+	
+	/* 로더 */
+	.PopOver{display:none;} /* 일단 순김 */
+	.PopOver_Bg{content:""; clear:both; position:fixed; left:0px; top:0px; width:100%; height:100%; background-color: rgba(0, 0, 0, 0.7); z-index: 998;}
+	.PopOver_Cont{position:fixed; top:30%; left:50%; margin-left:-320px; width:640px; z-index: 999; background-color:#fff; border-radius:15px; text-align:center; padding:1.5%;}
+	.PopOver_Cont h3{margin:auto; display:block; color:#aaaaaa; font-weight:normal; margin-bottom:10px;}
+	.PopOver_Cont h4{margin:0; line-height:1.5em;}
+	.PopOver_Cont h4 p{font-size:13pt; color:#999; margin-bottom:7px;}
+	.PopOverClose{display:block; position:absolute; right:3%; top:7%; cursor:pointer; color:#4a4268; transition: all ease 0.3s;}
+	.PopOverClose:hover{transform: rotate( 90deg );}
+
+
+#contents .Pay_Area section.Inner{width:640px; min-width:640px;}
+.PayBody .Pay_Area {padding-top:40px;}
+.Pay_Area{content:""; clear:both; display:block; padding-top:20px; text-align:left; }
+.Pay_Area *{line-height:1em;}
+.Pay_Area .Title.verTop{vertical-align:top; padding-top:6px;}
+	.Pay_Area .form-group{position:relative; margin-bottom:20px;}
+	.Pay_Area .form-group label{font-size:11pt; color:#757575; width:25%;}
+	.Pay_Area .Con_Right{width:75%; }
+	/* 헤더 */
+	.Pay_Head .HeadTitle {text-align:center;}
+	.Pay_Head .HeadTitle h1{position:relative; display:block; font-weight:normal; line-height:1.3em;}
+	.Pay_Head .HeadTitle h1 b{color:#382f5d;}
+	.Pay_Head .HeadTitle h3{position:relative; display:block; font-weight:normal; font-size:14pt; line-height:1.3em; margin-top:20px; color:#888}
+	.Pay_Head .HeadTitle h3 b{color:#000;}
+	/* 타이틀 */
+	.Pay_Area .TitleBig{content:""; clear:both; display:block; text-align:left; margin:0;}
+	.Pay_Area .TitleBig p{font-size:14pt; font-weight:bold; }
+	.Pay_Area .TitleBig span{display:block; color:#939293; font-size:10pt; line-height:1.2em; margin-top:5px;}
+	/* 내용 */
+	.Pay_Area .ContSection{content:""; clear:both; display:block; position:relative; width:100%;}
+		/* 버튼 */
+		.Pay_Area .BtnClub{display:block; width:100%; text-align:center; margin:auto; color:#9e9e9e;}
+		.Pay_Area .BtnClub a,
+		.Pay_Area button{display:inline-block; font-weight:bold; border-radius:3px; text-align:center; border:none; cursor:pointer; overflow:hidden; padding:15px 20px;}
+		.Pay_Area .BtnClub a{display:table-cell; width:100%; font-weight:normal; border:none; cursor:pointer; overflow:hidden; padding:5px 0;}
+		.Pay_Area .BtnClub a,
+		.Pay_Area .BtnClub button{font-size:11pt; letter-spacing:0px;}
+		.Pay_Area .BtnClub a.BtnOpen{background-color:#646464; color:#fff; padding:1em; font-weight:bold; text-align:center;}
+		.Pay_Area .BtnClub a span{font-size:11.5pt;}
+		.Pay_Area li button{width:100%; color:#fff; letter-spacing:2px; background-color:#747474;}
+		.Pay_Area li button:hover{background-color:#646464;}
+			/* 중복체크버튼 */
+			.Pay_Area button.OverlapBtn{display:inline-block; position:absolute; right:5px; margin-top:-2px; width:25%; letter-spacing:-1px; padding:8px 0px;}
+					
+	.Pay_Area ol{display:block; width:100%; padding:0 0px 0px 0px;}
+	.Pay_Area ol:nth-child(2){padding:0px 0px 0 0px;}
+	.Pay_Area ol:nth-child(2) li:first-child{ margin-top:15px;}
+	.Pay_Area li{display:table; width:100%; table-layout:fixed; position:relative; margin-top:15px;}
+	.Pay_Area li:first-child{margin-top:0px;}
+	.Pay_Area li *{font-size:11pt;}
+	.Pay_Area li .Title{display:table-cell; width:27%; vertical-align:middle; font-weight:normal; color:#757575;  padding-right:10px; text-align:left; } /* 일단숨김 */
+	.Pay_Area li .Title span{color:#000; font-size:12pt; margin-right:5px; vertical-align:middle;}
+	.Pay_Area li .InputBox{display:table-cell; vertical-align:middle; background-color:#none; border-bottom:1px solid #dadada; padding:6px 10px 6px 0px;}
+	.Pay_Area li .InputBox input,
+	.Pay_Area li .InputBox select{display:inline-block; width:100%; color:#1e1e1e; font-size:11pt; background:none; border:none; line-height:2em;}
+	.Pay_Area li .InputBox span.FixUrl{position:absolute; top:0; right:164px; vertical-align:middle; padding:1em 0; color:#837f7e;}
+	.Pay_Area li .InputBox .SelectMultiple{}
+	.Pay_Area li .InputBox .SelectMultiple>div{height:100px; overflow-y:scroll; }
+	.Pay_Area li .InputBox .SelectMultiple>div ul{padding:5px;}
+	.Pay_Area li .InputBox .SelectMultiple>div ul li{margin-top:0;}
+	.Pay_Area li .InputBox .SelectMultiple button{background:none; letter-spacing:0; font-weight:normal; padding:0;}
+	.Pay_Area li .InputBox .SelectMultiple button span{position:relative; display:block; padding:0; text-align:left; color:#747474;}
+	.Pay_Area li .InputBox .SelectMultiple label{text-align:left; color:#747474;}
+	.Pay_Area li .InputBox .SelectMultiple label input{width:auto;}
+	.Pay_Area li .InputBox .SelectMultiple label input[type="checkbox"]{margin-top:0;}
+	.Pay_Area li p{display:block; width:100%; color:#1e1e1e;  font-size:8pt; text-align:right;}
+	.Pay_Area table td p{display:inline; width:100%; color:#aaa; font-size:10pt; text-align:right;}
+	.Pay_Area .InputBox{display:inline-block; vertical-align:middle; border-bottom:1px solid #dadada; margin:0 20px 0 0;}
+	.Pay_Area .InputBox input:-webkit-autofill{box-shadow:0 0 0 1000px #f7f7f8 inset;}
+	.Pay_Area .InputBox input,
+	.Pay_Area .InputBox select{display:inline-block; width:100%; color:#1e1e1e; font-size:13pt; background:none; border:none; line-height:2em;}
+	
+	.Pay_Area li .Con_Right{position:relative; display:table-cell; vertical-align:middle; padding:6px 0; text-align:left;}	
+	.Pay_Area li .Con_Right table.Table_01{text-align:center; position:relative; width:100%; color:#aaa;}	
+	.Pay_Area li .Con_Right table.Table_01 tr{ border-top:1px solid #dadada;}	
+	.Pay_Area li .Con_Right table.Table_01 tr td{padding:9px 0;}	
+	.Pay_Area li .Con_Right table.Table_01 tr:last-child {border-bottom:1px solid #dadada;}	
+	.Pay_Area li .Con_Right table.Table_02{text-align:center; position:relative; width:100%;}	
+	.Pay_Area li .Con_Right table.Table_02 tr{ border-top:1px solid #dadada;}	
+	.Pay_Area li .Con_Right table.Table_02 tr td:not(:first-child){padding:9px 8px 9px 0px; }	
+	.Pay_Area li .Con_Right table.Table_02 tr td{border-right:1px solid #dadada;}	
+	.Pay_Area li .Con_Right table.Table_02 tr td:last-child{border-right:none;}	
+	.Pay_Area li .Con_Right table.Table_02 tr:not(:first-child) td:nth-child(n+2){text-align:right;}	
+	.Pay_Area li .Con_Right table.Table_02 tr:first-child td:nth-child(n+2){padding:9px 0px 9px 0px; }	
+	.Pay_Area li .Con_Right table.Table_02 tr:last-child{border-bottom:1px solid #dadada;}	
+	
+	
+	.Pay_Area .Radiobox p{font-size:11pt;}
+	.Pay_Area table .Radiobox big{padding:0;}
+	.Pay_Area li .Radiobox{padding-right:15px;}
+	.Pay_Area .RadioSwitch.Small{position:absolute; top:9%; left:7%;}
+	.Pay_Area .RadioSwitch.Small button{padding:0;}
+	.Pay_Area .Button_Area{}
+	.Pay_Area .Button_Area th{padding:20px 0 0 0;}
+	.Pay_Area .Btn{display:inline-block; padding:5px; background-color:#fff;}
+	.Pay_Area .Button_Area .PriceBtn{position:relative; text-align:center; width:85%; padding:13px; color:#fff; background-color:#4a4268; border-radius:8px; font-size:11pt;}
+	.Pay_Area .Button_Area .PriceBtn.Active{font-weight:bold; background-color:#f65e5e;}
+	.Pay_Area .Button_Area .PriceBtn.Active:hover{background-color:#f65e5e;}
+	.Pay_Area .Button_Area .PriceBtn:hover{background-color:#342e49;}
+
+	
+/* ================================================================================================= */
+/* 결제페이지 */
+#contents .Payment_Area section.Inner{width:640px; min-width:640px; overflow:hidden;}
+.Payment_Area{content:""; clear:both; display:block; padding-top:20px;}
+	/* 팝업내용  */
+	.Payment_Area section{content:""; clear:both; display:block; position:relative; width:auto; min-width:auto;}
+		/* 컨텐츠(탭내용) */
+		.Payment_Content{content:""; clear:both; display:table; table-layout:fixed; position:relative; width:100%; text-align:center; margin:auto;}
+		.Payment_Content > div{text-align:left;}
+			/* 헤더(로고) */
+			/* 헤더(타이틀) */
+
+			/* 타이틀 */
+			.Payment_Area .TitleBig{content:""; clear:both; display:block; text-align:left; margin:0; text-align:center;}
+			.Payment_Area .TitleBig i{display:block; color:#ffbcbc; font-size:40pt; margin-bottom:20px;}
+			.Payment_Area .TitleBig i.FailIcon{color:#ffbcbc;}
+			.Payment_Area .TitleBig i.SuccessIcon{color:#8ae49c;}
+			.Payment_Area .TitleBig h1{margin-bottom:25px;}
+			/* 내용 */
+			.Payment_Area .ContSection{content:""; clear:both; display:block; position:relative;}
+				.Payment_Area .ContSection p{text-align:left; border-top:1px solid #d8dcdf; padding:10px 0; font-size:13pt;}
+				.Payment_Area .ContSection p:first-child{border:none;}
+				.Payment_Area .ContSection p em{display:inline-block; width:40%; font-size:13pt; text-align:left; color:#999999; vertical-align:top}
+				.Payment_Area .ContSection p span{display:inline-block; width:59%; font-size:14pt; text-align:right; color:#000; word-break:break-all;}
+				.Payment_Area .ContSection p span a{text-decoration:underline;}
+				.Payment_Area .ContSection.Fail p:first-child{text-align:center; padding:0px 0 20px 0; font-size:14pt; color:#999999;}
+	
+
+/* ================================================================================================= */
+/* 시술선택 */
+.SelectClinicArea{content:""; clear:both; display:block; position:relative;}
+	/* 시술선택 */
+	.SelectClinicArea ul{display:table; position:relative; width:100%; table-layout:fixed;}
+	.SelectClinicArea li{display:table-cell; position:relative; width:calc(100% / 3); vertical-align:top;}
+	.SelectClinicArea .Depth1{}
+	.SelectClinicArea .Depth2{}
+	.SelectClinicArea .Depth3{}
+	.SelectClinicArea dl{display:block; position:relative;}
+	.SelectClinicArea dt{height:3.5em;}
+	.SelectClinicArea dt strong{display:block; margin-bottom:0; line-height:1; color:#aeafb3; font-weight:600; vertical-align:middle;}
+	.SelectClinicArea dt span{display:inline-block; color:#fff; padding:4px 5px; font-size:11pt; line-height:1; vertical-align:middle; background-color:#aeafb3; margin-top:7px;}
+	.SelectClinicArea dt span b{}
+	.SelectClinicArea dd{}
+	.SelectClinicArea dd label{display:inline-block; width:100%; line-height: 1.2em; letter-spacing:-1px; cursor:pointer; margin:5px 0px !important;}
+		/* 1차시술 */
+		.SelectClinicArea .Depth1{}
+		.SelectClinicArea .Depth1 dl{}
+		.SelectClinicArea .Depth1 dd{}
+		.SelectClinicArea .Depth1 label{} 
+		/* 2차시술 */
+		.SelectClinicArea .Depth2{}
+		.SelectClinicArea .Depth2 dl{}
+		.SelectClinicArea .Depth2 dd{}
+		.SelectClinicArea .Depth2 label{} 
+		/* 선택된시술 */
+		.SelectClinicArea .Depth3{}
+		.SelectClinicArea .SelectedBtn{}
+		.SelectedBtn{display:inline-block; margin:0 1em 10px 10px;}
+		.SelectedBtn span{display:block; color:#686868; position:relative; font-size:12pt !important; text-align:center; border-radius:0; border-bottom:1px solid #686868; padding:0 3px 4px 0; line-height:1;}
+		.SelectedBtn span input{}
+		.SelectedBtn span b{line-height:1em; }
+		.SelectedBtn span a{font-size:13pt; font-family:'Pretendard',sans-serif; cursor:pointer; display:inline-block; position:absolute; top:0; line-height:1; left:104%; border-radius:3px; background-color:#fff; color:#686868; opacity:1; font-weight:500; height:14px;}
+		
+		
+
+/* ================================================================================================= */
+/* 고객만족도평가(202005) */
+.surveyWrap .HeaderNav_GNBmenu{}
+.surveyWrap{}
+.SurveyAskArea{display:block; position:relative; margin:1em auto;}
+.SurveyAskArea .Inner{}
+.SurveyAskArea fieldset{position:relative; padding:1em;}
+	/* 타이틀 */
+	.SurveyAskArea .subTitle{}
+	.SurveyAskArea .subTitle strong{font-weight:bold;}
+	.SurveyAskArea .subTitle p{color: #a1a1a1; margin-top:1em;}
+	/* 구조 */	
+	.SurveyAskArea .AskingList{display:block; position:relative; width:50%; background-color:#fff; border:1px solid #f1f1f1; border-radius:7px; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); padding:2em 1em; margin:auto;}
+	.SurveyAskArea li{display:block; position:relative; margin-bottom:1.5em;}
+	.SurveyAskArea li:last-child{margin-bottom:0px;}
+	/* 설문내용 */
+	.SurveyAskArea dl{display:block; position:relative; }
+	.SurveyAskArea dt{display:block; position:relative; line-height:1em; margin-bottom:0.2em;}
+	.SurveyAskArea dt p{display:table; table-layout:fixed; width:100%;}
+	.SurveyAskArea dt p em{display:table-cell; width:2em; vertical-align:middle; text-align:left;}
+	.SurveyAskArea dt p em b{display:inline-block; width:2em; height:2em; color:#fff; font-size:9pt; line-height:2em; font-weight:100; text-align:center; font-family:'Roboto',sans-serif; border-radius:50%; background-color:#0f4b9f; overflow:hidden; }
+	.SurveyAskArea dt p strong{display:table-cell; vertical-align:middle; font-weight:500; text-align:left;}
+	.SurveyAskArea dd{display:block; position:relative; }
+	.SurveyAskArea .InputBox{display:block; line-height:1em; text-align:left; text-indent:0px; border:1px solid #d4d4d4; border-radius:5px; border-collapse:separate; background-color:#ffffff; box-shadow:1px 1px 3px 0px #ebebeb inset; padding:10px 7px;}
+	.SurveyAskArea .InputBox select{display:block; width:100%; border:none; background:none; outline:none; margin:0px; padding:0px;}
+	.SurveyAskArea dd textarea{width:100%; height:10em; border:1px solid #d4d4d4; border-radius:5px; box-shadow:1px 1px 3px 0px #ebebeb inset; padding:7px}
+	/* 안내문구 */
+	.SurveyAskArea .InfoText{display:block; position:relative; text-align:center; padding:1em 0px; }
+	/* 버튼 */
+	.SurveyAskArea .BtnBox{}
+
+	/* 구분 */
+	.NC00001 .SurveyAskArea dt p em b{background-color:#b88e66;} /* 네트워크1 */
+	.NC00005 .SurveyAskAre{} /* 네트워크2 */
+	.NC00010 .SurveyAskAre{} /* 네트워크3 */
+
+
+/* ================================================================================================= */
+/* [공통]지점리스트(기본세로형) */
+.BranchList1{display:block; position:relative; text-align:left;}
+.BranchList1 .List{display:table; position:relative; width:100%; margin-bottom:0.5em;} 
+.BranchList1 .List dt{display:table-cell; position:relative; width:80px; vertical-align:top;} 
+.BranchList1 .List dd{display:table-cell; position:relative;  margin-left:-3px; margin-top:-1px; vertical-align:top;} 
+.BranchList1 .List a,
+.BranchList1 .List p{display:inline-table; position:relative; margin-top:-1px; table-layout:fixed; line-height:3em; letter-spacing:-1px; text-align:center; border:1px solid #dbdbdb;  background-color:#fff;} 
+.BranchList1 .List dt a,
+.BranchList1 .List dt p{display:block; width:100%; color:#fff; border-color:#373737; background-color:#373737;}
+.BranchList1 .List dd a,
+.BranchList1 .List dd p{width:33.3%; color:#838383; margin-left:-5px;}
+.BranchList1 .List dd a:hover
+.BranchList1 .List dd a.Action:hover{background-color:#e1e1e1;}
+.BranchList1 .List dd a.Action,
+.BranchList1 .List dd p.Action{background-color:#393939;}
+.BranchList1 .List:last-child{margin-bottom:0px;}
+	/* 구분 */
+	.NC00001 .BranchList1 .List dd a.Action{} /* 네트워크1 */
+	.NC00005 .BranchList1 .List dd a.Action{} /* 네트워크2 */
+	.NC00010 .BranchList1 .List dd a:hover{background-color:#f7f7f7;} /* 네트워크3 */
+	.NC00010 .BranchList1 .List dd a.Action:hover,
+	.NC00010 .BranchList1 .List dd a.Action,
+	.NC00010 .BranchList1 .List dd p.Action{color:#fff; background-color:#78bc27;} 
+
+
+/* [공통]지점리스트(가로형) */
+.BranchList2{display:table; position:relative;}
+.BranchList2 .List{display:table-cell; position:relative; vertical-align:top; text-align:center; margin:auto;} 
+.BranchList2 .List dt{display:block; position:relative;  text-align:center;} 
+.BranchList2 .List dd{display:block; position:relative;  text-align:center;} 
+.BranchList2 .List a{display:block; position:relative; width:98%; line-height:1.3em; letter-spacing:-1px; text-align:center; margin:auto !important; background-color:#fff;} 
+.BranchList2 .List dt a{color:#fff; line-height:3em;  background-color:#373737;}
+.BranchList2 .List dd a{color:#838383; border:1px solid #dbdbdb; background-color:#fff; margin-top:-1px !important; padding:1em 0px;}
+.BranchList2 ~ .BtnClose{display:block; position:relative; text-align:right; cursor:pointer;}
+	/* 구분 */
+	.NC00001 .BranchList2 .List dd a{} /* 네트워크1 */
+	.NC00005 .BranchList2 .List dd a{} /* 네트워크2 */
+	.NC00010 .BranchList2 .List dd a:hover{background-color:#f7f7f7;} /* 네트워크3 */
+
+/* [공통]지점리스트 */
+.BranchList3{}
+.BranchList3 li{}
+
+
+/* [공통]지점리스트 */
+.BranchList4{display:block; position:relative; -moz-column-count:2; -webkit-column-count:2; column-count:2; margin:auto;}
+.BranchList4 li{display:block; position:relative;}
+.BranchList4 p{display:block; position:relative;}
+.BranchList4 dl{display:table; position:relative; width:100%; text-align:left; }
+.BranchList4 dt{display:table-cell; position:relative; width:20%; vertical-align:middle;}
+.BranchList4 dd{display:table-cell; position:relative; vertical-align:middle; color:#767676;}
+.BranchList4 dd.Address{}
+.BranchList4 dd.Ceo,
+.BranchList4 dd.Num,
+.BranchList4 dd.Tel{display:none;} /* 기본 숨김 */
+
+.BranchBoxBar{}
+.BranchBoxBar .bx-wrapper .bx-viewport{background:none;}
+
+	/* 구분 */
+	.NC00001 .BranchList4{} /* 네트워크1 */
+	.NC00005 .BranchList4{} /* 네트워크2 */
+	.NC00010 .BranchList4{} /* 네트워크3 */
+	.NC00010 .BranchList4 dt{color:#78bc27;}
+	
+
+/* [지점열기]지점선택1-텍스트 */
+.Btn_BranchrOpen{display:inline-table; position:relative;}
+.Btn_BranchrOpen a,
+.Btn_BranchrOpen p{display:block;  position:relative; font-size:14pt; border: 1px solid #dedede; padding:0.5em 3em 0.5em 1em; cursor:pointer;}
+.Btn_BranchrOpen span{font-weight:500;}
+.Btn_BranchrOpen strong{font-weight:500;}
+.Btn_BranchrOpen a:after,
+.Btn_BranchrOpen p:after{content:'▽'; display:block; position:absolute; top:20%; right:1em; color:#dedede;}
+	/* 구분 */
+	.NC00010 .Btn_BranchrOpen a,
+	.NC00010 .Btn_BranchrOpen p{background-color:#78bc27; border:none;} /* 네트워크3 */
+	.NC00010 .Btn_BranchrOpen strong{color:#fff;} 
+/* [지점열기]지점선택2-아이콘 */
+.Btn_BranchrOpen2{}
+
+
+/* ================================================================================================= */
+/* 사진첨부(파일첨부) */
+.AddImgBox{display:block; position:relative;}
+.AddImgBox .List{display:table; position:relative; width:100%;}
+.AddImgBox .List li{display:table-cell; position:relative; width:25%;}
+	.ImgupView{display:block; position:relative; width:95%; text-align:center; margin:auto;}
+	.ImgupView .Box{display:block; position:relative; width:100%; height:15em; border:1px dashed #e7e7e7;  background-color:#fafafa; background-repeat:no-repeat; background-size:auto 100%; background-position:center center; overflow:hidden;}
+	.ImgupView input{display:none;} /* 일단숨김 */
+	.ImgupView input[type="file"]{}
+	.ImgupView label{display:inline-block; position:absolute; left:0px; top:0px; width:100%; height:100%; line-height:10em; font-size:18pt; font-weight:100;}
+	.ImgupView p{display:block; text-align:center; padding:0.3em;}
+
+
+/* ================================================================================================= */
+/* 앱저장버튼(20230130) */
+.AddAppBtn{display:block; position:fixed; top:10%; left:2%; z-index:1; font-size:12pt; padding:0.5em; background-color:#222; color:#fff; border-radius:5px;}
+
+
+
+
+/* ================================================================================================= */
+/* 예약날짜시간 */
+.subtWrap:not(.PriceSideWrap) #dayTimeCommonDiv{position:relative; display:table-cell; width:100%;}
+.ContactPop_With #dayTimeCommonDiv{position:relative; display:table; width:100%;}
+#dayTimeCommonDiv .DayCont{position:relative; display:table-cell; width:50%;}
+.ContactPop_With #dayTimeCommonDiv .DayCont{position:relative; display:inline-table; width:50%;}
+#dayTimeCommonDiv .Info{position:relative; display:block; font-size:13pt; color:#333; font-weight:600; line-height:1; margin-bottom:1em;}
+	/* ---------------------------------------------- */
+	/* 예약날짜 */
+	#dayTimeCommonDiv .Left{}
+	#dayTimeCommonDiv .DayDate{position:relative; display:block; width:95%; padding:1.5em; border-radius:10px; background-color:#efefef;}
+		/* 달력 */
+		#dayTimeCommonDiv .DayDate.hasDatepicker *{font-family:'SUIT';}
+		#dayTimeCommonDiv .DayDate.hasDatepicker{}
+			/* 달력시작 */
+			#dayTimeCommonDiv .DayDate .ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{width:100%; border-radius:0; padding:0; }
+			#dayTimeCommonDiv .DayDate .ui-datepicker{width:100%;}
+			#dayTimeCommonDiv .DayDate .ui-widget-content{border:none; background:none;}
+				/* 년도부분 */
+				#dayTimeCommonDiv .DayDate .ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all{padding:0; border-radius:0; margin-bottom:0.8em;}
+				#dayTimeCommonDiv .DayDate .ui-datepicker-header{background:none;} 
+				#dayTimeCommonDiv .DayDate .ui-widget-header{ border:none;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title *{font-size:12pt; vertical-align:middle; font-weight:600;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title{background:none; margin:0; color:#1d1d1d; line-height:1;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title select.ui-datepicker-year,
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title select.ui-datepicker-month{display:inline-block; width:auto; font-size:12pt; line-height:1; border:none; background:none;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title select.ui-datepicker-year{}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title select.ui-datepicker-month{margin-left:0.5em;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title select{height:auto; margin:0;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title select option{padding:2px;}
+					#dayTimeCommonDiv .DayDate .ui-datepicker-title span{font-weight:600;}
+					/* 양쪽방향 */
+					#dayTimeCommonDiv .DayDate .ui-widget-content a{top:0;}
+					#dayTimeCommonDiv .DayDate .ui-widget-content a span.ui-icon {background-image:url('/css/js/images/ui-icons_444444_256x240.png')}
+				/* 날짜부분 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar *{font-size:12pt; font-weight:500;}
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar{margin:0; background-color:#fff; border-radius:10px; overflow:hidden; box-shadow:2px 2px 5px 0px #e5e5e5; border-collapse:inherit;}
+				/* 요일 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar thead{background-color:#f6f6f6;}
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar thead th{font-weight:600; padding:0.7em 0; line-height:1; text-align:center;}
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar thead th span{}
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar thead th.ui-datepicker-week-end{} /* 토일 */
+				/* 일자 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar tbody{}
+				.subtWrap:not(.PriceSideWrap) #dayTimeCommonDiv .DayDate table.ui-datepicker-calendar td{margin:0px; border:4px solid #fff; padding:4px;}
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar a.ui-state-default{color:#1d1d1d; width:95%; margin:0 auto; line-height:1; text-align:center; border:none; background:none; border:1px solid rgba(255, 0, 0, .0); border-radius:100px; padding:0.3em 0;} /* 기본 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar a.ui-state-default:hover{border:1px solid #111111; transition-duration:.3s;} /* 오버시 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar a.ui-state-disabled{} /* 빈칸&비활성화 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar a.ui-state-default.ui-state-active{color:#ffffff; font-weight:bold; background-color:#111111;} /* 선택된상태 */
+				#dayTimeCommonDiv .DayDate table.ui-datepicker-calendar span.ui-state-default{color:#646464; line-height:1; text-align:center; font-weight:normal; border:none; background:none; padding:0.3em 0; width:95%; margin:0 auto; border:1px solid rgba(255, 0, 0, .0)} /* 비활성화 */
+
+
+	/* ---------------------------------------------- */
+	/* 예약시간 */
+	#dayTimeCommonDiv .Right{}
+	#dayTimeCommonDiv .DayTime{position:relative; display:block; width:100%; padding:1.5em; border-radius:10px; background-color:#efefef; min-height:7em;}
+		/* 날짜피커 */
+		#dayTimeCommonDiv .DayTime *{font-weight:500;}
+		#dayTimeCommonDiv .DayTime{content:""; clear:both; display:block; margin-bottom:2%; overflow:hidden;}
+		#dayTimeCommonDiv .DayTime .TimeList{position:relative; display:block; overflow:hidden;}
+		#dayTimeCommonDiv .DayTime ul{}
+		#dayTimeCommonDiv .DayTime ul li{display:block; float:left; width:20%; text-align:center; margin-top:2.4%;}
+		#dayTimeCommonDiv .DayTime ul li:nth-child(-n+5){margin-top:0;}
+		#dayTimeCommonDiv .DayTime li:nth-child(2n){margin-left:0px;}
+		#dayTimeCommonDiv .DayTime ul li label b{font-size:10pt;}
+		/* 시간표기 */
+		#dayTimeCommonDiv .DayTime label{display:block; width:95%; margin:0 auto; color:#111111; font-size:11pt; line-height:1; vertical-align:middle; border:1px solid #ccc; border-radius:50px; background-color:#ffffff; box-shadow:2px 2px 5px 0px #e5e5e5; cursor:pointer; padding:0.7em 0;}
+		#dayTimeCommonDiv .DayTime label span{font-size:9pt; display:none;}
+		#dayTimeCommonDiv .DayTime label:hover{border-color:#111111; transition-duration:.3s;}
+		/* 예약불가 */
+		#dayTimeCommonDiv .DayTime li.Impossible label{color:#cccccc; border:1px solid #dfdfdf; background-color:#f7f7f7;}
+		#dayTimeCommonDiv .DayTime li.Impossible label:hover{color:#cccccc; border:1px solid #dfdfdf; background-color:#f7f7f7;}
+		/* 예약마감 */
+		#dayTimeCommonDiv .DayTime li.TimeEnd{width:100% !important;}
+		#dayTimeCommonDiv .DayTime li.TimeEnd label{border:none; background:none; box-shadow:none; cursor:default;}
+		#dayTimeCommonDiv .DayTime li.TimeEnd label b{line-height:1.4; color:#444;}
+		/* 선택된 */
+		#dayTimeCommonDiv .DayTime li.Selected label{color:#ffffff; background-color:#111111;}
+
+
+/* ================================================================================================= */
+/* 로딩중 202310 */
+.LoadingArea{content:""; clear:both; position:absolute; left:0px; top:0px; width:100%; height:100%;  z-index:998;}
+.LoadingArea .LoadingBg{position:absolute; left:0px; top:0px; width:100%; height:100%; background-color:rgba(245, 245, 245, 0.85); z-index:998;}
+.LoadingArea .SpinnerBox{position:absolute; top:50%; left:50%; margin-left:auto; width:100%; overflow:hidden;  z-index:999; transform:translate(-50%, -50%);} 
+.LoadingArea .Spinner {margin:0 auto; width:100%; text-align:center;}
+.LoadingArea .Spinner > div {width:10px; height:10px; background-color:#333; border-radius:100%; display:inline-block; -webkit-animation:Bouncedelay 1.4s infinite ease-in-out both; animation:Bouncedelay 1.4s infinite ease-in-out both; margin:0 2px;}
+.LoadingArea .Spinner .Bounce1{-webkit-animation-delay:-0.32s; animation-delay:-0.32s;}
+.LoadingArea .Spinner .Bounce2{-webkit-animation-delay:-0.16s; animation-delay:-0.16s;}
+.LoadingArea .Spinner span{display:block; font-size:12pt; margin-top:0.5em; color:#444;}
+
+@-webkit-keyframes Bouncedelay {
+	0%, 80%, 100% { -webkit-transform: scale(0) }
+	40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes Bouncedelay {
+	0%, 80%, 100% { 
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	} 40% {
+		-webkit-transform: scale(1.0);
+		transform: scale(1.0);
+	}
+}
+
+
+/* ================================================================================================= */
+/* css모션(http://tcpschool.com/css/css3_transform_animation) */
+.ani{}
+.ani-fadein{animation-name:ani-fadein; animation-duration:1s; animation-direction:normal;}
+.ani-fadeout{animation-name:ani-fadeout; animation-duration:1s; animation-direction:normal; animation-fill-mode:forwards;}
+.ani-fadedown{animation-name:ani-fadedown; animation-duration:1s; animation-direction:normal;}
+.ani-fadeup{animation-name:ani-fadeup; animation-duration:1s; animation-direction:normal;} 
+.ani-faderight{animation-name:ani-faderight; animation-duration:1s; animation-direction:normal;}
+.ani-fadeleft{animation-name:ani-fadeleft; animation-duration:1s; animation-direction:normal;} 
+.ani-fadeupright{animation-name:ani-fadeupright; animation-duration:1s; animation-direction:normal;}
+.ani-fadeupleft{animation-name:ani-fadeupleft; animation-duration:1s; animation-direction:normal;}
+.ani-fadedownright{animation-name:ani-fadedownright; animation-duration:1s; animation-direction:normal;}
+.ani-fadedownleft{animation-name:ani-fadedownleft; animation-duration:1s; animation-direction:normal;}
+@keyframes ani-fadein {
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+@keyframes ani-fadeout {
+	0%{opacity:1;}
+	100%{opacity:0;}
+}
+@keyframes ani-fadeup {
+	0%{transform:translateY(3em); opacity:0;}
+	96%{transform:translateY(-1px); opacity:1;}
+	100%{transform:translateY(0); opacity:1;}
+}
+@keyframes ani-fadedown {
+	0%{transform:translateY(-3em); opacity:0;}
+	96%{transform:translateY(1px); opacity:1;}
+	100%{transform:translateY(0); opacity:1;}
+}
+@keyframes ani-faderight {
+	0%{transform:translateX(-3em); opacity:0;}
+	96%{transform:translateX(1px); opacity:1;}
+	100%{transform:translateX(0); opacity:1;}
+}
+@keyframes ani-fadeleft {
+	0%{transform:translateX(3em); opacity:0;}
+	96%{transform:translateX(-1px); opacity:1;}
+	100%{transform:translateX(0); opacity:1;}
+}
+
+@keyframes ani-fadeupright {
+	0%{transform:translateX(-3em) translateY(3em); opacity:0;}
+	96%{transform:translateX(1px) translateY(-1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+@keyframes ani-fadedownleft {
+	0%{transform:translateX(3em) translateY(-3em); opacity:0;}
+	96%{transform:translateX(-1px) translateY(1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+
+@keyframes ani-fadeupleft {
+	0%{transform:translateX(3em) translateY(3em); opacity:0;}
+	96%{transform:translateX(-1px) translateY(-1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+@keyframes ani-fadedownright {
+	0%{transform:translateX(-3em) translateY(-3em); opacity:0;}
+	96%{transform:translateX(1px) translateY(1px); opacity:1;}
+	100%{transform:translateX(0) translateY(0); opacity:1;}
+}
+
+
+.ani-flipleft{animation-name:ani-flipleft; animation-duration:1s; animation-direction:normal;}
+.ani-flipldown{animation-name:ani-flipldown; animation-duration:1s; animation-direction:normal;}
+@keyframes ani-flipleft {
+	0%{transform:rotateY(180deg); opacity:0;}
+}
+@keyframes ani-flipldown {
+	0%{transform:rotateX(180deg); opacity:0;}
+}
+
+.ani-zoomin{animation-name:ani-zoomin; animation-duration:1s; animation-direction:normal;}
+.ani-zoomout{animation-name:ani-zoomout; animation-duration:1s; animation-direction:normal;}
+@keyframes ani-zoomin {
+	0%{transform:scale(1.1); opacity:0;}
+	100%{transform:scale(1); opacity:1;}
+}
+@keyframes ani-zoomout {
+	0%{transform:scale(0.9); opacity:0;}
+	100%{transform:scale(1); opacity:1;}
+}
+
+
+/* ================================================================================================= */
+@charset "utf-8";
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 지점퀵링크 */
+.Keyword_Link{}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 키워드 */
+.Keyword{content:""; clear:both; display:block; width:100%; padding:2% 0%;}
+.Keyword .Inner{}
+.Keyword strong{color:#a1a1a1; font-size:9pt; line-height:1.8em;}
+.Keyword pre{display:block; width:100%; color:#a1a1a1; font-size:9pt; line-height:1.8em; text-align:justify; white-space:normal; vertical-align:top;  word-break:keep-all;   resize:none; border-radius:5px; border: 1px solid #ccc; padding:2%;} /*  word-break:keep-all;  */
+	/* tts프로그램 */
+	.Keyword .TextSpeech{position:relative; display:block; width:100%; text-align:left; margin-top:0.5em;}
+	.Keyword .TextSpeech p{position:relative; display:table; width:100%;}
+	.Keyword .TextSpeech p button{position:relative; display:inline-table; border:1px solid #ccc; color:#a1a1a1; padding:5px; border-radius:3px; background:none;}
+	.Keyword .TextSpeech p button:hover{background-color:#f7f7f7;}
+	.Keyword .TextSpeech p span{position:relative; display:inline-table; color:#a1a1a1; margin-left:0.5em; font-size:9pt;}
+
+	/* 구분 숨김 */
+	.mainWrap .Keyword{display:none;}
+	.contactWrap  .Keyword{display:none;}
+	.boardWrap  .Keyword{display:none;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 하단공통컨텐츠 */
+.CommArea_Tail{content:""; clear:both; display:block; position:relative; }
+	.CommContent_Bottom{}
+	/* [배너관리] 25번배너 */
+	.Banner25{}
+	.Banner25 ul{}
+	.Banner25 li{text-align:center;}
+	.Banner25 a{}
+	.Banner25 img{margin:auto;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 하단푸터전용 */
+.Footer_Area{content:""; clear:both; display:block; position:relative; width:100%; text-align:center; margin:auto; padding-bottom:80px;} /*  padding-bottom:80px; 퀵을위한 하단 여백삽입 */
+.Footer_AreaComm{} /* 통합 */
+.Footer_AreaBranch{} /* 지점 */
+	/* 영역 */
+	.Footer_Area > .Inner{position:relative;}
+	/* ---------------------- */
+	/* 빠른상담신청 */
+	.Contact_Quick{font-family:'Pretendard';}
+	.Contact_Quick{content:""; clear:both; position:fixed; bottom:0px; width:100%; text-align:center; margin:auto; background:#000; background-color:rgba(0, 0, 0, 0.6);  padding:15px 50px; z-index:900;}
+	.Contact_Quick >.Inner{min-width:1400px; max-width:1400px;}	
+		/* 타이틀 */
+		.Contact_Quick .Title{display:block; width:100%; text-align:center; margin-bottom:3%;}
+		.Contact_Quick .Title strong{display:block; font-size:15pt; letter-spacing:-1px;}
+		/* 내용 */
+		.Contact_Quick *{color:#fff;}
+		.Contact_Quick dl{display:table; width:100%; table-layout:fixed;}
+		.Contact_Quick dt{display:table-cell; position:relative; vertical-align:middle; text-align:center;}
+		.Contact_Quick dd{display:table-cell; position:relative; vertical-align:middle; padding-right:5px; width:10%;}
+		.Contact_Quick dd label input,
+		.Contact_Quick dd select,
+		.Contact_Quick dd select option,
+		.Contact_Quick dd textarea{color:#000; background-color:#fff; border:1px solid #fff; border-radius:0; resize:none; font-family:'Pretendard';}
+		.Contact_Quick dd input{height:30px; vertical-align:middle;}
+		.Contact_Quick dd select{display:block; width:100%; height:30px; vertical-align:middle;  -webkit-appearance:none; background:url('/img/common/chevron-down.svg') no-repeat right 13px center; background-size:11px; -moz-appearance:none;/*for firefox*/ appearance:none; box-sizing: border-box; background-color:#fff; padding-left:10px;}
+		.Contact_Quick dd select::-ms-expand{display:none;/*for IE10,11*/}
+		.Contact_Quick dd label{display:table; width:100%; text-align:center; margin:auto;}
+		.Contact_Quick dd label p{display:table-cell; display:none; padding-right:5px;}
+		.Contact_Quick dd label .InputBox{display:table-cell; }
+		.Contact_Quick dd label .InputBox *{display:inline-block; }
+		.Contact_Quick dd label .InputBox input{width:100%; padding:0px 5px;}
+		.Contact_Quick dd label.BranchName{display:block; width:100%; height:30px;text-align:left; vertical-align:middle; border:1px solid #d0d0d0; border-radius:3px; background-color:#fff; }
+		.Contact_Quick dd label.BranchName .InputBox{color:#000; line-height:30px; padding:0px 5px;}
+		/* 버튼 */
+		.Contact_Quick .BtnBox{}
+		.Contact_Quick .Btn{width:100%; font-size:14pt; font-weight:normal; vertical-align:middle; padding:15px 0px;}
+		/* 동의 */
+		.Contact_Quick .AgreeBox{display:inline-table; padding:0 10px;}
+		.Contact_Quick .AgreeBox label{color:#ffffff; display:inline-table; margin:0; vertical-align:middle;}
+		.Contact_Quick .AgreeBox label i{color:#fff !important; font-size:11pt;}
+		.Contact_Quick .AgreeBox label:first-child{margin-bottom:3px;}
+		.Contact_Quick .AgreeBox label small{ Zvertical-align:middle;}
+		.Contact_Quick .AgreeBox label big{color:#fff !important; letter-spacing:-1px; line-height:1; vertical-align:middle;}
+		.Contact_Quick .AgreeBox a{color:#fff; vertical-align:middle; display:inline-table; line-height:1; padding:3px 4px; margin-left:5px; border-radius:2px;}
+		/* 길이설정  */
+		.Contact_Quick dl dt{width:9%;}
+		.Contact_Quick dl dd:nth-child(2){}
+		.Contact_Quick dl dd:nth-child(3){}
+		.Contact_Quick dl dd:nth-child(4){}
+		.Contact_Quick dl dd:nth-last-child(4){}
+		.Contact_Quick dl dd:nth-last-child(3){}
+		.Contact_Quick dl dt:nth-last-child(2){width:20%;}
+		.Contact_Quick dl dt:last-child{}
+
+	/* ---------------------- */
+	/* 상세정보 */
+	.Company_Area{display:table; table-layout:fixed; position:relative; width:100%; padding:50px 0px;}
+	.Company_Area > .Inner{display:table;  table-layout:fixed;}
+	.Company_Area > .Inner > div{vertical-align:top; font-family:'SUIT', sans-serif;}
+		/* 대표전화 */
+		.Company_Area .Tel{display:table-cell; position:relative; width:22%;}
+		.Company_Area .Tel span{color:#767676; font-size:10.5pt; line-height:1.5em; font-weight:normal; }
+		.Company_Area .Tel a p{font-size:30pt; line-height:1em; font-weight:700; letter-spacing:-1px; font-family:'SUIT', sans-serif;}
+			/* 카톡및주소(기본숨기고 사용할 네트워크만 노출) */
+			.Company_Area .contactInfo{display:block; position:relative; margin-top:1em; display:none;} /* 숨김 */
+			.Company_Area .contactInfo .kakao{display:block; position:relative; }
+			.Company_Area .contactInfo .kakao i{display:inline-block; position:relative; border-radius:3px; background-color:#fee500; padding:1px; margin-right:0.5em;}
+			.Company_Area .contactInfo .kakao i img{display:inline-block; width:1em;}
+			.Company_Area .contactInfo .map{display:block; position:relative;}
+			.Company_Area .contactInfo .map strong{display:block;}
+			.Company_Area .contactInfo .map span{display:block;}
+		/* 지점리스트열기 - (대표전화대신)네트워크3사용중 */
+		.Company_Area .section1{display:table-cell; position:relative; width:22%; vertical-align:middle !important;}
+		.Company_Area .section1 .Btn_BranchrOpen{}
+		/* 운영시간 */
+		.Company_Area .Time{display:table-cell; position:relative; width:28%;}
+		.Company_Area .Time label{display:table; width:100%;}
+		.Company_Area .Time label pre{font-size:11pt; line-height:1.6em; font-weight:normal; vertical-align:top; background:none; border:none; padding:0px; margin:0px; resize:none; font-family:'SUIT', sans-serif;}
+		.Company_Area .Time label p{display:block; font-size:11pt; line-height:1.6em; font-weight:bold;}
+		.Company_Area .Time pre.Left{display:table-cell; width:40%;}
+		.Company_Area .Time pre.Right{display:table-cell;}
+		.Company_Area .Time label + p{display:block; font-size:11pt; line-height:1.6em; font-weight:bold;}
+		
+		/* 링크 */
+		.Company_Area .row{display:table-cell; position:relative; width:50%;}
+		.Company_Area .row ul{display:table; width:100%;}
+		.Company_Area .row li{display:table-cell; width:25%; vertical-align:middle; text-align:center; margin:auto; border-right:1px solid #dbdbdb;}
+		.Company_Area .row li:last-child{border-right:none;}
+		.Company_Area .row a{display:inline-block; position:relative; text-align:center;}
+		.Company_Area .row a i{position:relative; font-size:28pt;}
+		.Company_Area .row a img{display:block; margin:auto;}
+		.Company_Area .row a p{color:#3d3d3d; font-size:12pt; font-weight:bold; margin-top:1em;}
+			/* [배너관리] 26번배너 */
+			.Banner26{}
+			.Banner26 li{}
+			.Banner26 a{}
+			.Banner26 img{max-width:100px;}
+				/* 등록된배너가없다면 지도표기 */
+				.Banner26Other{}
+				.Banner26Other .aboutmap26{display:block; position:relative; width:100%; height:10em; margin:auto;}
+				.Banner26Other #aboutmap26{}
+				.Banner26Other .aboutmap52{display:block; position:relative; width:100%; height:10em; margin:auto;}
+				.Banner26Other #aboutmap52{}
+				.Banner26Other p{display:block; font-size:10pt; font-weight:200; margin-bottom:0.5em;}
+				.Banner26Other p span{}
+					/* 지도크게보기링크 */
+					.Banner26Other .mapLink{display:block; position:absolute; left:0%; right:0%; top:0%; bottom:0%; width:100%; height:100%;}
+					.Banner26Other .mapLink a{display:block; position:relative; width:100%; height:100%;}		
+					
+
+	
+
+	/* ---------------------- */	
+	/* [배너관리] 27번배너 */
+	.Banner27{display:block; position:relative; width:100%;}
+	.Banner27 ul{display:block; position:relative;}
+	.Banner27 li{display:block; position:relative;}
+	.Banner27 a{display:block; position:relative;}
+	.Banner27 img{max-width:100%;}
+
+	/* ---------------------- */
+	/* 기본정보 */
+	.Bottom_Area{content:""; clear:both; display:block; position:relative; width:100%; text-align:center; margin:auto;}
+	.Bottom_Area.Inner{}
+		/* 퀵링크 */
+		.Bottom_Area .row{display:block; width:100%; text-align:center; margin:auto; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb;}
+		.Bottom_Area .row{display:table;  table-layout:fixed;}
+		.Bottom_Area .row .col-8 .Link ul{display:table-cell; width:50%; text-align:left;}
+		.Bottom_Area .row .col-8 .Link ul li{display:inline-table; padding:1em 0px;}
+		.Bottom_Area .row .col-8 .Link ul li:first-child a{border:none;}
+		.Bottom_Area .row .col-8 .Link ul li:last-child a{padding-right:0px;}
+		.Bottom_Area .row .col-8 .Link ul a{font-size:10.5pt; border-left:1px solid #e9e9e9; padding:0px 5px;}
+		.Bottom_Area .row .col-8 .Link ul a img{}
+		.Bottom_Area .row ol{display:table-cell; width:50%; text-align:right;}
+		.Bottom_Area .row ol li{display:inline-table; padding:0px 5px;}
+		.Bottom_Area .row ol li:last-child a{padding-right:0px;}
+		.Bottom_Area .row ol a{}
+		.Bottom_Area .row ol a strong{font-size: 12pt;}
+		.Bottom_Area .row ol a img{}
+		
+		/* 필수정보 */
+		#SkipNavAdd{}
+		.Bottom_Area .row{display:block; width:100%; font-weight:normal; font-size:10.5pt; line-height:1.6em;  text-align:center; padding:50px 0px;}
+		.Bottom_Area .row .col-3{text-align:center;}
+    .Bottom_Area .row .col-8{text-align:center;}
+		.Bottom_Area .row .col-3 strong{display:block; margin-bottom:35px;}
+		.Bottom_Area .row img{}
+		.Bottom_Area .row p{}
+		.Bottom_Area .row p span{}
+		.Bottom_Area .row p span + span{padding-right:1em;}
+		.Bottom_Area .row p .Item01{display:block;} /* 주소 */
+		.Bottom_Area .row p .Item02{} /* 상호명 */
+		.Bottom_Area .row p .Item03{} /* 대표자명 */
+		.Bottom_Area .row p .Item04{} /* TEL */
+		.Bottom_Area .row p .Item05{} /* FAX */
+		.Bottom_Area .row p .Item06{} /* 사업자등록번호 */
+		.Bottom_Area .row p b{display:block; width:100%; color:#838383; font-weight:normal; font-size:9pt; line-height:2em;} /* COPYRIGHT© */
+		.Bottom_Area .row p .create{font-size:10px !important; color:#4e4e4e; line-height:3em; display:block;}
+		.Bottom_Area .row p .create img{height:10px; width:auto; opacity:0.8; padding-left:2px;}
+		/* 지점정보 */
+		.Bottom_Area .BranchBox{font-size:10pt; letter-spacing:-1px; margin-bottom:2em;}
+		.Bottom_Area .BranchList4{width:70%;}
+
+		/* 구분 */
+		/* 브레인메디링크숨김 */
+		.NC00037 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00078 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00166 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00168 .Bottom_Area .row p .create{position:relative; opacity:0 !important; z-index:-1;}
+		
+		.NC00001 .Company_Area .Tel p{font-size:26pt; line-height:1.1em; font-weight:100; letter-spacing:0px;}/* 네트워크1 */
+		.NC00001 .Company_Area .Tel span{color:#010101; font-size:15pt; line-height:1.5em; font-weight:600;}/* 대표전화 */
+		.NC00001 .Company_Area .Tel a:first-child p{font-weight:bold; line-height:1.3em}
+		.NC00001 .Company_Area .Tel a:nth-child(2) span{line-height:2em;}
+		.NC00001 .Company_Area .Tel a:nth-child(2) p, .NC00001 .Company_Area .Tel a:nth-child(3) p{font-size:17pt; color:#555;}
+		.NC00001 .Company_Area .Time{width:20%;}/* 운영시간 */
+		.NC00001 .Company_Area .row{width:58%;}/* 네트워크3 */
+		.NC00010 .Company_Area .row li{width:calc(100% / 6); vertical-align:bottom;}/* 네트워크3 */
+		.NC00010 .Company_Area .row a{opacity:0.3; letter-spacing:-1px;} 
+		.NC00010 .Company_Area .row a:hover{opacity:1; transition: .5s;}
+		.NC00010 .Company_Area .row a img{}
+		.NC00010.C00024 .Company_Area .section1{display:none;}
+		.NC00010 .Footer_AreaComm .Company_Area .Tel{display:none;}
+		.NC00010 .Footer_AreaComm .Company_Area .Time{display:none;}
+		.NC00010 .Company_Area .Tel{display:none;}
+		.NC00010 .Company_Area .Time{display:none;}
+		.NC00010 .Bottom_Area{background-color:#e3deda;}
+		.NC00010 .Bottom_Area .row *{font-size: 10pt; }
+		.NC00010 .Bottom_Area .row span,
+		.NC00010 .Bottom_Area .row span *{color: #767676 !important;}
+		.NC00010 .Bottom_Area .row img{height:50px;}
+		.NC00010.C00024 .BranchBox{} /* 숨김>>공개처리(20210304 링크없게) */
+		.NC00010 .Bottom_Area .row p .Item04{display:none;} /* TEL */
+		.NC00030 .Footer_Area{background-color:#333;} /* 네트워크4 */
+		.NC00030 .Company_Area{color:#fff; }
+		.NC00030 .Company_Area > .Inner > div{vertical-align:middle;}
+		.NC00030 .Company_Area .Tel p{color:#fff;}
+		.NC00030 .Bottom_Area{color:#fff; } 
+		.NC00030 .Bottom_Area .row{border:none;}
+		.NC00030 .Bottom_Area .row .Inner{border-bottom: 1px solid #acacac;} 
+		.NC00030 .Bottom_Area .row ul a{color:#fff; border:none;}
+		.NC00030 .Bottom_Area .row ol li a img{height:30px; opacity:0.6;}
+		.NC00030 .Bottom_Area .row strong{margin-bottom:0px;}
+		.NC00030 .Bottom_Area .row img{height:70px;}
+		.NC00030 .Bottom_Area .row p .create{color:#b4b4b4;}
+		.NC00030 .Bottom_Area .row p .create img{opacity:1;}
+		.NC00032 .Bottom_Area .row p .create{color:#b4b4b4;}
+		.NC00032 .Bottom_Area .row p .create img{opacity:1;}
+		.NC00037 .Company_Area{display:none;}/* 숨김 20210527*/
+		.NC00037 .Bottom_Area{background-color:#f1edec;}
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 퀵메뉴 */
+.QuickArea{position:relative;}
+.QuickAreaComm{} /* 통합 */
+.QuickAreaBranch{} /* 지점 */
+.QuickArea section{display:table; position:fixed; top:140px; right:0; z-index:9999;}
+.QuickArea a{color:#ffffff;}
+	/* 버튼 */
+	.QuickArea_Btn{display:table-cell; vertical-align:top; cursor:pointer;}
+	.QuickArea_Btn a{display:inline-block; width:25px; height:100px; text-align:center; background-color:#000; border-radius:10px 0px 0px 10px; padding-top:50%; overflow:hidden;}
+	.QuickArea_Btn a p{display:inline-block; width:10px; color:#fff; font-size:10pt; line-height:1.15em; text-transform:uppercase; word-break:break-all; font-family:'Roboto',sans-serif;}
+	.QuickArea_Btn .CLOSE{float:none; font-size:inherit; font-weight:normal; line-height:1; text-shadow:none; opacity:1; /* summernote때문 */}
+	.QuickArea_Btn .OPEN{display:none;}
+	/* 링크 */
+	.QuickArea_Link{width:95px; vertical-align:top;}
+	.QuickArea_Link ul{width:100%; background-color:#000;  border-radius:0px 0px 0px 10px;}
+	.QuickArea_Link li{display:block; position:relative; width:95px; border-bottom:1px solid #2d2d2d; text-align:center; padding:10px 0;}
+	.QuickArea_Link li:nth-child(1){padding:10px 10px;}
+	.QuickArea_Link li:last-child{border-bottom:none;}
+	.QuickArea_Link a{display:block; position:relative; width:100%;}
+	.QuickArea_Link a i{font-size:20pt;}
+	.QuickArea_Link a span{display:block; font-size:9pt; letter-spacing:-1px; margin-top:5px;}
+	.QuickArea_Link a img{vertical-align:top;}
+	.QuickArea_Link .Tel{}
+	.QuickArea_Link .Tel *{font-family:'SUIT',sans-serif; font-weight:500;}
+	.QuickArea_Link .Tel a{text-align:left; letter-spacing:1px;}
+	.QuickArea_Link .Tel a small{font-size:8pt;}
+	.QuickArea_Link .Tel a p{font-size:18pt; line-height:1em; margin-top:3px;}
+	.QuickArea_Link .Top{}
+	.QuickArea_Link .Top i{display:inline-block; position:relative; font-size:11pt;}
+	.QuickArea_Link .Top span{display:inline-block; letter-spacing:1px; font-family:'Roboto',sans-serif;}
+	.QuickArea_Link a i span{position:absolute; top:10%; left:38%; color:#000; font-size:7pt; letter-spacing:-1px; font-weight:bold;}
+	.QuickArea_Link .Quick_GoTop{padding:0px;}
+	.QuickArea_Link .Quick_GoTop a{}
+	.QuickArea_Link .Quick_GoTop a p{display:inline-table;}
+	.QuickArea_Link .Quick_GoTop a i{display:table-cell; font-size:12pt;}'
+	.QuickArea_Link .Quick_GoTop a span{display:table-cell; margin-top:0px;}
+	/* [배너관리] 20번배너 네트워크3에만이미지노출 */
+	.Banner20{}
+	.Banner20 ul{}
+	.Banner20 li{}
+	.Banner20 a{}
+	.Banner20 a i{}
+	.Banner20 a span{}
+	.Banner20 a img{display:none; width:40px; margin:auto;}
+
+	/* 구분 */
+	.NC00001.QuickArea{} /* 네트워크1 */
+	.NC00005.QuickArea{} /* 네트워크2 */
+	.NC00010.QuickArea{} /* 네트워크3 */
+	.NC00010 .QuickAreaComm .QuickArea_Link .Tel{display:none;}
+	.NC00010 .QuickArea_Link li{padding:6px 0px;}
+	.NC00010 .Banner20{}
+	.NC00010 .Banner20 a i{display:none;}
+	.NC00010 .Banner20 a img{display:block; }
+	.NC00030.QuickArea{} /* 네트워크4 */
+	.NC00030 .Banner20 a i{display:none;}
+	.NC00030 .Banner20 a img{display:block;}
+	.NC00037 .QuickArea_Link {border-top:5px solid #ff5e90; border-bottom:5px solid #ff5e90; box-shadow: -6px 5px 9px rgba(0,0,0,0.2);}
+	.NC00037 .QuickArea a{color:#000;}
+	.NC00037 .QuickArea a:hover{color:#ff5e90;}
+	.NC00037 .QuickArea_Btn a{box-shadow: -6px 5px 9px rgba(0,0,0,0.2); border-top:5px solid #ff5e90; border-radius:0; background-color:#fff;}
+	.NC00037 .QuickArea_Btn a p{color:#000; color:#ff5e90;}
+	.NC00037 .QuickArea_Link ul{border-radius:0; background-color:#fff;}
+	.NC00037 .QuickArea_Link li{border:0;}
+	.NC00078 .QuickArea section{display:table; position:fixed; top:90px; right:0; z-index:9999;}
+
+
+
+
+/* 퀵메뉴2 */
+.QuickAreaLeft{}
+.QuickAreaLeftComm{} /* 통합 */
+.QuickAreaLeftBranch{} /* 지점 */
+
+
+
+/* 탑으로이동
+.Quick_GoTop{}
+.Quick_GoTop{position:fixed; bottom:13%; right:0px; width:12%; z-index:9999; display:none;}
+.Quick_GoTop *{color:#fff;}
+.Quick_GoTop p{display:inline-block; width:3.8em; height:3.8em; text-align:center; background-color:#121212; border-radius:50%; padding:8px; overflow:hidden;}
+.Quick_GoTop p i{font-size:14pt;}
+.Quick_GoTop p span{display:block; font-size:12pt; font-weight:bold;;}
+.Quick_GoTop p img{width:100%;}
+ */
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 지점정보 */
+.BranchrNetwork{}
+.BranchrNetwork .Inner{display:block; padding:5em 0px 3em 0px;;}
+.BranchrNetwork .Inner > .Title{display:block; position:relative; text-align:center; margin-bottom:3em;}
+.BranchrNetwork .Inner > .Title strong{display:block; color:#dbdbdb; font-size:24pt;}
+.BranchrNetwork .Inner > .Title p{display:block; color:#373737; font-size:24pt; font-weight:bold; margin-top:0.5em;}
+.BranchrNetwork .Inner > section{display:table; position:relative; width:100%; table-layout:fixed;}
+	/* ---------------------- */
+	/* 지점목록영역 */
+	.Footer_BranchList{display:table-cell; position:relative; width:40%; vertical-align:top;}
+	.Footer_BranchList .BranchList1{}
+	/* ---------------------- */
+	/* 지점정보영역 */
+	.Footer_BranchInfo{display:table-cell; position:relative; vertical-align:top; text-align:left; background-color:#fafafa; padding:2em;}
+		/* 지점상세요약정보 */
+		.Footer_BranchInfoBox{position:relative; color: #373737;}
+		.Footer_BranchInfoBox > section{display:table; position:relative; width:100%; table-layout:fixed;}
+			/* 기본정보 */
+			.Footer_BranchInfoSummary{display:table-cell; position:relative; width:55%; vertical-align:top;}
+			.Footer_BranchInfoBox .Name{display:block; font-size:23pt; font-weight:normal;}
+			.Footer_BranchInfoBox .Name em{font-weight:bold;}
+			.Footer_BranchInfoBox .row{display:block; margin-top:0.5em;}
+			.Footer_BranchInfoBox .Call{display:block; font-size:30pt; font-family:'Roboto',sans-serif; margin-top:0.5em;}
+			.Footer_BranchInfoBox .Time{display:block; width:100%; letter-spacing:-1px; margin-top:1em;}
+			.Footer_BranchInfoBox .Time pre{font-size:11pt;}
+			.Footer_BranchInfoBox .Time div{display:table; width:100%;}
+			.Footer_BranchInfoBox .Time pre.Left{display:table-cell; width:40%;}
+			.Footer_BranchInfoBox .Time pre.Right{display:table-cell;}
+			.Footer_BranchInfoBox .Card{display:block;}
+			.Footer_BranchInfoBox .Card pre{font-size:11pt;}
+			.Footer_BranchInfoBox .Parking{display:block; margin-top:1em;}
+			.Footer_BranchInfoBox .Parking pre{font-size:11pt;}
+			.Footer_BranchInfoBox .row{display:table; position:relative; width:100%; table-layout:fixed; margin-top:2em;}
+			.Footer_BranchInfoBox .row li{display:table-cell; position:relative; width:25%; line-height:4em; vertical-align:middle; text-align:center;}
+			.Footer_BranchInfoBox .row a{display:block; position:relative; width:95%; color:#fff; background-color:#373737; border: 1px solid #373737;}
+			/* 지도 */
+			.Footer_BranchInfoMap{display:table-cell; position:relative; vertical-align:top;}
+			.Footer_BranchInfoMap #map{display:block; position:relative; width:100%; height:24em !important; border: 1px solid #dbdbdb;}
+
+
+	/* 구분 */
+	.NC00001 .BranchrNetwork{} /* 네트워크1 */
+	.NC00001 .BranchrNetwork .Inner > section{} 
+	.NC00005 .BranchrNetwork{} /* 네트워크2 */
+	.NC00005 .BranchrNetwork .Inner > section{} 
+	.NC00010 .BranchrNetwork{} /* 네트워크3  */
+	.NC00010 .BranchrNetwork .Inner > section{} 
+	.NC00010 .Footer_BranchInfo{background-color:#f4f2ec;}
+	.NC00010 .Footer_BranchInfoBox .Call{color:#78bc27; }
+	.NC00010 .Footer_BranchInfoBox .row li:last-child a{border-color:#78bc27; background-color:#78bc27;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+@charset "utf-8";
+/*
+득근득근
+C00182
+*/
+
+/* ================================================================================================= */
+/* 헤더와푸터 */
+header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.8); z-index: 999;} 
+.mainWrap header .HeaderNav_Area{background:none;} /* 메인일때는 일단 배경투명 */
+	/* GNB */
+	header .HeaderNav_GNB{border:none;}
+		/* 상단메뉴 */
+		header .HeaderNav_GNBtop{}
+		header .HeaderNav_GNBtopBox{display:table; position:relative; width:100%; table-layout:fixed; padding:15px;}
+		header .HeaderNav_GNBtopBox > * {}
+			/* ----------------------------------------------------------------------------------------------------------- */
+			/* 회원로그인 */
+			.HeaderNav_GNBtop .Member{}
+			/* [배너관리] 21번배너 */
+			.Banner21{display:table-cell; vertical-align:middle;}
+			.Banner21 *{font-family:'Marcellus';}
+			.Banner21 ul{text-align:right;}
+			.Banner21 li{display:inline-block; padding:0.2em;}
+			.Banner21 li.infoFind{}
+			.Banner21 img{}
+			
+			/* [배너관리] 22번배너 */
+			.RightBox >.row{display:table-cell; vertical-align:middle; padding-left:1em;}
+			.Banner22{display:table-cell; vertical-align:middle;}
+			.Banner22 li{border-radius:100px; overflow:hidden; display:inline-table;}
+
+			/* ----------------------------------------------------------------------------------------------------------- */
+			header .HeaderNav_GNBtopBox .LeftBox{display:table-cell; position:relative; vertical-align:middle; text-align:left; z-index: 998;} 
+				/* 로고 */
+				header .HeaderNav_GNBtop .Logo{display:inline-table; position:relative;}
+				header .HeaderNav_GNBtop .Logo a img{max-height:1.3em;}
+			/* ----------------------------------------------------------------------------------------------------------- */
+			header .HeaderNav_GNBtopBox .CentBox{display:table-cell; position:relative; vertical-align:middle;} 
+			header .HeaderNav_GNBtopBox .CentBox.Inner{width:1100px; min-width:1100px;} /* 주메뉴가 위치할영역 */
+			/* ----------------------------------------------------------------------------------------------------------- */
+			header .HeaderNav_GNBtopBox .RightBox{display:table-cell; position:relative; vertical-align:middle; text-align:right; z-index: 998; }
+				/* 회원로그인 */
+				header .HeaderNav_GNBtop .Member{display:inline-table; position:relative; text-align:right;}
+				header .HeaderNav_GNBtop .Member a{letter-spacing:-2px; white-space:nowrap; padding-right:1.5em;}
+				header .HeaderNav_GNBtop .Member li:first-child{padding-left:15px;}
+				/* 22번배너 */
+				header .HeaderNav_GNBtop .row{display:none;}
+
+		/* ----------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 하단푸터전용 */
+.Footer_Area{background-color:#fff;}
+.C00040 .Footer_Area{padding-bottom:0;}
+.C00146 .Footer_Area *{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif";}
+.C00146 .Footer_Area{padding-bottom:0;}
+	/* 빠른상담신청 */
+	.C00040 .Contact_Quick{display:none;}
+	.C00146 .Contact_Quick{display:none;}
+	/* ---------------------- */
+	/* 상세정보 */
+	.aboutMapWrap .Company_Area{display:none;}
+	.Company_Area > .Inner{width:1400px;}
+	.Company_Area > .Inner > div{vertical-align:top;}
+	.Company_Area .row .text-center .container-md .Tel,
+	.Company_Area .row .text-center .container-md .Title *{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif" !important;}
+	.Company_Area .row .text-center .container-md .Title,
+	.Company_Area .row .text-center .container-md *{color:#333;}
+	.Company_Area .row.QuickLink{display:block; margin-top:3em; display:none;}
+	.Company_Area .row.QuickLink li{border-color:#555;}
+	.Company_Area .row.QuickLink li a:hover img{opacity:.7;}
+	.Company_Area .row.QuickLink li img{}
+	.Company_Area .Title.Sub span{font-weight:500; display:block; font-size:15pt; color:#989898;}
+
+	/* 대표전화 */
+	.Company_Area .Inner>.Title{display:block; font-size:18pt; font-weight:bold; display:none;} /* 일단숨김 */
+	.Company_Area .Tel{display:block; width:100%;}
+	.Company_Area .Tel .Title.Sub span{padding-bottom:0.2em;} /* 타이틀 */
+	.Company_Area .Tel a p{font-family:'Montserrat', 'Noto Sans KR', sans-serif; font-weight:600; color:#333; letter-spacing:0;}
+	.Company_Area .Time{display:block; width:100%; margin-top:3em;}
+	.Company_Area .Time .Title.Sub span{padding-bottom:0.5em;} /* 타이틀 */
+	.Company_Area .Time label + p{font-weight:normal; color:#989898; padding-top:15px;}
+	.Company_Area .row{width:70%;}
+	.Company_Area .row .Title.Sub span{padding-bottom:0.5em; font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:#989898;} /* 타이틀 */
+	.Company_Area .Time label pre{line-height:2em;}
+	.Company_Area .Time pre.Left{width:20%;}
+	.Company_Area .Time pre.Right{text-align:right; padding-right:10px; width:50%; font-family:'Montserrat', 'Noto Sans KR', sans-serif;}
+	.Company_Area .Time label .last{color:#e09753;}
+		/* [배너관리] 26번배너 */
+		.Banner26{}
+			/* 등록된배너가없다면 지도표기 */
+			.Banner26Other{}
+			.Banner26Other .Title p{display:block; font-size:18pt; font-weight:bold;}
+			.Banner26Other>p{font-size:13pt; font-weight:600; margin-bottom:8px;}
+			.Banner26Other>pre{font-size:11pt; font-weight:normal; margin-bottom:1em;}
+			.Banner26Other .aboutmap26{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:15em;}
+			.Banner26Other .aboutmap52{font-family:'NanumSquareNeoTTF-cBd',"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; height:17.5em; margin-left: 5px}
+
+	/*일본어*/
+	.Company_Area .bottomSNS{padding-top:20px;}
+	.Company_Area .bottomSNS .snsBox{position:relative; display:table; border-spacing:10px; margin-left:-10px;}
+	.Company_Area .bottomSNS .snsBox .snsIcon{display:table-cell; width:50px; border:1px solid #333; border-radius:500px; padding:10px; transition:0.3s;}
+	.Company_Area .bottomSNS .snsBox .snsIcon:hover{background:#333;}
+	.Company_Area .bottomSNS .snsBox .snsIcon:hover img{filter:brightness(3000);}
+	.Company_Area .bottomSNS .snsBox .snsIcon a{}
+	.Company_Area .bottomSNS .snsBox .snsIcon a img{width:100%;}
+
+
+	/* ---------------------- */
+	/* 기본정보 */
+	.Bottom_Area .row{padding:30px 0 50px 0;}
+	.Bottom_Area .row .Inner{display:table; width:1400px;}
+	.Bottom_Area .row strong{display:inline-block; vertical-align:top; float:left;}
+	.Bottom_Area .row img{width:19em;}
+	.Bottom_Area .row #SkipNavAdd *{color:#989898;}
+	.Bottom_Area .row #SkipNavAdd{display:inline-block; text-align:left; width:59%; margin-top:2em; margin-left:0;}
+	.Bottom_Area .row p span.create{font-size:14px; color:#4e4e4e; line-height:3em; display:block;}
+	.Bottom_Area .row p span.create img{height:10px; width:auto; opacity:0.8; padding-left:2px;}
+	.Bottom_Area .row *{color:#333;}
+	.Bottom_Area .row{position:relative; display:inline-block; width:59%; text-align:left; border:none; margin-left:0;}
+	.Bottom_Area .row ul{width:100%; position:relative; display:block;}
+	.Bottom_Area .row ul li{position:relative; display:inline-block; padding:0;}
+	.Bottom_Area .row ul li:first-child a{padding-left:0;}
+	.Bottom_Area .row ul li a{position:relative; display:inline-block; font-size:13pt; line-height:1em; padding:0px 10px; border-color:#333}
+	.Bottom_Area .row ul li a:hover{color:#e09753;}
+		.aboutMapWrap .Bottom_Area .row{padding:5em 0 50px 0;}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */	
+/* 퀵메뉴 */
+.QuickArea{}
+.QuickArea_Btn .CLOSE{display:none;}
+.QuickArea section{margin-right:20px; top:50%; transform:translate(0,-50%);}
+.QuickArea_Link{border-radius:100px;}
+.QuickArea_Link ul{background:none;}
+.QuickArea_Link li{border-radius:100px; background-color:#353535; border:none; padding:0; margin-bottom:10px;}
+.QuickArea_Link li.Tel{display:none;}
+.QuickArea_Link li{width:40px; height:40px;}
+.QuickArea_Link li a{width:40px; height:40px;}
+.QuickArea_Link li a span{position:absolute; padding:5px 10px; background-color:#353535; left:-140px; top:0; border-radius:100px; width:125px; display:none;}
+.QuickArea_Link li a img{padding:0.6em 0em; display:block; width:auto;}
+.QuickArea_Link li:hover span{display:block;}
+.QuickArea_Link li:hover{background-color:#888888;}
+.QuickArea_Link li:hover span{background-color:#888888;}
+
+.QuickArea_Link li.Quick_GoTop{background:none; color:#353535;}
+.QuickArea_Link li.Quick_GoTop i{color:#353535;}
+.QuickArea_Link li.Quick_GoTop span{display:none;}
+.QuickArea_Link {border:none;}
+
+/* ================================================================================================= */
+/*  [공통]상단헤더영역*/
+header .HeaderNav_Area{min-width:1500px; background-color:rgba(255, 255, 255, 0.8); z-index: 999;} 
+.mainWrap header .HeaderNav_Area{background-color:rgba(255, 255, 255, 0.5);} /* 메인일때는 일단 배경투명 */
+.HeaderNav_Area{}
+	/* GNB */
+	.HeaderNav_GNB{border:none;}
+		/* 상단메뉴 */
+		.HeaderNav_GNBtop{}
+		header .HeaderNav_GNBtopBox{display:table; position:relative; width:100%; table-layout:fixed; padding:15px;}
+			/* ----------------------------------------------------------------------------------------------------------- */
+			header .HeaderNav_GNBtopBox .LeftBox{display:table-cell; position:relative; vertical-align:middle; text-align:left; z-index: 998;} 
+			/* 로고 */
+			header .HeaderNav_GNBtop .Logo{display:inline-table; position:relative;}
+			header .HeaderNav_GNBtop .Logo a img{max-height:1.2em; padding:0 4px; padding-top:2px; padding-bottom:8px;}
+			.HeaderNav_GNBtop .Logo a{padding-left:30px; display:inline-block; height:fit-content;}
+			/* ----------------------------------------------------------------------------------------------------------- */
+			header .HeaderNav_GNBtopBox .CentBox{display:table-cell; position:relative; vertical-align:middle;} 
+			header .HeaderNav_GNBtopBox .CentBox.Inner{width:1100px; min-width:1100px;} /* 주메뉴가 위치할영역 */
+
+			@media only screen and (min-height:0) and (max-width:1023px) {
+				
+			}
+			
+			/* ----------------------------------------------------------------------------------------------------------- */
+			header .HeaderNav_GNBtopBox .RightBox{display:table-cell; position:relative; vertical-align:middle; text-align:right; z-index: 998; }
+				/* 회원로그인 */
+				header .HeaderNav_GNBtop .Member{display:table-cell;; position:relative; text-align:right; border-right:none !important; padding-bottom:3px;}
+				header .HeaderNav_GNBtop .Member a{letter-spacing:-2px; white-space:nowrap; padding-right:0;}
+				.HeaderNav_GNBtop .Member a{font-size:10pt;}
+				/* 22번배너 */
+				header .HeaderNav_GNBtop .row{display:inline-table; position:relative; }
+				header .HeaderNav_GNBtop .row li{}
+				header .HeaderNav_GNBtop .row li + li{padding-left:1em;}
+				header .HeaderNav_GNBtop .row a{text-align:center; margin:0px;}
+				header .HeaderNav_GNBtop .row a img{height:1.6em; }
+		/* ----------------------------------------------------------------------------------------------------------- */
+		/* 주메뉴 */
+		header .HeaderNav_GNBmenu{border:none; margin-top:-65px;}
+		.HeaderNav_LargeMenuWide > ul > .MenuBig > a{font-size:12pt; line-height:40pt;}
+			/* 대메뉴 */
+			header .HeaderNav_LargeMenu.Inner{width:1100px; min-width:1100px; }
+			header .HeaderNav_LargeMenu .MenuBig a{}
+			/* 소메뉴 */
+			header .HeaderNav_SmallMenu{}
+			header .HeaderNav_SmallMenu .Inner{width:1100px; min-width:1100px;}
+			header .HeaderNav_SmallMenu .MenuSub dd a{}
+			header .HeaderNav_SmallMenu .MenuSub dd a:hover{color:#ffb23c;}
+			header .HeaderNav_SmallMenu .MenuSub dd a:hover{color:#ffb23c;}
+			header .HeaderNav_LargeMenu .MenuBig:nth-last-child(3) a,
+			header .HeaderNav_LargeMenu .MenuBig:nth-last-child(3) a{}
+
+		/* 스크롤시 상단고정픽스 */
+		header.Fixed .HeaderNav_Area{background-color:#fff;}
+		header.Fixed .HeaderNav_GNBmenu{}
+		header.Fixed .HeaderNav_LargeMenu.Inner{}
+		header.Fixed .HeaderNav_GNBtop{display:block !important;}
+		header.Fixed .HeaderNav_GNBtopBox{} 
+
+		.HeaderNav_LargeMenuWide > ul{width:1200px;}
+		.HeaderNav_LargeMenuWide > ul > li{width:7.5%;}
+		.HeaderNav_LargeMenuWide{background:none;}
+
+		/*색상*/
+		.HeaderNav_LargeMenuWide .HeaderNav_SmallMenuCubeWide .SmallMenu ul li a:hover{color:#dd9660;}
+
+		.HeaderNav_LargeMenuWide .Action span{}
+
+		/* ----------------------------------------------------------------------------------------------------------- */
+		/* 외국어 */
+		.HeaderNav_Languages{position:relative; display:table-cell;}
+		.HeaderNav_Languages a{border:0; box-shadow:none; width:1.5em; height:1.5em;}
+		.HeaderNav_Languages ul li:first-child{padding-left:30px;}
+		.HeaderNav_Languages img{}
+
+
+/* ================================================================================================= */
+/* 서브페이지의 메뉴 */
+.SubNav{}
+.SubNav.Fixed{}
+.subtWrap .SubNav.Fixed .SubNav_Small1{display:none;}
+.SubNav.Fixed .SubNav_Small2{display:block;}
+	/* 소메뉴(SNB) */
+	.SubNav_Small.SubNav_Small1{margin-top:0;} 
+	.HeaderNav_LargeMenuWide .HeaderNav_SmallMenuCubeWide .SmallMenu{background-color:#f4f4f4; height:57px;}
+	.HeaderNav_LargeMenuWide .HeaderNav_SmallMenuCubeWide .SmallMenu ul{}
+	.HeaderNav_LargeMenuWide .HeaderNav_SmallMenuCubeWide .SmallMenu ul li{margin: 0 19px;}
+	.HeaderNav_LargeMenuWide .HeaderNav_SmallMenuCubeWide .SmallMenu ul li a{}
+	.HeaderNav_Menu.Code4567 .SmallMenu ul{position:absolute; height:57px; left:19.5%;}
+	.HeaderNav_Menu.Code4574 .SmallMenu ul{position:absolute; height:57px; left:28%;}
+	.HeaderNav_Menu.Code4659 .SmallMenu ul{position:absolute; height:57px; right:28%;}
+	.HeaderNav_Menu.Code4665 .SmallMenu ul{position:absolute; height:57px; right:19.5%;}
+	
+	/* 소메뉴1 */
+	.SubNav_Small1{background-color:#FF8021;}
+	.SubNav_Small1 ul{border:none; border-radius:0; text-align:center; background-color:#dd9660;}
+	.SubNav_Small1 ul li{margin: 0 19px;  display: inline-block; border:none; text-align:center;vertical-align: top;width:auto;height: 56px;}
+	.SubNav_Small1 ul li a{font-size:16px; color:#fff;  font-weight:500; position:relative;  display:block; z-index:1; line-height:57px; padding:0;}
+	.SubNav_Small1 ul li a:hover{opacity:.7;}
+	.SubNav_Small1 li.Action a, 
+	.SubNav_Small1 li:hover a{color:#fff; background:none; }
+	.SubNav_Small1 li.Action a{box-sizing:border-box;  border-bottom: 2px solid #ffffff;}
+	.SubNav_Small2{}
+	.SubNav_Small2 li.Action a,
+	.SubNav_Small2 li:hover a{}
+
+	/* 소메뉴2 */
+	.SubNav_Small2{display:block; position:relative; text-align:center; margin-top:1em;}
+	.SubNav_Small2 .InnerContainer{background:none;}
+	.SubNav_Small2 ul{border-color:#465b76; border-radius:0; display:table; position:relative; width:100%; table-layout:fixed; text-align:left; border:none;}
+	.SubNav_Small2 ul li{display:table-cell; vertical-align:middle; text-align:center; border-right:none; cursor:pointer;}
+	.SubNav_Small2 li.Action{background-color:#transparent !important; font-weight:600; border-radius:3px;}
+	.SubNav_Small2 ul li a{display:inline-block; width:98%; color:#333; line-height:1.8em; font-weight:300; line-height:-1px; border-radius:3px; border: 1px solid #465b76; background-color:#fff; padding:5px 0; overflow:hidden;}
+	.SubNav_Small2 li.Action a, .SubNav_Small2 li:hover a{background-color:#465b76; font-weight:600; color:#fff;}
+	.SubNav_Area ul{background-color:transparent;}
+	
+	/* 스크롤시 상단고정픽스 */
+	.SubNav.Fixed .SubNav_Small.SubNav_Small1{margin:0;} 
+
+	/*게시판*/
+	.boardWrap .SubNav_Small2{display:block; position:relative; text-align:center; margin-top:1em;}
+	.boardWrap .SubNav_Small2 .InnerContainer{background:none;}
+	.boardWrap .SubNav_Small2 ul{border-radius:0; display:table; position:relative; width:100%; table-layout:fixed; text-align:left; border:none;}
+	.boardWrap .SubNav_Small2 ul li{display:table-cell; vertical-align:middle; text-align:center; border-right:none; cursor:pointer;}
+	.boardWrap .SubNav_Small2 li.Action{background-color:#transparent !important; font-weight:600; border-radius:3px;}
+	.boardWrap .SubNav_Small2 ul li a{transition:0.2s; display:inline-block; width:98%; color:#333; line-height:1.8em; font-weight:300; line-height:-1px; border-radius:3px; background-color:#e8e8e8; padding:5px 0; overflow:hidden; border:0;}
+	.boardWrap .SubNav_Small2 ul li a:hover{background:#db803b;}
+	.boardWrap .SubNav_Small2 li.Action a, .SubNav_Small2 li:hover a{background-color:#dd9660; font-weight:600; color:#fff;}
+	.boardWrap .SubNav_Area ul{background-color:transparent;}
+		/* 리얼후기 */
+		.reviewWrap .SubNav .SubNav_Area.SubNav_Small2{display:none;}
+		/* 시술전후사진 */
+		.BnfWrap .SubNav .SubNav_Area.SubNav_Small2{display:none;}
+		.boardWrap .SubNav.Fixed .SubNav_Small2{display:none;}
+
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/*지점선택 삭제*/
+.BranchName{display:none;}
+.clinicInfoWrap .reserveTable tbody tr:last-child{display:none;}
+
+
+/* ================================================================================================= */
+/* 팝업 */
+.NC00182 .MultiBarSlider ul.SliderThum_BtnPage li button{height:55px;}
+/* 회원약관류 */
+.memberWrap{}
+.memberWrap #contents .Inner{background-color: #f2f2f2; border-radius:15px; padding:2%; margin:2% auto;}
+.memberWrap .AgreeBox{}
+.memberWrap .AgreeBox > p{font-size:18pt; border-left:3px solid #1d1d1d; padding-left:10px; margin-bottom:1%;}
+.memberWrap .AgreeBox .PrivacyText{display:block;}
+.memberWrap .AgreeBox .PrivacyText pre{height:500px; color:#1d1d1d; background-color:#fff; }
+.memberWrap .AgreeBox .PrivacyText pre,
+.memberWrap .AgreeBox .PrivacyText pre strong,
+.memberWrap .AgreeBox .PrivacyText pre *{font-size:10pt;}
+
+/* footer 영역 끝 */
+
+/* 헤더 네브바 드롭다운 */
+.dropdowns:hover .dropdown-menu{
+display:flex;
+flex-direction:row;
+gap:15px;
+justify-content:center;
+align-items:center;
+left:0;
+width:100%;
+background-color:gray;
+}
+.dropdowns:hover .dropdown-menu .dropdown-item:hover{
+background-color:transparent;
+color:white;
+}
+/* 드롭다운 끝 */
+
+/*초기화*/
+html{scroll-behavior: smooth;}
+html, body{font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif";}
+html, body{color:#010101; font-size:12pt; line-height:1.4em;margin:0; padding:0; width:100%; height:100%; white-space:normal; word-break:keep-all;} 
+*{outline:none; box-sizing:border-box; line-height:revert;}
+/* ul,ol,li{list-style:none;} */
+img,fieldset,iframe,form{border:0 none;}
+a,a:hover,a:active,a:focus{color:inherit; text-decoration:none; outline:none;}
+button, input, select, textarea{font-family:revert; font-size:revert; line-height:revert; font-weight:revert;}
+select{background:none;}
+button{border:none;}
+a, button{cursor:pointer;}
+table{table-layout:fixed; border-collapse:collapse; border-spacing:0;}
+i{font-style:normal;}
+h1,h2,h3,h4,h5,h6{font-size:revert;}
+/* div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, abbr, acronym, address, big, cite, code, ins, small, sub, sup {padding:0; margin:0; font-weight:revert; font-size:revert;}
+ */* .glyphicon{font-family: 'Glyphicons Halflings';}
+pre{font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:revert; line-height:revert; background:none; border:none; }
+input:-webkit-autofill{-webkit-box-shadow: 0 0 0 1000px white inset;} /* 자동완성 배경색제거  */
+label{max-width:revert; margin:0; font-weight:revert;}
+
+.Clear{content:""; clear:both; display:block; height:0px;}
+.Hide{display:none;}
+.clearfix:before, .clearfix:after {content:" ";display:table;}
+.clearfix:after {clear:both;}
+.clearfix {*zoom:1;}
+.hide, .blind{position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;visibility:hidden;font-size:0;line-height:0}
+
+/* 초기화 */
+h1, h2, h3, h4, h5, h6{}
+q:before,q:after { content:''; }
+abbr,acronym { border:0; }
+address, abbr, address, big, cite, code, ins, small, sub, sup, em{ font-weight:normal; font-style:normal;}
+blockquote, q{quotes:none;}
+a img, input, textarea, select, img{ vertical-align:middle;}
+time, progress, mark, output {}
+img, input, select{vertical-align:middle;}
+article, aside, figure, figure img, figcaption, hgroup, footer, header, main, nav, section, label, video, object {}
