@@ -8,4 +8,8 @@ public interface CouponService {
 
 	List<CouponVO> getCouponList(int userNo);
 
+	CouponVO getCoupon(int cpNum);
+
+	int delCoupon(int cno);
+
 }

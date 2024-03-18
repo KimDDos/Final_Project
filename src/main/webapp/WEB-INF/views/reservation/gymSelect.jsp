@@ -171,7 +171,7 @@
 							</script>
 					</button>
 				</c:forEach>
-				<button id="selSub" type="submit" style="visibility: hidden">이 장소를 선택</button>
+				<button id="selSub" class="btn btn-success" type="submit" style="visibility: hidden">이 장소를 선택</button>
 			</form>
 		</div>
 	</div>

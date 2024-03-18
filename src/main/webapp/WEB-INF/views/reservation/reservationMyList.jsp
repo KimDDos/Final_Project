@@ -54,20 +54,20 @@
 				<!-- 이전 페이지 -->
 				<c:if test="${ph.prev }">
 					<li class="page-item"><a class="page-link"
-						href="/reservation/list/?pageNo=${ph.startPage-1 }&qty=${ph.pgvo.qty}"
+						href="/reservation/mylist/?pageNo=${ph.startPage-1 }&qty=${ph.pgvo.qty}&uno=${userSerialNo}"
 						aria-label="Prev"> <span aria-hidden="true">&laquo;</span>
 					</a></li>
 				</c:if>
 				<!-- 페이지번호 -->
 				<c:forEach begin="${ph.startPage }" end="${ph.endPage }" var="i">
 					<li class="page-item"><a class="page-link"
-						href="/reservation/list/?pageNo=${i}&qty=${ph.pgvo.qty}">${i }</a></li>
+						href="/reservation/mylist/?pageNo=${i}&qty=${ph.pgvo.qty}&uno=${userSerialNo}">${i }</a></li>
 				</c:forEach>
 
 				<!-- 다음 페이지 -->
 				<c:if test="${ph.next }">
 					<li class="page-item"><a class="page-link"
-						href="/reservation/list/?pageNo=${ph.endPage+1 }&qty=${ph.pgvo.qty}"
+						href="/reservation/mylist/?pageNo=${ph.endPage+1 }&qty=${ph.pgvo.qty}&uno=${userSerialNo}"
 						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 					</a></li>
 				</c:if>

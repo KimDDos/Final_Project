@@ -1,9 +1,19 @@
 var rno = document.getElementById("rno").value;
+var cno = document.getElementById("useCpNum").value;
+var string;
+if (cno != '')
+{
+string = '?rno='+rno + '&cno=' + cno;
+}
+else
+{
+string = '?rno='+rno;
+}
 
 $(function(){
     $("#purchase").click(function(){
         $.ajax({
-            url:'/reservation/payment?rno='+rno,
+            url:'/reservation/payment'+string,
             dataType:'json',
             success:function(data){
             alert(data.tid);

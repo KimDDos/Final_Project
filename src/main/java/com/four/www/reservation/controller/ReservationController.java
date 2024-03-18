@@ -12,6 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -87,9 +88,12 @@ public class ReservationController {
 	@GetMapping("/list")
 	public String list(Model m, PagingVO pgvo) {
 		log.info("PGVO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + pgvo);
-		List<ReservationVO> list = rsv.getrsvList(pgvo);
-		int totalCount = rsv.getTotalCount(pgvo);
-		PagingHandler ph = new PagingHandler(pgvo, totalCount);
+		List<ReservationVO> list = new ArrayList<ReservationVO>();
+		PagingHandler ph = new PagingHandler();
+		int totalCount = 0;
+		list = rsv.getrsvList(pgvo);
+		totalCount = rsv.getTotalCount(pgvo);
+		ph = new PagingHandler(pgvo, totalCount);
 		m.addAttribute("list", list);
 		m.addAttribute("ph", ph);
 
@@ -98,11 +102,28 @@ public class ReservationController {
 		return "/reservation/reservationList";
 	}
 
+	@GetMapping("/mylist")
+	public String mylist(Model m, PagingVO pgvo, @RequestParam("uno") int userNo) {
+		log.info("PGVO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + pgvo);
+		List<ReservationVO> list = new ArrayList<ReservationVO>();
+		PagingHandler ph = new PagingHandler();
+		list = rsv.getReserve(userNo);
+		ph = new PagingHandler(pgvo, list.size());
+		m.addAttribute("list", list);
+		m.addAttribute("ph", ph);
+
+		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
+
+		return "/reservation/reservationMyList";
+	}
+
 	@GetMapping("/purchased")
 	public String purchased(@RequestParam("rno") int rno,
-			@RequestParam(value = "pg_token", required = false) String token, Model m) {
+			@RequestParam(value = "pg_token", required = false) String token,
+			@RequestParam(value = "cno", required = false) String cno, Model m) {
 		JSONParser parser = new JSONParser();
 		ReservationVO Reserv = rsv.getReserveOne(rno);
+
 		try {
 			log.info("이거되긴하는거냐고" + token);
 			URL url = new URL("https://kapi.kakao.com/v1/payment/approve");
@@ -137,17 +158,20 @@ public class ReservationController {
 			JSONObject jobj = (JSONObject) obj;
 
 			JSONObject items = (JSONObject) jobj.get("amount");
-			
+
 			long longpay = (long) items.get("total");
 
 			int payment = Long.valueOf(longpay).intValue();
-			
+
 			ReservationVO rvo = new ReservationVO();
-			
+
 			rvo.setRvPayment(payment);
 			rvo.setRno(rno);
 
-			log.info("aaaaaaaaaaaaaaaa"+payment);
+			log.info("aaaaaaaaaaaaaaaa" + payment);
+			if (cno != null) {
+				csv.delCoupon(Integer.parseInt(cno));
+			}
 			rsv.paysubmit(rvo);
 		} catch (MalformedURLException e) {
 			// TODO: handle exception
@@ -157,7 +181,7 @@ public class ReservationController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		Reserv = new ReservationVO();
 		Reserv = rsv.getReserveOne(rno);
 
@@ -175,7 +199,7 @@ public class ReservationController {
 
 		m.addAttribute("rvo", Reserv);
 		m.addAttribute("cList", coupons);
-		
+
 		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
 
 		return "/reservation/reservationDetail";
@@ -210,8 +234,19 @@ public class ReservationController {
 
 	@RequestMapping("/payment")
 	@ResponseBody
-	public String payment(@RequestParam("rno") int rno) {
+	public String payment(@RequestParam("rno") int rno, @RequestParam(value = "useCpNum", required = false) String cpNum) {
 		ReservationVO rvo = rsv.getReserveOne(rno);
+		int cno = 0;
+		int TotalPay = Integer.parseInt(rvo.getRvSuggestPrice());
+		if (cpNum != null) {
+			CouponVO cvo = csv.getCoupon(Integer.parseInt(cpNum));
+			log.info("CVOSSSSSSSSSSSSSSSSSSSSSS"+cvo);
+			cno = cvo.getCpNum();
+			if (cvo.getCpValue() > 99)
+				TotalPay = TotalPay - cvo.getCpValue();
+			else if (cvo.getCpValue() < 100)
+				TotalPay = TotalPay - (TotalPay * cvo.getCpValue());
+		}
 		try {
 			URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
 			HttpURLConnection connect = (HttpURLConnection) url.openConnection();
@@ -221,8 +256,8 @@ public class ReservationController {
 			connect.setDoOutput(true);
 			String params = "cid=TC0ONETIME" + "&partner_order_id=partner_order_id" + "&partner_user_id=partner_user_id"
 					+ "&item_name=" + URLEncoder.encode("득근득근 예약 : " + rvo.getRvTitle(), "UTF-8") + "&quantity=1"
-					+ "&total_amount=" + rvo.getRvSuggestPrice() + "&vat_amount=0" + "&tax_free_amount=0"
-					+ "&approval_url=http://localhost:8089/reservation/purchased?rno=" + rno
+					+ "&total_amount=" + TotalPay + "&vat_amount=0" + "&tax_free_amount=0"
+					+ "&approval_url=http://localhost:8089/reservation/purchased?rno=" + rno + "&cno=" + cno
 					+ "&fail_url=http://localhost:8089/reservation/reservationDetail"
 					+ "&cancel_url=http://localhost:8089/reservation/reservationDetail";
 			OutputStream output = connect.getOutputStream();

@@ -21,7 +21,8 @@
 		</div>
 	</a>
 	<hr>
-	<a href="/member/calendar?userSerialNo=${userSerialNo}" style="text-decoration: none; color: black;">
+	<a href="/member/calendar?userSerialNo=${userSerialNo}"
+		style="text-decoration: none; color: black;">
 		<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
 			<img class="img-fluid rounded-circle"
 				src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
@@ -32,25 +33,17 @@
 	</a>
 	<c:if test="${isTrainer eq 'N'}">
 		<hr>
-		<a href="/member/coupon?UserNo=${userSerialNo}" style="text-decoration: none; color: black;">
+		<a href="/member/coupon?UserNo=${userSerialNo}"
+			style="text-decoration: none; color: black;">
 			<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
 				<img class="img-fluid rounded-circle"
 					src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 				<div class="ms-3">
-					<div class="fw-bold">쿠폰 / 마일리지</div>
+					<div class="fw-bold">쿠폰</div>
 				</div>
 			</div>
 		</a>
 		<hr>
-		<a href="#" style="text-decoration: none; color: black;">
-			<div class="d-flex align-items-center mt-lg-5 mb-4 py-3">
-				<img class="img-fluid rounded-circle"
-					src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-				<div class="ms-3">
-					<div class="fw-bold">내가 쓴 리뷰</div>
-				</div>
-			</div>
-		</a>
 	</c:if>
 	<hr>
 </div>

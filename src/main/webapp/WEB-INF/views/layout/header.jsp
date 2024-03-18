@@ -82,7 +82,7 @@
 									</c:if>
 									<li><a class="dropdown-item" href="/reservation/list">예약
 											게시판</a></li>
-									<li><a class="dropdown-item" href="#">예약일정 확인</a></li>
+									<li><a class="dropdown-item" href="/reservation/mylist?uno=${userSerialNo}">예약일정 확인</a></li>
 								</ul></li>
 							<li class="nav-item"><a class="nav-link"
 								href="/member/mypage">MYPAGE</a></li>

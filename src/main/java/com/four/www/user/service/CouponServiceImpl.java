@@ -23,4 +23,14 @@ public class CouponServiceImpl implements CouponService {
 		return cdao.getCouponList(userNo);
 	}
 
+	@Override
+	public CouponVO getCoupon(int cpNum) {
+		return cdao.getCoupon(cpNum);
+	}
+
+	@Override
+	public int delCoupon(int cno) {
+		return cdao.delCoupon(cno);
+	}
+
 }
