@@ -7,6 +7,7 @@
 <jsp:include page="../layout/header.jsp"></jsp:include>
 
 
+
 <body>
 	<sec:authentication property="principal.mdto.mvo.userSerialNo"
 		var="userSerialNo" />
@@ -16,10 +17,9 @@
 		<div class="container-md" style="margin-top: 50px">
 			<input type="text" class="form-control" name="userSerialNo"
 				id="userSerialNo" readonly="readonly" value="${rvo.userSerialNo}"
-				hidden="hidden"> 
-			<input type="text" class="form-control"
-				name="rno" id="rno" readonly="readonly"
-				value="${rvo.rno}" hidden="hidden">
+				hidden="hidden"> <input type="text" class="form-control"
+				name="rno" id="rno" readonly="readonly" value="${rvo.rno}"
+				hidden="hidden">
 			<div class="mb-3">
 				<label class="form-label">작성자</label> <input type="text"
 					class="form-control" name="userName" id="userName"
@@ -86,15 +86,75 @@
 				<button id="purchase" type="button" class="btn btn-success">결제하기</button>
 			</c:if>
 			<input name="trainerNo" value="${userSerialNo}" hidden="hidden">
-			<input name="rno" value="${rvo.rno}" hidden="hidden">
+			<input name="rno" value="${rvo.rno}" hidden="hidden"> <input
+				name="cpNum" value="">
 			<c:if test="${isTrainer == 'Y' and rvo.trainerNo eq '0'}">
 				<button type="submit" class="btn btn-success">예약 확정</button>
 			</c:if>
 			<a href="/reservation/cancel?rno=${rvo.rno}"><button
 					type="button" class="btn btn-danger">예약 취소</button></a> <a
 				href="/reservation/list"><button type="button">목록</button></a>
+			<div class="modal">
+				<div class="modal_body">
+					<div class="row">
+						<!-- 쿠폰라인 (현재는 더미) -->
+						<c:forEach var="cvo" items="${cList }" varStatus="status">
+							<div class="col-lg-4 mb-5">
+								<button type="button" id="coupon">
+									<div class="card h-100 shadow border-0" id="${cvo.cpNum}">
+										<div class="card-body p-4">
+											<div class="badge bg-primary bg-gradient rounded-pill mb-2">${cvo.cpLimitdate}</div>
+											<c:if test="${cvo.cpValue > 99}">
+												<h5 class="card-title mb-3">${cvo.cpValue}원할인쿠폰</h5>
+											</c:if>
+											<c:if test="${cvo.cpValue < 100}">
+												<h5 class="card-title mb-3">${cvo.cpValue}%할인쿠폰</h5>
+											</c:if>
+										</div>
+									</div>
+								</button>
+							</div>
+						</c:forEach>
+					</div>
+					<button type="button" class="btn-close-modal">Modal닫기</button>
+				</div>
+			</div>
+			<button type="button" class="btn-open-modal">Modal열기</button>
 		</div>
 	</form>
+
+	<script>
+	var coupons = cList;
+	console.log(cList);
+        const modal = document.querySelector('.modal');
+        const btnOpenModal=document.querySelector('.btn-open-modal');
+        const btnCloseModal=document.querySelector('.btn-close-modal');
+        btnOpenModal.addEventListener("click", ()=>{
+        	if(modal.style.display == "flex")
+        		{
+        		modal.style.display="none";
+        		}
+        	else modal.style.display="flex";
+        });
+        btnCloseModal.addEventListener("click", ()=>{
+        	if(modal.style.display == "flex")
+        		{
+        		modal.style.display="none";
+        		}
+        	else modal.style.display="flex";
+        });
+        const btnCoupon=document.querySelector('#coupon');
+        btnCoupon.addEventListener("click", ()=>{
+        	if(modal.style.display == "flex")
+        		{
+        		modal.style.display="none";
+        		}
+        	else modal.style.display="flex";
+        	console.log("CLICK");
+        const btnCoupon2=btnCoupon.getElementById()
+        	console.log(btnCoupon.nextSibling);
+        });
+    </script>
 
 	<!-- Bootstrap core JS-->
 	<script src="/resources/js/purchase.js"></script>

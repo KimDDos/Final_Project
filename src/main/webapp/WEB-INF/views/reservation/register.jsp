@@ -389,7 +389,7 @@
 				<a href="write.php" class="cancel coredr_rg"
 					style="font-size: 16px;">취소</a> <a href="javascript:;" id="w_btn"
 					onclick="$('#frm').submit()" class="res coredr_md"
-					style="background: #a77bca; font-size: 16px;">상담예약하기</a>
+					style="background: #a77bca; font-size: 16px;">상담예약하기</a>w
 			</div>
 			<input type="hidden" name="cmd" id="cmd" value="write"> <input
 				type="hidden" name="email" id="email" value=""> <input

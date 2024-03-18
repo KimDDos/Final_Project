@@ -174,7 +174,7 @@ public class ReservationController {
 		List<CouponVO> coupons = csv.getCouponList(Reserv.getUserSerialNo());
 
 		m.addAttribute("rvo", Reserv);
-		m.addAttribute("cvo", coupons);
+		m.addAttribute("cList", coupons);
 		
 		SecurityContextHolder.getContext().setAuthentication(cms.createNewAuthentication());
 
