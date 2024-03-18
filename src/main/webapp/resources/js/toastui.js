@@ -4,7 +4,16 @@
                 el: document.querySelector('#editor'),
                 height: "500px",
                 initialEditType: 'markdown',
-                previewStyle: 'vertical'
+                previewStyle: 'vertical',
+//start hooks
+                hooks: {
+            addImageBlobHook(blob, callback) {  // 이미지 업로드 로직 커스텀
+                console.log(blob);
+                console.log(callback);
+            }
+        }
+//endhooks
             });
+            
 
         editor.value;

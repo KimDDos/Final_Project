@@ -7,29 +7,14 @@
 <%@page import="java.awt.image.BufferedImage"%>
 <%@page import="javax.imageio.ImageIO"%>
 
-<%
-    String imagePath = request.getRealPath("upload") + File.separator + "example.jpg"; // 예시 이미지 경로
-    String thumbnailPath = request.getRealPath("upload") + File.separator + "thumbnail_example.jpg"; // 썸네일 저장 경로
-    int thumbnailWidth = 100; // 썸네일 너비
-    int thumbnailHeight = 100; // 썸네일 높이
-    
-    try {
-        // 원본 이미지 로드
-        File imageFile = new File(imagePath);
-        BufferedImage originalImage = ImageIO.read(imageFile);
-        
-        // 썸네일 이미지 생성
-        BufferedImage thumbnail = new BufferedImage(thumbnailWidth, thumbnailHeight, BufferedImage.TYPE_INT_RGB);
-        Graphics2D graphics2D = thumbnail.createGraphics(); // Graphics2D 객체 생성
-        graphics2D.drawImage(originalImage, 0, 0, thumbnailWidth, thumbnailHeight, null); // 썸네일 이미지 그리기
-        graphics2D.dispose(); // 그래픽 객체 해제
-        
-        // 썸네일 이미지 파일로 저장
-        ImageIO.write(thumbnail, "jpg", new File(thumbnailPath));
-    } catch (IOException e) {
-        e.printStackTrace();
+<style>
+#image_container img {
+      max-width: 400px; /* 이미지 최대 너비 설정 */
+      height: auto; /* 이미지 비율에 맞추어 자동으로 높이 조절 */
+      display: block; /* 이미지가 가로로 화면에 정확히 맞도록 함 */
+      margin: 0 auto; /* 이미지 중앙 정렬 */
     }
-%>
+</style>
 
 
 <link rel="stylesheet"
@@ -50,15 +35,15 @@
 						</header>
 						<table>
 						<tr>
-							<p>이미지 업로드:</p>
-							<input type="file"/>						
+							<input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
+    						<div id="image_container"></div>
 						</tr>
 						<tr>
 							<div id="editor"></div>
-	    				  	<textarea style="display:none;" id="noticeContent"name="noticeContent"></textarea>
+	    				  	<textarea style="display:none;" id="tranierContent"name="tranierContent"></textarea>
 	    				 </tr>
 						</table>
-		<button type="submit">등록</button>
+							<button type="submit">등록</button>
 						
 					</article>
 				</div>
@@ -84,6 +69,20 @@
 			return false;
 		}	
 	</script>
+	
+	<script>
+      function setThumbnail(event) {
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+          var img = document.createElement("img");
+          img.setAttribute("src", event.target.result);
+          document.querySelector("div#image_container").appendChild(img);
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    </script>
 	
 </body>
 </html>
