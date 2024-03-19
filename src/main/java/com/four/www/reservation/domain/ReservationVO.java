@@ -45,5 +45,6 @@ public class ReservationVO {
 	private String trainerName;
 	private String tid;
 	private String rvCategory;
+	private int rvUsedCouponNo;
 	
 }

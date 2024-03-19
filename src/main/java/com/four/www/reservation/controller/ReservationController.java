@@ -119,8 +119,7 @@ public class ReservationController {
 
 	@GetMapping("/purchased")
 	public String purchased(@RequestParam("rno") int rno,
-			@RequestParam(value = "pg_token", required = false) String token,
-			@RequestParam(value = "cno", required = false) String cno, Model m) {
+			@RequestParam(value = "pg_token", required = false) String token, Model m) {
 		JSONParser parser = new JSONParser();
 		ReservationVO Reserv = rsv.getReserveOne(rno);
 
@@ -168,9 +167,9 @@ public class ReservationController {
 			rvo.setRvPayment(payment);
 			rvo.setRno(rno);
 
-			log.info("aaaaaaaaaaaaaaaa" + payment);
-			if (cno != null) {
-				csv.delCoupon(Integer.parseInt(cno));
+			log.info("aaaaaaaaaaaaaaaa" + rvo);
+			if (rvo.getRvUsedCouponNo() != 0) {
+				csv.delCoupon(rvo.getRvUsedCouponNo());
 			}
 			rsv.paysubmit(rvo);
 		} catch (MalformedURLException e) {
@@ -240,8 +239,8 @@ public class ReservationController {
 		int TotalPay = Integer.parseInt(rvo.getRvSuggestPrice());
 		log.info("TOTALPAYYYYYYYYYYY"+TotalPay);
 		log.info("CPNUMSSS"+cpNum);
-		if (cpNum != null) {
-			CouponVO cvo = csv.getCoupon(Integer.parseInt(cpNum));
+		CouponVO cvo = csv.getCoupon(Integer.parseInt(cpNum));
+		if (Integer.parseInt(cpNum) != 0) {
 			log.info("CVOSSSSSSSSSSSSSSSSSSSSSS"+cvo);
 			cno = cvo.getCpNum();
 			if (cvo.getCpValue() > 99)
@@ -261,7 +260,7 @@ public class ReservationController {
 			String params = "cid=TC0ONETIME" + "&partner_order_id=partner_order_id" + "&partner_user_id=partner_user_id"
 					+ "&item_name=" + URLEncoder.encode("득근득근 예약 : " + rvo.getRvTitle(), "UTF-8") + "&quantity=1"
 					+ "&total_amount=" + TotalPay + "&vat_amount=0" + "&tax_free_amount=0"
-					+ "&approval_url=http://localhost:8089/reservation/purchased?rno=" + rno + "&cno=" + cno
+					+ "&approval_url=http://localhost:8089/reservation/purchased?rno=" + rno
 					+ "&fail_url=http://localhost:8089/reservation/reservationDetail"
 					+ "&cancel_url=http://localhost:8089/reservation/reservationDetail";
 			OutputStream output = connect.getOutputStream();
@@ -292,6 +291,7 @@ public class ReservationController {
 
 			tempRvo.setRno(rno);
 			tempRvo.setTid(tid);
+			tempRvo.setRvUsedCouponNo(cvo.getCpNum());
 
 			rsv.setTid(tempRvo);
 			

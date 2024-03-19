@@ -18,7 +18,7 @@ public class PagingVO {
 	
 	public PagingVO() {
 		this.pageNo = 1;
-		this.qty = 10;
+		this.qty = 20;
 	}
 	
 	public PagingVO(int pageNo, int qty) {

@@ -13,11 +13,14 @@
 			<div class="col-lg-9">
 				<article>
 					<header class="mb-4">
-						<h1 class="fw-bolder mb-1">MY PAGE</h1>
+						<h1 class="fw-bolder mb-1">COUPON</h1>
 					</header>
 					<!-- 쿠폰라인 (현재는 더미) -->
 					<c:forEach var="cvo" items="${cList }" varStatus="status">
-						<c:if test="${status.count eq '1' or status.count %3 eq '0'}">
+						<c:if test="${(status.count-1) % 3 eq '0' and status.count > 3}">
+							<div class="row gx-5">
+						</c:if>
+						<c:if test="${status.count eq '1'}">
 							<div class="row gx-5">
 						</c:if>
 						<div class="col-lg-4 mb-5">
@@ -39,13 +42,16 @@
 								</div>
 							</div>
 						</div>
-						<c:if test="${(status.count+1) %3 eq '0'}">
+						<c:if test="${status.count % 3 eq '0' and status.count > 3}">
 			</div>
 			</c:if>
-			</c:forEach>
-			<!-- 쿠폰라인 끝 -->
-			</article>
+			<c:if test="${status.count eq '3'}">
 		</div>
+		</c:if>
+		</c:forEach>
+		<!-- 쿠폰라인 끝 -->
+		</article>
+	</div>
 	</div>
 	</div>
 </section>

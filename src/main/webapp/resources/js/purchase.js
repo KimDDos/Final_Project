@@ -11,7 +11,7 @@ string = '?rno='+rno + '&cno=' + cno;
 }
 else
 {
-string = '?rno='+rno;
+string = '?rno='+rno + '&cno=' + 0;
 }
 console.log("/reservation/payment"+string);
         $.ajax({

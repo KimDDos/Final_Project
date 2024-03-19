@@ -38,23 +38,25 @@
 	<update id="submitReserv"
 		parameterType="com.four.www.reservation.domain.ReservationVO">
 		update reservation set trainer_no =
-		#{trainerNo},trainer_name=#{trainerName},trainer_phone_num=#{trainerPhoneNum},rv_status="예약확정",rv_suggest_price=#{rvSuggestPrice} where rno = #{rno}
+		#{trainerNo},trainer_name=#{trainerName},trainer_phone_num=#{trainerPhoneNum},rv_status="예약확정",rv_suggest_price=#{rvSuggestPrice}
+		where rno = #{rno}
 	</update>
-	
+
 	<insert id="sendAlarm">
-	insert into mbr_alarm
-	(user_serial_no,content,alarm_type,rno)
-	values(#{userSerialNo},#{content},#{alarmType},#{rno})
+		insert into mbr_alarm
+		(user_serial_no,content,alarm_type,rno)
+		values(#{userSerialNo},#{content},#{alarmType},#{rno})
 	</insert>
-	
+
 	<update id="setTid">
-	update reservation set tid = #{tid} where rno=#{rno}
+		update reservation set tid = #{tid},rv_used_coupon_no=#{rvUsedCouponNo}
+		where rno=#{rno}
 	</update>
-	
+
 	<update id="paysubmit">
-	update reservation set rv_payment = #{rvPayment},
-	rv_purchased = "결제완료",rv_status = "일정대기"
-	where rno=#{rno}
+		update reservation set rv_payment = #{rvPayment},
+		rv_purchased = "결제완료",rv_status = "일정대기"
+		where rno=#{rno}
 	</update>
 
 	<delete id="cancelReserv">
@@ -69,7 +71,8 @@
 	<select id="getrsvList"
 		resultType="com.four.www.reservation.domain.ReservationVO">
 		SELECT *
-		FROM reservation ORDER BY rno desc limit #{pageStart}, #{qty}
+		FROM reservation ORDER BY rno desc limit
+		#{pageStart}, #{qty}
 	</select>
 
 	<select id="getTotalCount" resultType="int">

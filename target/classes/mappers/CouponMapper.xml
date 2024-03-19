@@ -13,6 +13,6 @@
 		select * from coupon where cp_num = #{cpNum};
 	</select>
 	<delete id="delCoupon">
-		delete from coupon where cp_num = #{cpNum};
+		delete from coupon where cp_num = #{rvUsedCouponNo};
 	</delete>
 </mapper>
